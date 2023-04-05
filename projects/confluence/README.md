@@ -2,6 +2,13 @@
 Download confluence pages to a database
 
 ## Setup
+
+### pip install
+Install dependencies defined in requirements.tx.
+```shell
+pip install -r requirements.txt
+```
+
 ### Environment Variables
 #### CONFLUENCE_BASE_URL
 Your company's url for atlassian.
