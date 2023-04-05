@@ -3,6 +3,10 @@ Download confluence pages to a database
 
 ## Setup
 ### Environment Variables
+#### CONFLUENCE_BASE_URL
+Your company's url for atlassian.
+
+e.g. https://company-name.atlassian.net
 #### CONFLUENCE_USERNAME
 Your username for confluence.
 
