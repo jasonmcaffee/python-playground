@@ -1,5 +1,6 @@
 class ConfluencePage:
-    def __init__(self, html_value: str, page_id: str, title: str, web_url: str):
+    def __init__(self, parent_page_id: str, html_value: str, page_id: str, title: str, web_url: str):
+        self.parent_page_id = parent_page_id
         self.html_value = html_value
         self.page_id = page_id
         self.title = title
