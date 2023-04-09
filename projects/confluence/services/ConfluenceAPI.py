@@ -53,8 +53,12 @@ class ConfluenceAPI:
 
     def recursively_visit_all_child_pages(self, page_id: str, visitor: PageVisitorFunc, start=0, limit=20, current_depth=0, max_depth=2000):
         # using pagination, get all child pages
-        child_pages = self.confluence.get_page_child_by_type(page_id, type="page", start=start, limit=limit,
-                                                             expand="body.storage")
+        try:
+            child_pages = self.confluence.get_page_child_by_type(page_id, type="page", start=start, limit=limit,
+                                                                 expand="body.storage")
+        except Exception as e:
+            print(f'unable to get child pages of page_id: {page_id} due to exception: {str(e)}')
+
         # visit each page so that the data is stored in the db
         # using recursion, get all child's children
         for child in child_pages:
