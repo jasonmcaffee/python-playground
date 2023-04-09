@@ -51,9 +51,7 @@ class ConfluenceAPI:
         visitor(confluence_page)
         self.recursively_visit_all_child_pages(confluence_page.page_id, visitor=visitor)
 
-    # wip: get page children data.
-    # todo: iterate over all children, recursively
-    def recursively_visit_all_child_pages(self, page_id: str, visitor: PageVisitorFunc, start=0, limit=2, current_depth=0, max_depth=2000):
+    def recursively_visit_all_child_pages(self, page_id: str, visitor: PageVisitorFunc, start=0, limit=20, current_depth=0, max_depth=2000):
         # using pagination, get all child pages
         child_pages = self.confluence.get_page_child_by_type(page_id, type="page", start=start, limit=limit,
                                                              expand="body.storage")
@@ -75,13 +73,11 @@ class ConfluenceAPI:
             raise Exception(f'current_depth {current_depth} exceeded max depth {max_depth}')
 
     # test function, delete later
-    def do_stuff(self):
-        # self._repository.insertPage(page_id='1234', title='jason', parent_page_id='444123', web_url='https://jason.com', html_value='<body>hello<div>world</div></body>')
-        self.visit_page_and_all_children(title='Core Services',
+    def get_confluence_data_and_save_to_db(self):
+        self.visit_page_and_all_children(title='SoFi Products and Teams',
                                          visitor=lambda confluence_page: self.handle_page_visit(confluence_page))
 
     def handle_page_visit(self, confluence_page: ConfluencePage):
-        # print(f'page visited: {confluence_page}')
         print(
             f'page by title: title: {confluence_page.title}, web_url: {confluence_page.web_url}, page_id: {confluence_page.page_id}')
         self._repository.insertPage(page_id=confluence_page.page_id, parent_page_id= confluence_page.parent_page_id,

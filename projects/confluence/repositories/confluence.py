@@ -35,7 +35,7 @@ class ConfluenceRepository:
         self.session.execute(text("set schema 'confluence'"))
 
     def insertPage(self, page_id: str, title: str, parent_page_id: str, web_url: str, html_value: str):
-        entry = ConfluencePageDbModel(page_id=page_id, title=title, updated_date=date(2020, 10, 10), web_url=web_url,
+        entry = ConfluencePageDbModel(page_id=page_id, title=title, updated_date=date.today(), web_url=web_url,
                                       parent_page_id=parent_page_id, html_value=html_value)
         self.session.add(entry)
         self.session.commit()
