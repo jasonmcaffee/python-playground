@@ -56,8 +56,9 @@ class ConfluenceAPI:
         try:
             child_pages = self.confluence.get_page_child_by_type(page_id, type="page", start=start, limit=limit,
                                                                  expand="body.storage")
-        except Exception as e:
+        except Exception as e: # e.g. There is no content with the given id, or the calling user does not have permission to view the content
             print(f'unable to get child pages of page_id: {page_id} due to exception: {str(e)}')
+            return
 
         # visit each page so that the data is stored in the db
         # using recursion, get all child's children
