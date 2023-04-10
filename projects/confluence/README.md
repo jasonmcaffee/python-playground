@@ -22,11 +22,11 @@ e.g. `postgresql://jmcaffee:password@localhost:5432/postgres`
 #### CONFLUENCE_BASE_URL
 Your company's url for atlassian.
 
-e.g. https://company-name.atlassian.net
+e.g. `https://company-name.atlassian.net`
 #### CONFLUENCE_USERNAME
 Your username for confluence.
 
-e.g. myname@mycompany.org
+e.g. `myname@mycompany.org`
 
 #### CONFLUENCE_API_TOKEN
 Token used to access confluence.
