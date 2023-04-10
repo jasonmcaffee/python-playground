@@ -1,7 +1,7 @@
 # Overview
 Download confluence pages to a database.
 
-Starting at the page title defined [here](https://github.com/jasonmcaffee/python-playground/blob/main/projects/confluence/services/ConfluenceAPI.py#L81), 
+Starting at the page title defined [here](https://github.com/jasonmcaffee/python-playground/blob/main/projects/confluence/main.py#L7), 
 walk the children pages/nodes, doing depth first, and visit each page, then store the page data (title, page id, parent page id, and html) to the database.
 
 Future iterations of this project can do threads/divide-and-conquer, along with batch updates, but for now simple sequential downloading works pretty well.

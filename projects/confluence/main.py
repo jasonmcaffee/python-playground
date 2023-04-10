@@ -4,7 +4,7 @@ from projects.confluence.services.ConfluenceAPI import ConfluenceAPI
 def main():
     print('retrieving confluence pages and saving them to the db...')
     confluence = ConfluenceAPI()
-    confluence.get_confluence_data_and_save_to_db(title='Basics of SoFi Engineering')
+    confluence.get_confluence_data_and_save_to_db(title='Software Delivery')
     print('process complete! All pages saved to the db!')
 
 
