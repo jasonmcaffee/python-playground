@@ -1,5 +1,7 @@
 create schema if not exists confluence;
 
+set schema 'confluence';
+
 create table confluence_page (
     page_id varchar(255) primary key,
     html_value text,
