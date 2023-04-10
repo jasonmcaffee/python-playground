@@ -15,6 +15,10 @@ pip install -r requirements.txt
 ```
 
 ### Environment Variables
+#### DB_CONNECTION
+connection string to your db 
+
+e.g. `postgresql://jmcaffee:password@localhost:5432/postgres`
 #### CONFLUENCE_BASE_URL
 Your company's url for atlassian.
 

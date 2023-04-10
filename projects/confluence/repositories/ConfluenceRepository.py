@@ -1,11 +1,13 @@
+import os
+
 from psycopg2._psycopg import Column
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer, Date, text
 from datetime import date
-
-engine = create_engine('postgresql://jmcaffee:password@localhost:5432/postgres')
+db_connection = os.getenv('DB_CONNECTION')
+engine = create_engine(db_connection)
 Session = sessionmaker(bind=engine)
 Base = declarative_base()
 

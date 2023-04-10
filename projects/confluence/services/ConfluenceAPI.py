@@ -4,7 +4,7 @@ from atlassian import Confluence
 from bs4 import BeautifulSoup
 from operator import itemgetter
 from projects.confluence.ConfluencePage import ConfluencePage
-from projects.confluence.repositories.confluence import ConfluenceRepository
+from projects.confluence.repositories.ConfluenceRepository import ConfluenceRepository
 
 # Type definition of a function which accepts a ConfluencePage and has no return.
 # Useful for storing page data to the db when each page is visited/retrieved.
