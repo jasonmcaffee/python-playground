@@ -100,9 +100,9 @@ class ConfluenceAPI:
         """
         print(
             f'page by title: title: {confluence_page.title}, web_url: {confluence_page.web_url}, page_id: {confluence_page.page_id}')
-        self._repository.insertPage(page_id=confluence_page.page_id, parent_page_id=confluence_page.parent_page_id,
-                                    title=confluence_page.title, web_url=confluence_page.web_url,
-                                    html_value=confluence_page.html_value)
+        self._repository.insert_page(page_id=confluence_page.page_id, parent_page_id=confluence_page.parent_page_id,
+                                     title=confluence_page.title, web_url=confluence_page.web_url,
+                                     html_value=confluence_page.html_value)
 
 
 # Get a strongly typed instance with the data we care about
