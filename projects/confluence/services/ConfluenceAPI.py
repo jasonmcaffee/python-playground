@@ -23,7 +23,7 @@ PageVisitorFunc = Callable[[ConfluencePage], None]
 # TODO: divide and conquer using threads and batch inserts
 class ConfluenceAPI:
     _instance = None
-    _confluence_space = "EST"
+    _confluence_space = "EST" # "INC"
     _repository: ConfluenceRepository = ConfluenceRepository()
 
     def __new__(cls):
@@ -38,7 +38,6 @@ class ConfluenceAPI:
         api_token = os.getenv('CONFLUENCE_API_TOKEN')
         self.confluence = Confluence(url=base_url, username=username, password=api_token)
 
-    # wip: get page content and child pages
     def visit_page_and_all_children(self, title: str, visitor: PageVisitorFunc):
         """
         Visits the page with the specified title and recursively iterates over all child pages.
