@@ -7,9 +7,15 @@ walk the children pages/nodes, doing depth first, and visit each page, then stor
 Future iterations of this project can do threads/divide-and-conquer, along with batch updates, but for now simple sequential downloading works pretty well.
 
 ## Setup
+### Chrome Web Driver
+```shell
+brew install chromedriver
+cd /usr/local/Caskroom/chromedriver/116.0.5845.96/chromedriver-mac-x64/  
+xattr -d com.apple.quarantine chromedriver
+```
 
 ### pip install
-Install dependencies defined in requirements.tx.
+Install dependencies defined in requirements.txt
 ```shell
 pip install -r requirements.txt
 ```
