@@ -1,0 +1,34 @@
+<body><h1>timestamps change log</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><h2 align=""><div id="requests"></div><div><div id="section-requests"></div>Requests</div><a aria-label="Skip link to Requests" href="#requests" target="_self"></a></h2>
+<p>Akoya follows FDX standards for timestamps in requests.</p>
+<p>The <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>startTime</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>endTime</span></code> query parameters for the <a href="/reference/get-transactions" target="_self">Transactions</a> endpoint must follow <a href="https://www.rfc-editor.org/rfc/rfc3339" target="_self">RFC 3339</a>, an extension of the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_self">ISO8601</a> format requiring <strong>both</strong> the date and time in the string. The time should be in UTC:</p>
+<ul>
+<li>
+<p><strong>Data type:</strong> string</p>
+</li>
+<li>
+<p><strong>Example input:</strong> <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2019-02-26T00:00:00Z</span></code></p>
+</li>
+<li>
+<p>When specifying a time range, both <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>startTime</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>endTime</span></code> must be used.</p>
+</li>
+</ul>
+<h2 align=""><div id="responses"></div><div><div id="section-responses"></div>Responses</div><a aria-label="Skip link to Responses" href="#responses" target="_self"></a></h2>
+<p>After you submit your request, Akoya will convert the timestamp to whichever ISO8601 format that provider utilizes then pass the request on to the provider. The response is then passed back to you as-is.</p>
+<p>Providers may use any format within the ISO8601 standard, so the exact timestamp in response payloads will vary. Your implementation should take this into account through customization per provider or by using a code library for dates.</p>
+<h3 align=""><div id="returned-timestamp-examples"></div><div><div id="section-returned-timestamp-examples"></div>Returned timestamp examples</div><a aria-label="Skip link to Returned timestamp examples" href="#returned-timestamp-examples" target="_self"></a></h3>
+<ul>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2021-07-15T14:46:41.375Z</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2019-09-16T00:00:00.000+0000</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2022-01-31T05:00:00Z</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2021-08-09</span></code></p>
+</li>
+</ul>
+<h2 align=""><div id="change-log"></div><div><div id="section-change-log"></div>Change log</div><a aria-label="Skip link to Change log" href="#change-log" target="_self"></a></h2>
+<div><div><table><thead><tr><th>Date</th><th>Update</th></tr></thead><tbody><tr><td>2022-Oct-24</td><td>Original</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

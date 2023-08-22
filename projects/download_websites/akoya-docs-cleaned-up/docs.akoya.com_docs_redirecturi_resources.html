@@ -1,0 +1,21 @@
+<body><h1>redirecturi resources</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><h2 align=""><div id="overview"></div><div><div id="section-overview"></div>Overview</div><a aria-label="Skip link to Overview" href="#overview" target="_self"></a></h2>
+<p>Akoya uses the <a href="https://oauth.net/2/" target="_self">OAuth 2.0</a> framework to enable fintech applications to obtain access via http to end-user data at participating financial institutions.</p>
+<p>OAuth 2 puts the end-user in control of the authentication workflow. Users must grant permission via Akoya directly to their banks' authorization servers before any data is sent back to the application. No user credentials are ever exposed to either Akoya or the application.</p>
+<p>After the authentication process is complete, the financial institution needs to send the protected financial data somewhere so the application can consume it.</p>
+<p>This “somewhere” is a redirect URI, also referred to as a callback or a redirection endpoint. See the <a href="/docs/oauth-implementation-styles#websitewebapp" target="_self">“Website/Webapp” section</a> of our OAuth implementation guide for more details.</p>
+<h2 align=""><div id="why-registration-is-important"></div><div><div id="section-why-registration-is-important"></div>Why registration is important</div><a aria-label="Skip link to Why registration is important" href="#why-registration-is-important" target="_self"></a></h2>
+<p>Because the user’s financial institution is returning sensitive data, you must register at least one redirect URI for your application in the Data Recipient Hub (the Hub). This is a security measure which prevents malicious redirects to rogue servers. Only authorization requests with Akoya-registered redirect URIs are accepted.</p>
+<p>After you register your redirect URI(s) in the Hub, you’ll receive a client ID and client secret, which are used for authentication purposes when requesting tokens. The client ID is public information; however it should be protected. The client secret is effectively the password for your application and must be protected.</p>
+<h2 align=""><div id="requirements"></div><div><div id="section-requirements"></div>Requirements</div><a aria-label="Skip link to Requirements" href="#requirements" target="_self"></a></h2>
+<p>You may use a localhost address only when testing in our sandbox environment. Otherwise, you should use an externally-accessible address.</p>
+<p>You must provide an absolute path for your redirect URI, both when you register it in the Hub and when you include it in your application code.</p>
+<blockquote theme="🚧"><p><span>🚧</span><p>The redirect URI in your code must be identical to the one registered in the Hub.</p></p></blockquote>
+<p>See our <a href="/docs/oauth-implementation-styles" target="_self">OAuth guide</a> for more details on implementing OAuth for web, mobile, and desktop.</p>
+<h2 align=""><div id="resources"></div><div><div id="section-resources"></div>Resources</div><a aria-label="Skip link to Resources" href="#resources" target="_self"></a></h2>
+<ul>
+<li><a href="https://oauth.net/2/" target="_self">OAuth 2.0 Official Site</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc6749#section-3.1.2" target="_self">OAuth 2.0 redirection endpoints</a></li>
+<li><a href="/docs/oauth-implementation-styles" target="_self">OAuth implementation styles</a></li>
+</ul>
+<h2 align=""><div id="change-log"></div><div><div id="section-change-log"></div>Change log</div><a aria-label="Skip link to Change log" href="#change-log" target="_self"></a></h2>
+<div><div><table><thead><tr><th>Date</th><th>Update</th></tr></thead><tbody><tr><td>2022‑Oct‑11</td><td>Original</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

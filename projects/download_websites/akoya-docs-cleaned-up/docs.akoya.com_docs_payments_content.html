@@ -1,0 +1,20 @@
+<body><h1>payments content</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>Full account number and bank routing number. Includes <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>bankId</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>identifier</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>type</span></code>, and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>identifierType</span></code>.</p>
+<p>Results for payments are returned in JSON in <a href="/docs/intro-to-fdx" target="_self" title="Introduction to FDX">FDX format</a>.</p>
+<p><strong>Endpoint</strong>: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/payments</span></code></p>
+<p><strong>API documentation</strong>: <a href="/docs/payment-networks" target="_self">https://docs.akoya.com/v2/reference/payment-networks</a></p>
+<h2 align=""><div id="example-response"></div><div><div id="section-example-response"></div>Example response</div><a aria-label="Skip link to Example response" href="#example-response" target="_self"></a></h2>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"paymentNetworks"</span>: [
+        {
+            <span>"transferOut"</span>: <span>true</span>,
+            <span>"identifier"</span>: <span>"454992210071"</span>,
+            <span>"bankId"</span>: <span>"125000024"</span>,
+            <span>"transferIn"</span>: <span>true</span>,
+            <span>"identifierType"</span>: <span>"ACCOUNT_NUMBER"</span>,
+            <span>"type"</span>: <span>"US_ACH"</span>
+        }
+    ]
+}
+</div></code></pre></div></div>
+<h2 align=""><div id="supported-data-elements"></div><div><div id="section-supported-data-elements"></div>Supported data elements</div><a aria-label="Skip link to Supported data elements" href="#supported-data-elements" target="_self"></a></h2>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>bankId</td><td>string</td><td>Bank identifier used by the payment network ie. Routing Number</td></tr><tr><td>identifier</td><td>string</td><td>The number used to identify the account within the payment network. If identifierType is ACCOUNT_NUMBER, this is the account number.</td></tr><tr><td>identifierType</td><td>string</td><td>Type of identifier</td></tr><tr><td>type</td><td>string</td><td>Type of payment network</td></tr><tr><td>transferIn</td><td>boolean</td><td>Can transfer funds to the account using this information</td></tr><tr><td>transferOut</td><td>boolean</td><td>Can transfer funds from the account using this information</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

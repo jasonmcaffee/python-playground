@@ -1,0 +1,191 @@
+<body><h1>migration guide accounts info accounts basicv2providerid new</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><blockquote theme="📘"><p><span>📘</span><p>Notice</p></p><p>Akoya has launched the v2 of its endpoints (in beta through October 2022). This document is intended to help data recipients currently using v1 to migrate to v2.</p></blockquote>
+<h2 align=""><div id="migration-considerations"></div><div><div id="section-migration-considerations"></div>Migration considerations</div><a aria-label="Skip link to Migration considerations" href="#migration-considerations" target="_self"></a></h2>
+<h3 align=""><div id="overview"></div><div><div id="section-overview"></div>Overview</div><a aria-label="Skip link to Overview" href="#overview" target="_self"></a></h3>
+<p><em>Changes you may need to make to migrate to Akoya API v2:</em></p>
+<ul>
+<li><strong>Versioning support.</strong> Akoya limits breaking changes to major API versions. To reduce the need for large, breaking-change updates, Akoya will continue to improve its products by releasing minor updates on a continual basis. These minor updates are non-breaking, backward-compatible improvements. When migrating to <em>Akoya API v2</em>, please plan for these minor version updates and implement in a way to allow for these non-breaking changes. Please see the <a href="/v2/docs/versioning" target="_self" title="Versioning">versioning guide</a> for more details.</li>
+<li><strong>Transaction pagination.</strong> With Akoya API v1, paging through transaction data could require different implementations per provider. To standardize paging, we’ve introduced link-based pagination. All paging implementations from Akoya API v1 will need to be migrated to using Akoya-generated links instead. For more information, see: <a href="/v2/docs/pagination" target="_self" title="Pagination">Link-based pagination</a>.</li>
+<li><strong>Endpoint path names.</strong> Akoya has introduced products to allow a more streamlined approach to data access. To support our new products, all new endpoints include the Akoya version in the path and no longer include the FDX version. We’ve also named the endpoints to more closely coincide with our products rather than using a single FDX <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts</span></code> endpoint. For example, if your use case requires balance data, the endpoint will now be: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>https://products.ddp.akoya.com/balances/v2/</span></code>. For a full list of endpoints, see: [Endpoint summary] (#endpoint-summary "Endpoint summary")</li>
+<li><strong>Data element support.</strong>
+<ul>
+<li>In the near future, to support our new products, the following data elements will no longer be available through the Akoya API v1 /accounts endpoint. However, these data elements will be available in the Payments product:
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountNumber</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>routingTransitNumber</span></code></li>
+</ul>
+</li>
+<li>Data elements available through the Akoya API v1 /accounts details calls will now be available through either the Accounts info, Balances, or Investment products. Please consider your use case to determine which products will continue to provide the data your app requires.<br/>
+As a general guide, detailed data for all account categories except investment accounts can be retrieved through the Balances product. If you need more detailed investment data, please consider the Investments product instead.</li>
+</ul>
+</li>
+<li><strong>FDX lightweight call.</strong> The new <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts-info</span></code> endpoint will replace the FDX accounts lightweight call. Differentiating between details and lightweight with a parameter using the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts</span></code> endpoint is no longer necessary.</li>
+</ul>
+<p>While the list above covers the most significant migration considerations, please read the full details below to determine if other changes may impact your app.</p>
+<h2 align=""><div id="update-details"></div><div><div id="section-update-details"></div>Update details</div><a aria-label="Skip link to Update details" href="#update-details" target="_self"></a></h2>
+<h3 align=""><div id="current-support"></div><div><div id="section-current-support"></div>Current support</div><a aria-label="Skip link to Current support" href="#current-support" target="_self"></a></h3>
+<blockquote theme="🚧"><p><span>🚧</span><p>Akoya API v1 sunset in sandbox</p></p><p>The Akoya API v1 data endpoints have been retired in sandbox. Please see this <a href="/changelog/akoya-api-v1-to-be-sunset-in-sandbox-august-2-2023" target="_self">changelog post</a> for further details.</p></blockquote>
+<ul>
+<li><strong>Akoya API v1</strong>, modeled after FDX’s “Financial Data Exchange (FDX) v4.1”</li>
+<li><strong>Akoya API v2</strong>, modeled after FDX’s “Financial Data Exchange (FDX) v4.5” where possible with a few variations specific to Akoya</li>
+</ul>
+<h3 align=""><div id="akoya-api-v2"></div><div><div id="section-akoya-api-v-2"></div>Akoya API v2</div><a aria-label="Skip link to Akoya API v2" href="#akoya-api-v2" target="_self"></a></h3>
+<ul>
+<li>
+<p>Data elements follow FDX 4.5 guidelines where possible.</p>
+<ul>
+<li>Exception: Akoya does not support <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>annuityAccount</span></code> inheriting from accounts.</li>
+</ul>
+</li>
+<li>
+<p>All new endpoints include the Akoya version in the path and no longer include the FDX version.</p>
+<ul>
+<li>Example: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>https://products.ddp.akoya.com/balances/v2/</span></code></li>
+</ul>
+</li>
+<li>
+<p><a href="/v2/docs/pagination" target="_self" title="Pagination">Link-based pagination</a> standardization.</p>
+</li>
+<li>
+<p>Akoya endpoints</p>
+<ul>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts-info/v2/{providerId}/</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts/v2/{providerId}/</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/balances/v2/{providerId}/</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/transactions/v2/{providerId}/{accountId}</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/payments/v2/{providerId}/{accountId}/payment-networks</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/customers/v2/{providerId}/current</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/v2/{providerId}/{accountId}</span></code></p>
+</li>
+<li>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/v2/{providerId}/{accountId}/{statementId}</span></code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 align=""><div id="endpoint-summary"></div><div><div id="section-endpoint-summary"></div>Endpoint summary</div><a aria-label="Skip link to Endpoint summary" href="#endpoint-summary" target="_self"></a></h3>
+<div><div><table><thead><tr><th><strong>Akoya product</strong></th><th><strong>Endpoint path</strong></th><th><strong>Akoya products included in results</strong></th></tr></thead><tbody><tr><td><strong>Accounts Info</strong></td><td>/accounts-info/v2/{providerId}/</td><td>Account Info only</td></tr><tr><td><strong>Balances</strong></td><td>/balances/v2/{providerId}/</td><td>Account Info + Balances</td></tr><tr><td><strong>Investments</strong></td><td>/accounts/v2/{providerId}/</td><td>Account Info + Balances + Investments</td></tr><tr><td><strong>Customer info</strong></td><td>/customers/v2/{providerId}/current</td><td>Customers</td></tr><tr><td><strong>Payment networks</strong></td><td>/payments/v2/{providerId}/{accountId}/payment-networks</td><td>Payments</td></tr><tr><td><strong>Transactions</strong></td><td>/transactions/v2/{providerId}/{accountId}</td><td>Transactions</td></tr><tr><td><strong>Statements</strong></td><td>/statements/v2/{providerId}/{accountId}</td><td>Statements</td></tr><tr><td><strong>Statements</strong></td><td>/statements/v2/{providerId}/{accountId}/{statementId}</td><td>Statements</td></tr></tbody></table></div></div>
+<p><strong>Endpoint details:</strong></p>
+<h4 align=""><div id="accounts-info-accounts-basicv2providerid-new"></div><div><div id="section-accounts-info-accounts-basic-v-2-provider-id-new"></div>Accounts Info (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts-basic/v2/{providerId}/</span></code>) New</div><a aria-label="Skip link to Accounts Info (" href="#accounts-info-accounts-basicv2providerid-new" target="_self"></a></h4>
+<ul>
+<li>A list of accounts with basic info data</li>
+<li>Replaces the FDX accounts lightweight concept</li>
+<li>Typical use: populating an account selection screen for the end-user or high-level information for a list of accounts</li>
+<li>Responses include
+<ul>
+<li>A basic version of account info data elements such as <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountType</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>productName</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>status</span></code>, or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>currency</span></code>.</li>
+<li>Returns multiple accounts or query specific accounts</li>
+<li>Supports all account categories</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="balances-balancesv2providerid-new"></div><div><div id="section-balances-balances-v-2-provider-id-new"></div>Balances (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/balances/v2/{providerId}/</span></code>) New</div><a aria-label="Skip link to Balances (" href="#balances-balancesv2providerid-new" target="_self"></a></h4>
+<ul>
+<li>Account info and balances data</li>
+<li>Typical use: displaying balance information to the end-user or conducting balance checks before initiating a payment</li>
+<li>Responses include
+<ul>
+<li>Both account info and balances data elements such as <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountType</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>currency</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>balanceAsOf</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>availableBalance</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>currentBalance</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>creditLine</span></code>, or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>availableCredit</span></code>.</li>
+<li>Returns multiple accounts or query specific accounts</li>
+<li>Supports all account categories</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="investments-accountsv2providerid-new"></div><div><div id="section-investments-accounts-v-2-provider-id-new"></div>Investments (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts/v2/{providerId}/</span></code>) New</div><a aria-label="Skip link to Investments (" href="#investments-accountsv2providerid-new" target="_self"></a></h4>
+<ul>
+<li>A comprehensive version of account info, balances, and investments data</li>
+<li>Typical use: retrieve a comprehensive view of all account information for PFM or Wealth Management</li>
+<li>Responses include
+<ul>
+<li>a comprehensive version of account info, balances, and investments data elements such as <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>marginBalance</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>availableCashBalance</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>holdings</span></code> (e.g., <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>holdingType</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>symbol</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>units</span></code>), or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>contribution</span></code> (e.g., <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>employerYearToDate</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>employeeYearToDate</span></code>).</li>
+<li>Returns multiple accounts or query specific accounts</li>
+<li>Supports all account categories</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="transactions-transactionsv2provideridaccountid-updated"></div><div><div id="section-transactions-transactions-v-2-provider-id-account-id-updated"></div>Transactions (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/transactions/v2/{providerId}/{accountId}</span></code>) Updated</div><a aria-label="Skip link to Transactions (" href="#transactions-transactionsv2provideridaccountid-updated" target="_self"></a></h4>
+<ul>
+<li>Added ability to page transaction results in a standardized way</li>
+<li>The versioning has been updated to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/v2</span></code></li>
+<li>all <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>200</span></code> responses will return a <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>pageLinks</span></code> object with links (when applicable) for paging backward and forward in results (see: link to pagination documentation)</li>
+<li>Responses include
+<ul>
+<li>From a single account, a list of transactions data elements such as <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>transactionId</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>postedTimestamp</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>description</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>category</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>amount</span></code>, or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>transactionType</span></code>.</li>
+<li>Supports all applicable account categories</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="payment-networks-paymentsv2provideridaccountidpayment-networks-no-changes"></div><div><div id="section-payment-networks-payments-v-2-provider-id-account-id-payment-networks-no-changes"></div>Payment Networks (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/payments/v2/{providerId}/{accountId}/payment-networks</span></code>) No Changes</div><a aria-label="Skip link to Payment Networks (" href="#payment-networks-paymentsv2provideridaccountidpayment-networks-no-changes" target="_self"></a></h4>
+<ul>
+<li>No changes to the data elements</li>
+<li>The versioning has been updated to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/v2</span></code></li>
+<li>Responses include
+<ul>
+<li>Payment network related data elements such as <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>bankId</span></code> (i.e., routing number), <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>identifier</span></code> (i.e., account number), <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>identifierType</span></code> (e.g., tokenized account number), or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>type</span></code> (e.g., US_ACH, US_RTP)</li>
+<li>Returns a single account</li>
+<li>Supports all applicable account categories</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="customer-info-customersv2provideridcurrent-updated"></div><div><div id="section-customer-info-customers-v-2-provider-id-current-updated"></div>Customer Info (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/customers/v2/{providerId}/current</span></code>) Updated</div><a aria-label="Skip link to Customer Info (" href="#customer-info-customersv2provideridcurrent-updated" target="_self"></a></h4>
+<ul>
+<li>Added support for the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>CustomerToAccountRelationship</span></code> FDX entity which includes:
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accounts</span></code> array of:
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountId</span></code> Id of end-user’s account</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>relationship</span></code> relationship between the listed account and the current customer, for example: <em>PRIMARY</em>, <em>SECONDARY_JOINT</em>, or <em>POWER_OF_ATTORNEY</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>No changes to the existing data elements</li>
+<li>The versioning has been updated to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/v2</span></code></li>
+<li>Responses include
+<ul>
+<li>Customer info related data elements such as <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>name</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>email</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>addresses</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>telephones</span></code>, or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>relationships</span></code> (i.e., account holder relationship to an account)</li>
+<li>Returns end-user information which is not account category specific</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="statement-list-statementsversionprovideridaccountid-new"></div><div><div id="section-statement-list-statements-version-provider-id-account-id-new"></div>Statement List (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/{version}/{providerId}/{accountId}</span></code>) New</div><a aria-label="Skip link to Statement List (" href="#statement-list-statementsversionprovideridaccountid-new" target="_self"></a></h4>
+<ul>
+<li>Allows retrieval of statements for your end-user's consented accounts (up to two years of historical statements, depend on provider)</li>
+<li>Typical use: retrieve a list of statements for the consented account</li>
+<li>Responses include
+<ul>
+<li>An array of statements, where each includes <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountId,</span></code> <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementId,</span></code> <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>description,</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>status.</span></code></li>
+<li>links to GET individual statements in PDF, GIF, JPG, TIFF, or PNG format</li>
+</ul>
+</li>
+</ul>
+<h4 align=""><div id="statement-statementsversionprovideridaccountidstatementid-new"></div><div><div id="section-statement-statements-version-provider-id-account-id-statement-id-new"></div>Statement (<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/{version}/{providerId}/{accountId}/{statementId}</span></code>) New</div><a aria-label="Skip link to Statement (" href="#statement-statementsversionprovideridaccountidstatementid-new" target="_self"></a></h4>
+<ul>
+<li>Allows the retrieval of an individual statement in PDF, GIF, JPG, TIFF, or PNG format by passing in the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementId</span></code> path parameter obtained in the Statement List response. The file format is specified by including a value for Accept in the header. Accepted values are:
+<ul>
+<li>application/pdf</li>
+<li>image/gif</li>
+<li>image/jpg</li>
+<li>image/tiff</li>
+<li>image/png</li>
+</ul>
+</li>
+<li>Typical use: retrieve a statement image for the consented account</li>
+<li>Responses include:
+<ul>
+<li>an image of the account statement identified by <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementId</span></code></li>
+</ul>
+</li>
+</ul></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

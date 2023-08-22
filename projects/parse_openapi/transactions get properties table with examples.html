@@ -1,0 +1,670 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_name</th>
+      <th>property_type</th>
+      <th>property_description</th>
+      <th>enum</th>
+      <th>nullable</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accounts.account_id</td>
+      <td>string</td>
+      <td>Plaid’s unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new `account_id` will be assigned to the account.\n\nThe `account_id` can also change if the `access_token` is deleted and the same credentials that were used to generate that `access_token` are used to generate a new `access_token` on a later date. In that case, the new `account_id` will be different from the old `account_id`.\n\nIf an account with a specific `account_id` disappears instead of changing, the account is likely closed. Closed accounts are not returned by the Plaid API.\n\nLike all Plaid identifiers, the `account_id` is case sensitive.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp</td>
+    </tr>
+    <tr>
+      <td>accounts.balances.available</td>
+      <td>number</td>
+      <td>The amount of funds available to be withdrawn from the account, as determined by the financial institution.\n\nFor `credit`-type accounts, the `available` balance typically equals the `limit` less the `current` balance, less any pending outflows plus any pending inflows.\n\nFor `depository`-type accounts, the `available` balance typically equals the `current` balance less any pending outflows plus any pending inflows. For `depository`-type accounts, the `available` balance does not include the overdraft limit.\n\nFor `investment`-type accounts (or `brokerage`-type accounts for API versions 2018-05-22 and earlier), the `available` balance is the total cash available to withdraw as presented by the institution.\n\nNote that not all institutions calculate the `available`  balance. In the event that `available` balance is unavailable, Plaid will return an `available` balance value of `null`.\n\nAvailable balance may be cached and is not guaranteed to be up-to-date in realtime unless the value was returned by `/accounts/balance/get`.\n\nIf `current` is `null` this field is guaranteed not to be `null`.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>accounts.balances.current</td>
+      <td>number</td>
+      <td>The total amount of funds in or owed by the account.\n\nFor `credit`-type accounts, a positive balance indicates the amount owed; a negative amount indicates the lender owing the account holder.\n\nFor `loan`-type accounts, the current balance is the principal remaining on the loan, except in the case of student loan accounts at Sallie Mae (`ins_116944`). For Sallie Mae student loans, the account's balance includes both principal and any outstanding interest.\n\nFor `investment`-type accounts (or `brokerage`-type accounts for API versions 2018-05-22 and earlier), the current balance is the total value of assets as presented by the institution.\n\nNote that balance information may be cached unless the value was returned by `/accounts/balance/get`; if the Item is enabled for Transactions, the balance will be at least as recent as the most recent Transaction update. If you require realtime balance information, use the `available` balance as provided by `/accounts/balance/get`.\n\nWhen returned by `/accounts/balance/get`, this field may be `null`. When this happens, `available` is guaranteed not to be `null`.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>accounts.balances.limit</td>
+      <td>number</td>
+      <td>For `credit`-type accounts, this represents the credit limit.\n\nFor `depository`-type accounts, this represents the pre-arranged overdraft limit, which is common for current (checking) accounts in Europe.\n\nIn North America, this field is typically only available for `credit`-type accounts.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.balances.iso_currency_code</td>
+      <td>string</td>
+      <td>The ISO-4217 currency code of the balance. Always null if `unofficial_currency_code` is non-null.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>accounts.balances.unofficial_currency_code</td>
+      <td>string</td>
+      <td>The unofficial currency code associated with the balance. Always null if `iso_currency_code` is non-null. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.\n\nSee the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `unofficial_currency_code`s.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.balances.last_updated_datetime</td>
+      <td>string</td>
+      <td>Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time that the balance for the given account has been updated\n\nThis is currently only provided when the `min_last_updated_datetime` is passed when calling `/accounts/balance/get` for `ins_128026` (Capital One).</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.mask</td>
+      <td>string</td>
+      <td>The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>0000</td>
+    </tr>
+    <tr>
+      <td>accounts.name</td>
+      <td>string</td>
+      <td>The name of the account, either assigned by the user or by the financial institution itself</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Plaid Checking</td>
+    </tr>
+    <tr>
+      <td>accounts.official_name</td>
+      <td>string</td>
+      <td>The official name of the account as given by the financial institution</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>Plaid Gold Standard 0% Interest Checking</td>
+    </tr>
+    <tr>
+      <td>accounts.type</td>
+      <td>string</td>
+      <td>`investment:` Investment account. In API versions 2018-05-22 and earlier, this type is called `brokerage` instead.\n\n`credit:` Credit card\n\n`depository:` Depository account\n\n`loan:` Loan account\n\n`other:` Non-specified account type\n\nSee the [Account type schema](https://plaid.com/docs/api/accounts#account-type-schema) for a full listing of account types and corresponding subtypes.</td>
+      <td>[investment, credit, depository, loan, brokerage, other]</td>
+      <td>False</td>
+      <td>depository</td>
+    </tr>
+    <tr>
+      <td>accounts.subtype</td>
+      <td>string</td>
+      <td>See the [Account type schema](https://plaid.com/docs/api/accounts/#account-type-schema) for a full listing of account types and corresponding subtypes.</td>
+      <td>[401a, 401k, 403B, 457b, 529, brokerage, cash isa, crypto exchange, education savings account, ebt, fixed annuity, gic, health reimbursement arrangement, hsa, isa, ira, lif, life insurance, lira, lrif, lrsp, non-custodial wallet, non-taxable brokerage account, other, other insurance, other annuity, prif, rdsp, resp, rlif, rrif, pension, profit sharing plan, retirement, roth, roth 401k, rrsp, sep ira, simple ira, sipp, stock plan, thrift savings plan, tfsa, trust, ugma, utma, variable annuity, credit card, paypal, cd, checking, savings, money market, prepaid, auto, business, commercial, construction, consumer, home equity, loan, mortgage, overdraft, line of credit, student, cash management, keogh, mutual fund, recurring, rewards, safe deposit, sarsep, payroll, None]</td>
+      <td>True</td>
+      <td>checking</td>
+    </tr>
+    <tr>
+      <td>accounts.verification_status</td>
+      <td>string</td>
+      <td>The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.\n\n`pending_automatic_verification`: The Item is pending automatic verification\n\n`pending_manual_verification`: The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the micro-deposit.\n\n`automatically_verified`: The Item has successfully been automatically verified\t\n\n`manually_verified`: The Item has successfully been manually verified\n\n`verification_expired`: Plaid was unable to automatically verify the deposit within 7 calendar days and will no longer attempt to validate the Item. Users may retry by submitting their information again through Link.\n\n`verification_failed`: The Item failed manual micro-deposit verification because the user exhausted all 3 verification attempts. Users may retry by submitting their information again through Link.\t\n\t</td>
+      <td>[automatically_verified, pending_automatic_verification, pending_manual_verification, manually_verified, verification_expired, verification_failed]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.persistent_account_id</td>
+      <td>string</td>
+      <td>A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.account_id</td>
+      <td>string</td>
+      <td>The ID of the account in which this transaction occurred.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp</td>
+    </tr>
+    <tr>
+      <td>transactions.amount</td>
+      <td>number</td>
+      <td>The settled value of the transaction, denominated in the transactions's currency, as stated in `iso_currency_code` or `unofficial_currency_code`. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2307.21</td>
+    </tr>
+    <tr>
+      <td>transactions.iso_currency_code</td>
+      <td>string</td>
+      <td>The ISO-4217 currency code of the transaction. Always `null` if `unofficial_currency_code` is non-null.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>transactions.unofficial_currency_code</td>
+      <td>string</td>
+      <td>The unofficial currency code associated with the transaction. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.\n\nSee the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.category</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>[Shops, Computers and Electronics]</td>
+    </tr>
+    <tr>
+      <td>transactions.category_id</td>
+      <td>string</td>
+      <td>The ID of the category to which this transaction belongs. For a full list of categories, see [`/categories/get`](https://plaid.com/docs/api/products/transactions/#categoriesget).\n\nAll Transactions implementations are recommended to use the new `personal_finance_category` instead of `category_id`, as it provides greater accuracy and more meaningful categorization.\n\nIf the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>19013000</td>
+    </tr>
+    <tr>
+      <td>transactions.check_number</td>
+      <td>string</td>
+      <td>The check number of the transaction. This field is only populated for check transactions.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.date</td>
+      <td>string</td>
+      <td>For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DD` ). To receive information about the date that a posted transaction was initiated, see the `authorized_date` field.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2017-01-29</td>
+    </tr>
+    <tr>
+      <td>transactions.location.address</td>
+      <td>string</td>
+      <td>The street address where the transaction occurred.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>300 Post St</td>
+    </tr>
+    <tr>
+      <td>transactions.location.city</td>
+      <td>string</td>
+      <td>The city where the transaction occurred.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>San Francisco</td>
+    </tr>
+    <tr>
+      <td>transactions.location.region</td>
+      <td>string</td>
+      <td>The region or state where the transaction occurred. In API versions 2018-05-22 and earlier, this field is called `state`.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>CA</td>
+    </tr>
+    <tr>
+      <td>transactions.location.postal_code</td>
+      <td>string</td>
+      <td>The postal code where the transaction occurred. In API versions 2018-05-22 and earlier, this field is called `zip`.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>94108</td>
+    </tr>
+    <tr>
+      <td>transactions.location.country</td>
+      <td>string</td>
+      <td>The ISO 3166-1 alpha-2 country code where the transaction occurred.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <td>transactions.location.lat</td>
+      <td>number</td>
+      <td>The latitude where the transaction occurred.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>40.740352</td>
+    </tr>
+    <tr>
+      <td>transactions.location.lon</td>
+      <td>number</td>
+      <td>The longitude where the transaction occurred.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>-74.001761</td>
+    </tr>
+    <tr>
+      <td>transactions.location.store_number</td>
+      <td>string</td>
+      <td>The merchant defined store number where the transaction occurred.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>1235</td>
+    </tr>
+    <tr>
+      <td>transactions.name</td>
+      <td>string</td>
+      <td>The merchant name or transaction description.\n\nIf the `transactions` object was returned by a Transactions endpoint such as `/transactions/sync` or `/transactions/get`, this field will always appear. If the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Apple Store</td>
+    </tr>
+    <tr>
+      <td>transactions.merchant_name</td>
+      <td>string</td>
+      <td>The merchant name, as enriched by Plaid from the `name` field. This is typically a more human-readable version of the merchant counterparty in the transaction. For some bank transactions (such as checks or account transfers) where there is no meaningful merchant name, this value will be `null`.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>Apple</td>
+    </tr>
+    <tr>
+      <td>transactions.original_description</td>
+      <td>string</td>
+      <td>The string returned by the financial institution to describe the transaction. For transactions returned by `/transactions/sync` or `/transactions/get`, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set `options.include_original_description` to `true`.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.reference_number</td>
+      <td>string</td>
+      <td>The transaction reference number supplied by the financial institution.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.ppd_id</td>
+      <td>string</td>
+      <td>The ACH PPD ID for the payer.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.payee</td>
+      <td>string</td>
+      <td>For transfers, the party that is receiving the transaction.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.by_order_of</td>
+      <td>string</td>
+      <td>The party initiating a wire transfer. Will be `null` if the transaction is not a wire transfer.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.payer</td>
+      <td>string</td>
+      <td>For transfers, the party that is paying the transaction.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.payment_method</td>
+      <td>string</td>
+      <td>The type of transfer, e.g. 'ACH'</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.payment_processor</td>
+      <td>string</td>
+      <td>The name of the payment processor</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_meta.reason</td>
+      <td>string</td>
+      <td>The payer-supplied description of the transfer.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.pending</td>
+      <td>boolean</td>
+      <td>When `true`, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>transactions.pending_transaction_id</td>
+      <td>string</td>
+      <td>The ID of a posted transaction's associated pending transaction, where applicable.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.account_owner</td>
+      <td>string</td>
+      <td>The name of the account owner. This field is not typically populated and only relevant when dealing with sub-accounts.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.transaction_id</td>
+      <td>string</td>
+      <td>The unique ID of the transaction. Like all Plaid identifiers, the `transaction_id` is case sensitive.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje</td>
+    </tr>
+    <tr>
+      <td>transactions.transaction_type</td>
+      <td>string</td>
+      <td>Please use the `payment_channel` field, `transaction_type` will be deprecated in the future.\n\n`digital:` transactions that took place online.\n\n`place:` transactions that were made at a physical location.\n\n`special:` transactions that relate to banks, e.g. fees or deposits.\n\n`unresolved:` transactions that do not fit into the other three types.\n</td>
+      <td>[digital, place, special, unresolved]</td>
+      <td>False</td>
+      <td>place</td>
+    </tr>
+    <tr>
+      <td>transactions.logo_url</td>
+      <td>string</td>
+      <td>The logo associated with the merchant, if available. Formatted as a 100x100 pixels PNG file path.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.website</td>
+      <td>string</td>
+      <td>The website associated with the merchant, if available.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.authorized_date</td>
+      <td>string</td>
+      <td>The date that the transaction was authorized. For posted transactions, the `date` field will indicate the posted date, but `authorized_date` will indicate the day the transaction was authorized by the financial institution. If presenting transactions to the user in a UI, the `authorized_date`, when available, is generally preferable to use over the `date` field for posted transactions, as it will generally represent the date the user actually made the transaction. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DD` ).</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>2017-01-27</td>
+    </tr>
+    <tr>
+      <td>transactions.authorized_datetime</td>
+      <td>string</td>
+      <td>Date and time when a transaction was authorized in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DDTHH:mm:ssZ` ). For posted transactions, the `datetime` field will indicate the posted date, but `authorized_datetime` will indicate the day the transaction was authorized by the financial institution. If presenting transactions to the user in a UI, the `authorized_datetime`, when available, is generally preferable to use over the `datetime` field for posted transactions, as it will generally represent the date the user actually made the transaction.\n\nThis field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00). This field is only populated in API version 2019-05-29 and later.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>2017-01-27T10:34:50Z</td>
+    </tr>
+    <tr>
+      <td>transactions.datetime</td>
+      <td>string</td>
+      <td>Date and time when a transaction was posted in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DDTHH:mm:ssZ` ). For the date that the transaction was initiated, rather than posted, see the `authorized_datetime` field.\n\nThis field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00). This field is only populated in API version 2019-05-29 and later.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>2017-01-27T11:00:00Z</td>
+    </tr>
+    <tr>
+      <td>transactions.payment_channel</td>
+      <td>string</td>
+      <td>The channel used to make a payment.\n`online:` transactions that took place online.\n\n`in store:` transactions that were made at a physical location.\n\n`other:` transactions that relate to banks, e.g. fees or deposits.\n\nThis field replaces the `transaction_type` field.\n</td>
+      <td>[online, in store, other]</td>
+      <td>False</td>
+      <td>in store</td>
+    </tr>
+    <tr>
+      <td>transactions.personal_finance_category.primary</td>
+      <td>string</td>
+      <td>A high level category that communicates the broad category of the transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>GENERAL_MERCHANDISE</td>
+    </tr>
+    <tr>
+      <td>transactions.personal_finance_category.detailed</td>
+      <td>string</td>
+      <td>A granular category conveying the transaction's intent. This field can also be used as a unique identifier for the category.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>GENERAL_MERCHANDISE_ELECTRONICS</td>
+    </tr>
+    <tr>
+      <td>transactions.personal_finance_category.confidence_level</td>
+      <td>string</td>
+      <td>Note: This field is only available for `/transactions/enrich` endpoint currently.\nA description of how confident we are that the provided categories accurately describe the transaction intent.\n\n`VERY_HIGH`: We are more than 98% confident that this category reflects the intent of the transaction.\n`HIGH`: We are more than 90% confident that this category reflects the intent of the transaction.\n`MEDIUM`: We are moderately confident that this category reflects the intent of the transaction.\n`LOW`: This category may reflect the intent, but there may be other categories that are more accurate.\n`UNKNOWN`: Error</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.transaction_code</td>
+      <td>string</td>
+      <td>An identifier classifying the transaction type.\n\nThis field is only populated for European institutions. For institutions in the US and Canada, this field is set to `null`.\n\n`adjustment:` Bank adjustment\n\n`atm:` Cash deposit or withdrawal via an automated teller machine\n\n`bank charge:` Charge or fee levied by the institution\n\n`bill payment`: Payment of a bill\n\n`cash:` Cash deposit or withdrawal\n\n`cashback:` Cash withdrawal while making a debit card purchase\n\n`cheque:` Document ordering the payment of money to another person or organization\n\n`direct debit:` Automatic withdrawal of funds initiated by a third party at a regular interval\n\n`interest:` Interest earned or incurred\n\n`purchase:` Purchase made with a debit or credit card\n\n`standing order:` Payment instructed by the account holder to a third party at a regular interval\n\n`transfer:` Transfer of money between accounts</td>
+      <td>[adjustment, atm, bank charge, bill payment, cash, cashback, cheque, direct debit, interest, purchase, standing order, transfer, None]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.personal_finance_category_icon_url</td>
+      <td>string</td>
+      <td>A link to the icon associated with the primary personal finance category. The logo will always be 100x100 pixels.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.counterparties.name</td>
+      <td>string</td>
+      <td>The name of the counterparty, such as the merchant or the financial institution, as extracted by Plaid from the raw description.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.counterparties.type</td>
+      <td>string</td>
+      <td>The counterparty type.\n\n`merchant`: a provider of goods or services for purchase\n`financial_institution`: a financial entity (bank, credit union, BNPL, fintech)\n`payment_app`: a transfer or P2P app (e.g. Zelle)\n`marketplace`: a marketplace (e.g DoorDash, Google Play Store)\n`payment_terminal`: a point-of-sale payment terminal (e.g Square, Toast)\n`income_source`: the payer in an income transaction (e.g., an employer, client, or government agency)</td>
+      <td>[merchant, financial_institution, payment_app, marketplace, payment_terminal, income_source]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.counterparties.website</td>
+      <td>string</td>
+      <td>The website associated with the counterparty.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.counterparties.logo_url</td>
+      <td>string</td>
+      <td>The URL of a logo associated with the counterparty, if available. The logo is formatted as a 100x100 pixel PNG filepath.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions</td>
+      <td>N/A</td>
+      <td>A representation of a transaction</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>[{'account_id': 'BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp', 'amount': 2307.21, 'iso_currency_code': 'USD', 'unofficial_currency_code': None, 'category': ['Shops', 'Computers and Electronics'], 'category_id': '19013000', 'check_number': None, 'date': '2017-01-29', 'datetime': '2017-01-27T11:00:00Z', 'authorized_date': '2017-01-27', 'authorized_datetime': '2017-01-27T10:34:50Z', 'location': {'address': '300 Post St', 'city': 'San Francisco', 'region': 'CA', 'postal_code': '94108', 'country': 'US', 'lat': 40.740352, 'lon': -74.001761, 'store_number': '1235'}, 'name': 'Apple Store', 'merchant_name': 'Apple', 'payment_meta': {'by_order_of': None, 'payee': None, 'payer': None, 'payment_method': None, 'payment_processor': None, 'ppd_id': None, 'reason': None, 'reference_number': None}, 'payment_channel': 'in store', 'pending': False, 'pending_transaction_id': None, 'personal_finance_category': {'primary': 'GENERAL_MERCHANDISE', 'detailed': 'GENERAL_MERCHANDISE_ELECTRONICS'}, 'account_owner': None, 'transaction_id': 'lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje', 'transaction_code': None, 'transaction_type': 'place'}]</td>
+    </tr>
+    <tr>
+      <td>total_transactions</td>
+      <td>integer</td>
+      <td>The total number of transactions available within the date range specified. If `total_transactions` is larger than the size of the `transactions` array, more transactions are available and can be fetched via manipulating the `offset` parameter.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>item.item_id</td>
+      <td>string</td>
+      <td>The Plaid Item ID. The `item_id` is always unique; linking the same account at the same institution twice will result in two Items with different `item_id` values. Like all Plaid identifiers, the `item_id` is case-sensitive.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6</td>
+    </tr>
+    <tr>
+      <td>item.institution_id</td>
+      <td>string</td>
+      <td>The Plaid Institution ID associated with the Item. Field is `null` for Items created via Same Day Micro-deposits.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>ins_3</td>
+    </tr>
+    <tr>
+      <td>item.webhook</td>
+      <td>string</td>
+      <td>The URL registered to receive webhooks for the Item.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>https://www.genericwebhookurl.com/webhook</td>
+    </tr>
+    <tr>
+      <td>item.error.error_type</td>
+      <td>string</td>
+      <td>A broad categorization of the error. Safe for programmatic use.</td>
+      <td>[INVALID_REQUEST, INVALID_RESULT, INVALID_INPUT, INSTITUTION_ERROR, RATE_LIMIT_EXCEEDED, API_ERROR, ITEM_ERROR, ASSET_REPORT_ERROR, RECAPTCHA_ERROR, OAUTH_ERROR, PAYMENT_ERROR, BANK_TRANSFER_ERROR, INCOME_VERIFICATION_ERROR, MICRODEPOSITS_ERROR]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.error_code</td>
+      <td>string</td>
+      <td>The particular error code. Safe for programmatic use.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.error_message</td>
+      <td>string</td>
+      <td>A developer-friendly representation of the error code. This may change over time and is not safe for programmatic use.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.display_message</td>
+      <td>string</td>
+      <td>A user-friendly representation of the error code. `null` if the error is not related to user action.\n\nThis may change over time and is not safe for programmatic use.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.request_id</td>
+      <td>string</td>
+      <td>A unique ID identifying the request, to be used for troubleshooting purposes. This field will be omitted in errors provided by webhooks.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.causes</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.status</td>
+      <td>integer</td>
+      <td>The HTTP status code associated with the error. This will only be returned in the response body when the error information is provided via a webhook.</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.documentation_url</td>
+      <td>string</td>
+      <td>The URL of a Plaid documentation page with more information about the error</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.error.suggested_action</td>
+      <td>string</td>
+      <td>Suggested steps for resolving the error</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.available_products</td>
+      <td>string</td>
+      <td>A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.</td>
+      <td>[assets, auth, balance, identity, investments, investments_auth, liabilities, payment_initiation, identity_verification, transactions, credit_details, income, income_verification, deposit_switch, standing_orders, transfer, employment, recurring_transactions, signal, statements]</td>
+      <td>False</td>
+      <td>[balance, identity, investments]</td>
+    </tr>
+    <tr>
+      <td>item.billed_products</td>
+      <td>string</td>
+      <td>A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.</td>
+      <td>[assets, auth, balance, identity, investments, investments_auth, liabilities, payment_initiation, identity_verification, transactions, credit_details, income, income_verification, deposit_switch, standing_orders, transfer, employment, recurring_transactions, signal, statements]</td>
+      <td>False</td>
+      <td>[assets, auth, liabilities, transactions]</td>
+    </tr>
+    <tr>
+      <td>item.products</td>
+      <td>string</td>
+      <td>A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.</td>
+      <td>[assets, auth, balance, identity, investments, investments_auth, liabilities, payment_initiation, identity_verification, transactions, credit_details, income, income_verification, deposit_switch, standing_orders, transfer, employment, recurring_transactions, signal, statements]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.consented_products</td>
+      <td>string</td>
+      <td>A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.</td>
+      <td>[assets, auth, balance, identity, investments, investments_auth, liabilities, payment_initiation, identity_verification, transactions, credit_details, income, income_verification, deposit_switch, standing_orders, transfer, employment, recurring_transactions, signal, statements]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.consent_expiration_time</td>
+      <td>string</td>
+      <td>The RFC 3339 timestamp after which the consent provided by the end user will expire. Upon consent expiration, the item will enter the `ITEM_LOGIN_REQUIRED` error state. To circumvent the `ITEM_LOGIN_REQUIRED` error and maintain continuous consent, the end user can reauthenticate via Link’s update mode in advance of the consent expiration time.\n\nNote - This is only relevant for certain OAuth-based institutions. For all other institutions, this field will be null.\n</td>
+      <td>[]</td>
+      <td>True</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>item.update_type</td>
+      <td>string</td>
+      <td>Indicates whether an Item requires user interaction to be updated, which can be the case for Items with some forms of two-factor authentication.\n\n`background` - Item can be updated in the background\n\n`user_present_required` - Item requires user interaction to be updated</td>
+      <td>[background, user_present_required]</td>
+      <td>False</td>
+      <td>background</td>
+    </tr>
+    <tr>
+      <td>request_id</td>
+      <td>string</td>
+      <td>A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>45QSn</td>
+    </tr>
+  </tbody>
+</table>

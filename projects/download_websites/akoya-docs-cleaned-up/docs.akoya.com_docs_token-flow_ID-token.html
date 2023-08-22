@@ -1,0 +1,129 @@
+<body><h1>token flow ID token</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>To support authorization and ensure data privacy, Akoya uses tokens to verify end-user identity by leveraging the following standards:</p>
+<ul>
+<li>
+<p><a href="https://oauth.net/2/" target="_self">OAuth 2.0</a> Protocol that controls authorization to access a protected resource like a web app or API service.</p>
+</li>
+<li>
+<p><a href="https://openid.net/connect/" target="_self">OpenID Connect (OIDC)</a>. Layer used over OAuth 2.0 that helps authenticate users and convey information about them.</p>
+</li>
+<li>
+<p><a href="https://jwt.io/introduction/" target="_self">JSON Web Tokens (JWT)</a>. Standardized container format used to securely transfer data for authentication and authorization.</p>
+</li>
+</ul>
+<h2 align=""><div id="consent-flow"></div><div><div id="section-consent-flow"></div>Consent flow</div><a aria-label="Skip link to Consent flow" href="#consent-flow" target="_self"></a></h2>
+<h3 align=""><div id="authentication--authorization"></div><div><div id="section-authentication-authorization"></div>Authentication &amp; authorization</div><a aria-label="Skip link to Authentication &amp; authorization" href="#authentication--authorization" target="_self"></a></h3>
+<p>For you to connect your end-user’s data to your app, the end-user must authenticate with their data provider (bank or financial institution) and authorize data to be shared. Initial authentication remains in effect until either the end-user revokes access to their data or their associated refresh token expires. Authorization and authentication (consent flow) follows these steps:</p>
+<ol>
+<li>
+<p>Your app sends the end-user to their provider’s login page via Akoya using a specific URL with required parameters for authentication. Required parameters are <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>connector</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>client_id</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>redirect_uri</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>response_type</span></code>, and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>scope</span></code>. More details on required parameters are documented in <a href="/reference/get-authorization-code" target="_self">Get authorization code</a>. Possible values for the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>scope</span></code> parameter are defined in the next section, <a href="#Akoya-scope-values" target="_self">Akoya scope values</a>.</p>
+</li>
+<li>
+<p>The end-user completes account selection and agrees to terms and conditions with their provider. Akoya then sends the end-user to your app’s <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>redirect_uri</span></code>. Akoya will include an authorization code in the URL when it redirects the end-user back to your app. This code will expire in 5 minutes.<br/><br/>
+<em>Example URL sent to your app with authorization code:</em><br/>
+<button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>https://recipient.ddp.akoya.com/flow/callback?code=vhmji7kmopeil4jyb57wc4znx&amp;state=</span></code></p>
+</li>
+<li>
+<p>With the authorization code and your app’s details, use the <a href="/reference/token" target="_self">Token</a> endpoint to retrieve a set of tokens (ID token and refresh token). These tokens allow you permissioned access to the end-user’s data.</p>
+</li>
+</ol>
+<figure><span aria-label="Consent flow to data" role="button" tabindex="0"><span><img align="center" alt="Consent flow to data" caption="" height="auto" loading="lazy" src="https://files.readme.io/26b0a00-token_fig1.png" title="" width="auto"/></span></span><figcaption><p>Consent flow to data</p></figcaption></figure>
+<h3 align=""><div id="oidc"></div><div><div id="section-oidc"></div>OIDC</div><a aria-label="Skip link to OIDC" href="#oidc" target="_self"></a></h3>
+<p>After the end-user completes account selection and provides consent (Consent flow: step 2 above), the provider issues an access token to Akoya. Akoya will issue your app an <a href="#ID-token" target="_self">ID token</a> (OIDC token—a signed JSON Web Token) and <a href="#Refresh-token" target="_self">refresh token</a> (Consent flow: step 3 above). Your app will use ID and refresh tokens to communicate with the Akoya network.</p>
+<p>Tokens for each end-user are specific to their current account authorization from their provider. To change account selection, the end-user must go through the consent flow again to update the ID and refresh tokens.</p>
+<p><em>For more on OpenID Connect core functionality, see  OpenID Connect Core 1.0 incorporating errata set (<a href="https://openid.net/specs/openid-connect-core-1_0.html" target="_self">https://openid.net/specs/openid-connect-core-1_0.html</a>)</em></p>
+<h3 align=""><div id="akoya-scope-values"></div><div><div id="section-akoya-scope-values"></div>Akoya scope values</div><a aria-label="Skip link to Akoya scope values" href="#akoya-scope-values" target="_self"></a></h3>
+<p>When your app sends the end-user through Akoya for authentication (Consent flow: step 1 above), the URL may include the following authorization scope values. Scope is used to define access and consent.</p>
+<p><em>These scope types are supported by OIDC but not all may be present.</em></p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>openid</span></code> - <strong>required.</strong> Specifies this is an OIDC identity request. Returns <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>iss</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>sub</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>aud</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>exp</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>iat</span></code>, and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>at_hash</span></code> (defined <a href="#Akoya-ID-JWT-Claims" target="_self">below</a>).</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>email</span></code> - Provides access to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>email</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>email_verified</span></code> JWT claims</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>groups</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>profile</span></code> - Requests access to end-user’s profile values including <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>name</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>offline_access</span></code> - <strong>required</strong>. Requests a refresh token be issued</li>
+</ul>
+<p><em>For more on OIDC scope values see: <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims" target="_self">Requesting Claims using Scope Values.</a></em></p>
+<h2 align=""><div id="token-usage"></div><div><div id="section-token-usage"></div>Token usage</div><a aria-label="Skip link to Token usage" href="#token-usage" target="_self"></a></h2>
+<p>Your app will use two types of tokens, ID and refresh tokens.</p>
+<h3 align=""><div id="id-token"></div><div><div id="section-id-token"></div>ID token</div><a aria-label="Skip link to ID token" href="#id-token" target="_self"></a></h3>
+<p>The <a href="#ID-token" target="_self">ID token</a> is a short-term token used for requesting data from Akoya product endpoints. This token may be decoded to view identity token claims (see <a href="#ID-token-details" target="_self">ID token details</a>).</p>
+<h4 align=""><div id="id-token-lifetime"></div><div><div id="section-id-token-lifetime"></div>ID token lifetime</div><a aria-label="Skip link to ID token lifetime" href="#id-token-lifetime" target="_self"></a></h4>
+<p>The ID token is short-lived. In the Akoya sandbox, the ID token may last 24 hours to facilitate testing. However, providers often have a shorter expiration for ID tokens. <strong>We recommend treating ID tokens as having a life of no longer than 15 minutes and coding to automatically refresh if the ID token has expired.</strong> To follow this recommendation, in the case of expiration or after an app uses an ID token for 15 minutes, make a <a href="/reference/refresh-token" target="_self">refresh token</a> call to renew the tokens.</p>
+<h3 align=""><div id="refresh-token"></div><div><div id="section-refresh-token"></div>Refresh token</div><a aria-label="Skip link to Refresh token" href="#refresh-token" target="_self"></a></h3>
+<p>The <a href="/reference/refresh-token" target="_self">refresh token</a> is longer-term and is tied to the end-user’s authorization. Refreshing tokens allows your app to replace an expired ID token without asking the end-user to reauthenticate and maintains authorization when the end-user is not actively using your app.  This token cannot be decoded. See more details regarding refresh tokens below.</p>
+<blockquote theme="🚧"><p><span>🚧</span><p>Refresh tokens replace themselves.</p></p><p>With every refresh token call, a new set of refresh and ID tokens will be returned.</p></blockquote>
+<figure><span aria-label="Refresh an expired ID token" role="button" tabindex="0"><span><img align="center" alt="Refresh an expired ID token" caption="" height="auto" loading="lazy" src="https://files.readme.io/4ce2b57-token_fig2.png" title="" width="auto"/></span></span><figcaption><p>Refresh an expired ID token</p></figcaption></figure>
+<h4 align=""><div id="refresh-token-lifetime"></div><div><div id="section-refresh-token-lifetime"></div>Refresh token lifetime</div><a aria-label="Skip link to Refresh token lifetime" href="#refresh-token-lifetime" target="_self"></a></h4>
+<p>Refresh tokens may be perpetual, have a rolling expiration, or have a set expiration from the date of authorization. In cases when a provider has rolling refresh token durations, implementing <a href="#Refresh-token-rotation" target="_self">refresh token rotation</a> is recommended.</p>
+<p>Next, see:</p>
+<ul>
+<li>
+<p>Refresh token details (below)</p>
+</li>
+<li>
+<p>Provider token expiration times are documented in the <em>Data Recipient Hub</em></p>
+</li>
+</ul>
+<h3 align=""><div id="sandbox-tokens"></div><div><div id="section-sandbox-tokens"></div>Sandbox tokens</div><a aria-label="Skip link to Sandbox tokens" href="#sandbox-tokens" target="_self"></a></h3>
+<p>In the Akoya sandbox, the ID token may last 24 hours to facilitate testing. However, some providers have a shorter expiration period. <strong>We recommend integrating ID tokens as having a life of no longer than 15 minutes and coding to automatically refresh if the ID token has expired.</strong></p>
+<div><div><table><thead><tr><th>Type</th><th>Test Environment Validity</th></tr></thead><tbody><tr><td>Authorization Code</td><td>5 minutes</td></tr><tr><td>ID token</td><td>Maximum: 24 hours<br/>Recommended: 15 minutes</td></tr><tr><td>Refresh token</td><td>No Expiration</td></tr></tbody></table></div></div>
+<h2 align=""><div id="id-token-details"></div><div><div id="section-id-token-details"></div>ID token details</div><a aria-label="Skip link to ID token details" href="#id-token-details" target="_self"></a></h2>
+<p>The ID token is a short-lived identifier for the end-user. This token is used as a bearer token with each request to an Akoya API v2 endpoint.</p>
+<h3 align=""><div id="example-id-token"></div><div><div id="section-example-id-token"></div>Example ID Token</div><a aria-label="Skip link to Example ID Token" href="#example-id-token" target="_self"></a></h3>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+  <span>"iss"</span>: <span>"https://sandbox-idp.ddp.akoya.com/"</span>,
+  <span>"sub"</span>: <span>"CkExamplehtaWtvbP9fMRIGbWlrb21v"</span>,
+  <span>"aud"</span>: <span>"recipient"</span>,
+  <span>"exp"</span>: <span>1626206304</span>,
+  <span>"iat"</span>: <span>1626119904</span>,
+  <span>"at_hash"</span>: <span>"VZ_ExJP9zAhtWa5KxCTX-CQ"</span>,
+  <span>"email"</span>: <span>"mikomo_1"</span>,
+  <span>"email_verified"</span>: <span>false</span>,
+  <span>"name"</span>: <span>"KLDJFSDI4909DPSJNIO"</span>
+}
+</div></code></pre></div></div>
+<h3 align=""><div id="akoya-id-jwt-claims"></div><div><div id="section-akoya-id-jwt-claims"></div>Akoya ID JWT Claims</div><a aria-label="Skip link to Akoya ID JWT Claims" href="#akoya-id-jwt-claims" target="_self"></a></h3>
+<p>These claim types are supported by Akoya but not all may be present.</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>iss</span></code> - Issuer of the JWT, Akoya</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>sub</span></code> - Unique value to identify the end-user with the scope specific to the data provider</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>aud</span></code> - Data recipient</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>exp</span></code> - Time token will expire in Unix Epoch format</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>iat</span></code> - The time the token was issued in Unix Epoch format</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>at_hash</span></code> - Access token hash value</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>email</span></code> - End-user’s email address</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>email_verified</span></code> - True if end-user’s email is verified, otherwise false</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>name</span></code> - End-user's name in displayable form</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>locale</span></code> - End-user's locale</li>
+</ul>
+<p><em>For more: see the <a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken" target="_self">RFC</a> on <strong>Identity Token</strong> claims.</em></p>
+<h3 align=""><div id="expired-id-token-errors"></div><div><div id="section-expired-id-token-errors"></div>Expired ID token errors</div><a aria-label="Skip link to Expired ID token errors" href="#expired-id-token-errors" target="_self"></a></h3>
+<p>If you use an expired ID token with a product (data) endpoint, it will produce error code <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>602</span></code>.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"code"</span>: <span>602</span>,
+    <span>"message"</span>: <span>"Customer not authorized"</span>
+}
+</div></code></pre></div></div>
+<p>If you receive this error, you should refresh the tokens. Then, using the new ID token, make the call for data again.</p>
+<h2 align=""><div id="refresh-token-details"></div><div><div id="section-refresh-token-details"></div>Refresh token details</div><a aria-label="Skip link to Refresh token details" href="#refresh-token-details" target="_self"></a></h2>
+<p>The encoded and longer-lived refresh token is used to obtain a new ID token without requiring the end-user to provide credentials or reauthenticate every time the ID token expires.</p>
+<p>Refresh tokens are used with the <em><a href="/reference/refresh-token" target="_self">Token API</a></em> and not as a bearer token in Akoya product calls. A call to the <em>Token API</em> to refresh tokens issues new ID and refresh tokens. This refresh token rotation helps protect applications from token compromise.</p>
+<p><strong>The refresh token must be treated as highly confidential.</strong></p>
+<p><em>Encrypted storage is essential to avoid [cross-site scripting](<a href="https://www.owasp.org/index.php/Cross-site_Scripting" target="_self">https://www.owasp.org/index.php/Cross-site_Scripting</a></em>(XSS)) (XSS) attacks._</p>
+<h3 align=""><div id="refresh-token-expirations"></div><div><div id="section-refresh-token-expirations"></div>Refresh token expirations</div><a aria-label="Skip link to Refresh token expirations" href="#refresh-token-expirations" target="_self"></a></h3>
+<p>Some providers set an expiration time for refresh tokens so that a user must reaffirm they want to share their data. There are three types of token expirations: </p>
+<p><strong>Perpetual</strong>. If a token is perpetual, this means the provider has no set expiration date for the refresh token. </p>
+<p><strong>Set expiration</strong>. Some tokens have a set expiration period that forces reauthentication after the time indicated. This is commonly a year. After the token’s expiration, the end-user will need to go through the consent flow again. </p>
+<p><strong>A rolling expiration</strong>. A rolling token expiration means that the token duration is reset every time the token is used. For instance, if your end-user’s bank has specified a rolling 6-month token expiration, you can refresh tokens without reauthentication at any time before the six-month expiration. On refresh, the token expiration will reset to six months from that time. However, if your app hasn’t refreshed tokens in 6 months, the next time the end-user uses your app, they will need to go through the consent flow again.</p>
+<h4 align=""><div id="refresh-token-rotation"></div><div><div id="section-refresh-token-rotation"></div>Refresh token rotation</div><a aria-label="Skip link to Refresh token rotation" href="#refresh-token-rotation" target="_self"></a></h4>
+<p>If your app rotates tokens before a rolling expiration date or if tokens expire and the end-user must go through the consent flow again, you may link the new refresh token with the end-user by matching the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>sub</span></code> value in the <a href="#Akoya-ID-JWT-Claims" target="_self">ID token's JWT claims.</a></p>
+<h3 align=""><div id="refresh-token-error"></div><div><div id="section-refresh-token-error"></div>Refresh token error</div><a aria-label="Skip link to Refresh token error" href="#refresh-token-error" target="_self"></a></h3>
+<p>If you make a request using the <em>Token API</em> with an expired refresh token, you will receive an <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>invalid_request</span></code> error.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"error"</span>: <span>"invalid_request"</span>,
+    <span>"error_description"</span>: <span>"Refresh token is invalid or  has already been claimed by another client."</span>
+}
+</div></code></pre></div></div>
+<p>An expired refresh token requires the app to redirect the end-user back through the consent flow and account selection process to reauthorize and receive a new set of ID and refresh tokens. To match new refresh tokens to your end-user, please see Refresh token rotation above.</p>
+<h4 align=""><div id="example-with-expired-tokens"></div><div><div id="section-example-with-expired-tokens"></div>Example with expired tokens</div><a aria-label="Skip link to Example with expired tokens" href="#example-with-expired-tokens" target="_self"></a></h4>
+<p>If an app requests data through an Akoya product endpoint (such as Accounts Info) using an expired ID token, the app will receive a <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>602</span></code> error. The app should then send a refresh token request to the Token API. If the app then receives an <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>invalid_request</span></code> error (as seen above) from the token endpoint, this indicates the refresh token is also expired. In this case, the app should send the end-user back to through the consent flow.</p>
+<figure><span aria-label="A possible token flow if both ID and refresh tokens are expired" role="button" tabindex="0"><span><img align="center" alt="A possible token flow if both ID and refresh tokens are expired" caption="" height="auto" loading="lazy" src="https://files.readme.io/015eb2c-token_fig3.png" title="" width="auto"/></span></span><figcaption><p>A possible token flow if both ID and refresh tokens are expired</p></figcaption></figure></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

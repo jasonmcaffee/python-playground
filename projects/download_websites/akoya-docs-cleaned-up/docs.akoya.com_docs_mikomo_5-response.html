@@ -1,0 +1,271 @@
+<body><h1>mikomo 5 response</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><blockquote theme="📌"><p><span>📌</span><p>Note</p></p><p>The output below is sample output for instructional purposes, and is not specific to any of the data providers on our network.</p></blockquote>
+<ul>
+<li>List of accounts</li>
+<li>Account details</li>
+<li>Transactions (HSA)</li>
+</ul>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">account list</button><button aria-selected="false" role="tab" type="button">account details</button><button aria-selected="false" role="tab" type="button">transactions</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="account list" tabindex="0"><div>{
+    <span>"accounts"</span>: [
+          {
+            <span>"accountId"</span>: <span>"1437285993"</span>,
+            <span>"accountNumber"</span>: <span>"*****7494"</span>,
+            <span>"accountType"</span>: <span>"J"</span>,
+            <span>"description"</span>: <span>"Joint WROS"</span>,
+            <span>"displayName"</span>: <span>"Joint WROS"</span>,
+            <span>"nickname"</span>: <span>"Our account"</span>
+          },
+          {
+            <span>"accountId"</span>: <span>"1221963501"</span>,
+            <span>"accountNumber"</span>: <span>"*****1003"</span>,
+            <span>"accountType"</span>: <span>"HSA"</span>,
+            <span>"description"</span>: <span>"Health Savings Account"</span>,
+            <span>"displayName"</span>: <span>"Health Savings Account"</span>,
+            <span>"nickname"</span>: <span>"HSA from work"</span>
+          },
+          {
+            <span>"accountId"</span>: <span>"171161155"</span>,
+            <span>"accountNumber"</span>: <span>"*****2431"</span>,
+            <span>"accountType"</span>: <span>"ROTH"</span>,
+            <span>"description"</span>: <span>"ROTH IRA"</span>,
+            <span>"displayName"</span>: <span>"ROTH IRA"</span>,
+            <span>"nickname"</span>: <span>"ROTH IRA"</span>
+          }
+        ]
+      }
+</div></code></pre><pre><button aria-label="Copy Code"></button><code data-lang="json" name="account details" tabindex="0"><div>{
+        <span>"accounts"</span>: {
+          <span>"investmentAccount"</span>: [
+            {
+                <span>"accountNumber"</span>: <span>"*****7494"</span>,
+                <span>"accountId"</span>: <span>"1437285993"</span>,
+                <span>"accountType"</span>: <span>"J"</span>,
+                <span>"displayName"</span>: <span>"Joint WROS"</span>,
+                <span>"nickname"</span>: <span>"Joint WROS"</span>,
+                <span>"balanceAsOf"</span>: <span>1605243600</span>,
+                <span>"currentValue"</span>: <span>9457.69</span>,
+                <span>"availableCashBalance"</span>: <span>9457.69</span>,
+                <span>"marginBalance"</span>: <span>0</span>,
+                <span>"currency"</span>: {
+                    <span>"currencyRate"</span>: <span>0</span>,
+                    <span>"currencyCode"</span>: <span>"USD"</span>,
+                    <span>"originalCurrencyCode"</span>: <span>"USD"</span>
+                  },
+                <span>"balanceType"</span>: <span>"ASSET"</span>,
+                <span>"holdings"</span>: [
+                    {
+                        <span>"securityIdType"</span>: <span>"CUSTOM"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>true</span>,
+                        <span>"units"</span>: <span>9457.69</span>,
+                        <span>"marketValue"</span>: <span>9457.69</span>,
+                        <span>"fiAttributes"</span>: [
+                            {
+                                <span>"name"</span>: <span>"securityIdType"</span>,
+                                <span>"value"</span>: <span>"CUSIP"</span>
+                            },
+                            {
+                                <span>"name"</span>: <span>"securityId"</span>,
+                                <span>"value"</span>: <span>"FDIC99177"</span>
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                <span>"accountNumber"</span>: <span>"*****1003"</span>,
+                <span>"accountId"</span>: <span>"1221963501"</span>,
+                <span>"accountType"</span>: <span>"HSA"</span>,
+                <span>"displayName"</span>: <span>"Health Savings Account"</span>,
+                <span>"nickname"</span>: <span>"Health Savings Account"</span>,
+                <span>"balanceAsOf"</span>: <span>1605243600</span>,
+                <span>"currentValue"</span>: <span>6165.21</span>,
+                <span>"availableCashBalance"</span>: <span>6165.21</span>,
+                <span>"marginBalance"</span>: <span>0</span>,
+                <span>"currency"</span>: {
+                    <span>"currencyRate"</span>: <span>0</span>,
+                    <span>"currencyCode"</span>: <span>"USD"</span>,
+                    <span>"originalCurrencyCode"</span>: <span>"USD"</span>
+                  },
+                <span>"balanceType"</span>: <span>"ASSET"</span>,
+                <span>"holdings"</span>: [
+                    {
+                        <span>"securityId"</span>: <span>"316067107"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>true</span>,
+                        <span>"units"</span>: <span>6165.21</span>,
+                        <span>"symbol"</span>: <span>"FDRXX"</span>,
+                        <span>"marketValue"</span>: <span>6165.21</span>
+                    }
+                ]
+            },
+            {
+                <span>"accountNumber"</span>: <span>"*****9876"</span>,
+                <span>"accountId"</span>: <span>"171161155"</span>,
+                <span>"accountType"</span>: <span>"ROTH"</span>,
+                <span>"displayName"</span>: <span>"ROTH IRA"</span>,
+                <span>"nickname"</span>: <span>"ROTH IRA"</span>,
+                <span>"balanceAsOf"</span>: <span>1605243600</span>,
+                <span>"currentValue"</span>: <span>76666.51</span>,
+                <span>"availableCashBalance"</span>: <span>617.35</span>,
+                <span>"marginBalance"</span>: <span>0</span>,
+                <span>"currency"</span>: {
+                    <span>"currencyRate"</span>: <span>0</span>,
+                    <span>"currencyCode"</span>: <span>"USD"</span>,
+                    <span>"originalCurrencyCode"</span>: <span>"USD"</span>
+                  },
+                <span>"balanceType"</span>: <span>"ASSET"</span>,
+                <span>"holdings"</span>: [
+                    {
+                        <span>"securityId"</span>: <span>"037833100"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>false</span>,
+                        <span>"units"</span>: <span>284</span>,
+                        <span>"symbol"</span>: <span>"AAPL"</span>,
+                        <span>"marketValue"</span>: <span>33869.84</span>,
+                        <span>"purchasedPrice"</span>: <span>20.37</span>
+                    },
+                    {
+                        <span>"securityId"</span>: <span>"140543828"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>false</span>,
+                        <span>"units"</span>: <span>126.846</span>,
+                        <span>"symbol"</span>: <span>"WGIFX"</span>,
+                        <span>"marketValue"</span>: <span>7078</span>,
+                        <span>"purchasedPrice"</span>: <span>38.53</span>
+                    },
+                    {
+                        <span>"securityId"</span>: <span>"239080401"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>false</span>,
+                        <span>"units"</span>: <span>249.159</span>,
+                        <span>"symbol"</span>: <span>"DNVYX"</span>,
+                        <span>"marketValue"</span>: <span>7940.69</span>,
+                        <span>"purchasedPrice"</span>: <span>30.96</span>
+                    },
+                    {
+                        <span>"securityId"</span>: <span>"31617H102"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>true</span>,
+                        <span>"units"</span>: <span>617.35</span>,
+                        <span>"symbol"</span>: <span>"SPAXX"</span>,
+                        <span>"marketValue"</span>: <span>617.35</span>
+                    },
+                    {
+                        <span>"securityId"</span>: <span>"353496847"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>false</span>,
+                        <span>"units"</span>: <span>4057.53</span>,
+                        <span>"symbol"</span>: <span>"FRIAX"</span>,
+                        <span>"marketValue"</span>: <span>8926.56</span>,
+                        <span>"purchasedPrice"</span>: <span>2.02</span>
+                    },
+                    {
+                        <span>"securityId"</span>: <span>"399874825"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>false</span>,
+                        <span>"units"</span>: <span>184.704</span>,
+                        <span>"symbol"</span>: <span>"GFFFX"</span>,
+                        <span>"marketValue"</span>: <span>11811.82</span>,
+                        <span>"purchasedPrice"</span>: <span>30.69</span>
+                    },
+                    {
+                        <span>"securityId"</span>: <span>"453320822"</span>,
+                        <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+                        <span>"positionType"</span>: <span>"LONG"</span>,
+                        <span>"cashAccount"</span>: <span>false</span>,
+                        <span>"units"</span>: <span>279.959</span>,
+                        <span>"symbol"</span>: <span>"AMEFX"</span>,
+                        <span>"marketValue"</span>: <span>6422.25</span>,
+                        <span>"purchasedPrice"</span>: <span>18.94</span>
+                    }
+                ]
+            }
+          ]
+        }
+      }
+</div></code></pre><pre><button aria-label="Copy Code"></button><code data-lang="json" name="transactions" tabindex="0"><div>{
+          <span>"transactions"</span>: {
+            <span>"InvestmentTransaction"</span>: [
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"3370514755"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-11-10T05:00:00Z"</span>,
+                    <span>"description"</span>: <span>"REDEMPTION FROM CORE ACCOUNT FIDELITY GOVERNMENT CASH RESERVES (FDRXX) (Cash)"</span>,
+                    <span>"category"</span>: <span>"IA"</span>,
+                    <span>"subCategory"</span>: <span>"SL"</span>,
+                    <span>"amount"</span>: <span>234.61</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"3370514754"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-11-10T05:00:00Z"</span>,
+                    <span>"description"</span>: <span>"NORMAL DISTR PARTIAL CORNER PHARMACY (Cash)"</span>,
+                    <span>"category"</span>: <span>"IA"</span>,
+                    <span>"subCategory"</span>: <span>"OC"</span>,
+                    <span>"amount"</span>: <span>-</span><span>234.61</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"7078093"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-10-30T04:00:00Z"</span>,
+                    <span>"description"</span>: <span>"REINVESTMENT FIDELITY GOVERNMENT CASH RESERVES (FDRXX) (Cash)"</span>,
+                    <span>"category"</span>: <span>"DV"</span>,
+                    <span>"subCategory"</span>: <span>"RN"</span>,
+                    <span>"amount"</span>: <span>-</span><span>0.05</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"7078094"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-10-30T04:00:00Z"</span>,
+                    <span>"description"</span>: <span>"DIVIDEND RECEIVED FIDELITY GOVERNMENT CASH RESERVES (FDRXX) (Cash)"</span>,
+                    <span>"category"</span>: <span>"DV"</span>,
+                    <span>"subCategory"</span>: <span>"VP"</span>,
+                    <span>"amount"</span>: <span>0.05</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"1515190063"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-10-23T04:00:00Z"</span>,
+                    <span>"description"</span>: <span>"PURCHASE INTO CORE ACCOUNT FIDELITY GOVERNMENT CASH RESERVES (FDRXX) (Cash)"</span>,
+                    <span>"category"</span>: <span>"IA"</span>,
+                    <span>"subCategory"</span>: <span>"BY"</span>,
+                    <span>"amount"</span>: <span>-</span><span>234.62</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"15151090062"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-10-23T04:00:00Z"</span>,
+                    <span>"description"</span>: <span>"PARTIC CONTR CURRENT PARTICIPANT CUR YR (Cash)"</span>,
+                    <span>"category"</span>: <span>"IA"</span>,
+                    <span>"subCategory"</span>: <span>"OC"</span>,
+                    <span>"amount"</span>: <span>234.62</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"626781505"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-10-08T04:00:00Z"</span>,
+                    <span>"description"</span>: <span>"PURCHASE INTO CORE ACCOUNT FIDELITY GOVERNMENT CASH RESERVES (FDRXX) (Cash)"</span>,
+                    <span>"category"</span>: <span>"IA"</span>,
+                    <span>"subCategory"</span>: <span>"BY"</span>,
+                    <span>"amount"</span>: <span>-</span><span>234.61</span>
+                },
+                {
+                    <span>"accountId"</span>: <span>"1221963501"</span>,
+                    <span>"transactionId"</span>: <span>"626781504"</span>,
+                    <span>"transactionTimestamp"</span>: <span>"2020-10-08T04:00:00Z"</span>,
+                    <span>"description"</span>: <span>"PARTIC CONTR CURRENT PARTICIPANT CUR YR (Cash)"</span>,
+                    <span>"category"</span>: <span>"IA"</span>,
+                    <span>"subCategory"</span>: <span>"OC"</span>,
+                    <span>"amount"</span>: <span>234.61</span>
+                }
+            ]
+          }
+        }
+</div></code></pre></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

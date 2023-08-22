@@ -1,0 +1,105 @@
+<body><h1>mikomo mikomo 11</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>The Akoya sandbox allows you to make calls to Akoya APIs for tokens and data.</p>
+<p>Every data request in the <em>Data Access Network</em> requires an ID token. To test in sandbox, you must log in as a user and complete the account selection and consent flow process to retrieve an ID token. Akoya has provided a mock data provider for your testing use.</p>
+<h2 align=""><div id="mikomo-financial"></div><div><div id="section-mikomo-financial"></div>Mikomo Financial</div><a aria-label="Skip link to Mikomo Financial" href="#mikomo-financial" target="_self"></a></h2>
+<p>Mikomo Financial, the Akoya mock data provider, is the only provider available in sandbox. Mikomo includes a test library with representative samples from various data providers. The data available from these users is detailed in the <a href="#Catalog" target="_self">Catalog</a> below.</p>
+<p>We recommend using Postman for testing. For more information on using Postman, see: <a href="/v2/docs/postman-collection" target="_self">Postman collection</a></p>
+<p>Sandbox requires the following parameters for <strong>Akoya API v2</strong>:</p>
+<div><div><table><thead><tr><th><strong>Parameter</strong></th><th><strong>Value</strong></th></tr></thead><tbody><tr><td>client_id, client_secret, redirect_uri</td><td><em>your variable values</em></td></tr><tr><td>connector  <br/> <em>note: the connector parameter is the same as the</em> providerId</td><td>mikomo</td></tr><tr><td>idp_url</td><td><a href="http://sandbox-idp.ddp.akoya.com/" target="_self">sandbox-idp.ddp.akoya.com</a></td></tr><tr><td>permission_url</td><td><a href="http://sandbox-permission.api.ddp.akoya.com/" target="_self">sandbox-permission.api.ddp.akoya.com</a></td></tr><tr><td>products_url</td><td><a href="http://sandbox-products.ddp.akoya.com/" target="_self">sandbox-products.ddp.akoya.com</a></td></tr><tr><td>providerId</td><td>mikomo</td></tr></tbody></table></div></div>
+<h2 align=""><div id="catalog"></div><div><div id="section-catalog"></div>Catalog</div><a aria-label="Skip link to Catalog" href="#catalog" target="_self"></a></h2>
+<p>Mikomo users are created with static, example response payloads. These payloads are representative and can be used to understand the type of data you may receive through the <em>Data Access Network</em>. Sandbox accounts may also be used for your integration and testing needs. For testing support, we’ve included a variety of Akoya products, provider accounts types, account statuses, transaction loads, and error states.</p>
+<p><em>Note: for all test users, the username and password are the same.</em></p>
+<h3 align=""><div id="all-supported-data-elements"></div><div><div id="section-all-supported-data-elements"></div>All supported data elements</div><a aria-label="Skip link to All supported data elements" href="#all-supported-data-elements" target="_self"></a></h3>
+<p>The <strong>mikomo_7</strong> user includes all account categories and data elements available through the <em>Data Access Network</em>.<br/>
+<a href="#mikomo_7" target="_self"><em>(See details below)</em></a></p>
+<h3 align=""><div id="products"></div><div><div id="section-products"></div>Products</div><a aria-label="Skip link to Products" href="#products" target="_self"></a></h3>
+<p>If you need to test Akoya products with Mikomo users, this chart is a quick way to determine which user might work for you. This chart also includes additional scenario information you might need for integration/testing use. </p>
+<div><div><table><thead><tr><th><strong>Product</strong></th><th><strong>User</strong></th><th><strong>Scenario</strong></th></tr></thead><tbody><tr><td>Balances</td><td><a href="#mikomo_10" target="_self">mikomo_10</a> Checking:  g833202fb0866d0ad83472c429</td><td>Non-zero balance</td></tr><tr><td></td><td><a href="#mikomo_10" target="_self">mikomo_10</a> Checking: 5dbda8de96eeff05f23934523a1fc258</td><td>Zero balance</td></tr><tr><td>Investments</td><td><a href="#mikomo_3" target="_self">mikomo_3</a></td><td>Includes 38 generic investment accounts. Includes examples of holdings data.</td></tr><tr><td>Transactions</td><td><a href="#mikomo_2023" target="_self">mikomo_2023</a></td><td>For pagination and date filtering. Includes recent checking account transactions.</td></tr><tr><td>Payment networks</td><td><a href="#mikomo_10" target="_self">mikomo_10</a> Checking: g833202fb0866d0ad83472c429 Savings: 33fbd9e5-9cc3-3d7d-15b3-70d97d87ca1d</td><td>User has two accounts with payment information</td></tr><tr><td>Customer info</td><td><a href="#mikomo_10" target="_self">mikomo_10</a></td><td>To view customer info. This data has no telephone number, for implementation when certain data is not included.</td></tr><tr><td>Statements</td><td><a href="#mikomo_11" target="_self">mikomo_11</a></td><td>To view account ID, statement list, statement image, and account description</td></tr></tbody></table></div></div>
+<h3 align=""><div id="account-types"></div><div><div id="section-account-types"></div>Account types</div><a aria-label="Skip link to Account types" href="#account-types" target="_self"></a></h3>
+<p>While there are a number of account types supported by our data providers, this chart includes a selection of account types for your reference. A sample of other account types are listed by Mikomo user below.</p>
+<div><div><table><thead><tr><th><strong>Account type</strong></th><th><strong>User</strong></th><th><strong>Scenario</strong></th></tr></thead><tbody><tr><td>Checking</td><td><a href="#mikomo_1" target="_self">mikomo_1</a></td><td><strong>No</strong> checking accounts For use in scenarios to understand when a user doesn’t have a specific account type.</td></tr><tr><td>529 College Savings</td><td><a href="#mikomo_10" target="_self">mikomo_10</a></td><td>Account 839502593 with 22 transactions</td></tr><tr><td>Brokerage</td><td><a href="#mikomo_10" target="_self">mikomo_10</a></td><td>Account 5426873 with 4 transactions</td></tr><tr><td>CD</td><td><a href="#mikomo_10" target="_self">mikomo_10</a></td><td>Account 11719ae5-2399-1278-e43c-43f24abb3058</td></tr></tbody></table></div></div>
+<h2 align=""><div id="account-details"></div><div><div id="section-account-details"></div>Account details</div><a aria-label="Skip link to Account details" href="#account-details" target="_self"></a></h2>
+<h3 align=""><div id="mikomo_1"></div><div><div id="section-mikomo-1"></div>mikomo_1</div><a aria-label="Skip link to mikomo_1" href="#mikomo_1" target="_self"></a></h3>
+<p><em>8 accounts</em></p>
+<div><div><table><thead><tr><th><strong>Account types</strong></th><th><strong>Transactions</strong></th></tr></thead><tbody><tr><td></td><td><em>accountType (Number of transactions): accountId</em></td></tr><tr><td>Investment: I, TODI</td><td>Individual (20): 1755209824</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_2"></div><div><div id="section-mikomo-2"></div>mikomo_2</div><a aria-label="Skip link to mikomo_2" href="#mikomo_2" target="_self"></a></h3>
+<p><em>8 accounts</em></p>
+<div><div><table><thead><tr><th><strong>Account types</strong></th><th><strong>Transactions</strong></th></tr></thead><tbody><tr><td></td><td><em>accountType (Number of transactions): accountId</em></td></tr><tr><td>Investment: HSA, I, TODI</td><td>HSA (20): 474362798</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_3"></div><div><div id="section-mikomo-3"></div>mikomo_3</div><a aria-label="Skip link to mikomo_3" href="#mikomo_3" target="_self"></a></h3>
+<p><em>38 accounts</em></p>
+<div><div><table><thead><tr><th><strong>Account types</strong></th><th><strong>Transactions</strong></th></tr></thead><tbody><tr><td></td><td><em>accountType (Number of transactions): accountId</em></td></tr><tr><td>Investment: I, IRRL, TIC, IRAB, IRA, TODJ, ROTH, TODI, 401K</td><td>Individual (20): 1377569312</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_5"></div><div><div id="section-mikomo-5"></div>mikomo_5</div><a aria-label="Skip link to mikomo_5" href="#mikomo_5" target="_self"></a></h3>
+<p><em>3 accounts</em></p>
+<div><div><table><thead><tr><th><strong>Account types</strong></th><th><strong>Transactions</strong></th></tr></thead><tbody><tr><td></td><td><em>accountType (Number of transactions): accountId</em></td></tr><tr><td>Investment: J, HSA, ROTH</td><td>HSA (8): 1221963501</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_6"></div><div><div id="section-mikomo-6"></div>mikomo_6</div><a aria-label="Skip link to mikomo_6" href="#mikomo_6" target="_self"></a></h3>
+<p><em>10 accounts</em></p>
+<div><div><table><thead><tr><th><strong>Account types</strong></th><th><strong>Transactions</strong></th></tr></thead><tbody><tr><td></td><td><em>accountType (Number of transactions): accountId</em></td></tr><tr><td>Investment: HSA, TODI, IRA, IRRL, NONP, NRMA, 401k</td><td>none</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_7"></div><div><div id="section-mikomo-7"></div>mikomo_7</div><a aria-label="Skip link to mikomo_7" href="#mikomo_7" target="_self"></a></h3>
+<p><em>5 accounts</em></p>
+<p>Includes:</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>customers</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>paymentNetworks</span></code>
+<ul>
+<li>account 1602364511</li>
+</ul>
+</li>
+</ul>
+<div><div><table><thead><tr><th><strong>Account category</strong></th><th><strong>Account type</strong></th><th><strong>Account number</strong></th></tr></thead><tbody><tr><td>depositAccount</td><td>CHECKING</td><td>1602364511</td></tr><tr><td>loanAccount</td><td>COMMERCIALLOAN</td><td>1316072226</td></tr><tr><td>locAccount</td><td>CREDITCARD</td><td>1417522980</td></tr><tr><td>investmentAccount</td><td>401(k) PLAN</td><td>1222577818</td></tr><tr><td>insuranceAccount</td><td>J</td><td>1254778531</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_9"></div><div><div id="section-mikomo-9"></div>mikomo_9</div><a aria-label="Skip link to mikomo_9" href="#mikomo_9" target="_self"></a></h3>
+<p><em>1 account</em></p>
+<p>Includes:</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>customers</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>paymentNetworks</span></code>
+<ul>
+<li>account 47320722f1e9340a8f8ead1e38bdbc215b0866d0ad83472c6777923499a74429</li>
+</ul>
+</li>
+</ul>
+<div><div><table><thead><tr><th><strong>Account types</strong></th><th><strong>Transactions</strong></th></tr></thead><tbody><tr><td></td><td><em>accountType (Number of transactions): accountId</em></td></tr><tr><td>depositAccount: Checking</td><td>Checking (1360): 47320722f1e9340a8f8ead1e38bdbc215b0866d0ad83472c6777923499a74429</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_10"></div><div><div id="section-mikomo-10"></div>mikomo_10</div><a aria-label="Skip link to mikomo_10" href="#mikomo_10" target="_self"></a></h3>
+<p><em>6 accounts</em></p>
+<p>Includes:</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>customers</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>paymentNetworks</span></code>
+<ul>
+<li>account g833202fb0866d0ad83472c429</li>
+<li>account 33fbd9e5-9cc3-3d7d-15b3-70d97d87ca1d</li>
+</ul>
+</li>
+</ul>
+<div><div><table><thead><tr><th><strong>Account types/accountId</strong></th><th><strong>Scenario</strong></th></tr></thead><tbody><tr><td>depositAccount: Checking g833202fb0866d0ad83472c429</td><td>[1360] transactions availableBalance: 106717.06</td></tr><tr><td>depositAccount: Checking 5dbda8de96eeff05f23934523a1fc258</td><td>[0] transactions availableBalance: 0</td></tr><tr><td>investmentAccount: College Savings  839502593</td><td>[22] transactions</td></tr><tr><td>investmentAccount: BROKERAGE 5426873</td><td>[4] transactions</td></tr><tr><td>depositAccount: CD 11719ae5-2399-1278-e43c-43f24abb3058</td><td>[0] transactions</td></tr><tr><td>depositAccount: SAVINGS 33fbd9e5-9cc3-3d7d-15b3-70d97d87ca1d</td><td>[4] transactions</td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_11"></div><div><div id="section-mikomo-11"></div>mikomo_11</div><a aria-label="Skip link to mikomo_11" href="#mikomo_11" target="_self"></a></h3>
+<p><em>1 account</em></p>
+<p>Includes:</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>paymentNetworks</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>customers</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statements</span></code></li>
+</ul>
+<div><div><table><thead><tr><th><strong>Account types/accountId</strong></th><th><strong>Scenario</strong></th></tr></thead><tbody><tr><td>depositAccount: Checking 513815781465 (x1465)</td><td>[0] transactions availableBalance: 7869.13<br/>
+[1] statements </td></tr></tbody></table></div></div>
+<h3 align=""><div id="mikomo_2023"></div><div><div id="section-mikomo-2023"></div>mikomo_2023</div><a aria-label="Skip link to mikomo_2023" href="#mikomo_2023" target="_self"></a></h3>
+<p><em>6 accounts</em></p>
+<p>This Mikomo user was created for testing the transactions endpoint. The <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>g833202fb0866d0ad83472c429</span></code> checking account should always return recent transactions and has several months of history for testing pagination and date filtering. All of the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>mikomo_2023</span></code> accounts are generic (not provider-specific) and are detailed below.</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>customers</span></code></li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>paymentNetworks</span></code>
+<ul>
+<li>account g833202fb0866d0ad83472c429</li>
+<li>account 33fbd9e5-9cc3-3d7d-15b3-70d97d87ca1d</li>
+</ul>
+</li>
+</ul>
+<div><div><table><thead><tr><th><strong>Account types/accountId</strong></th><th><strong>Scenario</strong></th></tr></thead><tbody><tr><td>depositAccount: Checking g833202fb0866d0ad83472c429</td><td>Number of transactions vary by date. Should have a result using default 15-day call. availableBalance: 106717.06</td></tr><tr><td>depositAccount: Checking 5dbda8de96eeff05f23934523a1fc258</td><td>[0] transactions availableBalance: 0</td></tr><tr><td>investmentAccount: College Savings  839502593</td><td>[22] transactions. Oldest date: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2023-01-03T05:00:00ZZ</span></code></td></tr><tr><td>investmentAccount: BROKERAGE 5426873</td><td>[4] transactions. Oldest date: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2023-05-17T00:00:00Z</span></code></td></tr><tr><td>depositAccount: CD 11719ae5-2399-1278-e43c-43f24abb3058</td><td>[0] transactions</td></tr><tr><td>depositAccount: SAVINGS 33fbd9e5-9cc3-3d7d-15b3-70d97d87ca1d</td><td>[4] transactions. Oldest date: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>2023-01-27T00:00:00.000Z</span></code></td></tr></tbody></table></div></div>
+<h2 align=""><div id="provider-data"></div><div><div id="section-provider-data"></div>Provider data</div><a aria-label="Skip link to Provider data" href="#provider-data" target="_self"></a></h2>
+<blockquote theme="📘"><p><span>📘</span><p>Notice</p></p><p>Representative test users are created with live data from each data provider and collected through the <em>Data Access Network</em>. However, this sample data does not include all possible responses.</p></blockquote>
+<p>To find more information on test users, refer to each data provider's documentation section in the <a href="https://recipient.ddp.akoya.com/" target="_self">Data Recipient Hub</a>.</p>
+<h2 align=""><div id="error-testing"></div><div><div id="section-error-testing"></div>Error testing</div><a aria-label="Skip link to Error testing" href="#error-testing" target="_self"></a></h2>
+<p>Some errors are difficult to replicate. For instance, there is no way for you to revoke an end-user’s consent via their bank’s app or website to test the errors that would result in your app. When data is requested for these users, the result will always be an error.</p>
+<p>To test with these Mikomo users, go through the consent flow as usual to obtain an ID token. Then, any data call will result in the errors listed below.</p>
+<p><em>Note: username and password are the same.</em></p>
+<div><div><table><thead><tr><th><strong>user/pwd</strong></th><th><strong>error type</strong></th><th><strong>message</strong></th></tr></thead><tbody><tr><td>mikomo_500</td><td>500</td><td>Internal server error</td></tr><tr><td>mikomo_501</td><td>501</td><td>Subsystem unavailable</td></tr><tr><td>mikomo_601</td><td>601</td><td>Customer not found</td></tr><tr><td>mikomo_602</td><td>602</td><td>Customer not authorized</td></tr><tr><td>mikomo_701</td><td>701</td><td>Account not found</td></tr><tr><td>mikomo_702</td><td>702</td><td>Invalid start or end date</td></tr><tr><td>mikomo_703</td><td>703</td><td>Invalid date range</td></tr><tr><td>mikomo_704</td><td>704</td><td>Account type not supported</td></tr></tbody></table></div></div>
+<h2 align=""><div id="change-log"></div><div><div id="section-change-log"></div>Change log</div><a aria-label="Skip link to Change log" href="#change-log" target="_self"></a></h2>
+<div><div><table><thead><tr><th>Date</th><th>Update</th></tr></thead><tbody><tr><td>2023-Aug-23</td><td>Added required params for Akoya API v2; removed reference to v1; added Statements and a reference to mikomo_11 in the Products table.</td></tr><tr><td>2022-Oct-21</td><td>Updated “Error testing” section with new mikomo_704 user.</td></tr><tr><td>2022‑Jun‑13</td><td>Updated document for clarification, added <strong>Catalog</strong> section to detail use cases, and added reference for new user, <strong>mikomo_10</strong></td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

@@ -1,0 +1,31 @@
+<body><h1>versioning api major version timeline</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><blockquote theme="📌"><p><span>📌</span><p>Akoya API versions are set in the path</p></p><p>Incremental changes in a version will be listed in release notes and maintain backward compatibility. The current Akoya version is Akoya API v2.</p></blockquote>
+<p>This guide outlines the Akoya API versioning approach and our goals in defining and supporting our users with any breaking changes created with API updates. We aim to limit breaking changes as much as possible to new API versions (a.k.a. major versions). This is achieved by only releasing non-breaking changes (a.k.a. backward compatible) to current API versions.</p>
+<h2 align=""><div id="api-major-version-timeline"></div><div><div id="section-api-major-version-timeline"></div>API major version timeline</div><a aria-label="Skip link to API major version timeline" href="#api-major-version-timeline" target="_self"></a></h2>
+<p>Major releases will be communicated in advance to give our users time to understand upcoming changes. With a new major version release, the previous version will be automatically deprecated. Six months after deprecation, the previous version will be sunset. Once a version is sunset, it will no longer be available or supported.</p>
+<p>When an API is marked as deprecated, we strongly recommend that you migrate to the latest version as soon as possible. New implementations of Akoya APIs should implement the latest (non-deprecated) major version.</p>
+<figure><span aria-label="Release timeline graph depicting v1 deprecating with v2 release, then sunset v1 6 months later" role="button" tabindex="0"><span><img align="" alt="Release timeline graph depicting v1 deprecating with v2 release, then sunset v1 6 months later" caption="" height="auto" loading="lazy" src="https://files.readme.io/dd5f210-versioning.png" title="" width="auto"/></span></span><figcaption><p>API release timeline</p></figcaption></figure>
+<div><div><table><thead><tr><th>API version</th><th>Release date</th><th>Deprecation date</th><th>Sunset date</th><th>Migration guide</th></tr></thead><tbody><tr><td>v1</td><td></td><td>November 2, 2022</td><td>May 2, 2023</td><td><a href="/v2/docs/migration-guide" target="_self">https://docs.akoya.com/v2/docs/migration-guide</a></td></tr><tr><td>v2</td><td>November 2, 2022</td><td></td><td></td><td></td></tr></tbody></table></div></div>
+<h2 align=""><div id="akoya-apis-and-breaking-changes"></div><div><div id="section-akoya-ap-is-and-breaking-changes"></div>Akoya APIs and breaking changes</div><a aria-label="Skip link to Akoya APIs and breaking changes" href="#akoya-apis-and-breaking-changes" target="_self"></a></h2>
+<p>We will increment API major version numbers for any non-backward compatible changes to an API. The following examples are principles to define breaking changes vs. non-breaking changes.</p>
+<p>Examples of <strong>breaking</strong> (non-backward compatible) changes:</p>
+<ul>
+<li>Changes to the URL or fundamental request/response associated with an endpoint</li>
+<li>Removal, rename, or change to the type of a declared property</li>
+<li>Removal, rename, or change to a data field</li>
+<li>Removal or rename of APIs or API parameters</li>
+<li>Addition of a required request header</li>
+<li>Changes to an existing query parameter or addition of new mandatory request parameters</li>
+</ul>
+<p>Examples of <strong>non-breaking</strong> (backward compatible) changes:</p>
+<ul>
+<li>Addition of net-new data fields</li>
+<li>Addition of properties that are nullable or have a default value</li>
+<li>Addition of a member to an enumeration</li>
+<li>Removal, rename, or change to the type of an open extension</li>
+<li>Removal, rename, or change to the type of an annotation</li>
+<li>Introduction of paging to existing collections</li>
+<li>Addition or changes to error codes</li>
+<li>Changes to the order of properties</li>
+<li>Changes to the length or format of opaque strings, such as resource IDs</li>
+</ul>
+<blockquote theme="📘"><p><span>📘</span><p>Implementation note</p></p><p>A data recipient implementing Akoya APIs should expect to see non-breaking changes rolled out regularly through minor version updates. Please implement the Akoya APIs in a way that allow for these changes.</p></blockquote></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

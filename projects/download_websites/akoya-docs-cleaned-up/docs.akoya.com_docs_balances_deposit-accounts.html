@@ -1,0 +1,66 @@
+<body><h1>balances deposit accounts</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>The Akoya Balances product combines basic end-user account information with the latest, actionable financial account data including: available balance, payment amounts, due dates, credit card rewards details, limits, due dates, year-to-date interest, and more.</p>
+<p>The balances endpoint returns all data available in the Account info product plus data such as current balance, payment dates, and other data (listed below). To use this product, you must have the end-user’s consent and their associated ID token for permissioned data.</p>
+<p>Results for balances are returned in JSON in <a href="/docs/intro-to-fdx" target="_self" title="https://docs.akoya.com/docs/intro-to-fdx">FDX format</a>. Balances include a common grouping of data and may contain additional data elements for annuity, deposit, insurance, investment, line of credit, or loan account categories.</p>
+<p><strong>Endpoint</strong>: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/balances</span></code></p>
+<p><strong>API documentation</strong>: <a href="/v2/reference/get-balances" target="_self">https://docs.akoya.com/v2/reference/get-balances</a></p>
+<h2 align=""><div id="example-response"></div><div><div id="section-example-response"></div>Example response</div><a aria-label="Skip link to Example response" href="#example-response" target="_self"></a></h2>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"depositAccount"</span>: {
+      <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+      <span>"accountType"</span>: <span>"CHECKING"</span>,
+      <span>"accountNumberDisplay"</span>: <span>"xxxxxxxx0071"</span>,
+      <span>"currency"</span>: {
+        <span>"currencyCode"</span>: <span>"USD"</span>
+      },
+      <span>"description"</span>: <span>"Checking Plus"</span>,
+      <span>"fiAttributes"</span>: [
+           {
+            <span>"name"</span>: <span>"accountOpenedDate"</span>,
+            <span>"value"</span>: <span>"2020-04-23"</span>
+           },
+           {
+            <span>"name"</span>: <span>"interestPaidLastYear"</span>,
+            <span>"value"</span>: <span>"3.20"</span>
+           }
+      ],
+      <span>"nickname"</span>: <span>"Nickname Checking Plus 0071"</span>,
+      <span>"productName"</span>: <span>"Checking Plus"</span>,
+      <span>"status"</span>: <span>"OPEN"</span>,
+      <span>"lineOfBusiness"</span>: <span>"Personal"</span>,
+      <span>"balanceType"</span>: <span>"ASSET"</span>,
+      <span>"interestRate"</span>: <span>0.0125</span>,
+      <span>"interestRateType"</span>: <span>"FIXED"</span>,
+      <span>"interestRateAsOf"</span>: <span>"2022-03-24T14:15:22Z"</span>,
+      <span>"lastActivityDate"</span>: <span>"2022-03-24T14:15:22Z"</span>,
+      <span>"currentBalance"</span>: <span>106717.06</span>,
+      <span>"availableBalance"</span>: <span>106717.06</span>,
+      <span>"balanceAsOf"</span>: <span>"2022-03-24T14:15:22Z"</span>
+    }
+  }
+</div></code></pre></div></div>
+<h2 align=""><div id="supported-data-elements"></div><div><div id="section-supported-data-elements"></div>Supported data elements</div><a aria-label="Skip link to Supported data elements" href="#supported-data-elements" target="_self"></a></h2>
+<blockquote theme="📘"><p><span>📘</span><p>Note</p></p><p>Balances product responses vary by account category.</p></blockquote>
+<h3 align=""><div id="all-account-categories"></div><div><div id="section-all-account-categories"></div>All account categories</div><a aria-label="Skip link to All account categories" href="#all-account-categories" target="_self"></a></h3>
+<p><em>include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><em>account info</em></td><td>true</td><td>Includes <a href="/docs/account-info" target="_self">account info</a> data elements</td></tr></tbody></table></div></div>
+<h3 align=""><div id="deposit-accounts"></div><div><div id="section-deposit-accounts"></div>Deposit accounts</div><a aria-label="Skip link to Deposit accounts" href="#deposit-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>balanceAsOf</td><td>string(date-time)</td><td>As-of date of balances</td></tr><tr><td>openingDayBalance</td><td>number</td><td>Day's opening fund balance</td></tr><tr><td>availableBalance</td><td>number</td><td>Balance of funds available for use</td></tr><tr><td>interestYtd</td><td>number</td><td>YTD Interest</td></tr><tr><td>currentBalance</td><td>number</td><td>Balance of funds in account</td></tr></tbody></table></div></div>
+<h3 align=""><div id="loan-accounts"></div><div><div id="section-loan-accounts"></div>Loan accounts</div><a aria-label="Skip link to Loan accounts" href="#loan-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>balanceAsOf</td><td>string(date-time)</td><td>As-of date of balances</td></tr><tr><td>escrowBalance</td><td>number</td><td>Escrow balance of loan</td></tr><tr><td>interestPaidYearToDate</td><td>number</td><td>Interest paid year to date</td></tr><tr><td>lastPaymentAmount</td><td>number</td><td>Last payment amount</td></tr><tr><td>lastPaymentDate</td><td>string(date-time)</td><td>Last payment date</td></tr><tr><td>nextPaymentAmount</td><td>number</td><td>Amount of next payment</td></tr><tr><td>nextPaymentDate</td><td>string(date-time)</td><td>Date of next payment</td></tr><tr><td>originalPrincipal</td><td>number</td><td>Original principal of loan</td></tr><tr><td>payOffAmount</td><td>number</td><td>Payoff amount</td></tr><tr><td>principalBalance</td><td>number</td><td>Principal balance of loan</td></tr></tbody></table></div></div>
+<h3 align=""><div id="line-of-credit-accounts"></div><div><div id="section-line-of-credit-accounts"></div>Line of credit accounts</div><a aria-label="Skip link to Line of credit accounts" href="#line-of-credit-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>balanceAsOf</td><td>string(date-time)</td><td>As-of date of balances</td></tr><tr><td>advancesApr</td><td>number</td><td>Advances APR</td></tr><tr><td>availableCash</td><td>number</td><td>Available cash</td></tr><tr><td>availableCredit</td><td>number</td><td>Available credit</td></tr><tr><td>cashAdvanceLimit</td><td>number</td><td>Cash advance limit</td></tr><tr><td>creditLine</td><td>number</td><td>Credit limit</td></tr><tr><td>currentBalance</td><td>number</td><td>Current balance LOC</td></tr><tr><td>currentRewardsBalance</td><td>number</td><td>Current rewards balance</td></tr><tr><td>financeCharges</td><td>number</td><td>Finance charges</td></tr><tr><td>lastPaymentAmount</td><td>number</td><td>Last payment amount</td></tr><tr><td>lastPaymentDate</td><td>string(date-time)</td><td>Last payment date</td></tr><tr><td>lastStmtBalance</td><td>number</td><td>Last Statement Balance</td></tr><tr><td>lastStmtDate</td><td>string(date-time)</td><td>Last Statement Date</td></tr><tr><td>minimumPaymentAmount</td><td>number</td><td>Minimum payment amount</td></tr><tr><td>nextPaymentAmount</td><td>number</td><td>Amount of next payment</td></tr><tr><td>nextPaymentDate</td><td>string(date-time)</td><td>Due date of next payment</td></tr><tr><td>pastDueAmount</td><td>number</td><td>Past Due Amount</td></tr><tr><td>pointsAccrued</td><td>number</td><td>Points accrued</td></tr><tr><td>principalBalance</td><td>number</td><td>Principal balance</td></tr><tr><td>pointsRedeemed</td><td>number</td><td>Points redeemed</td></tr><tr><td>purchasesApr</td><td>number</td><td>Purchases APR</td></tr></tbody></table></div></div>
+<h3 align=""><div id="investment-accounts"></div><div><div id="section-investment-accounts"></div>Investment accounts</div><a aria-label="Skip link to Investment accounts" href="#investment-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>availableCashBalance</td><td>number</td><td>Cash balance across all sub-accounts. Should include sweep funds.</td></tr><tr><td>balanceAsOf</td><td>string(date-time)</td><td>As-of date of balances</td></tr><tr><td>balanceList</td><td>array</td><td>Array of balanceList objects.</td></tr><tr><td>currentValue</td><td>number</td><td>Total current value of all investments</td></tr><tr><td>dailyChange</td><td>number</td><td>Daily change</td></tr><tr><td>marginBalance</td><td>number</td><td>Margin balance</td></tr><tr><td>percentageChange</td><td>number</td><td>Percentage change</td></tr><tr><td>rolloverAmount</td><td>number</td><td>Rollover amount</td></tr><tr><td>shortBalance</td><td>number</td><td>Short balance</td></tr></tbody></table></div></div>
+<h4 align=""><div id="balancelist"></div><div><div id="section-balance-list"></div>balanceList</div><a aria-label="Skip link to balanceList" href="#balancelist" target="_self"></a></h4>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>balanceName</td><td>string</td><td>Name of the balance.</td></tr><tr><td>balanceDescription</td><td>string</td><td>Description of balance.</td></tr><tr><td>balanceType</td><td>string</td><td>The type of an investment balance. AMOUNT or PERCENTAGE.</td></tr><tr><td>balanceValue</td><td>number</td><td>Value of balance name.</td></tr><tr><td>balanceDate</td><td>string(date-time)</td><td>Date as of this balance.</td></tr><tr><td>currency</td><td><a href="https://akoyanetwork.atlassian.net/wiki/spaces/CONTENT/pages/2284027934/Balances#schemacurrency" target="_self">currency</a> object</td><td>currency object which may include currencyRate, currencyCode, and originalCurrencyCode</td></tr></tbody></table></div></div>
+<h3 align=""><div id="insurance-accounts"></div><div><div id="section-insurance-accounts"></div>Insurance accounts</div><a aria-label="Skip link to Insurance accounts" href="#insurance-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>policyCoverageAmount</td><td>number</td><td>Total amount of money the user is insured for.</td></tr><tr><td>policyEndDate</td><td>string(date-time)</td><td>The premium end date.</td></tr><tr><td>policyPremium</td><td>number</td><td>The amount of the user's premium.</td></tr><tr><td>policyPremiumTerm</td><td>string</td><td>The payment term for the premium. MONTHLY or ANNUAL.</td></tr><tr><td>policyStartDate</td><td>string(date-time)</td><td>The premium start date.</td></tr></tbody></table></div></div>
+<h3 align=""><div id="annuity-accounts"></div><div><div id="section-annuity-accounts"></div>Annuity accounts</div><a aria-label="Skip link to Annuity accounts" href="#annuity-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<p>All of the below are deprecated in FDX 5 and will be removed in FDX 6.</p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>annualIncrease</td><td>number</td><td>Percent or dollar amount of annual payment increase</td></tr><tr><td>annualIncreaseType</td><td>string</td><td>FIXED, PERCENT, DOLLAR. Deprecated, will be removed in FDX 6.0.</td></tr><tr><td>netPresentValue</td><td>number</td><td>Surrender or cash balance value</td></tr><tr><td>paymentAmount</td><td>number</td><td>Amount of the recurring payment</td></tr><tr><td>paymentEndDate</td><td>string(date-time)</td><td>Date last payment will be made</td></tr><tr><td>paymentStartDate</td><td>string(date-time)</td><td>Date of first payment; could be a future date</td></tr><tr><td>periodCertainGuarantee</td><td>string</td><td>NONE, 5-YEAR, 10-YEAR, 20-YEAR, 30-YEAR.</td></tr><tr><td>totalPaymentCount</td><td>number</td><td>Total number of payments that will be produced by the annuity</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

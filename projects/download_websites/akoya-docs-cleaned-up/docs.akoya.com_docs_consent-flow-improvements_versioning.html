@@ -1,0 +1,73 @@
+<body><h1>consent flow improvements versioning</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>Akoya is committed to providing a superior customer experience—that means ensuring optimal data access performance for everyone on the network.</p>
+<p>To continue reaching our shared performance and compatibility goals, we’re making a change to how we authorize end-users and generate tokens by moving data recipients to a new token identity provider (IdP). The new IdP will improve Akoya’s network performance and will offer more flexibility with scoped client credentials and token life cycles.</p>
+<p>Akoya will fully manage the migration of recipients from our existing IdP to the new one in a gradual, phased approach starting in our Sandbox. </p>
+<p><em>A beta release is expected in our production environment in Q3 2023, but official timelines will be communicated in another announcement. This is still to be determined.</em></p>
+<blockquote theme="📘"><p><span>📘</span><p>If you feel this change will necessitate Akoya assistance, please reach out to your assigned Customer Success Manager.</p></p></blockquote>
+<h2 align=""><div id="whats-changing"></div><div><div id="section-whats-changing"></div>What’s changing?</div><a aria-label="Skip link to What’s changing?" href="#whats-changing" target="_self"></a></h2>
+<p>The Akoya authorization URL and Token API responses should not have substantive changes that would impact your implementation. The changes to note will be in the ID token (a JSON Web Token). There will be additional standard JWT claims and new custom Akoya claims.</p>
+<blockquote theme="❗️"><p><span>❗️</span><p>Do you currently use the claims in the ID token?</p></p><p>If the answer is “yes” and your claims extraction is tightly coupled to the available claims and its structure, then the Akoya token and/or this update will impact you. Please reach out to your Akoya Customer Success Manager.</p></blockquote>
+<blockquote theme="📘"><p><span>📘</span><p>If you do not use claims in the Id token, these improvements should not require action by you.</p></p></blockquote>
+<h2 align=""><div id="versioning"></div><div><div id="section-versioning"></div>Versioning</div><a aria-label="Skip link to Versioning" href="#versioning" target="_self"></a></h2>
+<p>For all parts of the consent flow—including the authorization URL, token responses, and JWT claims—please plan for non-breaking changes as Akoya continues to improve its network. </p>
+<p>The following are non-breaking changes that may occur in this and future consent flow improvements:</p>
+<ul>
+<li>Addition of net-new claims in the id token</li>
+<li>Changes to the order of claims in the id token</li>
+<li>Changes to the length or format of opaque strings, such as resource IDs</li>
+</ul>
+<p>For more on versioning, see: <a href="/docs/versioning" target="_self">Versioning</a></p>
+<h2 align=""><div id="akoya-id-jwt-claims"></div><div><div id="section-akoya-id-jwt-claims"></div>Akoya ID JWT Claims</div><a aria-label="Skip link to Akoya ID JWT Claims" href="#akoya-id-jwt-claims" target="_self"></a></h2>
+<p>The following claim types will be optionally supported by Akoya.  As per our <a href="/docs/versioning" target="_self">Versioning</a> guidelines, allow for additions as Akoya may add claims for future offerings.</p>
+<h3 align=""><div id="mandatory-claims"></div><div><div id="section-mandatory-claims"></div>Mandatory Claims</div><a aria-label="Skip link to Mandatory Claims" href="#mandatory-claims" target="_self"></a></h3>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>connectorId</span></code> - Akoya claim which lists the provider id</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>recipientId</span></code> - Akoya recipient id</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>products</span></code> - Akoya products permissioned by the end-user</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>name</span></code> - End-user's name in displayable form</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>sub</span></code> - Unique value to identify the end-user with the scope specific to the data provider.</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>iss</span></code> - Issuer identifier, Akoya URL</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>exp</span></code> - Time token will expire in Unix Epoch format</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>iat</span></code> - Time the JST was issued in Unix Epoch format</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>aud</span></code> - Data recipient (GUID)</li>
+</ul>
+<h3 align=""><div id="optional-claims"></div><div><div id="section-optional-claims"></div>Optional Claims</div><a aria-label="Skip link to Optional Claims" href="#optional-claims" target="_self"></a></h3>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accounts</span></code> - Akoya claim which lists the accounts permissioned by the end-user. This claim is OPTIONAL and will not always be present</li>
+</ul>
+<p><em>The above list is not exhaustive. For more on standard claims: see the <a href="https://www.iana.org/assignments/jwt/jwt.xhtml#claims" target="_self">JSON Web Token Claims specification</a>.</em></p>
+<h2 align=""><div id="example-id-token"></div><div><div id="section-example-id-token"></div>Example Id Token</div><a aria-label="Skip link to Example Id Token" href="#example-id-token" target="_self"></a></h2>
+<p>The following example uses <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>mikomo_6</span></code> in the Sandbox.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+  <span>"accounts"</span>: [
+    <span>"1700080179"</span>,
+    <span>"722148112"</span>,
+    <span>"1506439401"</span>,
+    <span>"1931314440"</span>,
+    <span>"1764334283"</span>,
+    <span>"1048765182"</span>,
+    <span>"1051344706"</span>,
+    <span>"1563794797"</span>
+  ],
+  <span>"at_hash"</span>: <span>"EXwZWGTuJoikPMZZpLYnpg"</span>,
+  <span>"aud"</span>: [
+    <span>"2157df70-e971-4dab-bb86-b9eb7ab5c4b6"</span>
+  ],
+  <span>"auth_time"</span>: <span>1689794649</span>,
+  <span>"connectorId"</span>: <span>"mikomo"</span>,
+  <span>"exp"</span>: <span>1689881094</span>,
+  <span>"iat"</span>: <span>1689794694</span>,
+  <span>"iss"</span>: <span>"https://sandbox-sts.ddp.akoya.com"</span>,
+  <span>"jti"</span>: <span>"66d2f82d-e0b5-4ed0-a6d6-750a222c4e66"</span>,
+  <span>"name"</span>: <span>"mikomo_6"</span>,
+  <span>"products"</span>: [
+    <span>"provider_mikomo"</span>,
+    <span>"global"</span>,
+    <span>"provider_mikomo"</span>
+  ],
+  <span>"rat"</span>: <span>1689794644</span>,
+  <span>"recipientId"</span>: <span>"fintech_app"</span>,
+  <span>"sid"</span>: <span>"fdeb202f-c8aa-4590-b36f-ecfd2ba02860"</span>,
+  <span>"sub"</span>: <span>"CghtaWtvbW9fNhIGbWlrb21v"</span>
+}
+
+</div></code></pre></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

@@ -1,0 +1,149 @@
+<body><h1>data access network</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><figure><span aria-label="1920" role="button" tabindex="0"><span><img align="center" alt="1920" caption="" height="auto" loading="lazy" src="https://files.readme.io/86482f9-network.png" title="network.png" width="auto"/></span></span><figcaption><p>The Akoya Data Access Network</p></figcaption></figure>
+<p>The Akoya mission is to create trust among financial institutions, fintechs, and data aggregators to ensure mass participation in Open Finance. Akoya secures the way consumers provide access to their data with increased security, privacy, and control over their information by transitioning data aggregation toward application programming interface (API)-based data access.</p>
+<p><span aria-label="" role="button" tabindex="0"><span><img align="" alt="" caption="" height="auto" loading="lazy" src="https://files.readme.io/081020e-akoyaDifferent.png" title="How Akoya is different" width="auto"/></span></span></p>
+<div><style>
+
+* {
+  box-sizing: border-box;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+@media (max-width: 800px) {
+  .column {
+    flex: 100%;
+  }
+}
+</style>
+<div>
+<div>
+<ul>
+<li>Removes login credentials from data aggregation by implementing tokenized access.</li>
+<li>Facilitates a consent flow where consumers authenticate, select accounts, and permission data directly with their financial institution.</li>
+<li>Ensures consumers have control by giving them the ability to monitor and disable access.</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>Does not store any data accessed or shared on its network.</li>
+<li>Maintains a pass-through model for complete privacy for all participants. At no point does Akoya know who the consumer is or what data they are sharing.</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>Akoya serves as a data-access utility similar to a trusted delivery service. Akoya delivers the package (data) between a financial institution and a fintech app. Akoya does not open the package, does not make a copy of what is inside, analyze it, or store it for future use. Akoya simply gets the package safely from point A to point B.</li>
+</ul>
+</div>
+</div></div>
+<h2 align=""><div id="features"></div><div><div id="section-features"></div>Features</div><a aria-label="Skip link to Features" href="#features" target="_self"></a></h2>
+<h3 align=""><div id="consent-flow"></div><div><div id="section-consent-flow"></div>Consent flow</div><a aria-label="Skip link to Consent flow" href="#consent-flow" target="_self"></a></h3>
+<p>The consent flow enables a customer to authenticate, select accounts, and permission data to flow from their data provider through the Data Access Network and to a third-party fintech app. This keeps your customers’ login credentials from being shared with third parties. </p>
+<p><em>Tip: You may click on images to view in full screen</em></p>
+<p><span aria-label="" role="button" tabindex="0"><span><img align="" alt="" caption="" height="auto" loading="lazy" src="https://files.readme.io/52a1b58-consentFlow1.png" title="consentFlow1.png" width="auto"/></span></span></p>
+<ol>
+<li>Emily wants to connect a fintech app to her financial institution accounts, in this example, at her fictional bank, Mikomo.</li>
+<li>Emily is redirected by the fintech app to Akoya where the fintech and Mikomo ids are validated.</li>
+<li>Akoya initiates an auth grant code to Mikomo Bank and Emily authenticates at the Mikomo Bank site.</li>
+<li>Emily agrees to terms and conditions and gives authorization to provide access of her data to her fintech app.</li>
+<li>Mikomo Bank issues an authorization grant code to Akoya who in turn requests the Mikomo Bank access token.</li>
+</ol>
+<p><span aria-label="" role="button" tabindex="0"><span><img align="" alt="" caption="" height="auto" loading="lazy" src="https://files.readme.io/027df30-consentFlow2.png" title="consentFlow2.png" width="auto"/></span></span></p>
+<ol start="6">
+<li>Using Mikomo Bank’s token, Akoya requests Emily’s account list for selection and permissioning to her fintech app. Emily approves account selection.</li>
+<li>Akoya redirects Emily back to her fintech app with the Akoya auth code.</li>
+<li>The Akoya auth code is exchanged by the fintech app for an Akoya ID token. The fintech app uses the Akoya token to request  Emily’s account details. Akoya then uses Mikomo Bank’s token to request<br/>
+permissioned data. ​​</li>
+<li>Mikomo Bank returns data to Akoya. Akoya gets the entitlements policy and applies Mikomo Bank’s rules. Akoya returns the data to the fintech app.</li>
+<li>Emily sees the permissioned account data.</li>
+</ol>
+<h3 align=""><div id="akoya-api-v2"></div><div><div id="section-akoya-api-v-2"></div>Akoya API v2</div><a aria-label="Skip link to Akoya API v2" href="#akoya-api-v2" target="_self"></a></h3>
+<figure><span aria-label="1095" role="button" tabindex="0"><span><img align="center" alt="1095" caption="" height="auto" loading="lazy" src="https://files.readme.io/89b2a4b-data_access.png" title="data_access.png" width="auto"/></span></span><figcaption><p>Akoya API v2</p></figcaption></figure>
+<p>Based on Financial Data Exchange (FDX) specifications, the Akoya API v2 allows recipients to request consumer-permissioned data to flow from a provider through the Data Access Network.</p>
+<p>Through data mapping and API integration, Akoya translates responses from providers—even those with proprietary APIs—into a common format. Expected and standard API responses help mitigate the need for proprietary APIs, thereby reducing development costs.</p>
+<h3 align=""><div id="connection-management"></div><div><div id="section-connection-management"></div>Connection Management</div><a aria-label="Skip link to Connection Management" href="#connection-management" target="_self"></a></h3>
+<figure><span aria-label="3522" role="button" tabindex="0"><span><img align="center" alt="3522" caption="" height="auto" loading="lazy" src="https://files.readme.io/334868f-connectionManagement.png" title="connectionManagement.png" width="auto"/></span></span><figcaption><p>Akoya apps: Data Recipient Hub and Management Console</p></figcaption></figure>
+<p>The <strong>Management Console</strong> is available for data providers to self-manage their connections and configure their settings in the Akoya Data Access Network.</p>
+<p>Akoya also provides aggregators and fintechs with the <strong>Data Recipient Hub</strong> to manage their connection to providers.</p>
+<h3 align=""><div id="permission-api"></div><div><div id="section-permission-api"></div>Permission API</div><a aria-label="Skip link to Permission API" href="#permission-api" target="_self"></a></h3>
+<p>The Akoya Permission API is used by a data provider to add support to their customer experience for Akoya account permission management.</p>
+<p>By making calls to the API, a provider can add a permission dashboard that allows their consumers to see which recipients have access to their permissioned data, add new accounts, remove accounts, or remove access overall.</p>
+<h3 align=""><div id="about-akoya-security-and-technology"></div><div><div id="section-about-akoya-security-and-technology"></div>About Akoya security and technology</div><a aria-label="Skip link to About Akoya security and technology" href="#about-akoya-security-and-technology" target="_self"></a></h3>
+<div><style>
+    * {
+      box-sizing: border-box;
+    }
+  
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 10px;
+    }
+  
+    @media (max-width: 800px) {
+      .column {
+        flex: 100%;
+      }
+    }
+  </style>
+<div>
+<div>
+<ul>
+<li>FDX+ is the primary API interface for data recipients. All APIs are RESTful.</li>
+<li>OIDC, OAuth 2.0, and SAML are implemented for authorization and authentication.</li>
+<li>Complete logging, auditability, and traceability.</li>
+<li>Different logging capabilities available.</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>Cloud-native implementation on AWS that enables elastic scaling in real-time.</li>
+<li>Micro-services architecture that enables continuous application upgrades and cloud scalability.</li>
+<li>Strong in-flight and at-rest encryption.</li>
+</ul>
+</div>
+<div>
+<ul>
+<li>Least Privilege Zero-Trust Model.</li>
+<li>Secure application development implementing DevSecOps.</li>
+<li>NIST and FFIEC frameworks are leveraged to define and prioritize risks.</li>
+<li>Akoya is SOC 2/Type 2 certified.</li>
+</ul>
+</div>
+</div></div>
+<div><style>
+  .wrapper-logos {
+      display:grid;
+      grid-template-columns: repeat(4, 15em [col-start]);
+  }
+  .wrapper-logos div {
+  	margin-bottom: 2em;
+    margin-top: 2em;
+  }
+  .wrapper-logos img {
+      max-width: 50%;
+      max-height: auto;
+  }
+</style>
+<div> <!-- wrapper -->
+<div><img alt="FDX logo" src="https://files.readme.io/cc7c426-FDX.png"/></div>
+<div><img alt="Rest API logo" src="https://files.readme.io/9203e07-rest_api.png"/></div>
+<div><img alt="Open ID logo" src="https://files.readme.io/c6d18a2-open_id.png"/></div>
+<div><img alt="SAML logo" src="https://files.readme.io/981bc8f-saml.png"/></div>
+<div><img alt="AWS logo" src="https://files.readme.io/c593ead-aws.png"/></div>
+<div><img alt="OAuth 2 logo" src="https://files.readme.io/35e3884-oauth_2.png"/></div>
+<div><img alt="NIST logo" src="https://files.readme.io/e26ee0f-nist.png"/></div>
+<div><img alt="FFIEC logo" src="https://files.readme.io/6c3958e-ffiec.png"/></div>
+</div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

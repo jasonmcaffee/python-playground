@@ -1,0 +1,219 @@
+<body><h1>oauth implementation styles mobile app</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>Akoya uses the OAuth2/OIDC style. Outlined below are various approaches for device/app integration.</p>
+<blockquote theme="🚧"><p><span>🚧</span><p>Do not use insecure web containers</p></p><p>In the <em>get authorization code</em> step outlined in each of the methods detailed below, the URL should be launched from within a browser or a secure web container such as <a href="https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller" target="_self">SFSafariViewController</a> or <a href="https://developer.chrome.com/multidevice/android/customtabs" target="_self">Chrome Custom Tabs</a>. This URL should not be launched within insecure containers that allow the mobile app to intercept user input and thus intercept user credentials.</p></blockquote>
+<h2 align=""><div id="websitewebapp"></div><div><div id="section-website-web-app"></div>Website/WebApp</div><a aria-label="Skip link to Website/WebApp" href="#websitewebapp" target="_self"></a></h2>
+<h3 align=""><div id="popup-approach-recommended"></div><div><div id="section-popup-approach-recommended"></div>Popup Approach (recommended)</div><a aria-label="Skip link to Popup Approach (recommended)" href="#popup-approach-recommended" target="_self"></a></h3>
+<p>In this flow you’re kicking off the consumer consent OAuth via a popup window.</p>
+<p><span aria-label="A diagram explaining the flow of a popup from an app to a login then to the bank" role="button" tabindex="0"><span><img align="" alt="A diagram explaining the flow of a popup from an app to a login then to the bank" caption="" height="auto" loading="lazy" src="https://files.readme.io/a357a02-WebPopupOAuthFlow.png" title="Web Popup OAuth Flow" width="auto"/></span></span></p>
+<p>Steps:</p>
+<ol>
+<li>
+<p>User selects the data provider they’d like to connect (drop down, button, link,…)</p>
+</li>
+<li>
+<p>Instruct the browser to open a popup window using the request URL as outlined here: <a href="/reference/get-authorization-code" target="_self">Get authorization code</a></p>
+</li>
+<li>
+<p>The user logs in, agrees to terms and conditions, selects accounts</p>
+</li>
+<li>
+<p>Akoya redirects to a page you host with the authorization grant code</p>
+</li>
+<li>
+<p>Your server exchanges the grant code for the ID token: <a href="/reference/get-token" target="_self">Token</a></p>
+</li>
+<li>
+<p>Your server completes the request and returns JavaScript telling the browser to close the popup window</p>
+</li>
+</ol>
+<h3 align=""><div id="full-redirect-no-popup-approach"></div><div><div id="section-full-redirect-no-popup-approach"></div>Full Redirect (no popup) Approach</div><a aria-label="Skip link to Full Redirect (no popup) Approach" href="#full-redirect-no-popup-approach" target="_self"></a></h3>
+<p>In this flow you’re redirecting the user’s current page (your website/web app) to the consumer consent OAuth.</p>
+<p><span aria-label="A diagram explaining a browser redirecting from on URL to another and then back to original URL" role="button" tabindex="0"><span><img align="" alt="A diagram explaining a browser redirecting from on URL to another and then back to original URL" caption="" height="auto" loading="lazy" src="https://files.readme.io/85d79ec-WebNoPopupOauthFlow.png" title="Web No Popup (Full Redirect) OAuth Flow" width="auto"/></span></span></p>
+<p>Steps:</p>
+<ol>
+<li>
+<p>User selects the provider they’d like to connect (drop down, button, link,…)</p>
+</li>
+<li>
+<p>Instruct the browser to redirect the current page (your app) to the request URL as outlined here:  <a href="/reference/get-authorization-code" target="_self">Get authorization code</a></p>
+</li>
+<li>
+<p>The user logs in, agrees to terms and conditions, selects accounts</p>
+</li>
+<li>
+<p>Akoya redirects to a page you host with the authorization grant code</p>
+</li>
+<li>
+<p>Your server exchanges the grant code for the ID token: <a href="/reference/get-token" target="_self">Token</a></p>
+</li>
+<li>
+<p>Your server completes the request and lets the user know they are now connected</p>
+</li>
+</ol>
+<h2 align=""><div id="mobile-app"></div><div><div id="section-mobile-app"></div>Mobile App</div><a aria-label="Skip link to Mobile App" href="#mobile-app" target="_self"></a></h2>
+<p>The industry standard approach is known as deep linking. This is a technique for your app to open the mobile browser, ask the user to authenticate, then your redirect URL links directly back to your app, having it regain focus.</p>
+<p><span aria-label="A diagram of mobile screen progression from App to login to either showing the user a screen to show linking or going directly back to original app" role="button" tabindex="0"><span><img align="" alt="A diagram of mobile screen progression from App to login to either showing the user a screen to show linking or going directly back to original app" caption="" height="auto" loading="lazy" src="https://files.readme.io/ad50cc6-MobileAppOauthFlow.png" title="Mobile App OAuth Flow" width="auto"/></span></span></p>
+<p>Steps:</p>
+<ol>
+<li>
+<p>User selects the provider they’d like to connect (drop down, button, link,…)</p>
+</li>
+<li>
+<p>Instruct the app to open the browser to the request URL as outlined here:  <a href="/reference/get-authorization-code" target="_self">Get authorization code</a></p>
+</li>
+<li>
+<p>The user logs in, agrees to terms and conditions, selects accounts</p>
+</li>
+<li>
+<p>Akoya redirects to a deep link (see below, option A) you’ve setup with the authorization grant code</p>
+</li>
+<li>
+<p>Your app exchanges the grant code for the ID token: <a href="/reference/get-token" target="_self">Token</a></p>
+</li>
+<li>
+<p>Your app is now ready to pull data</p>
+</li>
+</ol>
+<p>This approach has two different styles (option A or option B), your redirect can either be page on your server (option B) which will then handle a redirect to the deep link you’ve setup. Or (option A) your redirect goes directly back to the app, and your app handles the token exchange.</p>
+<p><span aria-label="A screenshot showing an example of how to register the URL schema under the URL Types section" role="button" tabindex="0"><span><img align="" alt="A screenshot showing an example of how to register the URL schema under the URL Types section" caption="" height="auto" loading="lazy" src="https://files.readme.io/49d9e74-RegisterUrlSchema.png" title="Register the URL schema under the URL Types section" width="auto"/></span></span></p>
+<h3 align=""><div id="ios"></div><div><div id="section-i-os"></div>iOS</div><a aria-label="Skip link to iOS" href="#ios" target="_self"></a></h3>
+<p>Setting up your deep link schema:</p>
+<p>You’ll want to review:  <a href="https://developer.apple.com/documentation/xcode/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app" target="_self">Apple Developer Documentation - Defining a Custom URL Scheme for Your App</a></p>
+<ul>
+<li>
+<p>In the URL Schemes box, specify the prefix you use for your URLs.</p>
+</li>
+<li>
+<p>Choose a role for your app: either an editor role for URL schemes you define, or a viewer role for schemes your app adopts but doesn’t define.</p>
+</li>
+<li>
+<p>Specify an identifier for your app.</p>
+</li>
+</ul>
+<p>The identifier you supply with your scheme distinguishes your app from others that declare support for the same scheme. To ensure uniqueness, specify a reverse DNS string that incorporates your company’s domain and app name.</p>
+<p>Example code handling universal link:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JavaScript</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="javascript" name="" tabindex="0"><div><span>func</span> <span>application</span>(<span>_</span> <span>application</span>: <span>UIApplication</span>,
+                 <span>continue</span> <span>userActivity</span>: <span>NSUserActivity</span>,
+                 <span>restorationHandler</span>: <span>@</span><span>escaping</span> ([<span>UIUserActivityRestoring</span>]<span>?</span>) <span>-&gt;</span> <span>Void</span>) <span>-&gt;</span> <span>Bool</span>
+{
+    <span>// Get URL components from the incoming user activity.</span>
+    <span>guard</span> <span>userActivity</span>.<span>activityType</span> <span>==</span> <span>NSUserActivityTypeBrowsingWeb</span>,
+        <span>let</span> <span>incomingURL</span> <span>=</span> <span>userActivity</span>.<span>webpageURL</span>,
+        <span>let</span> <span>components</span> <span>=</span> <span>NSURLComponents</span>(<span>url</span>: <span>incomingURL</span>, <span>resolvingAgainstBaseURL</span>: <span>true</span>) <span>else</span> {
+          <span>return</span> <span>false</span>
+    }
+
+    <span>// Check for specific URL components that you need.</span>
+    <span>guard</span> <span>let</span> <span>path</span> <span>=</span> <span>components</span>.<span>path</span>,
+    <span>let</span> <span>params</span> <span>=</span> <span>components</span>.<span>queryItems</span> <span>else</span> {
+        <span>return</span> <span>false</span>
+    }    
+    
+    <span>if</span> <span>let</span> <span>authCode</span> <span>=</span> <span>params</span>.<span>first</span>(<span>where</span>: { <span>$0</span>.<span>name</span> <span>==</span> <span>"code"</span> } )?.<span>value</span>,
+        <span>//send code to your server to exchange for an id token</span>
+        <span>//https://docs.akoya.com/reference/get-token</span>
+        
+        <span>return</span> <span>true</span>
+    } <span>else</span> {
+        <span>//invalid redirect</span>
+        <span>return</span> <span>false</span>
+    }
+}
+</div></code></pre></div></div>
+<h3 align=""><div id="android"></div><div><div id="section-android"></div>Android</div><a aria-label="Skip link to Android" href="#android" target="_self"></a></h3>
+<p>Setting up your deep link schema:</p>
+<p>Start by reviewing:  <a href="https://developer.android.com/training/app-links/deep-linking" target="_self">Android Developers Documentation - Create Deep Links to App Content</a></p>
+<p>To create a link to your app content, add an intent filter that contains these elements and attribute values in your manifest:</p>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;action&gt;</span></code>Specify the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>ACTION_VIEW</span></code> intent action so that the intent filter can be reached from Google Search. <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;data&gt;</span></code>Add one or more <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;data&gt;</span></code> tags, each of which represents a URI format that resolves to the activity. At minimum, the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;data&gt;</span></code> tag must include the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>android:scheme</span></code> attribute.</p>
+<p>You can add more attributes to further refine the type of URI that the activity accepts. For example, you might have multiple activities that accept similar URIs but which differ simply based on the path name. In this case, use the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>android:path</span></code> attribute or its <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>pathPattern</span></code> or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>pathPrefix</span></code> variants to differentiate which activity the system should open for different URI paths.</p>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;category&gt;</span></code>Include the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>BROWSABLE</span></code> category. It is required in order for the intent filter to be accessible from a web browser. Without it, clicking a link in a browser cannot resolve to your app.</p>
+<p>Also include the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>DEFAULT</span></code> category. This allows your app to respond to implicit intents. Without this, the activity can be started only if the intent specifies your app component name.</p>
+<p>The following XML snippet shows how you might specify an intent filter in your manifest for deep linking. The URIs <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>“example://gizmos”</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>“&lt;http://www.example.com/gizmos”</span></code>&gt; both resolve to this activity.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">XML</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="xml" name="" tabindex="0"><div><span>&lt;</span><span>activity</span>
+    <span>android:name</span>=<span>"com.example.android.GizmosActivity"</span>
+    <span>android:label</span>=<span>"@string/title_gizmos"</span> <span>&gt;</span>
+    <span>&lt;</span><span>intent-filter</span> <span>android:label</span>=<span>"@string/filter_view_http_gizmos"</span><span>&gt;</span>
+        <span>&lt;</span><span>action</span> <span>android:name</span>=<span>"android.intent.action.VIEW"</span> <span>/&gt;</span>
+        <span>&lt;</span><span>category</span> <span>android:name</span>=<span>"android.intent.category.DEFAULT"</span> <span>/&gt;</span>
+        <span>&lt;</span><span>category</span> <span>android:name</span>=<span>"android.intent.category.BROWSABLE"</span> <span>/&gt;</span>
+        <span>&lt;!-- Accepts URIs that begin with "http://www.example.com/gizmos” --&gt;</span>
+        <span>&lt;</span><span>data</span> <span>android:scheme</span>=<span>"http"</span>
+              <span>android:host</span>=<span>"www.example.com"</span>
+              <span>android:pathPrefix</span>=<span>"/gizmos"</span> <span>/&gt;</span>
+        <span>&lt;!-- note that the leading "/" is required for pathPrefix--&gt;</span>
+    <span>&lt;/</span><span>intent-filter</span><span>&gt;</span>
+    <span>&lt;</span><span>intent-filter</span> <span>android:label</span>=<span>"@string/filter_view_example_gizmos"</span><span>&gt;</span>
+        <span>&lt;</span><span>action</span> <span>android:name</span>=<span>"android.intent.action.VIEW"</span> <span>/&gt;</span>
+        <span>&lt;</span><span>category</span> <span>android:name</span>=<span>"android.intent.category.DEFAULT"</span> <span>/&gt;</span>
+        <span>&lt;</span><span>category</span> <span>android:name</span>=<span>"android.intent.category.BROWSABLE"</span> <span>/&gt;</span>
+        <span>&lt;!-- Accepts URIs that begin with "example://gizmos” --&gt;</span>
+        <span>&lt;</span><span>data</span> <span>android:scheme</span>=<span>"example"</span>
+              <span>android:host</span>=<span>"gizmos"</span> <span>/&gt;</span>
+    <span>&lt;/</span><span>intent-filter</span><span>&gt;</span>
+<span>&lt;/</span><span>activity</span><span>&gt;</span>
+</div></code></pre></div></div>
+<p>Notice that the two intent filters only differ by the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;data&gt;</span></code> element. Although it's possible to include multiple <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;data&gt;</span></code> elements in the same filter, it's important that you create separate filters when your intention is to declare unique URLs (such as a specific combination of <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>scheme</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>host</span></code>), because multiple <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;data&gt;</span></code> elements in the same intent filter are actually merged together to account for all variations of their combined attributes. For example, consider the following:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">XML</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="xml" name="" tabindex="0"><div><span>&lt;</span><span>intent-filter</span><span>&gt;</span>
+  ...
+  <span>&lt;</span><span>data</span> <span>android:scheme</span>=<span>"https"</span> <span>android:host</span>=<span>"www.example.com"</span> <span>/&gt;</span>
+  <span>&lt;</span><span>data</span> <span>android:scheme</span>=<span>"app"</span> <span>android:host</span>=<span>"open.my.app"</span> <span>/&gt;</span>
+<span>&lt;/</span><span>intent-filter</span><span>&gt;</span>
+</div></code></pre></div></div>
+<p>It might seem as though this supports only <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;https://www.example.com</span></code>&gt; and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>app://open.my.app</span></code>. However, it actually supports those two, plus these: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>app://www.example.com</span></code> and <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>&lt;https://open.my.app</span></code>&gt;.</p>
+<p>Once you've added intent filters with URIs for activity content to your app manifest, Android is able to route any <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>Intent</span></code> that has matching URIs to your app at runtime.</p>
+<p>Example code to read from the redirect:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JavaScript</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="javascript" name="" tabindex="0"><div><span>@</span><span>Override</span>
+<span>public</span> <span>void</span> <span>onCreate</span>(<span>Bundle</span> <span>savedInstanceState</span>) {
+    <span>super</span>.<span>onCreate</span>(<span>savedInstanceState</span>);
+    <span>setContentView</span>(<span>R</span>.<span>layout</span>.<span>main</span>);
+
+    <span>Intent</span> <span>intent</span> <span>=</span> <span>getIntent</span>();
+    <span>Uri</span> <span>data</span> <span>=</span> <span>intent</span>.<span>getData</span>();
+      
+    <span>String</span> <span>code</span> <span>=</span> <span>uri</span>.<span>getQueryParameter</span>(<span>"code"</span>);
+    <span>//use code to call your server and exchange token</span>
+    <span>// https://docs.akoya.com/reference/get-token</span>
+}
+</div></code></pre></div></div>
+<h2 align=""><div id="desktop-app"></div><div><div id="section-desktop-app"></div>Desktop App</div><a aria-label="Skip link to Desktop App" href="#desktop-app" target="_self"></a></h2>
+<p>Functions basically identically to mobile (see above), here are some starting points to get your schema for deep linking setup.</p>
+<h3 align=""><div id="windows"></div><div><div id="section-windows"></div>Windows</div><a aria-label="Skip link to Windows" href="#windows" target="_self"></a></h3>
+<p>Start with the protocol declaration.<br/>
+Here’s the XML the protocol declaration generated:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">XML</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="xml" name="" tabindex="0"><div><span>&lt;</span><span>uap:Extension</span> <span>Category</span>=<span>"windows.protocol"</span><span>&gt;</span>
+  <span>&lt;</span><span>uap:Protocol</span> <span>Name</span>=<span>"com.myapp.callback"</span> <span>/&gt;</span>
+<span>&lt;/</span><span>uap:Extension</span><span>&gt;</span>
+</div></code></pre></div></div>
+<p>Handling the redirect:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JavaScript</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="javascript" name="" tabindex="0"><div><span>protected</span> <span>override</span> <span>void</span> <span>OnActivated</span>(<span>IActivatedEventArgs</span> <span>args</span>)
+{
+  <span>Frame</span> <span>rootFrame</span> <span>=</span> <span>CreateRootFrame</span>();
+  <span>if</span> (<span>args</span>.<span>Kind</span> <span>==</span> <span>ActivationKind</span>.<span>Protocol</span>)
+  {
+    <span>var</span> <span>protocolArgs</span> <span>=</span> <span>args</span> <span>as</span> <span>ProtocolActivatedEventArgs</span>;
+    <span>rootFrame</span>.<span>Navigate</span>(<span>typeof</span>(<span>ProtocolActivationPage</span>), <span>protocolArgs</span>.<span>Uri</span>);
+  }
+  <span>else</span>
+  {
+    <span>rootFrame</span>.<span>Navigate</span>(<span>typeof</span>(<span>MainPage</span>));
+  }
+  <span>// Ensure the current window is active</span>
+  <span>Window</span>.<span>Current</span>.<span>Activate</span>();
+}
+</div></code></pre></div></div>
+<p>The app simply uses the Launcher.Launch­UriAsync API to deep link into the app. Here’s what that code might look like:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">C#</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="csharp" name="" tabindex="0"><div><span>Uri</span> <span>uri</span> <span>=</span> <span>new</span> <span>Uri</span>(<span>"com.myapp.callback:?code=1234"</span>);
+<span>await</span> <span>Launcher</span>.<span>LaunchUriAsync</span>(<span>uri</span>);
+</div></code></pre></div></div>
+<p>Review the following for more information:<br/>
+<a href="https://docs.microsoft.com/en-us/archive/msdn-magazine/2015/windows-10-special-issue/app-integration-linking-and-integrating-apps-on-windows-10" target="_self">App Integration - Linking and Integrating Apps on Windows 10</a></p>
+<h3 align=""><div id="macos"></div><div><div id="section-mac-os"></div>macOS</div><a aria-label="Skip link to macOS" href="#macos" target="_self"></a></h3>
+<p>Review: <a href="https://developer.apple.com/documentation/xcode/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app" target="_self">Apple Developer Documentation</a></p>
+<p>Clients craft URLs based on your scheme and ask your app to open them by calling the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>open(_:options:completionHandler:)</span></code> method of <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>UIApplication</span></code>. Clients can ask the system to inform them when your app opens the URL.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JavaScript</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="javascript" name="" tabindex="0"><div><span>let</span> <span>url</span> <span>=</span> <span>URL</span>(<span>string</span>: <span>"myapp:callback"</span>)
+  <span>UIApplication</span>.<span>shared</span>.<span>open</span>(<span>url</span><span>!</span>) { 
+    (<span>result</span>) <span>in</span>
+      <span>if</span> <span>result</span> {
+      <span>// The URL was delivered successfully!    </span>
+      }}
+</div></code></pre></div></div>
+<p>Registering you schema is the same as mobile if you’re using scenes <a href="https://developer.apple.com/documentation/xcode/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app" target="_self">Apple Developer Documentation</a> see above in mobile for more details.</p></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

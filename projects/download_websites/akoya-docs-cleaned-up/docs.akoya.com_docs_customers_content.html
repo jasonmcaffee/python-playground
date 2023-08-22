@@ -1,0 +1,34 @@
+<body><h1>customers content</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>Full customer information for permissioned end-user.</p>
+<p>Results for customers are returned in JSON in <a href="/docs/intro-to-fdx" target="_self" title="Introduction to FDX">FDX format</a>.</p>
+<p><strong>Endpoint</strong>: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/customers</span></code></p>
+<p><strong>API documentation</strong>: <a href="/docs/customer-info" target="_self">https://docs.akoya.com/v2/reference/customer-info</a></p>
+<h2 align=""><div id="example-response"></div><div><div id="section-example-response"></div>Example response</div><a aria-label="Skip link to Example response" href="#example-response" target="_self"></a></h2>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"customer"</span>: {
+        <span>"customerId"</span>: <span>"1521963501"</span>,
+        <span>"name"</span>: {
+            <span>"last"</span>: <span>"Last"</span>,
+            <span>"first"</span>: <span>"First"</span>,
+            <span>"middle"</span>: <span>"H"</span>
+        },
+        <span>"telephones"</span>: [
+            {
+                <span>"number"</span>: <span>"9585550103"</span>
+            }
+        ],
+        <span>"addresses"</span>: [
+            {
+                <span>"state"</span>: <span>"TN"</span>,
+                <span>"city"</span>: <span>"SPRINGFIELD"</span>,
+                <span>"line1"</span>: <span>"7572 Road Rd"</span>,
+                <span>"postalCode"</span>: <span>"37172-6488"</span>
+            }
+        ],
+        <span>"email"</span>: [
+            <span>"user@example.com"</span>
+        ]
+    }
+}
+</div></code></pre></div></div>
+<h2 align=""><div id="supported-data-elements"></div><div><div id="section-supported-data-elements"></div>Supported data elements</div><a aria-label="Skip link to Supported data elements" href="#supported-data-elements" target="_self"></a></h2>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>customerId</td><td>string</td><td>Long-term persistent identity of the customer. This identity must be unique to the owning institution</td></tr><tr><td>name</td><td>object</td><td>none</td></tr><tr><td>name.first</td><td>string</td><td>First or given name. This data element may contain first &amp; last name if not separated.</td></tr><tr><td>name.middle</td><td>string</td><td>none</td></tr><tr><td>name.last</td><td>string</td><td>none</td></tr><tr><td>name.prefix</td><td>string</td><td>Name prefix, e.g. Mr.</td></tr><tr><td>name.suffix</td><td>string</td><td>Generational or academic suffix</td></tr><tr><td>name.company</td><td>string</td><td>Company name</td></tr><tr><td>addresses</td><td>array[addresses]</td><td>An array of the customer's addresses</td></tr><tr><td>addresses.type</td><td>string</td><td>The location type of an address</td></tr><tr><td>addresses.line1</td><td>string</td><td>May contain full address if not separated</td></tr><tr><td>addresses.line2</td><td>string</td><td>none</td></tr><tr><td>addresses.line3</td><td>string</td><td>none</td></tr><tr><td>addresses.city</td><td>string</td><td>none</td></tr><tr><td>addresses.state</td><td>string</td><td>none</td></tr><tr><td>addresses.postalCode</td><td>string</td><td>none</td></tr><tr><td>addresses.country</td><td>string</td><td>ISO 3166 Country Code</td></tr><tr><td>telephones</td><td>array[telephones]</td><td>An array of the customer's telephone numbers.</td></tr><tr><td>telephones.number</td><td>string</td><td>none</td></tr><tr><td>telephones.type</td><td>string</td><td>none</td></tr><tr><td>telephones.country</td><td>string</td><td>Country calling codes defined by ITU-T recommendations E.123 and E.164</td></tr><tr><td>email</td><td>array[string]</td><td>An array of the customer's electronic mail addresses</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

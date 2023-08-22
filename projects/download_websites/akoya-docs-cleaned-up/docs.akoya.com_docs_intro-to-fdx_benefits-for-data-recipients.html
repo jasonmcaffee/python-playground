@@ -1,0 +1,54 @@
+<body><h1>intro to fdx benefits for data recipients</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>The <a href="https://financialdataexchange.org/" target="_self">Financial Data Exchange</a> (FDX) specifies a common, interoperable, royalty-free standard and operating framework for financial data sharing and secure authentication. It also provides user experience and consent guidelines.</p>
+<p>FDX is a nonprofit, independent subsidiary of the Financial Services Information Sharing and Analysis Center (FS-ISAC), an industry consortium with the mission of ensuring resilience and continuity of the global financial services infrastructure. Operating in the US and Canada, FDX is a technical organization which does not involve in policy discussions.</p>
+<h2 align=""><div id="fdx-members"></div><div><div id="section-fdx-members"></div>FDX Members</div><a aria-label="Skip link to FDX Members" href="#fdx-members" target="_self"></a></h2>
+<p>As of August 2021, FDX has approximately 197 members including financial institutions, aggregators, financial industry groups, consumer advocacy groups, permissioned parties, and other financial services organizations.</p>
+<p>Data providers that are on the board of both Akoya and FDX are:</p>
+<ul>
+<li>Bank of America</li>
+<li>Capital One</li>
+<li>Citi</li>
+<li>Fidelity Investments</li>
+<li>JPMorgan Chase &amp; Co.</li>
+<li>PNC</li>
+<li>TD Bank</li>
+<li>Truist</li>
+<li>US Bank</li>
+<li>Wells Fargo</li>
+</ul>
+<p>Some FDX data recipients:</p>
+<ul>
+<li>American Express</li>
+<li>Experian</li>
+<li>Finicity</li>
+<li>Fiserv</li>
+<li>H&amp;R Block</li>
+<li>MorningStar</li>
+<li>MX</li>
+<li>Plaid</li>
+<li>Quicken</li>
+<li>Truelayer</li>
+<li>Yodlee</li>
+</ul>
+<p>If you are interested in joining FDX, you may explore <a href="https://financialdataexchange.org/FDX/Membership/API-Access-Only/FDX/Membership/Join-FDX.aspx" target="_self">membership options</a> and read the organizational overview: "<a href="https://financialdataexchange.org/common/Uploaded%20files/10.3_FDX_WhitePaper_Final.pdf" target="_self">The Global Industry Standard for Consumer Access to Financial Data</a>".</p>
+<h2 align=""><div id="benefits"></div><div><div id="section-benefits"></div>Benefits</div><a aria-label="Skip link to Benefits" href="#benefits" target="_self"></a></h2>
+<p>FDX specifications unify financial data sharing implementations which can vary from organization to organization. By adopting the FDX API as an industry standard, data providers and data recipients no longer need to spend extra time and resources resolving problems caused by inconsistent data connectivity, quality, and governance. Consumers will also benefit from a consistent standard across financial services platforms for strengthened control, access, transparency, traceability, and security of their financial data.</p>
+<blockquote theme="📌"><p><span>📌</span><p>Membership not required</p></p><p>While data providers and recipients receive the value of FDX with the Akoya Data Access Network, the Network does not require data providers or data recipients to be FDX members.</p></blockquote>
+<h3 align=""><div id="benefits-for-data-providers"></div><div><div id="section-benefits-for-data-providers"></div>Benefits for data providers</div><a aria-label="Skip link to Benefits for data providers" href="#benefits-for-data-providers" target="_self"></a></h3>
+<p>The benefits of FDX standards include risk reduction and improved privacy. The FDX API supports Open ID Connect (OIDC) token-based access that eliminates risks posed by “held-away credentials<a href="#footnote-one" target="_self">[1]</a>.” The consent from the consumer for data sharing is captured both at the application interface (e.g. the fintech app) and the provider's data source. This clear and secure consent flow allows consumers to better manage data that they want to share with third parties<a href="#footnote-two" target="_self">[2]</a>.</p>
+<h3 align=""><div id="benefits-for-data-recipients"></div><div><div id="section-benefits-for-data-recipients"></div>Benefits for data recipients</div><a aria-label="Skip link to Benefits for data recipients" href="#benefits-for-data-recipients" target="_self"></a></h3>
+<p>The interoperability of FDX standards allows recipients to access financial data from providers easily and securely. Akoya, following the FDX standard with some customizations, translates responses from providers through data mapping and API integration to render a unified format for recipients. This unified format ensures consistent data to ease integration efforts. It also reduces time spent with bespoke integrations and disparate data structures.</p>
+<h2 align=""><div id="api-specs"></div><div><div id="section-api-specs"></div>API specs</div><a aria-label="Skip link to API specs" href="#api-specs" target="_self"></a></h2>
+<p>Formerly FS-ISAC's Durable Data API (DDA), the FDX API specification is updated twice a year. The specifications provide the introduction and transmission protocol details for implementing with RESTful APIs. Akoya leverages these standards to enable financial data sharing via secure tokenized access.</p>
+<p>FDX provides fee-free access to specifications by accepting the intellectual property agreement. <a href="https://financialdataexchange.org/FDX/Membership/API-Access-Only/FDX/Membership/Join-FDX.aspx" target="_self">Join or request API access here</a>.</p>
+<h3 align=""><div id="best-practices"></div><div><div id="section-best-practices"></div>Best Practices</div><a aria-label="Skip link to Best Practices" href="#best-practices" target="_self"></a></h3>
+<p>The FDX 2020 Fall Release added UX guidelines with widespread acceptance from the FDX API implementers, including major financial institutions. The FDX UX Guidelines<a href="#footnote-three" target="_self">[3]</a> specify design recommendations for permissioning. The guidelines also describe the concepts of financial data sharing, data flow, and an end-user grant consent journey for financial data sharing.</p>
+<p>According to the guidelines, the financial data flow process from a provider to a recipient has the following steps:</p>
+<ol>
+<li>The recipient initiates data sharing when the end-user decides to access their accounts.</li>
+<li>The end-user identifies the provider where they hold their accounts.</li>
+<li>The provider inspects the request and allows the end-user to grant consent for data sharing.</li>
+</ol>
+<hr/>
+<p><a href="" name="footnote-one" target="_self">[1]</a>: Held-away (shared) credentials or screen scraping allows a 3rd party to hold an end-user's credentials. </p>
+<p><a href="" name="footnote-two" target="_self">[2]</a>: If you are interested in learning more about the benefits of FDX, you may explore its member benefits <a href="https://financialdataexchange.org/FDX/Membership/Benefits/FDX/Membership/Benefits.aspx?hkey=feb79818-c828-4e53-84d6-b23c5bf82d73" target="_self">page</a>.</p>
+<p><a href="" name="footnote-three" target="_self">[3]</a>: Financial Data Exchange User Experience (UX) Guidelines v1.0. Dec. 2020, <a href="fdx.atlassian.net/wiki/download/attachments/772964368/UX%20Guidelines%20v1_0.pdf?api=v2" target="_self">fdx.atlassian.net/wiki/download/attachments/772964368/UX%20Guidelines%20v1_0.pdf?api=v2</a>.</p></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

@@ -1,0 +1,60 @@
+<body><h1>account info supported data elements</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>Akoya products include basic account information such as identifiers, account types, status, descriptions, and everything you need for top level information about an end-user’s account(s).</p>
+<p>This account information is available as a standalone endpoint and is also included in results of balances and investment endpoints. To use this product, you must have the end-user’s consent and their associated ID token for permissioned data.</p>
+<p>Results for account info are returned in JSON in <a href="/v2/docs/intro-to-fdx" target="_self" title="https://docs.akoya.com/v2/docs/intro-to-fdx">FDX format</a>. Account info includes a common grouping of data and may contain additional data elements for annuity, deposit, insurance, investment, or loan account types.</p>
+<p><strong>Endpoint</strong>: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts-info</span></code></p>
+<p><strong>API documentation</strong>: <a href="/v2/reference/get-accounts-info" target="_self">https://docs.akoya.com/v2/reference/get-accounts-info</a></p>
+<h2 align=""><div id="example-response"></div><div><div id="section-example-response"></div>Example response</div><a aria-label="Skip link to Example response" href="#example-response" target="_self"></a></h2>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"depositAccount"</span>: {
+      <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+      <span>"accountType"</span>: <span>"CHECKING"</span>,
+      <span>"accountNumberDisplay"</span>: <span>"xxxxxxxx0071"</span>,
+      <span>"currency"</span>: {
+        <span>"currencyCode"</span>: <span>"USD"</span>
+      },
+      <span>"description"</span>: <span>"Checking Plus"</span>,
+      <span>"fiAttributes"</span>: [
+           {
+            <span>"name"</span>: <span>"accountOpenedDate"</span>,
+            <span>"value"</span>: <span>"2020-04-23"</span>
+           },
+           {
+            <span>"name"</span>: <span>"interestPaidLastYear"</span>,
+            <span>"value"</span>: <span>"3.20"</span>
+           }
+      ],
+      <span>"nickname"</span>: <span>"Nickname Checking Plus 0071"</span>,
+      <span>"productName"</span>: <span>"Checking Plus"</span>,
+      <span>"status"</span>: <span>"OPEN"</span>,
+      <span>"lineOfBusiness"</span>: <span>"Personal"</span>,
+      <span>"balanceType"</span>: <span>"ASSET"</span>,
+      <span>"interestRate"</span>: <span>0.0125</span>,
+      <span>"interestRateType"</span>: <span>"FIXED"</span>,
+      <span>"interestRateAsOf"</span>: <span>"2022-03-24T14:15:22Z"</span>,
+      <span>"lastActivityDate"</span>: <span>"2022-03-24T14:15:22Z"</span>
+    }
+  }
+</div></code></pre></div></div>
+<h2 align=""><div id="supported-data-elements"></div><div><div id="section-supported-data-elements"></div>Supported data elements</div><a aria-label="Skip link to Supported data elements" href="#supported-data-elements" target="_self"></a></h2>
+<blockquote theme="📘"><p><span>📘</span><p>Note</p></p><p>Account info responses vary by account category.</p></blockquote>
+<h3 align=""><div id="all-account-categories"></div><div><div id="section-all-account-categories"></div>All account categories</div><a aria-label="Skip link to All account categories" href="#all-account-categories" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>accountId</td><td>string</td><td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td></tr><tr><td>accountType</td><td>string</td><td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td></tr><tr><td>accountNumberDisplay</td><td>string</td><td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td></tr><tr><td>currency</td><td>[currency]</td><td>Indicates the currency code used by the account. May also include currency rate.</td></tr><tr><td>description</td><td>string</td><td>Description of account.</td></tr><tr><td>fiAttributes</td><td>[fiAttribute]</td><td>Data provider-specific attributes.</td></tr><tr><td>nickname</td><td>string</td><td>Name given by the user. Used in UIs to assist in account selection</td></tr><tr><td>productName</td><td>string</td><td>Marketed product name for this account. Used in UIs to assist in account selection</td></tr><tr><td>status</td><td>string</td><td>The status of an account.</td></tr><tr><td>lineOfBusiness</td><td>string</td><td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td></tr><tr><td>balanceType</td><td>string</td><td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance).</td></tr><tr><td>interestRate</td><td>number</td><td>Interest Rate of Account</td></tr><tr><td>interestRateType</td><td>string</td><td>The type of interest rate. FIXED or VARIABLE.</td></tr><tr><td>interestRateAsOf</td><td>string(date-time)</td><td>Date of account’s interest rate</td></tr><tr><td>lastActivityDate</td><td>string(date-time)</td><td>Date that last transaction occurred on account</td></tr><tr><td>micrNumber</td><td>string</td><td>MICR Number</td></tr><tr><td>parentAccountId</td><td>string</td><td>Long-term persistent identity of the parent account. This is used to group accounts.</td></tr><tr><td>priorInterestRate</td><td>number</td><td>Previous Interest Rate of Account</td></tr><tr><td>transferIn</td><td>boolean</td><td>Account is eligible for incoming transfers</td></tr><tr><td>transferOut</td><td>boolean</td><td>Account is eligible for outgoing transfers</td></tr></tbody></table></div></div>
+<h3 align=""><div id="deposit-accounts"></div><div><div id="section-deposit-accounts"></div>Deposit accounts</div><a aria-label="Skip link to Deposit accounts" href="#deposit-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>annualPercentageYield</td><td>number</td><td>Annual Percentage Yield. If account type = CD, required.</td></tr><tr><td>term</td><td>integer</td><td>Term of CD in months</td></tr><tr><td>maturityDate</td><td>string(date-time)</td><td>Maturity date for CDs. If account type = CD, required.</td></tr></tbody></table></div></div>
+<h3 align=""><div id="line-of-credit-accounts"></div><div><div id="section-line-of-credit-accounts"></div>Line of credit accounts</div><a aria-label="Skip link to Line of credit accounts" href="#line-of-credit-accounts" target="_self"></a></h3>
+<blockquote>
+<p>No additional data elements</p>
+</blockquote>
+<h3 align=""><div id="loan-accounts"></div><div><div id="section-loan-accounts"></div>Loan accounts</div><a aria-label="Skip link to Loan accounts" href="#loan-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>compoundingPeriod</td><td>string</td><td>none</td></tr><tr><td>loanTerm</td><td>integer</td><td>Term of loan in months</td></tr><tr><td>maturityDate</td><td>string(date-time)</td><td>Maturity date is required for CDs</td></tr><tr><td>originatingDate</td><td>string(date-time)</td><td>Loan origination date</td></tr><tr><td>paymentFrequency</td><td>string</td><td>none</td></tr><tr><td>totalNumberOfPayments</td><td>integer</td><td>Total number of payments</td></tr></tbody></table></div></div>
+<h3 align=""><div id="investment-accounts"></div><div><div id="section-investment-accounts"></div>Investment accounts</div><a aria-label="Skip link to Investment accounts" href="#investment-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Name</td><td>Type</td><td>Description</td></tr><tr><td>allowedCheckWriting</td><td>boolean</td><td>Check writing privileges</td></tr><tr><td>allowedOptionTrade</td><td>boolean</td><td>Allowed to trade options</td></tr><tr><td>brokerId</td><td>string</td><td>Unique identifier FI</td></tr><tr><td>calendaryearFor401K</td><td>string</td><td>Date for this calendar year for 401K account</td></tr><tr><td>employerName</td><td>string</td><td>Name of the employer in investment 401k Plan</td></tr><tr><td>margin</td><td>boolean</td><td>Margin trading is allowed</td></tr><tr><td>planId</td><td>string</td><td>Plan number for Investment 401k plan</td></tr></tbody></table></div></div>
+<h3 align=""><div id="insurance-accounts"></div><div><div id="section-insurance-accounts"></div>Insurance accounts</div><a aria-label="Skip link to Insurance accounts" href="#insurance-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>accountCategory</td><td>string</td><td>none</td></tr></tbody></table></div></div>
+<h3 align=""><div id="annuity-accounts"></div><div><div id="section-annuity-accounts"></div>Annuity accounts</div><a aria-label="Skip link to Annuity accounts" href="#annuity-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>annuityProductType</td><td>string</td><td>none</td></tr><tr><td>annuityValueBasis</td><td>string</td><td>none</td></tr><tr><td>paymentFrequency</td><td>string</td><td>none</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

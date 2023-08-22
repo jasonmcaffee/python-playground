@@ -1,0 +1,111 @@
+<body><h1>statements get statement list</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>The <em>Statements </em> product allows retrieval of statements for your end-user's consented accounts. You may request a date range of up to two years of historical statements (maximum date ranges vary by provider).</p>
+<p>Paginated <em>Statement</em> list results include an array of statement information with the end-user's account identifier and details such as statement id, date, description, and status. The results also include links to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>GET</span></code> the statement, most often returned in PDF format. Other supported file formats are GIF, JPG, TIFF, and PNG.</p>
+<p><strong>Endpoints:</strong></p>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/{version}/{providerId}/{accountId}</span></code></p>
+<p><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/{version}/{providerId}/{accountId}/{statementId}</span></code></p>
+<p><strong>API documentation:</strong> </p>
+<p><a href="/v2/reference/get-statement-list" target="_self">https://docs.akoya.com/v2/reference/get-statement-list</a></p>
+<p><a href="/v2.0/reference/get-statements" target="_self">https://docs.akoya.com/v2.0/reference/get-statements</a></p>
+<h2 align=""><div id="supported-data-elements"></div><div><div id="section-supported-data-elements"></div>Supported data elements</div><a aria-label="Skip link to Supported data elements" href="#supported-data-elements" target="_self"></a></h2>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountId</span></code></td><td>string</td><td>Corresponds to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountId</span></code> in Account entity</td></tr><tr><td><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementId</span></code></td><td>string</td><td>Long-term persistent identity of the statement</td></tr><tr><td><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementDate</span></code></td><td>dateTime</td><td>Date of the statement (ISO 8601 format)</td></tr><tr><td><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>description</span></code></td><td>string</td><td>Description of statement</td></tr><tr><td><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>status</span></code></td><td>string</td><td>Defines the status of a document</td></tr><tr><td><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>link</span></code></td><td>hateoasLink object array</td><td>The statement download link hosted by Akoya</td></tr></tbody></table></div></div>
+<h2 align=""><div id="how-to-use-the-statements-product"></div><div><div id="section-how-to-use-the-statements-product"></div>How to use the Statements product</div><a aria-label="Skip link to How to use the Statements product" href="#how-to-use-the-statements-product" target="_self"></a></h2>
+<blockquote theme="📘"><p><span>📘</span><p>Note</p></p><p>If you’d like to test with the steps detailed below, sign in as the sandbox <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>mikomo_11</span></code> user and consent to share data with your sandbox app (for help authenticating &amp; authorizing in sandbox, see: <a href="/reference/get-authorization-code" target="_self">Get authorization code</a>). Use the resulting <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>id_token</span></code> as the bearer token in the cURL commands.</p></blockquote>
+<h3 align=""><div id="get-statement-list"></div><div><div id="section-get-statement-list"></div>GET Statement List</div><a aria-label="Skip link to GET Statement List" href="#get-statement-list" target="_self"></a></h3>
+<p>To get statements for your end-user, first retrieve a list of available statements for the consented account. Your request may include a date range of up to two years of historical statements (maximum date ranges vary by provider).</p>
+<p><strong>Endpoint:</strong> <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/statements/{version}/{providerId}/{accountId}</span></code></p>
+<p><strong>API documentation:</strong> <a href="/v2/reference/get-statement-list" target="_self">https://docs.akoya.com/v2/reference/get-statement-list</a></p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">cURL</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="curl" name="cURL" tabindex="0"><div><span>curl</span> <span>--location</span> <span>"https://sandbox-products.ddp.akoya.com/statements/v2/mikomo/513815781465?startTime=2022-02-26T00%3A00%3A00Z&amp;endTime=2023-02-26T00%3A00%3A00Z&amp;offset=0&amp;limit=5"</span> <span>--header</span> <span>"Authorization: Bearer {token}"</span>
+</div></code></pre></div></div>
+<h4 align=""><div id="example-response"></div><div><div id="section-example-response"></div>Example response</div><a aria-label="Skip link to Example response" href="#example-response" target="_self"></a></h4>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="JSON" tabindex="0"><div>{
+    <span>"links"</span>: {
+        <span>"prev"</span>: {
+            <span>"href"</span>: <span>"/statements/v2/mikomo/513815781465?endTime=2023-02-26T00%3A00%3A00Z&amp;limit=5&amp;offset=0&amp;startTime=2022-02-26T00%3A00%3A00Z"</span>
+        }
+    },
+    <span>"statements"</span>: [
+        {
+            <span>"accountId"</span>: <span>"513815781465"</span>,
+            <span>"statementId"</span>: <span>"P9CvLPKDaFRMbNDkhu1"</span>,
+            <span>"statementDate"</span>: <span>"2022-05-26"</span>,
+            <span>"description"</span>: <span>"FFOS Monthly/Quarterly Statement"</span>,
+            <span>"status"</span>: <span>"AVAILABLE"</span>,
+            <span>"links"</span>: [
+                {
+                    <span>"href"</span>: <span>"https://sandbox-products.ddp.akoya.com/statements/v2/mikomo/513815781465/P9CvLPKDaFRMbNDkhu1"</span>,
+                    <span>"action"</span>: <span>"GET"</span>,
+                    <span>"types"</span>: [
+                        <span>"application/pdf"</span>,
+                        <span>"image/jpeg"</span>,
+                        <span>"image/png"</span>
+                    ]
+                }
+            ]
+        },
+        {
+            <span>"accountId"</span>: <span>"513815781465"</span>,
+            <span>"statementId"</span>: <span>"P9CvLPKDaFRMbNDkhu2"</span>,
+            <span>"statementDate"</span>: <span>"2023-01-02"</span>,
+            <span>"description"</span>: <span>"FFOS Year End Investment Report"</span>,
+            <span>"status"</span>: <span>"FAILED"</span>,
+            <span>"links"</span>: [
+                {
+                    <span>"href"</span>: <span>"https://sandbox-products.ddp.akoya.com/statements/v2/mikomo/513815781465/P9CvLPKDaFRMbNDkhu2"</span>,
+                    <span>"action"</span>: <span>"GET"</span>,
+                    <span>"types"</span>: [
+                        <span>"application/pdf"</span>,
+                        <span>"image/jpeg"</span>,
+                        <span>"image/png"</span>
+                    ]
+                }
+            ]
+        },
+        {
+            <span>"accountId"</span>: <span>"513815781465"</span>,
+            <span>"statementId"</span>: <span>"P9CvLPKDaFRMbNDkhu3"</span>,
+            <span>"statementDate"</span>: <span>"2023-01-05"</span>,
+            <span>"description"</span>: <span>"FFOS Monthly/Quarterly Statement"</span>,
+            <span>"status"</span>: <span>"PROCESSING"</span>,
+            <span>"links"</span>: [
+                {
+                    <span>"href"</span>: <span>"https://sandbox-products.ddp.akoya.com/statements/v2/mikomo/513815781465/P9CvLPKDaFRMbNDkhu3"</span>,
+                    <span>"action"</span>: <span>"GET"</span>,
+                    <span>"types"</span>: [
+                        <span>"application/pdf"</span>,
+                        <span>"image/jpeg"</span>,
+                        <span>"image/png"</span>
+                    ]
+                }
+            ]
+        },
+        {
+            <span>"accountId"</span>: <span>"513815781465"</span>,
+            <span>"statementId"</span>: <span>"P9CvLPKDaFRMbNDkhu4"</span>,
+            <span>"statementDate"</span>: <span>"2023-02-24"</span>,
+            <span>"description"</span>: <span>"FFOS Yearly Statement"</span>,
+            <span>"status"</span>: <span>"AVAILABLE"</span>,
+            <span>"links"</span>: [
+                {
+                    <span>"href"</span>: <span>"https://sandbox-products.ddp.akoya.com/statements/v2/mikomo/513815781465/P9CvLPKDaFRMbNDkhu4"</span>,
+                    <span>"action"</span>: <span>"GET"</span>,
+                    <span>"types"</span>: [
+                        <span>"application/pdf"</span>,
+                        <span>"image/jpeg"</span>,
+                        <span>"image/png"</span>
+                    ]
+                }
+            ]
+        }
+    ]
+}
+</div></code></pre></div></div>
+<h4 align=""><div id="how-to-read-the-statement-list-response"></div><div><div id="section-how-to-read-the-statement-list-response"></div>How to read the statement list response</div><a aria-label="Skip link to How to read the statement list response" href="#how-to-read-the-statement-list-response" target="_self"></a></h4>
+<p>To provide a consistent way to link each statement provided in the list, Akoya includes the exact API call for retrieving each statement. By providing these calls, Akoya allows a passthrough of the statement since direct connections to providers cannot be made. Akoya also interprets any special characters in statement metadata and tokenizes the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementId</span></code>.</p>
+<p>Please use the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>href</span></code> link created in the response.</p>
+<p><em>Note: If you’re testing using Postman, you may use the tokenized</em> <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statementId</span></code> <em>value included in</em> <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statements.links.href</span></code>. </p>
+<h3 align=""><div id="get-statement"></div><div><div id="section-get-statement"></div>GET Statement</div><a aria-label="Skip link to GET Statement" href="#get-statement" target="_self"></a></h3>
+<p><strong>Endpoint:</strong> /statements/{version}/{providerId}/{accountId}/{statementId}</p>
+<p><strong>API documentation:</strong> <a href="/reference/get-statements" target="_self">https://docs.akoya.com/reference/get-statements</a></p>
+<p>From the statement list response, use <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>statements.links.href</span></code> as the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>location</span></code> in the cURL command. To save the response to pdf, include the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>output</span></code> command with a file name.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">cURL</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="curl" name="cURL" tabindex="0"><div><span>curl</span> <span>--location</span> <span>"&lt;https://sandbox-products.ddp.akoya.com/statements/v2/mikomo/513815781465/P9CvLPKDaFRMbNDkhu1"</span>&gt; <span>--header</span> <span>"Accept: application/pdf"</span> <span>--header</span> <span>"Authorization: Bearer {token}"</span> <span>--output</span> example.pdf
+</div></code></pre></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

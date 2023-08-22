@@ -1,0 +1,169 @@
+<body><h1>pagination next page request</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>When dealing with large sets of data, receiving results in segments can help apps process information in a more structured way. This retrieval of data, a page at a time, is called pagination.</p>
+<p>The <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/transactions</span></code> endpoint will standardize on link-based pagination with Akoya API v2.</p>
+<p>Consider the following when implementing link-based pagination.</p>
+<h2 align=""><div id="1️⃣-first-request"></div><div><div id="section-1-️-first-request"></div>1️⃣ First request</div><a aria-label="Skip link to 1️⃣ First request" href="#1️⃣-first-request" target="_self"></a></h2>
+<p>When making an initial transaction call, create the request with the following parameters. The result of that first request will return links to use for paging.</p>
+<h3 align=""><div id="parameters"></div><div><div id="section-parameters"></div>Parameters</div><a aria-label="Skip link to Parameters" href="#parameters" target="_self"></a></h3>
+<p>These parameters should only be used in constructing the first transaction call. After the first call, requesting pages must be done with links provided in results.</p>
+<p>Some data providers may not support <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>offset</span></code> or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>limit</span></code>. Please check the <em>Data Recipient Hub</em> for specific provider documentation for details on pagination support.</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>offset</span></code> - The number of items to skip before the first in the response</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>limit</span></code> - The maximum number of items to be returned in the response</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>startTime</span></code> - ISO 8601 date format in UTC time zone. Example: 2020-03-30T04:00:00Z</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>endTime</span></code> - ISO 8601 date format in UTC time zone. Example: 2021-03-30T04:00:00Z</li>
+</ul>
+<blockquote theme="📘"><p><span>📘</span><p>Use of the offset parameter</p></p><p>When using Akoya’s link-based pagination, we recommend omitting the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>offset</span></code> parameter in the initial transaction call.</p></blockquote>
+<h3 align=""><div id="request"></div><div><div id="section-request"></div>Request</div><a aria-label="Skip link to Request" href="#request" target="_self"></a></h3>
+<h4 align=""><div id="example"></div><div><div id="section-example"></div>Example</div><a aria-label="Skip link to Example" href="#example" target="_self"></a></h4>
+<p>The following example uses our sandbox and the following parameter values in the original transactions request:</p>
+<ul>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>providerId</span></code> = Mikomo</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountId</span></code> = g833202fb0866d0ad83472c429</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>limit</span></code> = 5</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>startTime</span></code> = 2019-02-26T00:00:00Z</li>
+<li><button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>endTime</span></code> = 2021-02-26T00:00:00Z</li>
+</ul>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">cURL</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="curl" name="" tabindex="0"><div><span>curl</span> <span>--location</span> <span>--request</span> GET <span>'https://sandbox-products.ddp.akoya.com/transactions/v2/mikomo/g833202fb0866d0ad83472c429?startTime=2019-02-26T00:00:00Z&amp;endTime=2021-02-26T00:00:00Z&amp;limit=5'</span> <span>--header</span> <span>'Content-Type: application/json'</span> <span>--header</span> <span>'Authorization: Bearer {{idToken}}</span>
+</div></code></pre></div></div>
+<h3 align=""><div id="response"></div><div><div id="section-response"></div>Response</div><a aria-label="Skip link to Response" href="#response" target="_self"></a></h3>
+<h4 align=""><div id="example-response-with-paging"></div><div><div id="section-example-response-with-paging"></div>Example response with paging</div><a aria-label="Skip link to Example response with paging" href="#example-response-with-paging" target="_self"></a></h4>
+<p>The value of <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>links.next.href</span></code> may contain the offset, limit, start time, and end time parameters. <strong>You should not change these values</strong> and use the link as provided.</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"links"</span>: {
+        <span>"next"</span>: {
+            <span>"href"</span>: <span>"/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&amp;limit=5&amp;offset=5&amp;startTime=2019-02-26T00%3A00%3A00Z"</span>
+        },
+        <span>"prev"</span>: {
+            <span>"href"</span>: <span>"/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&amp;limit=5&amp;offset=0&amp;startTime=2019-02-26T00%3A00%3A00Z"</span>
+        }
+    },
+    <span>"transactions"</span>: [
+        {
+            <span>"depositTransaction"</span>: {
+                <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+                <span>"amount"</span>: <span>-</span><span>449.07</span>,
+                <span>"checkNumber"</span>: <span>31505</span>,
+                <span>"description"</span>: <span>"CHECK"</span>,
+                <span>"postedTimestamp"</span>: <span>"2019-07-08T00:00:00Z"</span>,
+                <span>"status"</span>: <span>"POSTED"</span>,
+                <span>"transactionId"</span>: <span>"30191890000030"</span>,
+                <span>"transactionTimestamp"</span>: <span>"2019-07-08T00:00:00Z"</span>,
+                <span>"transactionType"</span>: <span>"CHECK"</span>
+            }
+        },
+        {
+            <span>"depositTransaction"</span>: {
+                <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+                <span>"amount"</span>: <span>-</span><span>4000.4</span>,
+                <span>"checkNumber"</span>: <span>31528</span>,
+                <span>"description"</span>: <span>"CHECK"</span>,
+                <span>"postedTimestamp"</span>: <span>"2019-07-08T00:00:00Z"</span>,
+                <span>"status"</span>: <span>"POSTED"</span>,
+                <span>"transactionId"</span>: <span>"30191890000020"</span>,
+                <span>"transactionTimestamp"</span>: <span>"2019-07-08T00:00:00Z"</span>,
+                <span>"transactionType"</span>: <span>"CHECK"</span>
+            }
+        },
+        {
+            <span>"depositTransaction"</span>: {
+                <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+                <span>"amount"</span>: <span>5048.13</span>,
+                <span>"description"</span>: <span>"DEPOSIT"</span>,
+                <span>"postedTimestamp"</span>: <span>"2019-07-08T00:00:00Z"</span>,
+                <span>"status"</span>: <span>"POSTED"</span>,
+                <span>"transactionId"</span>: <span>"30191890000010"</span>,
+                <span>"transactionTimestamp"</span>: <span>"2019-07-08T00:00:00Z"</span>,
+                <span>"transactionType"</span>: <span>"DEPOSIT"</span>
+            }
+        },
+        {
+            <span>"depositTransaction"</span>: {
+                <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+                <span>"amount"</span>: <span>-</span><span>8.6</span>,
+                <span>"checkNumber"</span>: <span>31530</span>,
+                <span>"description"</span>: <span>"CHECK"</span>,
+                <span>"postedTimestamp"</span>: <span>"2019-07-09T00:00:00Z"</span>,
+                <span>"status"</span>: <span>"POSTED"</span>,
+                <span>"transactionId"</span>: <span>"30191900000030"</span>,
+                <span>"transactionTimestamp"</span>: <span>"2019-07-09T00:00:00Z"</span>,
+                <span>"transactionType"</span>: <span>"CHECK"</span>
+            }
+        },
+        {
+            <span>"depositTransaction"</span>: {
+                <span>"accountId"</span>: <span>"g833202fb0866d0ad83472c429"</span>,
+                <span>"amount"</span>: <span>-</span><span>42.94</span>,
+                <span>"checkNumber"</span>: <span>31525</span>,
+                <span>"description"</span>: <span>"CHECK##TRANINITDATE# 07/09"</span>,
+                <span>"postedTimestamp"</span>: <span>"2019-07-09T00:00:00Z"</span>,
+                <span>"status"</span>: <span>"POSTED"</span>,
+                <span>"transactionId"</span>: <span>"30191900000020"</span>,
+                <span>"transactionTimestamp"</span>: <span>"2019-07-09T00:00:00Z"</span>,
+                <span>"transactionType"</span>: <span>"CHECK"</span>
+            }
+        }
+    ]
+}
+</div></code></pre></div></div>
+<h4 align=""><div id="example-without-pagination"></div><div><div id="section-example-without-pagination"></div>Example without pagination</div><a aria-label="Skip link to Example without pagination" href="#example-without-pagination" target="_self"></a></h4>
+<p>If all data can be returned without paging, the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>links.next.href</span></code> values will be empty. There is no additional data to page through.<br/>
+Example with sandbox user <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>mikomo_10</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>accountId</span></code> = "5426873"</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"links"</span>: {
+        <span>"prev"</span>: {
+            <span>"href"</span>: <span>"/transactions/v2/mikomo/5426873?endTime=2021-05-19T00%3A00%3A00Z&amp;limit=50&amp;offset=0&amp;startTime=2021-05-16T00%3A00%3A00Z"</span>
+        }
+    },
+    <span>"transactions"</span>: [
+        {
+            <span>"investmentTransaction"</span>: {
+                <span>"accountId"</span>: <span>"5426873"</span>,
+                <span>"amount"</span>: <span>-</span><span>30000</span>,
+                <span>"commission"</span>: <span>0</span>,
+                <span>"debitCreditMemo"</span>: <span>"DEBIT"</span>,
+                <span>"description"</span>: <span>"CHASE DEPOSIT SWEEP JPMORGAN CHASE BANK NA INTRA-DAY DEPOSIT"</span>,
+                <span>"fees"</span>: <span>0</span>,
+                <span>"fractionalCash"</span>: <span>0</span>,
+                <span>"memo"</span>: <span>"CHASE DEPOSIT SWEEP JPMORGAN CHASE BANK NA INTRA-DAY DEPOSIT"</span>,
+                <span>"positionType"</span>: <span>"LONG"</span>,
+                <span>"postedTimestamp"</span>: <span>"2021-05-17T00:00:00Z"</span>,
+                <span>"securityId"</span>: <span>"QACDS"</span>,
+                <span>"securityIdType"</span>: <span>"SYMBOL"</span>,
+                <span>"status"</span>: <span>"POSTED"</span>,
+                <span>"subAccountFund"</span>: <span>"CASH"</span>,
+                <span>"subAccountSec"</span>: <span>"CASH"</span>,
+                <span>"symbol"</span>: <span>"QACDS"</span>,
+                <span>"transactionId"</span>: <span>"TX-300000020210517#20210517--1321227038"</span>,
+                <span>"transactionTimestamp"</span>: <span>"2021-05-17T00:00:00Z"</span>,
+                <span>"transactionType"</span>: <span>"PURCHASED"</span>,
+                <span>"transferAction"</span>: <span>"OUT"</span>,
+                <span>"unitPrice"</span>: <span>0</span>,
+                <span>"units"</span>: <span>30000</span>
+            }
+        }
+    ]
+}
+</div></code></pre></div></div>
+<h2 align=""><div id="2️⃣-second-request"></div><div><div id="section-2-️-second-request"></div>2️⃣ Second request</div><a aria-label="Skip link to 2️⃣ Second request" href="#2️⃣-second-request" target="_self"></a></h2>
+<p>Use the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>links.next.href</span></code> value in the first response payload to construct the next call.</p>
+<p><strong>Do not change the link</strong>. Changes to <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>offset</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>startTime</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>endTime</span></code>, or <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>limit</span></code> in the provided link may cause errors or missing data.</p>
+<p>For example, in the first response, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>links.next.href</span></code> was returned as:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div><span>"links"</span>: {
+        <span>"next"</span>: {
+            <span>"href"</span>: <span>"/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&amp;limit=5&amp;offset=5&amp;startTime=2019-02-26T00%3A00%3A00Z"</span>
+        },
+        <span>"prev"</span>: {
+            <span>"href"</span>: <span>"/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&amp;limit=5&amp;offset=0&amp;startTime=2019-02-26T00%3A00%3A00Z"</span>
+        }
+    }
+</div></code></pre></div></div>
+<h3 align=""><div id="next-page-request"></div><div><div id="section-next-page-request"></div>Next page request</div><a aria-label="Skip link to Next page request" href="#next-page-request" target="_self"></a></h3>
+<p>To request the next page, use the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>links.next.href</span></code> value in the GET request:</p>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">cURL</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="curl" name="" tabindex="0"><div><span>curl</span> <span>--location</span> <span>--request</span> GET <span>'https://{access_url}{{links.next.href}} \</span>
+<span>--header '</span>Content-Type: application/x-www-form-urlencoded<span>' \</span>
+<span>--header '</span>Authorization: Bearer {{idToken}}<span>'</span>
+</div></code></pre></div></div>
+<h3 align=""><div id="previous-page-request"></div><div><div id="section-previous-page-request"></div>Previous page request</div><a aria-label="Skip link to Previous page request" href="#previous-page-request" target="_self"></a></h3>
+<p>Most pagination responses will include <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>links.prev.href</span></code>. It may be used to page back to previous results. However, a small number of providers do not support <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>prev</span></code>. Check the <em>Data Recipient Hub</em> for specific provider documentation for details on pagination support. If <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>prev</span></code> is not supported and your app requires it, store the <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>next</span></code> links as the user pages.</p>
+<h2 align=""><div id="3️⃣-ongoing-requests"></div><div><div id="section-3-️-ongoing-requests"></div>3️⃣ Ongoing requests</div><a aria-label="Skip link to 3️⃣ Ongoing requests" href="#3️⃣-ongoing-requests" target="_self"></a></h2>
+<p>Continue to make requests using the provided links until <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>next</span></code> is no longer returned in the response.</p></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

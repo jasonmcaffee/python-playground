@@ -1,0 +1,239 @@
+<body><h1>investments supported data elements</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>The Akoya Investments product combines basic end-user account information with balance data and extended investment details to provide your end-user with robust, in-depth insight into their investments.</p>
+<p>This endpoint returns all data available in both the Account info and Balances products plus all other available data for investment accounts including holdings, contributions, vesting, and more (listed below). To use this product, you must have the end-user’s consent and their associated ID token for permissioned data.</p>
+<p>Results for investments are returned in JSON in <a href="/docs/intro-to-fdx" target="_self" title="Introduction to FDX">FDX format</a>. While this endpoint is needed to retrieve extended data for the investment account category, you may also use it for other account categories (annuity, deposit, insurance, line of credit, or loans). If used for account categories other than investment, you will receive the same data as with the balances product.</p>
+<p><strong>Endpoint</strong>: <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>/accounts</span></code></p>
+<p><strong>API documentation</strong>: <a href="/docs/get-accounts" target="_self">https://docs.akoya.com/v2/reference/get-accounts</a></p>
+<h2 align=""><div id="example-response"></div><div><div id="section-example-response"></div>Example response</div><a aria-label="Skip link to Example response" href="#example-response" target="_self"></a></h2>
+<div><div role="tablist"><button aria-selected="true" role="tab" type="button">JSON</button></div><div role="tabpanel"><pre><button aria-label="Copy Code"></button><code data-lang="json" name="" tabindex="0"><div>{
+    <span>"accountId"</span>: <span>"426444887"</span>,
+    <span>"accountType"</span>: <span>"IRA"</span>,
+    <span>"accountNumberDisplay"</span>: <span>"*****5071"</span>,
+    <span>"currency"</span>: {
+        <span>"currencyCode"</span>: <span>"USD"</span>
+    },
+    <span>"description"</span>: <span>"Rollover IRA"</span>,
+    <span>"fiAttributes"</span>: [],
+    <span>"nickname"</span>: <span>"My IRA"</span>,
+    <span>"productName"</span>: <span>"RolloverIRA Investment Acct"</span>,
+    <span>"status"</span>: <span>"OPEN"</span>,
+    <span>"balanceType"</span>: <span>"ASSET"</span>,
+    <span>"interestRateType"</span>: <span>"FIXED"</span>,
+    <span>"interestRateAsOf"</span>: <span>"2022-04-08T08:46:14"</span>,
+    <span>"lastActivityDate"</span>: <span>"2022-04-08T08:46:14"</span>,
+    <span>"brokerId"</span>: <span>"FID"</span>,
+    <span>"margin"</span>: <span>false</span>,
+    <span>"availableCashBalance"</span>: <span>69746.83</span>,
+    <span>"balanceAsOf"</span>: <span>"2022-04-08T08:46:14"</span>,
+    <span>"balanceList"</span>: [
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Minimumequitycall"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Regulatorynetworth"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>153015.21</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Usablenetworth"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>153015.21</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Cashcreditbalance"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Networthmarketvalue"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>153015.21</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Memoadjustment"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Cashmarginshortmarketvalue"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>69746.83</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Liquidationequitycall"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Totalsecuritiesmarketvalue"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>153015.21</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Corefundamount"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>83268.38</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Cashmoneymarket"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>83268.38</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Fullnetworth"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>153015.21</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Nettradedatecreditbalance"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        },
+        {
+            <span>"balanceDate"</span>: <span>"2022-04-07T00:00:00"</span>,
+            <span>"balanceName"</span>: <span>"Cashmarketvalue"</span>,
+            <span>"balanceType"</span>: <span>"AMOUNT"</span>,
+            <span>"balanceValue"</span>: <span>69746.83</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            }
+        }
+    ],
+    <span>"currentValue"</span>: <span>153015.21</span>,
+    <span>"marginBalance"</span>: <span>0</span>,
+    <span>"holdings"</span>: [
+        {
+            <span>"averageCost"</span>: <span>false</span>,
+            <span>"changeInPrice"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            },
+            <span>"currentUnitPrice"</span>: <span>8.01</span>,
+            <span>"currentUnitPriceDate"</span>: <span>"2022-04-08T04:14:30"</span>,
+            <span>"description"</span>: <span>"AB HIGH INCOME ADVISOR"</span>,
+            <span>"heldInAccount"</span>: <span>"CASH"</span>,
+            <span>"holdingName"</span>: <span>"AB HIGH INCOME ADVISOR"</span>,
+            <span>"holdingType"</span>: <span>"MUTUALFUND"</span>,
+            <span>"marketValue"</span>: <span>49566.83</span>,
+            <span>"positionType"</span>: <span>"LONG"</span>,
+            <span>"securityId"</span>: <span>"01859M408"</span>,
+            <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+            <span>"symbol"</span>: <span>"AGDYX"</span>,
+            <span>"units"</span>: <span>6188.119</span>
+        },
+        {
+            <span>"averageCost"</span>: <span>false</span>,
+            <span>"changeInPrice"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            },
+            <span>"currentUnitPrice"</span>: <span>1</span>,
+            <span>"currentUnitPriceDate"</span>: <span>"2022-04-08T04:14:30"</span>,
+            <span>"description"</span>: <span>"GOVERNMENT CASH RESERVES"</span>,
+            <span>"heldInAccount"</span>: <span>"CASH"</span>,
+            <span>"holdingName"</span>: <span>"GOVERNMENT CASH RESERVES"</span>,
+            <span>"holdingType"</span>: <span>"MUTUALFUND"</span>,
+            <span>"marketValue"</span>: <span>83268.38</span>,
+            <span>"positionType"</span>: <span>"LONG"</span>,
+            <span>"securityId"</span>: <span>"316067107"</span>,
+            <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+            <span>"symbol"</span>: <span>"FDRXX"</span>,
+            <span>"units"</span>: <span>83268.38</span>
+        },
+        {
+            <span>"averageCost"</span>: <span>false</span>,
+            <span>"changeInPrice"</span>: <span>0</span>,
+            <span>"currency"</span>: {
+                <span>"currencyCode"</span>: <span>"USD"</span>
+            },
+            <span>"currentUnitPrice"</span>: <span>201.8</span>,
+            <span>"currentUnitPriceDate"</span>: <span>"2022-04-08T04:14:30"</span>,
+            <span>"description"</span>: <span>"FINANCIAL SERVICES GROUP COM USD5"</span>,
+            <span>"heldInAccount"</span>: <span>"CASH"</span>,
+            <span>"holdingName"</span>: <span>"FINANCIAL SERVICES GROUP COM USD5"</span>,
+            <span>"holdingType"</span>: <span>"STOCK"</span>,
+            <span>"marketValue"</span>: <span>20180</span>,
+            <span>"positionType"</span>: <span>"LONG"</span>,
+            <span>"securityId"</span>: <span>"693475105"</span>,
+            <span>"securityIdType"</span>: <span>"CUSIP"</span>,
+            <span>"symbol"</span>: <span>"PNC"</span>,
+            <span>"units"</span>: <span>100</span>
+        }
+    ]
+}
+</div></code></pre></div></div>
+<h2 align=""><div id="supported-data-elements"></div><div><div id="section-supported-data-elements"></div>Supported data elements</div><a aria-label="Skip link to Supported data elements" href="#supported-data-elements" target="_self"></a></h2>
+<blockquote theme="📘"><p><span>📘</span><p>Note</p></p><p>Investments product responses vary by account category.</p><p>Calls to this endpoint for annuity, deposit, insurance, line of credit, or loan account categories return data included in the <a href="/docs/balances" target="_self">Balances</a> product.</p></blockquote>
+<h3 align=""><div id="all-account-categories"></div><div><div id="section-all-account-categories"></div>All account categories</div><a aria-label="Skip link to All account categories" href="#all-account-categories" target="_self"></a></h3>
+<p><em>include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><em>account info</em></td><td>true</td><td>Includes <a href="/docs/account-info" target="_self">account info</a> data elements</td></tr><tr><td><em>balances</em></td><td>true</td><td>Includes <a href="/docs/balances" target="_self">balances</a> data elements</td></tr></tbody></table></div></div>
+<h3 align=""><div id="investment-accounts"></div><div><div id="section-investment-accounts"></div>Investment accounts</div><a aria-label="Skip link to Investment accounts" href="#investment-accounts" target="_self"></a></h3>
+<p><em>may also include:</em></p>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>holdings</td><td>[<a href="#holding" target="_self">holding</a>]</td><td>Array of holdings</td></tr><tr><td>openOrders</td><td>[<a href="#openorder" target="_self">openOrder</a>]</td><td>Array of open orders</td></tr><tr><td>contribution</td><td>[<a href="#contribution" target="_self">contribution</a>]</td><td>Describes how new contributions are distributed among the available securities</td></tr><tr><td>vesting</td><td>[<a href="#vesting" target="_self">vesting</a>]</td><td>Provides the past, present, and future vesting schedule and percentages</td></tr><tr><td>investmentLoans</td><td>[<a href="#investmentloan" target="_self">investmentLoan</a>]</td><td>Array of investment loans</td></tr><tr><td>pensionSource</td><td>[<a href="#pensionsource" target="_self">pensionSource</a>]</td><td>Array of Pension Source</td></tr><tr><td>equityGrants</td><td>[<a href="#equitygrants" target="_self">equityGrants</a>]</td><td>Array of equity grants</td></tr></tbody></table></div></div>
+<h3 align=""><div id="holding"></div><div><div id="section-holding"></div>Holding</div><a aria-label="Skip link to Holding" href="#holding" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><em>anonymous</em></td><td>object</td><td>none</td></tr><tr><td>assetClasses</td><td>array</td><td>Percent breakdown by asset class.</td></tr><tr><td>assetClasses.assetClass</td><td>string</td><td>none</td></tr><tr><td>assetClasses.percent</td><td>number</td><td>Percentage of asset class that falls under this asset</td></tr><tr><td>averageCost</td><td>boolean</td><td>Cost is average of all purchases for holding.</td></tr><tr><td>cashAccount</td><td>boolean</td><td>If true, indicates that this holding is used to maintain proceeds from sales, dividends, and other cash postings to the investment account.</td></tr><tr><td>changeInPrice</td><td>number</td><td>Change in current price compared to previous day's close</td></tr><tr><td>currency</td><td>[currency]</td><td>none</td></tr><tr><td>currentUnitPrice</td><td>number</td><td>none</td></tr><tr><td>currentUnitPriceDate</td><td>string(date-time)</td><td>Current unit price as of date</td></tr><tr><td>debtSecurity</td><td>object [debtSecurity]</td><td>Information about the security specific to the type of security</td></tr><tr><td>debtSecurity.parValue</td><td>number</td><td>Par value amount</td></tr><tr><td>debtSecurity.debtType</td><td>string</td><td>Debt type. COUPON, ZERO.</td></tr><tr><td>debtSecurity.debtClass</td><td>string</td><td>Classification of debt. TREASURY, MUNICIPAL, CORPORATE, OTHER.</td></tr><tr><td>debtSecurity.couponRate</td><td>number</td><td>Bond coupon rate for next closest call date</td></tr><tr><td>debtSecurity.couponDate</td><td>string(date-time)</td><td>Maturity date for next coupon</td></tr><tr><td>debtSecurity.couponMatureFrequency</td><td>string</td><td>When coupons mature. MONTHLY, QUARTERLY, SEMIANNUAL, ANNUAL, or OTHER.</td></tr><tr><td>debtSecurity.callPrice</td><td>number</td><td>Bond call price</td></tr><tr><td>debtSecurity.yieldToCall</td><td>number</td><td>Yield to next call</td></tr><tr><td>debtSecurity.callDate</td><td>string(date-time)</td><td>Next call date</td></tr><tr><td>debtSecurity.callType</td><td>string</td><td>Type of next call.  CALL, PUT, PREFUND, MATURITY.</td></tr><tr><td>debtSecurity.yieldToMaturity</td><td>number</td><td>Yield to maturity</td></tr><tr><td>debtSecurity.bondMaturityDate</td><td>string(date-time)</td><td>Bond Maturity date</td></tr><tr><td>description</td><td>string</td><td>Description of the holding</td></tr><tr><td>expirationDate</td><td>string(date-time)</td><td>For CDs, bonds, and other time-based holdings.</td></tr><tr><td>faceValue</td><td>number</td><td>Required for bonds. Face value at the time of data retrieved.</td></tr><tr><td>fiAssetClasses</td><td>array</td><td>Percent breakdown by FI-specific asset class percentage breakdown</td></tr><tr><td>fiAssetClasses.assetClass</td><td>string</td><td>FI-specific asset class</td></tr><tr><td>fiAssetClasses.percent</td><td>number</td><td>Percentage of asset class that falls under this asset</td></tr><tr><td>fiAttributes</td><td>array [fiAttribute]</td><td>[Data provider-specific attribute]</td></tr><tr><td>heldInAccount</td><td>string</td><td>Sub-account</td></tr><tr><td>holdingId</td><td>string</td><td>Long term persistent identity of the holding</td></tr><tr><td>holdingName</td><td>string</td><td>Holding name or security name</td></tr><tr><td>holdingSubType</td><td>string</td><td>none</td></tr><tr><td>holdingType</td><td>string</td><td>none</td></tr><tr><td>inv401kSurce</td><td>string</td><td>Source for money for this security.</td></tr><tr><td>marketValue</td><td>number</td><td>Market value at the time of data retrieved</td></tr><tr><td>mutualFundSecurity</td><td>object [mutualFundSecurity]</td><td>Information about the security specific to the type of security</td></tr><tr><td>mutualFundSecurity.mutualFundType</td><td>string</td><td>Mutual fund type. OPENEND, CLOSEEND, OTHER.</td></tr><tr><td>mutualFundSecurity.unitsStreet</td><td>number</td><td>Units in the FI's street name, positive quantity</td></tr><tr><td>mutualFundSecurity.unitsUser</td><td>number</td><td>Units in user's name directly, positive  quantity</td></tr><tr><td>mutualFundSecurity.reinvestDividends</td><td>boolean</td><td>Reinvest dividends</td></tr><tr><td>mutualFundSecurity.reinvestCapitalGains</td><td>boolean</td><td>Reinvest capital gains</td></tr><tr><td>mutualFundSecurity.yield</td><td>number</td><td>Current yield reported as portion of the fund's assets</td></tr><tr><td>mutualFundSecurity.yieldAsOfDate</td><td>string(date-time)</td><td>As-of date for yield value</td></tr><tr><td>originalPurchaseDate</td><td>string(date-time)</td><td>Date of original purchase</td></tr><tr><td>optionSecurity</td><td>object [optionSecurity]</td><td>Information about the security specific to the type of security</td></tr><tr><td>optionSecurity.secured</td><td>string</td><td>How the option is secured. NAKED, COVERED.</td></tr><tr><td>optionSecurity.optionType</td><td>string</td><td>PUT or CALL</td></tr><tr><td>optionSecurity.strikePrice</td><td>number</td><td>Strike price / Unit price</td></tr><tr><td>optionSecurity.expireDate</td><td>string(date-time)</td><td>Expiration date of option</td></tr><tr><td>optionSecurity.sharesPerContract</td><td>number</td><td>Shares per contract</td></tr><tr><td>otherSecurity</td><td>object [otherSecurity]</td><td>Information about the security specific to the type of security</td></tr><tr><td>typeDescription</td><td>string</td><td>Description of Other Security. Required if otherSecurity is included</td></tr><tr><td>positionType</td><td>string</td><td>LONG, SHORT.</td></tr><tr><td>purchasedPrice</td><td>number</td><td>Price of holding at the time of purchase</td></tr><tr><td>rate</td><td>number</td><td>For CDs, bonds, and other rate based holdings.</td></tr><tr><td>securityId</td><td>string</td><td>Unique identifier of security</td></tr><tr><td>securityIdType</td><td>string</td><td>Security identifier type</td></tr><tr><td>stockSecurity</td><td>object [stockSecurity]</td><td>Information about the security specific to the type of security</td></tr><tr><td>stockSecurity.unitsStreet</td><td>number</td><td>Units in the FI's street name, positive quantity</td></tr><tr><td>stockSecurity.unitsUser</td><td>number</td><td>Units in user's name directly, positive  quantity</td></tr><tr><td>stockSecurity.reinvestDividends</td><td>boolean</td><td>Reinvest dividends</td></tr><tr><td>stockSecurity.stockType</td><td>string</td><td>COMMON, PREFERRED, CONVERTIBLE, OTHER</td></tr><tr><td>stockSecurity.yield</td><td>number</td><td>Current yield</td></tr><tr><td>stockSecurity.yieldAsOfDate</td><td>string(date-time)</td><td>Yield as-of date</td></tr><tr><td>sweepSecurity</td><td>object [sweepSecurity]</td><td>Information about the security specific to the type of security</td></tr><tr><td>sweepSecurity.currentBalance</td><td>number</td><td>Balance of funds in account</td></tr><tr><td>sweepSecurity.availableBalance</td><td>number</td><td>Balance of funds available for use</td></tr><tr><td>sweepSecurity.balanceAsOf</td><td>string(date-time)</td><td>As-of date of balances</td></tr><tr><td>sweepSecurity.checks</td><td>boolean</td><td>Whether or not checks can be written on the account</td></tr><tr><td>symbol</td><td>string</td><td>Ticker / Market symbol</td></tr><tr><td>taxLots</td><td>array [object]</td><td>Breakdown by tax lot.</td></tr><tr><td>taxLots.costBasis</td><td>number</td><td>Total amount of money spent acquiring this lot including any fees or commission expenses incurred.</td></tr><tr><td>taxLots.currentValue</td><td>number</td><td>Lot market value</td></tr><tr><td>taxLots.originalPurchaseDate</td><td>string(date-time)</td><td>Lot acquired date.</td></tr><tr><td>taxLots.postionType</td><td>string</td><td>LONG, SHORT.</td></tr><tr><td>taxLots.purchasedPrice</td><td>number</td><td>Original purchase price.</td></tr><tr><td>taxLots.quantity</td><td>number</td><td>Lot quantity.</td></tr><tr><td>units</td><td>number</td><td>Required for stock, mutual funds. Number of shares (with decimals).</td></tr></tbody></table></div></div>
+<h3 align=""><div id="contribution"></div><div><div id="section-contribution"></div>Contribution</div><a aria-label="Skip link to Contribution" href="#contribution" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>securityId</td><td>string</td><td>Unique identifier of security</td></tr><tr><td>securityIdType</td><td>string</td><td>Security identifier type CUSIP, ISIN, SEDOL, SICC, VALOR, WKN</td></tr><tr><td>employerMatchPercentage</td><td>number</td><td>Employer contribution match percentage</td></tr><tr><td>employerMatchAmount</td><td>number</td><td>Employer contribution match amount</td></tr><tr><td>employeePreTaxAmount</td><td>number</td><td>Employee pre‐tax contribution amount</td></tr><tr><td>employeePreTaxPercentage</td><td>number</td><td>Employee pre‐tax contribution percentage</td></tr><tr><td>employeeAfterTaxAmount</td><td>number</td><td>Employee after tax contribution amount</td></tr><tr><td>employeeAfterTaxPercentage</td><td>number</td><td>Employee after tax contribution percentage</td></tr><tr><td>employeeDeferPreTaxAmount</td><td>number</td><td>Employee defer pre‐tax contribution match amount</td></tr><tr><td>employeeDeferPreTaxPercentage</td><td>number</td><td>Employee defer pre‐tax contribution match percentage</td></tr><tr><td>employeeYearToDate</td><td>number</td><td>Employee total year to date contribution</td></tr><tr><td>employerYearToDate</td><td>number</td><td>Employer total year to date contribution</td></tr><tr><td>rolloverContributionPercentage</td><td>number</td><td>Rollover contribution percentage</td></tr><tr><td>rolloverContributionAmount</td><td>number</td><td>Rollover contribution Amount</td></tr></tbody></table></div></div>
+<h3 align=""><div id="equitygrants"></div><div><div id="section-equity-grants"></div>EquityGrants</div><a aria-label="Skip link to EquityGrants" href="#equitygrants" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>grantId</td><td>string</td><td>Unique identifier of grant.</td></tr><tr><td>grantDate</td><td>string(date-time)</td><td>Date grant was given.</td></tr><tr><td>grantType</td><td>string</td><td>Type of grant.</td></tr><tr><td>seqNum</td><td>number</td><td>Sequence number.</td></tr><tr><td>grantPrice</td><td>number</td><td>Grant price.</td></tr><tr><td>grantCurrencyCode</td><td>string</td><td>Indicates the currency of grant USD vs AUD vs EUR, etc. (for share awards, you will still get a USD).</td></tr><tr><td>quantityGranted</td><td>number</td><td>Number of options.</td></tr><tr><td>quantityOutstanding</td><td>number</td><td>Outstanding quantity.</td></tr><tr><td>expirationDate</td><td>string(date-time)</td><td>Date grant expires.</td></tr><tr><td>vestings</td><td>array</td><td>An array of equityGrant.vestings. Provides the past, present, and future vesting schedule and percentages.</td></tr><tr><td>vestings.vestedQuantity</td><td>number</td><td>Vested quantity (Vested shares total qty of vesting tranche)</td></tr><tr><td>vestings.vestedValue</td><td>number</td><td>Vested balance at grant (aggregate of all vestings).</td></tr><tr><td>vestings.vestingDate</td><td>string(date-time)</td><td>Vesting date</td></tr><tr><td>vestings.vestExpireDate</td><td>string(date-time)</td><td>Expiration date, i.e., forfeited unless exercised by this date</td></tr><tr><td>vestings.vestedStatus</td><td>string</td><td>Valid, active, or cancelled</td></tr></tbody></table></div></div>
+<h3 align=""><div id="investmentloan"></div><div><div id="section-investment-loan"></div>InvestmentLoan</div><a aria-label="Skip link to InvestmentLoan" href="#investmentloan" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>loanId</td><td>string</td><td>Unique identifier for this loan</td></tr><tr><td>loanDescription</td><td>string</td><td>Description</td></tr><tr><td>initialLoanBalance</td><td>number</td><td>Initial loan balance amount</td></tr><tr><td>loanStartDate</td><td>string(date-time)</td><td>Start date of the loan</td></tr><tr><td>currentLoanBalance</td><td>number</td><td>Current loan principal balance amount</td></tr><tr><td>dateAsOf</td><td>string(date-time)</td><td>Date and time of current loan balance</td></tr><tr><td>loanRate</td><td>number</td><td>Loan annual interest rate for the loan</td></tr><tr><td>loanPaymentAmount</td><td>number</td><td>Loan payment amount</td></tr><tr><td>loanPaymentFrequency</td><td>string</td><td>WEEKLY, BIWEEKLY, TWICEMONTHLY, MONTHLY,FOURWEEKS, BIMONTHLY, QUARTERLY, SEMIANNUALLY, ANNUALLY, OTHER.</td></tr><tr><td>loanPaymentInitial</td><td>number</td><td>Initial number of loan payments</td></tr><tr><td>loanPaymentsRemaining</td><td>integer</td><td>Remaining number of loan payments</td></tr><tr><td>loanMaturityDate</td><td>string(date-time)</td><td>Expected loan end date</td></tr><tr><td>loanInterestToDate</td><td>number</td><td>Total interest paid to date on this loan</td></tr><tr><td>loanTotalProjectedInterest</td><td>number</td><td>Total projected interest to be paid on this loan</td></tr><tr><td>loanNextPaymentDate</td><td>string(date-time)</td><td>The next payment date for the loan</td></tr></tbody></table></div></div>
+<h3 align=""><div id="openorder"></div><div><div id="section-open-order"></div>OpenOrder</div><a aria-label="Skip link to OpenOrder" href="#openorder" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>orderId</td><td>string</td><td>Long term persistent identity of the order. Id for this order transaction.</td></tr><tr><td>securityId</td><td>string</td><td>Unique identifier of security.</td></tr><tr><td>securityIdType</td><td>string</td><td>Security identifier type. CUSIP, ISIN, SEDOL, SICC, VALOR, WKN.</td></tr><tr><td>symbol</td><td>string</td><td>Market symbol</td></tr><tr><td>description</td><td>string</td><td>Description of order</td></tr><tr><td>units</td><td>number</td><td>number of units (shares or bonds etc)</td></tr><tr><td>orderType</td><td>string</td><td>BUY, SELL, BUYTOCOVER, BUYTOOPEN, SELLTOCOVER, SELLTOOPEN, SELLSHORT, SELLCLOSE.</td></tr><tr><td>orderDate</td><td>string(date-time)</td><td>Order date</td></tr><tr><td>unitPrice</td><td>number</td><td>Unit price</td></tr><tr><td>unitType</td><td>string</td><td>SHARES, CURRENCY.</td></tr><tr><td>orderDuration</td><td>string</td><td>This order is good for DAY, GOODTILLCANCEL, IMMEDIATE</td></tr><tr><td>subAccount</td><td>string</td><td>CASH, MARGIN, SHORT, OTHER.</td></tr><tr><td>limitPrice</td><td>number</td><td>Limit Price</td></tr><tr><td>stopPrice</td><td>number</td><td>Stop price</td></tr><tr><td>inv401kSource</td><td>string</td><td>For 401(k) accounts, source of money for this order. PRETAX, AFTERTAX, MATCH, PROFITSHARING, ROLLOVER, OTHERVEST, OTHERNONVEST. Default if not present is OTHERNONVEST.</td></tr></tbody></table></div></div>
+<h3 align=""><div id="pensionsource"></div><div><div id="section-pension-source"></div>PensionSource</div><a aria-label="Skip link to PensionSource" href="#pensionsource" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>displayName</td><td>string</td><td>Name of the Source</td></tr><tr><td>amount</td><td>number</td><td>Benefit Amount</td></tr><tr><td>paymentOption</td><td>string</td><td>Form of payment</td></tr><tr><td>asOfDate</td><td>string(date-time)</td><td>Date benefit was calculated</td></tr><tr><td>frequency</td><td>string</td><td>Allowed values: ANNUALLY, BIWEEKLY, DAILY, MONTHLY, SEMIANNUALLY, SEMIMONTHLY, WEEKLY</td></tr><tr><td>startDate</td><td>string(date-time)</td><td>Assumed retirement date ‐ As of date amount is payable</td></tr></tbody></table></div></div>
+<h3 align=""><div id="vesting"></div><div><div id="section-vesting"></div>Vesting</div><a aria-label="Skip link to Vesting" href="#vesting" target="_self"></a></h3>
+<div><div><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>vestingDate</td><td>string(date-time)</td><td>Vesting date</td></tr><tr><td>symbol</td><td>string</td><td>Security symbol</td></tr><tr><td>strikePrice</td><td>number</td><td>Strike price</td></tr><tr><td>vestingPercentage</td><td>number</td><td>Vesting percentage</td></tr><tr><td>otherVestAmount</td><td>number</td><td>Other vest amount</td></tr><tr><td>otherVestPercentage</td><td>number</td><td>Other vest percentage</td></tr><tr><td>vestedBalance</td><td>number</td><td>Vested balance</td></tr><tr><td>unVestedBalance</td><td>number</td><td>Unvested balance</td></tr><tr><td>vestedQuantity</td><td>number</td><td>Vested quantity</td></tr><tr><td>unVestedQuantity</td><td>number</td><td>Unvested quantity</td></tr></tbody></table></div></div></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>

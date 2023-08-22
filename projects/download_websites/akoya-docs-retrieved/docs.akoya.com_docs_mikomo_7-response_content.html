@@ -1,0 +1,536 @@
+<body class="toolbarCount_undefined body-none theme-line header-solid header-bg-size-auto header-bg-pos-tl header-overlay-map reference-layout-column lumosity-dark" ng-class="{'hub-full': state.current().opts.full, 'hub-reference-parent': state.current().name.includes('reference'), 'hub-guides-parent': state.current().name.includes('docs'), 'no-sidebar': !state.current().opts.sidebar, 'hub-is-home': state.current().name == 'home' &amp;&amp; 'landing' == 'landing', 'hub-suggested-edits': suggestedEdits.isEnabled}"><div id="ssr-top"></div><div id="ssr-main"><div class="App ThemeContext ThemeContext_dark ThemeContext_line" style="--color-primary: #000000; --color-primary-inverse: #fff; --color-primary-alt: #000000; --color-primary-darken-10: #000000; --color-primary-darken-20: #000000; --color-primary-alpha-25: rgba(0, 0, 0, 0.25); --color-link-primary: #007088; --color-link-primary-darken-10: #004655; --color-link-primary-darken-20: #001c22; --color-link-primary-alpha-50: rgba(0, 112, 136, 0.5); --color-link-primary-alpha-25: rgba(0, 112, 136, 0.25); --color-link-background: rgba(0, 112, 136, 0.09); --color-link-text: #fff; --color-login-link: #007088; --color-login-link-text: #fff; --color-login-link-darken-10: #004655; --color-login-link-primary-alpha-50: rgba(0, 112, 136, 0.5);"><header class="Header3zzata9F_ZPQ rm-Header"><div class="Header-topuTMpygDG4e1V rm-Header-top"><div class="rm-Container rm-Container_flex"><div style="outline:none" tabindex="-1"><a class="Button Button_md Header-jumpTo3IWKQXmhSI5D rm-JumpTo Button_primary" href="#content" target="_self">Jump to Content</a></div><div class="Header-leftADQdGVqx1wqU"><a class="Header-logo1Xy41PtkzbdG rm-Logo" href="https://www.akoya.com" target="_self"><img alt="Akoya API Docs" class="Header-logo-img3YvV4lcGKkeb rm-Logo-img" src="https://files.readme.io/4596fbc-small-Akoya-R.png"/></a></div><div class="Header-leftADQdGVqx1wqU Header-left_mobile1RG-X93lx6PF"><div><div class=""><div class="Flyout95xhYIIoTKtc undefined rm-Flyout" data-testid="flyout"><div class="MobileFlyout1hHJpUd-nYkd"><a class="NavItem-item1gDDTqaXGhm1 NavItem-item_mobile1qG3gd-Mkck-" href="/" target="_self" to="/"><i class="NavItem-item-anchorzz3banOxXKjr icon-landing-page-2"></i><span class="NavItem-textSlZuuL489uiw">Home</span></a><a aria-current="page" class="NavItem-item1gDDTqaXGhm1 NavItem-item_mobile1qG3gd-Mkck- active" href="/docs" target="_self"><i class="NavItem-item-anchorzz3banOxXKjr icon-guides"></i><span class="NavItem-textSlZuuL489uiw">Guides</span></a><a class="NavItem-item1gDDTqaXGhm1 NavItem-item_mobile1qG3gd-Mkck-" href="/reference" target="_self"><i class="NavItem-item-anchorzz3banOxXKjr icon-references"></i><span class="NavItem-textSlZuuL489uiw">API Docs</span></a><a class="NavItem-item1gDDTqaXGhm1 NavItem-item_mobile1qG3gd-Mkck-" href="/changelog" target="_self"><i class="NavItem-item-anchorzz3banOxXKjr icon-changelog"></i><span class="NavItem-textSlZuuL489uiw">Changelog</span></a><select class="Select Select_md NavItem-item1gDDTqaXGhm1 NavItem-item_select3UEfLN-oSjxp NavItem-item_mobile1qG3gd-Mkck-"><option data-url="/akoya-docs/v2/docs" value="2">v2</option><option data-url="#" selected="" value="2.1">v2.1</option><option data-url="/akoya-docs/v2.2/docs" value="2.2">v2.2</option></select><hr class="MobileFlyout-divider10xf7R2X1MeW"/><a class="NavItem-item1gDDTqaXGhm1 NavItem-item_mobile1qG3gd-Mkck- NavItem_dropdown-muted1xJVuczwGc74" href="https://akoya.force.com/support" rel="noopener" target="_blank" to="https://akoya.force.com/support">🔗 Support</a><a class="NavItem-item1gDDTqaXGhm1 NavItem-item_mobile1qG3gd-Mkck- NavItem_dropdown-muted1xJVuczwGc74" href="https://recipient.ddp.akoya.com/login" rel="noopener" target="_blank" to="https://recipient.ddp.akoya.com/login">Akoya login</a><a class="MobileFlyout-logo3Lq1eTlk1K76 Header-logo1Xy41PtkzbdG rm-Logo" href="https://www.akoya.com" target="_self"><img alt="Akoya API Docs" class="Header-logo-img3YvV4lcGKkeb rm-Logo-img" src="https://files.readme.io/c2646c3-small-Akoya_Logo_White_Flat_Inline-R.png"/></a></div></div></div><button aria-label="Toggle navigation menu" class="icon-menu menu3d6DYNDa3tk5" type="button"></button></div><div class="Header-left-nav2xWPWMNHOGf_"><i class="icon-guides Header-left-nav-icon10glJKFwewOv"></i>Guides</div></div><div class="Header-right21PC2XTT6aMg"><a class="Button Button_md Button_slate_text rm-Header-top-link Header-link2tXYTgXq85zW" href="https://akoya.force.com/support" target="_self" to="https://akoya.force.com/support">🔗 Support</a><a class="Button Button_md Button_slate_text rm-Header-top-link Header-link2tXYTgXq85zW" href="https://recipient.ddp.akoya.com/login" target="_self" to="https://recipient.ddp.akoya.com/login">Akoya login</a><div class="ThemeToggle-wrapper1M_iJESXCpGR Dropdown Dropdown_closed"><button aria-expanded="false" aria-haspopup="dialog" aria-label="Toggle to light mode" class="Button Button_slate_text Button_sm rm-ThemeToggle ThemeToggle2tVPbUyQbWDo ThemeToggle_active3jPkR2CMm1JP Dropdown-toggle Button_primary" id="ThemeToggle-button-9e424de8-e8c9-48e4-a3f2-56c57867a7bb" type="button"><svg aria-labelledby="ThemeToggle-button-9e424de8-e8c9-48e4-a3f2-56c57867a7bb" class="Icon ThemeToggle-Icon3g9ZT7pRMwCv" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Moon (Dark Mode)</title><path d="M19 14.79C18.8427 16.4922 18.2039 18.1144 17.1582 19.4668C16.1126 20.8192 14.7035 21.8458 13.0957 22.4265C11.4879 23.0073 9.74798 23.1181 8.0795 22.7461C6.41102 22.3741 4.88299 21.5345 3.67423 20.3258C2.46546 19.117 1.62594 17.589 1.25391 15.9205C0.881876 14.252 0.992717 12.5121 1.57346 10.9043C2.1542 9.29651 3.18083 7.88737 4.53321 6.84175C5.8856 5.79614 7.5078 5.15731 9.21 5C8.21341 6.34827 7.73385 8.00945 7.85853 9.68141C7.98322 11.3534 8.70386 12.9251 9.8894 14.1106C11.0749 15.2961 12.6466 16.0168 14.3186 16.1415C15.9906 16.2662 17.6517 15.7866 19 14.79Z"></path><path class="ThemeToggle-Icon-star3wweJby1gM4w" d="M18.3707 1C18.3707 3.22825 16.2282 5.37069 14 5.37069C16.2282 5.37069 18.3707 7.51313 18.3707 9.74138C18.3707 7.51313 20.5132 5.37069 22.7414 5.37069C20.5132 5.37069 18.3707 3.22825 18.3707 1Z"></path></svg><svg aria-labelledby="ThemeToggle-button-9e424de8-e8c9-48e4-a3f2-56c57867a7bb" class="Icon ThemeToggle-Icon3g9ZT7pRMwCv ThemeToggle-Icon_active18I2-19CkbgD" role="img" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Sun (Light Mode)</title><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M12 1V3"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M18.36 5.64L19.78 4.22"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M21 12H23"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M18.36 18.36L19.78 19.78"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M12 21V23"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M4.22 19.78L5.64 18.36"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M1 12H3"></path><path class="ThemeToggle-Icon-ray2ab8_BwBkrTx" d="M4.22 4.22L5.64 5.64"></path><path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"></path></svg></button></div><div class="Header-searchtb6Foi0-D9Vx"><button aria-label="Search" class="rm-SearchToggle" data-symbol="⌘"><div class="icon-search1 rm-SearchToggle-icon"></div></button></div></div></div></div><div class="rm-Header-bottom" style="display:flex"><div class="Header-bottom2eLKOFXMEmh5 Header-bottom_withProjects2M-cAt2wdVuU"><div class="rm-Container rm-Container_flex"><div class="Header-searchtb6Foi0-D9Vx Header-search_featherYsmQBn55F3d9"><button aria-label="Search" class="rm-SearchToggle" data-symbol="⌘"><div class="icon-search1 rm-SearchToggle-icon"></div><div class="Header-search-placeholder3Vx4OmMPcjAi rm-SearchToggle-placeholder">Search</div><div class="rm-SearchToggle-shortcut">⌘K</div></button></div></div></div><select class="Select Select_sm MobileSubnav1DsTfasXloM2"><option data-url="" disabled="" value="Introduction">Introduction</option><option data-url="/docs/akoya-v2-release" value="Akoya API v2">Akoya API v2</option><option data-url="/docs/data-access-network" value="Data Access Network">Data Access Network</option><optgroup label="How to work with Akoya"><option data-url="/docs/how-to-work-with-akoya" value="How to work with Akoya">How to work with Akoya</option><option data-url="/docs/getting-started" value="⭐ Getting started">⭐ Getting started</option><option data-url="/docs/requirements" value="Requirements &amp; best practices">Requirements &amp; best practices</option><option data-url="/docs/project-plan" value="High level project checklist">High level project checklist</option><option data-url="/docs/implementation-steps" value="Developer project checklist">Developer project checklist</option></optgroup><optgroup label="Coming soon"><option data-url="/docs/coming-soon" value="Coming soon">Coming soon</option><option data-url="/docs/consent-flow-improvements" value="Consent flow improvements">Consent flow improvements</option></optgroup><option data-url="" disabled="" value="Akoya products">Akoya products</option><option data-url="/docs/products" value="Introduction: Akoya products">Introduction: Akoya products</option><option data-url="/docs/account-info" value="Account info">Account info</option><option data-url="/docs/balances" value="Balances">Balances</option><option data-url="/docs/customers" value="Customers">Customers</option><option data-url="/docs/investments" value="Investments">Investments</option><option data-url="/docs/payments" value="Payments">Payments</option><option data-url="/docs/transactions" value="Transactions">Transactions</option><option data-url="/docs/statements" value="Statements">Statements</option><option data-url="" disabled="" value="Technical guides">Technical guides</option><optgroup label="Data Recipient Hub v5"><option data-url="/docs/data-recipient-hub-user-manual" value="Data Recipient Hub v5">Data Recipient Hub v5</option><option data-url="/docs/hub-manual-glossary" value="Glossary">Glossary</option><option data-url="/docs/hub-manual-features" value="Features">Features</option><option data-url="/docs/hub-manual-gaining-access" value="Gaining access">Gaining access</option><option data-url="/docs/hub-manual-authentication" value="Authentication">Authentication</option><option data-url="/docs/hub-manual-team-management" value="Team management">Team management</option><option data-url="/docs/hub-manual-my-apps" value="My apps">My apps</option><option data-url="/docs/hub-manual-data-providers" value="Data providers">Data providers</option></optgroup><option data-url="/docs/migration-guide" value="Migrating to Akoya API v2">Migrating to Akoya API v2</option><option data-url="/docs/openapi" value="OpenAPI">OpenAPI</option><option data-url="/docs/postman-collection" value="Postman collection">Postman collection</option><optgroup label="Versioning"><option data-url="/docs/versioning" value="Versioning">Versioning</option><option data-url="/docs/deprecation-history" value="Deprecation history">Deprecation history</option></optgroup><option data-url="/docs/troubleshooting" value="Troubleshooting">Troubleshooting</option><option data-url="" disabled="" value="Sandbox data">Sandbox data</option><option data-url="/docs/mikomo" value="Introduction: Sandbox">Introduction: Sandbox</option><optgroup label="Mikomo"><option data-url="/docs/mikomo-users" value="Mikomo">Mikomo</option><option data-url="/docs/mikomo-model-response" value="Mikomo model response">Mikomo model response</option><option data-url="/docs/mikomo_1-response" value="mikomo_1 response">mikomo_1 response</option><option data-url="/docs/mikomo_2-response" value="mikomo_2 response">mikomo_2 response</option><option data-url="/docs/mikomo_3-response" value="mikomo_3 response">mikomo_3 response</option><option data-url="/docs/mikomo_5-response" value="mikomo_5 response">mikomo_5 response</option><option data-url="/docs/mikomo_6-response" value="mikomo_6 response">mikomo_6 response</option><option data-url="/docs/mikomo_7-response" value="mikomo_7 response">mikomo_7 response</option><option data-url="/docs/mikomo_9-response" value="mikomo_9 response">mikomo_9 response</option></optgroup><optgroup label="Validating with Sandbox"><option data-url="/docs/qa-overview" value="Validating with Sandbox">Validating with Sandbox</option><option data-url="/docs/testing-authentication" value="Authentication">Authentication</option><option data-url="/docs/testing-tokens" value="Token management">Token management</option><option data-url="/docs/testing-product-responses" value="Akoya product responses">Akoya product responses</option><option data-url="/docs/akoya-api-error-cases" value="Akoya API error cases">Akoya API error cases</option></optgroup><option data-url="" disabled="" value="Reference">Reference</option><option data-url="/docs/glossary" value="📚 Glossary">📚 Glossary</option><option data-url="/docs/cors" value="CORS">CORS</option><option data-url="/docs/tips-for-using-curl" value="cURL">cURL</option><optgroup label="FDX"><option data-url="/docs/intro-to-fdx" value="FDX">FDX</option><option data-url="/docs/example-529" value="Example 529">Example 529</option><option data-url="/docs/data-elements-fdx-v4" value="Data Elements FDX v4">Data Elements FDX v4</option></optgroup><option data-url="/docs/oauth-implementation-styles" value="OAuth">OAuth</option><option data-url="/docs/pagination" value="Pagination">Pagination</option><option data-url="/docs/redirecturi" value="RedirectURI">RedirectURI</option><option data-url="/docs/timestamps" value="Timestamps">Timestamps</option><optgroup label="Tokens"><option data-url="/docs/token-flow" value="Tokens">Tokens</option><option data-url="/docs/unique-keys-and-values" value="Unique keys and values">Unique keys and values</option></optgroup></select></div><div class="hub-search-results--reactApp" id="hub-search-results"><div class="hub-container"><div class="modal-backdrop show-modal rm-SearchModal" role="button" tabindex="0"><div class="AlgoliaSearch1uFG9utXJ4-6" id="AppSearch" role="tabpanel" tabindex="0"><div class="AlgoliaSearch-Col2ycAQ9JMrSYg"><div class="SearchBox1zrymSLJX6TP"><input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="Input Input_md SearchBox-InputUQZAW9QXMe-c" spellcheck="false" tabindex="0" type="search" value=""/></div><div class="SearchTabs9v4kr3U2lwvI"><div class="Tabs Tabs-list" role="tablist"><div aria-label="All" aria-selected="true" class="SearchTabs-Tab2715KRxrb5JT Tabs-listItem Tabs-listItem_active" role="tab" tabindex="-1"><span class="SearchTabs-Tab2715KRxrb5JT"><i class="icon icon-search1"></i>All</span></div><div aria-label="Guides" aria-selected="false" class="SearchTabs-Tab2715KRxrb5JT Tabs-listItem" role="tab" tabindex="-1"><span class="SearchTabs-Tab2715KRxrb5JT"><i class="icon icon-guides"></i>Guides</span></div><div aria-label="Reference" aria-selected="false" class="SearchTabs-Tab2715KRxrb5JT Tabs-listItem" role="tab" tabindex="-1"><span class="SearchTabs-Tab2715KRxrb5JT"><i class="icon icon-references"></i>API Docs</span></div><div aria-label="Changelog" aria-selected="false" class="SearchTabs-Tab2715KRxrb5JT Tabs-listItem" role="tab" tabindex="-1"><span class="SearchTabs-Tab2715KRxrb5JT"><i class="icon icon-changelog"></i>Changelog</span></div><div aria-label="Discussions" aria-selected="false" class="SearchTabs-Tab2715KRxrb5JT Tabs-listItem" role="tab" tabindex="-1"><span class="SearchTabs-Tab2715KRxrb5JT"><i class="icon icon-discussions"></i>Discussions</span></div></div></div><div class="SearchResults2G1wv8-Fb__d SearchResults_empty4svl7jAtcKBq"><i class="icon icon-search"></i><h6 class="Title Title6" level="6" text="Title">Start typing to search…</h6></div></div></div></div></div></div></header><main class="rm-Guides" id="content"><div class="rm-Container rm-Container_flex"><article class="rm-Article"><header id="content-head"><div class="row clearfix"><div class="col-xs-9"><h1>mikomo_7 response</h1></div><div class="col-xs-3"><a class="suggestEdits" href="/edit/mikomo_7-response" target="_self"><i class="icon icon-register"></i>Suggest Edits</a></div></div></header><div class="grid-container-fluid" id="content-container"><section class="content-body grid-75"><div class="markdown-body ng-non-bindable" style="margin-left:31px"><blockquote class="callout callout_default" theme="📌"><p class="callout-heading"><span class="callout-icon">📌</span><p>Note</p></p><p>The output below is sample output for instructional purposes, and is not specific to any of the data providers on our network.</p></blockquote>
+<div class="CodeTabs CodeTabs_initial theme-light"><div class="CodeTabs-toolbar" role="tablist"><button aria-selected="true" class="CodeTabs_active" role="tab" type="button">account details</button></div><div class="CodeTabs-inner" role="tabpanel"><pre><button aria-label="Copy Code" class="rdmd-code-copy fa"></button><code class="rdmd-code lang-json theme-light" data-lang="json" name="account details" tabindex="0"><div class="cm-s-neo">{
+        <span class="cm-property">"accounts"</span>: [
+          {
+            <span class="cm-property">"investmentAccount"</span>: {
+              <span class="cm-property">"accountId"</span>: <span class="cm-string">"1222577818"</span>,
+              <span class="cm-property">"accountNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountNumberDisplay"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountType"</span>: <span class="cm-string">"401(k) PLAN"</span>,
+              <span class="cm-property">"allowedCheckWriting"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"allowedOptionTrade"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"availableCashBalance"</span>: <span class="cm-number">985</span>,
+              <span class="cm-property">"balanceAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"balanceList"</span>: [
+                {
+                  <span class="cm-property">"balanceDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"balanceDescription"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"balanceName"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"balanceType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"balanceValue"</span>: <span class="cm-number">760</span>,
+                  <span class="cm-property">"currency"</span>: {
+                    <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                    <span class="cm-property">"currencyRate"</span>: <span class="cm-number">621</span>,
+                    <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+                  }
+                }
+              ],
+              <span class="cm-property">"balanceType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"brokerId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"calendaryearFor401K"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"contribution"</span>: [
+                {
+                  <span class="cm-property">"employeeAfterTaxAmount"</span>: <span class="cm-number">66</span>,
+                  <span class="cm-property">"employeeAfterTaxPercentage"</span>: <span class="cm-number">984</span>,
+                  <span class="cm-property">"employeeDeferPreTaxAmount"</span>: <span class="cm-number">968</span>,
+                  <span class="cm-property">"employeeDeferPreTaxPercentage"</span>: <span class="cm-number">302</span>,
+                  <span class="cm-property">"employeePreTaxAmount"</span>: <span class="cm-number">900</span>,
+                  <span class="cm-property">"employeePreTaxPercentage"</span>: <span class="cm-number">285</span>,
+                  <span class="cm-property">"employeeYearToDate"</span>: <span class="cm-number">1000</span>,
+                  <span class="cm-property">"employerMatchAmount"</span>: <span class="cm-number">590</span>,
+                  <span class="cm-property">"employerMatchPercentage"</span>: <span class="cm-number">104</span>,
+                  <span class="cm-property">"employerYearToDate"</span>: <span class="cm-number">1000</span>,
+                  <span class="cm-property">"rolloverContributionAmount"</span>: <span class="cm-number">282</span>,
+                  <span class="cm-property">"rolloverContributionPercentage"</span>: <span class="cm-number">773</span>,
+                  <span class="cm-property">"securityId"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"securityIdType"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"currency"</span>: {
+                <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"currencyRate"</span>: <span class="cm-number">672</span>,
+                <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"currentValue"</span>: <span class="cm-number">797</span>,
+              <span class="cm-property">"dailyChange"</span>: <span class="cm-number">51</span>,
+              <span class="cm-property">"description"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"employerName"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"error"</span>: {
+                <span class="cm-property">"code"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"message"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"fiAttributes"</span>: [
+                {
+                  <span class="cm-property">"name"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"value"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"holdings"</span>: [
+                {
+                  <span class="cm-property">"assetClasses"</span>: [
+                    {
+                      <span class="cm-property">"assetClass"</span>: <span class="cm-string">"string"</span>,
+                      <span class="cm-property">"percent"</span>: <span class="cm-number">897</span>
+                    }
+                  ],
+                  <span class="cm-property">"averageCost"</span>: <span class="cm-atom">true</span>,
+                  <span class="cm-property">"cashAccount"</span>: <span class="cm-atom">true</span>,
+                  <span class="cm-property">"changeInPrice"</span>: <span class="cm-number">714</span>,
+                  <span class="cm-property">"currency"</span>: {
+                    <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                    <span class="cm-property">"currencyRate"</span>: <span class="cm-number">846</span>,
+                    <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+                  },
+                  <span class="cm-property">"currentUnitPrice"</span>: <span class="cm-number">52</span>,
+                  <span class="cm-property">"currentUnitPriceDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"description"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"expirationDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"faceValue"</span>: <span class="cm-number">227</span>,
+                  <span class="cm-property">"fiAssetClasses"</span>: [
+                    {
+                      <span class="cm-property">"assetClass"</span>: <span class="cm-string">"string"</span>,
+                      <span class="cm-property">"percent"</span>: <span class="cm-number">924</span>
+                    }
+                  ],
+                  <span class="cm-property">"fiAttributes"</span>: [
+                    {
+                      <span class="cm-property">"name"</span>: <span class="cm-string">"string"</span>,
+                      <span class="cm-property">"value"</span>: <span class="cm-string">"string"</span>
+                    }
+                  ],
+                  <span class="cm-property">"heldInAccount"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"holdingId"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"holdingName"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"holdingSubType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"holdingType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"inv401kSurce"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"marketValue"</span>: <span class="cm-number">351</span>,
+                  <span class="cm-property">"originalPurchaseDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"positionType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"purchasedPrice"</span>: <span class="cm-number">703</span>,
+                  <span class="cm-property">"rate"</span>: <span class="cm-number">885</span>,
+                  <span class="cm-property">"securityId"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"securityIdType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"symbol"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"taxLots"</span>: [
+                    {
+                      <span class="cm-property">"costBasis"</span>: <span class="cm-number">381</span>,
+                      <span class="cm-property">"currentValue"</span>: <span class="cm-number">120</span>,
+                      <span class="cm-property">"originalPurchaseDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                      <span class="cm-property">"postionType"</span>: <span class="cm-string">"string"</span>,
+                      <span class="cm-property">"purchasedPrice"</span>: <span class="cm-number">194</span>,
+                      <span class="cm-property">"quantity"</span>: <span class="cm-number">969</span>
+                    }
+                  ],
+                  <span class="cm-property">"units"</span>: <span class="cm-number">953</span>
+                }
+              ],
+              <span class="cm-property">"interestRate"</span>: <span class="cm-number">312</span>,
+              <span class="cm-property">"interestRateAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"interestRateType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"investmentLoans"</span>: [
+                {
+                  <span class="cm-property">"currentLoanBalance"</span>: <span class="cm-number">736</span>,
+                  <span class="cm-property">"dateAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"initialLoanBalance"</span>: <span class="cm-number">8</span>,
+                  <span class="cm-property">"loanDescription"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"loanId"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"loanInterestToDate"</span>: <span class="cm-string">"800"</span>,
+                  <span class="cm-property">"loanMaturityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"loanNextPaymentDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"loanPaymentAmount"</span>: <span class="cm-number">133</span>,
+                  <span class="cm-property">"loanPaymentFrequency"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"loanPaymentInitial"</span>: <span class="cm-number">543</span>,
+                  <span class="cm-property">"loanPaymentsRemaining"</span>: <span class="cm-number">64</span>,
+                  <span class="cm-property">"loanRate"</span>: <span class="cm-number">151</span>,
+                  <span class="cm-property">"loanStartDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"loanTotalProjectedInterest"</span>: <span class="cm-number">381</span>
+                }
+              ],
+              <span class="cm-property">"lastActivityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lineOfBusiness"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"margin"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"marginBalance"</span>: <span class="cm-number">1</span>,
+              <span class="cm-property">"micrNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"nickname"</span>: <span class="cm-string">"Investment Account"</span>,
+              <span class="cm-property">"openOrders"</span>: [
+                {
+                  <span class="cm-property">"description"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"inv401kSource"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"limitPrice"</span>: <span class="cm-number">234</span>,
+                  <span class="cm-property">"orderDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"orderDuration"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"orderId"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"orderType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"securityId"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"securityIdType"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"stopPrice"</span>: <span class="cm-number">111</span>,
+                  <span class="cm-property">"subAccount"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"symbol"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"unitPrice"</span>: <span class="cm-number">840</span>,
+                  <span class="cm-property">"units"</span>: <span class="cm-number">76</span>,
+                  <span class="cm-property">"unitType"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"parentAccountId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"pensionSource"</span>: [
+                {
+                  <span class="cm-property">"amount"</span>: <span class="cm-number">152</span>,
+                  <span class="cm-property">"asOfDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"displayName"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"frequency"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"paymentOption"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"startDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>
+                }
+              ],
+              <span class="cm-property">"percentageChange"</span>: <span class="cm-number">379</span>,
+              <span class="cm-property">"planId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"priorInterestRate"</span>: <span class="cm-number">857</span>,
+              <span class="cm-property">"productName"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"rolloverAmount"</span>: <span class="cm-number">194</span>,
+              <span class="cm-property">"routingTransitNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"shortBalance"</span>: <span class="cm-number">138</span>,
+              <span class="cm-property">"status"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"transactionsIncluded"</span>: <span class="cm-atom">false</span>,
+              <span class="cm-property">"transferIn"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"transferOut"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"vesting"</span>: [
+                {
+                  <span class="cm-property">"otherVestAmount"</span>: <span class="cm-number">563</span>,
+                  <span class="cm-property">"otherVestPercentage"</span>: <span class="cm-number">618</span>,
+                  <span class="cm-property">"strikePrice"</span>: <span class="cm-number">515</span>,
+                  <span class="cm-property">"symbol"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"unVestedBalance"</span>: <span class="cm-number">185</span>,
+                  <span class="cm-property">"unVestedQuantity"</span>: <span class="cm-number">648</span>,
+                  <span class="cm-property">"vestedBalance"</span>: <span class="cm-number">76</span>,
+                  <span class="cm-property">"vestedQuantity"</span>: <span class="cm-number">923</span>,
+                  <span class="cm-property">"vestingDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"vestingPercentage"</span>: <span class="cm-number">799</span>
+                }
+              ]
+            }
+          },
+          {
+            <span class="cm-property">"annuityAccount"</span>: {
+              <span class="cm-property">"annualIncrease"</span>: <span class="cm-number">269</span>,
+              <span class="cm-property">"annualIncreaseType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"annuityProductType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"annuityValueBasis"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"netPresentValue"</span>: <span class="cm-number">149</span>,
+              <span class="cm-property">"paymentAmount"</span>: <span class="cm-number">309</span>,
+              <span class="cm-property">"paymentEndDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"paymentFrequency"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"paymentStartDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"periodCertainGuarantee"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"totalPaymentCount"</span>: <span class="cm-number">483</span>
+            }
+          },
+          {
+            <span class="cm-property">"insuranceAccount"</span>: {
+              <span class="cm-property">"accountCategory"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountId"</span>: <span class="cm-string">"1254778531"</span>,
+              <span class="cm-property">"accountNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountNumberDisplay"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountType"</span>: <span class="cm-string">"J"</span>,
+              <span class="cm-property">"balanceType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"bills"</span>: [
+                {
+                  <span class="cm-property">"autoPayAmount"</span>: <span class="cm-number">908</span>,
+                  <span class="cm-property">"autoPayDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"autoPayEnabled"</span>: <span class="cm-atom">true</span>,
+                  <span class="cm-property">"dueDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"lastPaymentAmount"</span>: <span class="cm-number">143</span>,
+                  <span class="cm-property">"lastPaymentDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"minimumPaymentDue"</span>: <span class="cm-number">973</span>,
+                  <span class="cm-property">"pastDueAmount"</span>: <span class="cm-number">520</span>,
+                  <span class="cm-property">"statementBalance"</span>: <span class="cm-number">16</span>,
+                  <span class="cm-property">"statementDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+                  <span class="cm-property">"totalPaymentDue"</span>: <span class="cm-number">14</span>
+                }
+              ],
+              <span class="cm-property">"currency"</span>: {
+                <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"currencyRate"</span>: <span class="cm-number">295</span>,
+                <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"description"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"error"</span>: {
+                <span class="cm-property">"code"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"message"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"fiAttributes"</span>: [
+                {
+                  <span class="cm-property">"name"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"value"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"interestRate"</span>: <span class="cm-number">698</span>,
+              <span class="cm-property">"interestRateAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"interestRateType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"lastActivityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lineOfBusiness"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"micrNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"nickname"</span>: <span class="cm-string">"Insurance Account"</span>,
+              <span class="cm-property">"parentAccountId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"policyCoverageAmount"</span>: <span class="cm-number">156</span>,
+              <span class="cm-property">"policyEndDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"policyPremium"</span>: <span class="cm-number">799</span>,
+              <span class="cm-property">"policyPremiumTerm"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"policyStartDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"priorInterestRate"</span>: <span class="cm-number">800</span>,
+              <span class="cm-property">"productName"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"routingTransitNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"status"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"transactionsIncluded"</span>: <span class="cm-atom">false</span>,
+              <span class="cm-property">"transferIn"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"transferOut"</span>: <span class="cm-atom">true</span>
+            }
+          },
+          {
+            <span class="cm-property">"loanAccount"</span>: {
+              <span class="cm-property">"accountId"</span>: <span class="cm-string">"1316072226"</span>,
+              <span class="cm-property">"accountNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountNumberDisplay"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountType"</span>: <span class="cm-string">"COMMERCIALLOAN"</span>,
+              <span class="cm-property">"balanceAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"balanceType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"compoundingPeriod"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"currency"</span>: {
+                <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"currencyRate"</span>: <span class="cm-number">761</span>,
+                <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"description"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"error"</span>: {
+                <span class="cm-property">"code"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"message"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"escrowBalance"</span>: <span class="cm-number">223</span>,
+              <span class="cm-property">"fiAttributes"</span>: [
+                {
+                  <span class="cm-property">"name"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"value"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"interestPaidYearToDate"</span>: <span class="cm-number">922</span>,
+              <span class="cm-property">"interestRate"</span>: <span class="cm-number">922</span>,
+              <span class="cm-property">"interestRateAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"interestRateType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"lastActivityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lastPaymentAmount"</span>: <span class="cm-number">734</span>,
+              <span class="cm-property">"lastPaymentDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lineOfBusiness"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"loanTerm"</span>: <span class="cm-number">532</span>,
+              <span class="cm-property">"maturityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"micrNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"nextPaymentAmount"</span>: <span class="cm-number">956</span>,
+              <span class="cm-property">"nextPaymentDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"nickname"</span>: <span class="cm-string">"Loan Account"</span>,
+              <span class="cm-property">"originalPrincipal"</span>: <span class="cm-number">60</span>,
+              <span class="cm-property">"originatingDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"parentAccountId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"paymentFrequency"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"payOffAmount"</span>: <span class="cm-number">396</span>,
+              <span class="cm-property">"principalBalance"</span>: <span class="cm-number">419</span>,
+              <span class="cm-property">"priorInterestRate"</span>: <span class="cm-number">391</span>,
+              <span class="cm-property">"productName"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"routingTransitNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"status"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"totalNumberOfPayments"</span>: <span class="cm-number">503</span>,
+              <span class="cm-property">"transactionsIncluded"</span>: <span class="cm-atom">false</span>,
+              <span class="cm-property">"transferIn"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"transferOut"</span>: <span class="cm-atom">true</span>
+            }
+          },
+          {
+            <span class="cm-property">"locAccount"</span>: {
+              <span class="cm-property">"accountId"</span>: <span class="cm-string">"1417522980"</span>,
+              <span class="cm-property">"accountNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountNumberDisplay"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountType"</span>: <span class="cm-string">"CREDITCARD"</span>,
+              <span class="cm-property">"advancesApr"</span>: <span class="cm-number">930</span>,
+              <span class="cm-property">"availableCash"</span>: <span class="cm-number">963</span>,
+              <span class="cm-property">"availableCredit"</span>: <span class="cm-number">403</span>,
+              <span class="cm-property">"balanceAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"balanceType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"cashAdvanceLimit"</span>: <span class="cm-number">747</span>,
+              <span class="cm-property">"creditLine"</span>: <span class="cm-number">638</span>,
+              <span class="cm-property">"currency"</span>: {
+                <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"currencyRate"</span>: <span class="cm-number">802</span>,
+                <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"currentBalance"</span>: <span class="cm-number">617</span>,
+              <span class="cm-property">"currentRewardsBalance"</span>: <span class="cm-number">200</span>,
+              <span class="cm-property">"description"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"error"</span>: {
+                <span class="cm-property">"code"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"message"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"fiAttributes"</span>: [
+                {
+                  <span class="cm-property">"name"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"value"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"financeCharges"</span>: <span class="cm-number">978</span>,
+              <span class="cm-property">"interestRate"</span>: <span class="cm-number">981</span>,
+              <span class="cm-property">"interestRateAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"interestRateType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"lastActivityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lastPaymentAmount"</span>: <span class="cm-number">921</span>,
+              <span class="cm-property">"lastPaymentDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lastStmtBalance"</span>: <span class="cm-number">115</span>,
+              <span class="cm-property">"lastStmtDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lineOfBusiness"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"micrNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"minimumPaymentAmount"</span>: <span class="cm-number">314</span>,
+              <span class="cm-property">"nextPaymentAmount"</span>: <span class="cm-number">717</span>,
+              <span class="cm-property">"nextPaymentDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"nickname"</span>: <span class="cm-string">"LoC Account"</span>,
+              <span class="cm-property">"parentAccountId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"pastDueAmount"</span>: <span class="cm-number">956</span>,
+              <span class="cm-property">"pointsAccrued"</span>: <span class="cm-number">235</span>,
+              <span class="cm-property">"pointsRedeemed"</span>: <span class="cm-number">160</span>,
+              <span class="cm-property">"principalBalance"</span>: <span class="cm-number">189</span>,
+              <span class="cm-property">"priorInterestRate"</span>: <span class="cm-number">901</span>,
+              <span class="cm-property">"productName"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"purchasesApr"</span>: <span class="cm-number">53</span>,
+              <span class="cm-property">"routingTransitNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"status"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"transactionsIncluded"</span>: <span class="cm-atom">false</span>,
+              <span class="cm-property">"transferIn"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"transferOut"</span>: <span class="cm-atom">true</span>
+            }
+          },
+          {
+            <span class="cm-property">"depositAccount"</span>: {
+              <span class="cm-property">"accountId"</span>: <span class="cm-string">"1602364511"</span>,
+              <span class="cm-property">"accountNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountNumberDisplay"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"accountType"</span>: <span class="cm-string">"CHECKING"</span>,
+              <span class="cm-property">"annualPercentageYield"</span>: <span class="cm-number">734</span>,
+              <span class="cm-property">"availableBalance"</span>: <span class="cm-number">720</span>,
+              <span class="cm-property">"balanceAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"balanceType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"currency"</span>: {
+                <span class="cm-property">"currencyCode"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"currencyRate"</span>: <span class="cm-number">516</span>,
+                <span class="cm-property">"originalCurrencyCode"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"currentBalance"</span>: <span class="cm-number">281</span>,
+              <span class="cm-property">"description"</span>: <span class="cm-string">"This is a deposit account"</span>,
+              <span class="cm-property">"error"</span>: {
+                <span class="cm-property">"code"</span>: <span class="cm-string">"string"</span>,
+                <span class="cm-property">"message"</span>: <span class="cm-string">"string"</span>
+              },
+              <span class="cm-property">"fiAttributes"</span>: [
+                {
+                  <span class="cm-property">"name"</span>: <span class="cm-string">"string"</span>,
+                  <span class="cm-property">"value"</span>: <span class="cm-string">"string"</span>
+                }
+              ],
+              <span class="cm-property">"interestRate"</span>: <span class="cm-number">757</span>,
+              <span class="cm-property">"interestRateAsOf"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"interestRateType"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"interestYtd"</span>: <span class="cm-number">170</span>,
+              <span class="cm-property">"lastActivityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"lineOfBusiness"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"maturityDate"</span>: <span class="cm-string">"2020-11-30T05:00:00Z"</span>,
+              <span class="cm-property">"micrNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"nickname"</span>: <span class="cm-string">"Deposit Account"</span>,
+              <span class="cm-property">"openingDayBalance"</span>: <span class="cm-number">242</span>,
+              <span class="cm-property">"parentAccountId"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"priorInterestRate"</span>: <span class="cm-number">865</span>,
+              <span class="cm-property">"productName"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"routingTransitNumber"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"status"</span>: <span class="cm-string">"string"</span>,
+              <span class="cm-property">"term"</span>: <span class="cm-number">890</span>,
+              <span class="cm-property">"transactionsIncluded"</span>: <span class="cm-atom">false</span>,
+              <span class="cm-property">"transferIn"</span>: <span class="cm-atom">true</span>,
+              <span class="cm-property">"transferOut"</span>: <span class="cm-atom">true</span>
+            }
+          }
+        ]
+      }
+</div></code></pre></div></div></div><div class="UpdatedAt"><p class="DateLine"><i class="icon icon-watch"></i>Updated<!-- --> <!-- -->8 months ago<!-- --> </p></div><hr class="NextStepsDivider"/><div class="PageThumbs"><div class="PageThumbs-helpful">Did this page help you?<div class="PageThumbs-cta"><div class="Dropdown Dropdown_closed"><button aria-expanded="false" aria-haspopup="dialog" class="Button Button_sm PageThumbs-button Dropdown-toggle Button_secondary Button_secondary_text" type="button"><i class="icon icon-thumbs-up-2"></i><span>Yes</span></button></div><div class="Dropdown Dropdown_closed"><button aria-expanded="false" aria-haspopup="dialog" class="Button Button_sm PageThumbs-button Dropdown-toggle Button_secondary Button_secondary_text" type="button"><i class="icon icon-thumbs-down1"></i><span>No</span></button></div></div></div></div></section><section class="content-toc grid-25"></section></div><div class="ModalWrapper" id="tutorialmodal-root"></div></article></div></main><div class="ModalWrapper" id="ChatGPT-modal"></div></div></div><div class="ng-non-bindable"></div><div class="hub-loading-indicator" ng-class="{active:contentLoadingSection || contentLoading}"></div><div id="hub-container" ng-class="{loading:contentLoadingSection}"><div class="hub-container"><div ng-attr-id="{{state.current().root !== 'docs' &amp;&amp; 'react-app-content-container'}}" state-container=""><div id="replace-view" ng-non-bindable=""><meta content="mikomo_7-response" name="meta:slug" ng-non-bindable=""/><meta content="docs" name="meta:type" ng-non-bindable=""/><meta content="64d391e8c94b2e000cf8e37c" name="meta:parent" ng-non-bindable=""/><meta content="" name="meta:image" ng-non-bindable=""/><meta content="mikomo_7 response" name="meta:title" ng-non-bindable=""/><meta content="mikomo_7 response" name="meta:title_seo" ng-non-bindable=""/><meta content='📌NoteThe output below is sample output for instructional purposes, and is not specific to any of the data providers on our network.account details{ "accounts": [ { "investmentAccount": { "accountId": "1222577818", "accountNumber": "string", "accountNumberDisplay": "string", "accountType": "401(k) P...' name="meta:description" ng-non-bindable=""/><meta content="64d391e8c94b2e000cf8e38c" name="meta:_id" ng-non-bindable=""/><meta name="meta:hidden" ng-non-bindable=""/><div class="templateBlock--docs" ng-if="!suggestedEdits.isEnabled"></div></div></div></div></div><div id="ssr-end">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><div class="hub-footer"></div></body>

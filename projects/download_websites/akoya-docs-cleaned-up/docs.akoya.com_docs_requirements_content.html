@@ -1,0 +1,69 @@
+<body><h1>requirements content</h1><div id="ssr-top"></div><div id="ssr-main"><div><main id="content"><div><article><div id="content-container"><section><div><p>We have a number of implementation requirements to ensure the security of our network and our end-users' financial data. Please review these requirements before continuing.</p>
+<blockquote theme="🚧"><p><span>🚧</span><p>Please don’t skip this page!</p></p><p>Please take the time to go over all the resources in this section before moving on to the project checklists.</p></blockquote>
+<h2 align=""><div id="requirements"></div><div><div id="section-requirements"></div>Requirements</div><a aria-label="Skip link to Requirements" href="#requirements" target="_self"></a></h2>
+<ul>
+<li>
+<p><strong>A consent UX in your app</strong></p>
+<ul>
+<li>
+<p>Your end-user should consent to the access and use of their data from the original data provider. The Akoya consent flow leverages <a href="https://oauth.net/2/" target="_self">OAuth 2.0</a> authorization. For implementation help see: <a href="/v2/docs/oauth-implementation-styles" target="_self">OAuth implementation styles.</a> For more information, see:</p>
+<ul>
+<li>
+<p><a href="https://tools.ietf.org/html/rfc6749#section-4.1.1" target="_self">Authorization request</a></p>
+</li>
+<li>
+<p><a href="https://tools.ietf.org/html/rfc6749#section-1.3.1" target="_self">Authorization code grant type</a></p>
+</li>
+<li>
+<p><a href="https://tools.ietf.org/html/rfc6749#section-1.5" target="_self">Refresh token grant type</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="https://openid.net/connect/" target="_self"><strong>OIDC</strong></a> token use with secure, encrypted storage</p>
+</li>
+<li>
+<p><a href="https://www.oauth.com/oauth2-servers/redirect-uris/" target="_self"><strong>Redirect URI(s)</strong></a> </p>
+<ul>
+<li>The callback resource in your application where Akoya will send the end-user and authorization code after successful authentication</li>
+</ul>
+</li>
+<li>
+<p><strong>Secure, encrypted storage for your app’s <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>client_id</span></code>, <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>client_secret</span></code> and all tokens</strong></p>
+<ul>
+<li>The <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>client_secret</span></code> should <strong>NEVER</strong> be hard-coded into your application's source code.</li>
+</ul>
+</li>
+</ul>
+<h2 align=""><div id="best-practices"></div><div><div id="section-best-practices"></div>Best practices</div><a aria-label="Skip link to Best practices" href="#best-practices" target="_self"></a></h2>
+<blockquote theme="📘"><p><span>📘</span><p>Scheduled maintenance window</p></p><p>Akoya has scheduled maintenance on Tuesdays from 10AM-1PM EST. Outages during this time should be expected, but minimal in nature. If you encounter issues during this time, please wait until the conclusion of the maintenance window to try again.</p></blockquote>
+<ul>
+<li>
+<p>Provide a link for the end-user to revoke permission for use of their provider's accounts.</p>
+</li>
+<li>
+<p>Build a pagination component into your app, allowing it to receive one page at a time.</p>
+</li>
+<li>
+<p>Adhere to transaction guidelines issued by the data provider.</p>
+</li>
+<li>
+<p>Please notify Akoya when major service disruptions occur that impact the network, such as an event that causes you to invalidate all tokens or forces re-authentication.</p>
+</li>
+<li>
+<p>To report support issues to Akoya, track the header <button aria-label="Copy Code"></button><code data-lang="" name="" tabindex="0"><span>x-akoya-interaction-id</span></code> returned with each Akoya API request.</p>
+</li>
+</ul>
+<h3 align=""><div id="fdx"></div><div><div id="section-fdx"></div>FDX</div><a aria-label="Skip link to FDX" href="#fdx" target="_self"></a></h3>
+<p><em>Akoya API v2</em> is based on <a href="https://financialdataexchange.org/" target="_self">Financial Data Exchange (FDX)</a> specifications (learn more about FDX <a href="/v2/docs/intro-to-fdx" target="_self">here</a>). The following FDX guidance is recommended while using <em>Akoya API v2</em>:</p>
+<ul>
+<li>
+<p>Utilize the FDX API, security, and user experience specifications.</p>
+</li>
+<li>
+<p>Follow FDX version recommendations for API deprecation.</p>
+</li>
+</ul>
+<p><em>Recipients need not be members of FDX to integrate with the Akoya Data Access Network; however, FDX provides a variety of <a href="https://financialdataexchange.org/FDX/Membership/API-Access-Only/FDX/Membership/Join-FDX.aspx" target="_self">membership options.</a> It also provides fee-free access to API specifications by accepting the intellectual property agreement.</em></p></div><hr/></section><section></section></div><div id="tutorialmodal-root"></div></article></div></main><div id="ChatGPT-modal"></div></div></div><div></div></body>
