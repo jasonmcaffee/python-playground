@@ -1,0 +1,1056 @@
+[
+    {
+        "property_name": "accounts.account_id",
+        "property_type": "string",
+        "property_description": "Plaid\u2019s unique identifier for the account. This value will not change unless Plaid can't reconcile the account with the data returned by the financial institution. This may occur, for example, when the name of the account changes. If this happens a new `account_id` will be assigned to the account.\n\nThe `account_id` can also change if the `access_token` is deleted and the same credentials that were used to generate that `access_token` are used to generate a new `access_token` on a later date. In that case, the new `account_id` will be different from the old `account_id`.\n\nIf an account with a specific `account_id` disappears instead of changing, the account is likely closed. Closed accounts are not returned by the Plaid API.\n\nLike all Plaid identifiers, the `account_id` is case sensitive.",
+        "enum": [],
+        "nullable": false,
+        "example": "BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp"
+    },
+    {
+        "property_name": "accounts.balances.available",
+        "property_type": "number",
+        "property_description": "The amount of funds available to be withdrawn from the account, as determined by the financial institution.\n\nFor `credit`-type accounts, the `available` balance typically equals the `limit` less the `current` balance, less any pending outflows plus any pending inflows.\n\nFor `depository`-type accounts, the `available` balance typically equals the `current` balance less any pending outflows plus any pending inflows. For `depository`-type accounts, the `available` balance does not include the overdraft limit.\n\nFor `investment`-type accounts (or `brokerage`-type accounts for API versions 2018-05-22 and earlier), the `available` balance is the total cash available to withdraw as presented by the institution.\n\nNote that not all institutions calculate the `available`  balance. In the event that `available` balance is unavailable, Plaid will return an `available` balance value of `null`.\n\nAvailable balance may be cached and is not guaranteed to be up-to-date in realtime unless the value was returned by `/accounts/balance/get`.\n\nIf `current` is `null` this field is guaranteed not to be `null`.",
+        "enum": [],
+        "nullable": true,
+        "example": 100
+    },
+    {
+        "property_name": "accounts.balances.current",
+        "property_type": "number",
+        "property_description": "The total amount of funds in or owed by the account.\n\nFor `credit`-type accounts, a positive balance indicates the amount owed; a negative amount indicates the lender owing the account holder.\n\nFor `loan`-type accounts, the current balance is the principal remaining on the loan, except in the case of student loan accounts at Sallie Mae (`ins_116944`). For Sallie Mae student loans, the account's balance includes both principal and any outstanding interest.\n\nFor `investment`-type accounts (or `brokerage`-type accounts for API versions 2018-05-22 and earlier), the current balance is the total value of assets as presented by the institution.\n\nNote that balance information may be cached unless the value was returned by `/accounts/balance/get`; if the Item is enabled for Transactions, the balance will be at least as recent as the most recent Transaction update. If you require realtime balance information, use the `available` balance as provided by `/accounts/balance/get`.\n\nWhen returned by `/accounts/balance/get`, this field may be `null`. When this happens, `available` is guaranteed not to be `null`.",
+        "enum": [],
+        "nullable": true,
+        "example": 110
+    },
+    {
+        "property_name": "accounts.balances.limit",
+        "property_type": "number",
+        "property_description": "For `credit`-type accounts, this represents the credit limit.\n\nFor `depository`-type accounts, this represents the pre-arranged overdraft limit, which is common for current (checking) accounts in Europe.\n\nIn North America, this field is typically only available for `credit`-type accounts.",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "accounts.balances.iso_currency_code",
+        "property_type": "string",
+        "property_description": "The ISO-4217 currency code of the balance. Always null if `unofficial_currency_code` is non-null.",
+        "enum": [],
+        "nullable": true,
+        "example": "USD"
+    },
+    {
+        "property_name": "accounts.balances.unofficial_currency_code",
+        "property_type": "string",
+        "property_description": "The unofficial currency code associated with the balance. Always null if `iso_currency_code` is non-null. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.\n\nSee the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `unofficial_currency_code`s.",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "accounts.balances.last_updated_datetime",
+        "property_type": "string",
+        "property_description": "Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time that the balance for the given account has been updated\n\nThis is currently only provided when the `min_last_updated_datetime` is passed when calling `/accounts/balance/get` for `ins_128026` (Capital One).",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "accounts.mask",
+        "property_type": "string",
+        "property_description": "The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.",
+        "enum": [],
+        "nullable": true,
+        "example": "0000"
+    },
+    {
+        "property_name": "accounts.name",
+        "property_type": "string",
+        "property_description": "The name of the account, either assigned by the user or by the financial institution itself",
+        "enum": [],
+        "nullable": false,
+        "example": "Plaid Checking"
+    },
+    {
+        "property_name": "accounts.official_name",
+        "property_type": "string",
+        "property_description": "The official name of the account as given by the financial institution",
+        "enum": [],
+        "nullable": true,
+        "example": "Plaid Gold Standard 0% Interest Checking"
+    },
+    {
+        "property_name": "accounts.type",
+        "property_type": "string",
+        "property_description": "`investment:` Investment account. In API versions 2018-05-22 and earlier, this type is called `brokerage` instead.\n\n`credit:` Credit card\n\n`depository:` Depository account\n\n`loan:` Loan account\n\n`other:` Non-specified account type\n\nSee the [Account type schema](https://plaid.com/docs/api/accounts#account-type-schema) for a full listing of account types and corresponding subtypes.",
+        "enum": [
+            "investment",
+            "credit",
+            "depository",
+            "loan",
+            "brokerage",
+            "other"
+        ],
+        "nullable": false,
+        "example": "depository"
+    },
+    {
+        "property_name": "accounts.subtype",
+        "property_type": "string",
+        "property_description": "See the [Account type schema](https://plaid.com/docs/api/accounts/#account-type-schema) for a full listing of account types and corresponding subtypes.",
+        "enum": [
+            "401a",
+            "401k",
+            "403B",
+            "457b",
+            "529",
+            "brokerage",
+            "cash isa",
+            "crypto exchange",
+            "education savings account",
+            "ebt",
+            "fixed annuity",
+            "gic",
+            "health reimbursement arrangement",
+            "hsa",
+            "isa",
+            "ira",
+            "lif",
+            "life insurance",
+            "lira",
+            "lrif",
+            "lrsp",
+            "non-custodial wallet",
+            "non-taxable brokerage account",
+            "other",
+            "other insurance",
+            "other annuity",
+            "prif",
+            "rdsp",
+            "resp",
+            "rlif",
+            "rrif",
+            "pension",
+            "profit sharing plan",
+            "retirement",
+            "roth",
+            "roth 401k",
+            "rrsp",
+            "sep ira",
+            "simple ira",
+            "sipp",
+            "stock plan",
+            "thrift savings plan",
+            "tfsa",
+            "trust",
+            "ugma",
+            "utma",
+            "variable annuity",
+            "credit card",
+            "paypal",
+            "cd",
+            "checking",
+            "savings",
+            "money market",
+            "prepaid",
+            "auto",
+            "business",
+            "commercial",
+            "construction",
+            "consumer",
+            "home equity",
+            "loan",
+            "mortgage",
+            "overdraft",
+            "line of credit",
+            "student",
+            "cash management",
+            "keogh",
+            "mutual fund",
+            "recurring",
+            "rewards",
+            "safe deposit",
+            "sarsep",
+            "payroll",
+            null
+        ],
+        "nullable": true,
+        "example": "checking"
+    },
+    {
+        "property_name": "accounts.verification_status",
+        "property_type": "string",
+        "property_description": "The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.\n\n`pending_automatic_verification`: The Item is pending automatic verification\n\n`pending_manual_verification`: The Item is pending manual micro-deposit verification. Items remain in this state until the user successfully verifies the micro-deposit.\n\n`automatically_verified`: The Item has successfully been automatically verified\t\n\n`manually_verified`: The Item has successfully been manually verified\n\n`verification_expired`: Plaid was unable to automatically verify the deposit within 7 calendar days and will no longer attempt to validate the Item. Users may retry by submitting their information again through Link.\n\n`verification_failed`: The Item failed manual micro-deposit verification because the user exhausted all 3 verification attempts. Users may retry by submitting their information again through Link.\t\n\t",
+        "enum": [
+            "automatically_verified",
+            "pending_automatic_verification",
+            "pending_manual_verification",
+            "manually_verified",
+            "verification_expired",
+            "verification_failed"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.persistent_account_id",
+        "property_type": "string",
+        "property_description": "A unique and persistent identifier for accounts that can be used to trace multiple instances of the same account across different Items for depository accounts. This is currently an opt-in field and only supported for Chase Items.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.item_id",
+        "property_type": "string",
+        "property_description": "The Plaid Item ID. The `item_id` is always unique; linking the same account at the same institution twice will result in two Items with different `item_id` values. Like all Plaid identifiers, the `item_id` is case-sensitive.",
+        "enum": [],
+        "nullable": false,
+        "example": "eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6"
+    },
+    {
+        "property_name": "item.institution_id",
+        "property_type": "string",
+        "property_description": "The Plaid Institution ID associated with the Item. Field is `null` for Items created via Same Day Micro-deposits.",
+        "enum": [],
+        "nullable": true,
+        "example": "ins_3"
+    },
+    {
+        "property_name": "item.webhook",
+        "property_type": "string",
+        "property_description": "The URL registered to receive webhooks for the Item.",
+        "enum": [],
+        "nullable": true,
+        "example": "https://www.genericwebhookurl.com/webhook"
+    },
+    {
+        "property_name": "item.error.error_type",
+        "property_type": "string",
+        "property_description": "A broad categorization of the error. Safe for programmatic use.",
+        "enum": [
+            "INVALID_REQUEST",
+            "INVALID_RESULT",
+            "INVALID_INPUT",
+            "INSTITUTION_ERROR",
+            "RATE_LIMIT_EXCEEDED",
+            "API_ERROR",
+            "ITEM_ERROR",
+            "ASSET_REPORT_ERROR",
+            "RECAPTCHA_ERROR",
+            "OAUTH_ERROR",
+            "PAYMENT_ERROR",
+            "BANK_TRANSFER_ERROR",
+            "INCOME_VERIFICATION_ERROR",
+            "MICRODEPOSITS_ERROR"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.error.error_code",
+        "property_type": "string",
+        "property_description": "The particular error code. Safe for programmatic use.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.error.error_message",
+        "property_type": "string",
+        "property_description": "A developer-friendly representation of the error code. This may change over time and is not safe for programmatic use.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.error.display_message",
+        "property_type": "string",
+        "property_description": "A user-friendly representation of the error code. `null` if the error is not related to user action.\n\nThis may change over time and is not safe for programmatic use.",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "item.error.request_id",
+        "property_type": "string",
+        "property_description": "A unique ID identifying the request, to be used for troubleshooting purposes. This field will be omitted in errors provided by webhooks.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.error.causes",
+        "property_type": "N/A",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.error.status",
+        "property_type": "integer",
+        "property_description": "The HTTP status code associated with the error. This will only be returned in the response body when the error information is provided via a webhook.",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "item.error.documentation_url",
+        "property_type": "string",
+        "property_description": "The URL of a Plaid documentation page with more information about the error",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.error.suggested_action",
+        "property_type": "string",
+        "property_description": "Suggested steps for resolving the error",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "item.available_products",
+        "property_type": "string",
+        "property_description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "enum": [
+            "assets",
+            "auth",
+            "balance",
+            "identity",
+            "investments",
+            "investments_auth",
+            "liabilities",
+            "payment_initiation",
+            "identity_verification",
+            "transactions",
+            "credit_details",
+            "income",
+            "income_verification",
+            "deposit_switch",
+            "standing_orders",
+            "transfer",
+            "employment",
+            "recurring_transactions",
+            "signal",
+            "statements"
+        ],
+        "nullable": false,
+        "example": [
+            "balance",
+            "investments"
+        ]
+    },
+    {
+        "property_name": "item.billed_products",
+        "property_type": "string",
+        "property_description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "enum": [
+            "assets",
+            "auth",
+            "balance",
+            "identity",
+            "investments",
+            "investments_auth",
+            "liabilities",
+            "payment_initiation",
+            "identity_verification",
+            "transactions",
+            "credit_details",
+            "income",
+            "income_verification",
+            "deposit_switch",
+            "standing_orders",
+            "transfer",
+            "employment",
+            "recurring_transactions",
+            "signal",
+            "statements"
+        ],
+        "nullable": false,
+        "example": [
+            "assets",
+            "auth",
+            "identity",
+            "liabilities",
+            "transactions"
+        ]
+    },
+    {
+        "property_name": "item.products",
+        "property_type": "string",
+        "property_description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "enum": [
+            "assets",
+            "auth",
+            "balance",
+            "identity",
+            "investments",
+            "investments_auth",
+            "liabilities",
+            "payment_initiation",
+            "identity_verification",
+            "transactions",
+            "credit_details",
+            "income",
+            "income_verification",
+            "deposit_switch",
+            "standing_orders",
+            "transfer",
+            "employment",
+            "recurring_transactions",
+            "signal",
+            "statements"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.consented_products",
+        "property_type": "string",
+        "property_description": "A list of products that an institution can support. All Items must be initialized with at least one product. The Balance product is always available and does not need to be specified during initialization.",
+        "enum": [
+            "assets",
+            "auth",
+            "balance",
+            "identity",
+            "investments",
+            "investments_auth",
+            "liabilities",
+            "payment_initiation",
+            "identity_verification",
+            "transactions",
+            "credit_details",
+            "income",
+            "income_verification",
+            "deposit_switch",
+            "standing_orders",
+            "transfer",
+            "employment",
+            "recurring_transactions",
+            "signal",
+            "statements"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "item.consent_expiration_time",
+        "property_type": "string",
+        "property_description": "The RFC 3339 timestamp after which the consent provided by the end user will expire. Upon consent expiration, the item will enter the `ITEM_LOGIN_REQUIRED` error state. To circumvent the `ITEM_LOGIN_REQUIRED` error and maintain continuous consent, the end user can reauthenticate via Link\u2019s update mode in advance of the consent expiration time.\n\nNote - This is only relevant for certain OAuth-based institutions. For all other institutions, this field will be null.\n",
+        "enum": [],
+        "nullable": true,
+        "example": null
+    },
+    {
+        "property_name": "item.update_type",
+        "property_type": "string",
+        "property_description": "Indicates whether an Item requires user interaction to be updated, which can be the case for Items with some forms of two-factor authentication.\n\n`background` - Item can be updated in the background\n\n`user_present_required` - Item requires user interaction to be updated",
+        "enum": [
+            "background",
+            "user_present_required"
+        ],
+        "nullable": false,
+        "example": "background"
+    },
+    {
+        "property_name": "liabilities.credit.account_id",
+        "property_type": "string",
+        "property_description": "The ID of the account that this liability belongs to.",
+        "enum": [],
+        "nullable": true,
+        "example": "dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK"
+    },
+    {
+        "property_name": "liabilities.credit.aprs.apr_percentage",
+        "property_type": "number",
+        "property_description": "Annual Percentage Rate applied.\n",
+        "enum": [],
+        "nullable": false,
+        "example": 15.24
+    },
+    {
+        "property_name": "liabilities.credit.aprs.apr_type",
+        "property_type": "string",
+        "property_description": "The type of balance to which the APR applies.",
+        "enum": [
+            "balance_transfer_apr",
+            "cash_apr",
+            "purchase_apr",
+            "special"
+        ],
+        "nullable": false,
+        "example": "balance_transfer_apr"
+    },
+    {
+        "property_name": "liabilities.credit.aprs.balance_subject_to_apr",
+        "property_type": "number",
+        "property_description": "Amount of money that is subjected to the APR if a balance was carried beyond payment due date. How it is calculated can vary by card issuer. It is often calculated as an average daily balance.",
+        "enum": [],
+        "nullable": true,
+        "example": 1562.32
+    },
+    {
+        "property_name": "liabilities.credit.aprs.interest_charge_amount",
+        "property_type": "number",
+        "property_description": "Amount of money charged due to interest from last statement.",
+        "enum": [],
+        "nullable": true,
+        "example": 130.22
+    },
+    {
+        "property_name": "liabilities.credit.is_overdue",
+        "property_type": "boolean",
+        "property_description": "true if a payment is currently overdue. Availability for this field is limited.",
+        "enum": [],
+        "nullable": true,
+        "example": false
+    },
+    {
+        "property_name": "liabilities.credit.last_payment_amount",
+        "property_type": "number",
+        "property_description": "The amount of the last payment.",
+        "enum": [],
+        "nullable": true,
+        "example": 168.25
+    },
+    {
+        "property_name": "liabilities.credit.last_payment_date",
+        "property_type": "string",
+        "property_description": "The date of the last payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). Availability for this field is limited.",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-05-22"
+    },
+    {
+        "property_name": "liabilities.credit.last_statement_issue_date",
+        "property_type": "string",
+        "property_description": "The date of the last statement. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-05-28"
+    },
+    {
+        "property_name": "liabilities.credit.last_statement_balance",
+        "property_type": "number",
+        "property_description": "The total amount owed as of the last statement issued",
+        "enum": [],
+        "nullable": true,
+        "example": 1708.77
+    },
+    {
+        "property_name": "liabilities.credit.minimum_payment_amount",
+        "property_type": "number",
+        "property_description": "The minimum payment due for the next billing cycle.",
+        "enum": [],
+        "nullable": true,
+        "example": 20
+    },
+    {
+        "property_name": "liabilities.credit.next_payment_due_date",
+        "property_type": "string",
+        "property_description": "The due date for the next payment. The due date is `null` if a payment is not expected. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2020-05-28"
+    },
+    {
+        "property_name": "liabilities.mortgage.account_id",
+        "property_type": "string",
+        "property_description": "The ID of the account that this liability belongs to.",
+        "enum": [],
+        "nullable": false,
+        "example": "BxBXxLj1m4HMXBm9WZJyUg9XLd4rKEhw8Pb1J"
+    },
+    {
+        "property_name": "liabilities.mortgage.account_number",
+        "property_type": "string",
+        "property_description": "The account number of the loan.",
+        "enum": [],
+        "nullable": false,
+        "example": "3120194154"
+    },
+    {
+        "property_name": "liabilities.mortgage.current_late_fee",
+        "property_type": "number",
+        "property_description": "The current outstanding amount charged for late payment.",
+        "enum": [],
+        "nullable": true,
+        "example": 25
+    },
+    {
+        "property_name": "liabilities.mortgage.escrow_balance",
+        "property_type": "number",
+        "property_description": "Total amount held in escrow to pay taxes and insurance on behalf of the borrower.",
+        "enum": [],
+        "nullable": true,
+        "example": 3141.54
+    },
+    {
+        "property_name": "liabilities.mortgage.has_pmi",
+        "property_type": "boolean",
+        "property_description": "Indicates whether the borrower has private mortgage insurance in effect.",
+        "enum": [],
+        "nullable": true,
+        "example": true
+    },
+    {
+        "property_name": "liabilities.mortgage.has_prepayment_penalty",
+        "property_type": "boolean",
+        "property_description": "Indicates whether the borrower will pay a penalty for early payoff of mortgage.",
+        "enum": [],
+        "nullable": true,
+        "example": true
+    },
+    {
+        "property_name": "liabilities.mortgage.interest_rate.percentage",
+        "property_type": "number",
+        "property_description": "Percentage value (interest rate of current mortgage, not APR) of interest payable on a loan.",
+        "enum": [],
+        "nullable": true,
+        "example": 3.99
+    },
+    {
+        "property_name": "liabilities.mortgage.interest_rate.type",
+        "property_type": "string",
+        "property_description": "The type of interest charged (fixed or variable).",
+        "enum": [],
+        "nullable": true,
+        "example": "fixed"
+    },
+    {
+        "property_name": "liabilities.mortgage.last_payment_amount",
+        "property_type": "number",
+        "property_description": "The amount of the last payment.",
+        "enum": [],
+        "nullable": true,
+        "example": 3141.54
+    },
+    {
+        "property_name": "liabilities.mortgage.last_payment_date",
+        "property_type": "string",
+        "property_description": "The date of the last payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-08-01"
+    },
+    {
+        "property_name": "liabilities.mortgage.loan_type_description",
+        "property_type": "string",
+        "property_description": "Description of the type of loan, for example `conventional`, `fixed`, or `variable`. This field is provided directly from the loan servicer and does not have an enumerated set of possible values.",
+        "enum": [],
+        "nullable": true,
+        "example": "conventional"
+    },
+    {
+        "property_name": "liabilities.mortgage.loan_term",
+        "property_type": "string",
+        "property_description": "Full duration of mortgage as at origination (e.g. `10 year`).",
+        "enum": [],
+        "nullable": true,
+        "example": "30 year"
+    },
+    {
+        "property_name": "liabilities.mortgage.maturity_date",
+        "property_type": "string",
+        "property_description": "Original date on which mortgage is due in full. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2045-07-31"
+    },
+    {
+        "property_name": "liabilities.mortgage.next_monthly_payment",
+        "property_type": "number",
+        "property_description": "The amount of the next payment.",
+        "enum": [],
+        "nullable": true,
+        "example": 3141.54
+    },
+    {
+        "property_name": "liabilities.mortgage.next_payment_due_date",
+        "property_type": "string",
+        "property_description": "The due date for the next payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-11-15"
+    },
+    {
+        "property_name": "liabilities.mortgage.origination_date",
+        "property_type": "string",
+        "property_description": "The date on which the loan was initially lent. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2015-08-01"
+    },
+    {
+        "property_name": "liabilities.mortgage.origination_principal_amount",
+        "property_type": "number",
+        "property_description": "The original principal balance of the mortgage.",
+        "enum": [],
+        "nullable": true,
+        "example": 425000
+    },
+    {
+        "property_name": "liabilities.mortgage.past_due_amount",
+        "property_type": "number",
+        "property_description": "Amount of loan (principal + interest) past due for payment.",
+        "enum": [],
+        "nullable": true,
+        "example": 2304
+    },
+    {
+        "property_name": "liabilities.mortgage.property_address.city",
+        "property_type": "string",
+        "property_description": "The city name.",
+        "enum": [],
+        "nullable": true,
+        "example": "Malakoff"
+    },
+    {
+        "property_name": "liabilities.mortgage.property_address.country",
+        "property_type": "string",
+        "property_description": "The ISO 3166-1 alpha-2 country code.",
+        "enum": [],
+        "nullable": true,
+        "example": "US"
+    },
+    {
+        "property_name": "liabilities.mortgage.property_address.postal_code",
+        "property_type": "string",
+        "property_description": "The five or nine digit postal code.",
+        "enum": [],
+        "nullable": true,
+        "example": "14236"
+    },
+    {
+        "property_name": "liabilities.mortgage.property_address.region",
+        "property_type": "string",
+        "property_description": "The region or state (example \"NC\").",
+        "enum": [],
+        "nullable": true,
+        "example": "NY"
+    },
+    {
+        "property_name": "liabilities.mortgage.property_address.street",
+        "property_type": "string",
+        "property_description": "The full street address (example \"564 Main Street, Apt 15\").",
+        "enum": [],
+        "nullable": true,
+        "example": "2992 Cameron Road"
+    },
+    {
+        "property_name": "liabilities.mortgage.ytd_interest_paid",
+        "property_type": "number",
+        "property_description": "The year to date (YTD) interest paid.",
+        "enum": [],
+        "nullable": true,
+        "example": 12300.4
+    },
+    {
+        "property_name": "liabilities.mortgage.ytd_principal_paid",
+        "property_type": "number",
+        "property_description": "The YTD principal paid.",
+        "enum": [],
+        "nullable": true,
+        "example": 12340.5
+    },
+    {
+        "property_name": "liabilities.student.account_id",
+        "property_type": "string",
+        "property_description": "The ID of the account that this liability belongs to.",
+        "enum": [],
+        "nullable": true,
+        "example": "Pp1Vpkl9w8sajvK6oEEKtr7vZxBnGpf7LxxLE"
+    },
+    {
+        "property_name": "liabilities.student.account_number",
+        "property_type": "string",
+        "property_description": "The account number of the loan. For some institutions, this may be a masked version of the number (e.g., the last 4 digits instead of the entire number).",
+        "enum": [],
+        "nullable": true,
+        "example": "4277075694"
+    },
+    {
+        "property_name": "liabilities.student.disbursement_dates",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": [
+            "2002-08-28"
+        ]
+    },
+    {
+        "property_name": "liabilities.student.expected_payoff_date",
+        "property_type": "string",
+        "property_description": "The date when the student loan is expected to be paid off. Availability for this field is limited. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2032-07-28"
+    },
+    {
+        "property_name": "liabilities.student.guarantor",
+        "property_type": "string",
+        "property_description": "The guarantor of the student loan.",
+        "enum": [],
+        "nullable": true,
+        "example": "DEPT OF ED"
+    },
+    {
+        "property_name": "liabilities.student.interest_rate_percentage",
+        "property_type": "number",
+        "property_description": "The interest rate on the loan as a percentage.",
+        "enum": [],
+        "nullable": false,
+        "example": 5.25
+    },
+    {
+        "property_name": "liabilities.student.is_overdue",
+        "property_type": "boolean",
+        "property_description": "`true` if a payment is currently overdue. Availability for this field is limited.",
+        "enum": [],
+        "nullable": true,
+        "example": false
+    },
+    {
+        "property_name": "liabilities.student.last_payment_amount",
+        "property_type": "number",
+        "property_description": "The amount of the last payment.",
+        "enum": [],
+        "nullable": true,
+        "example": 138.05
+    },
+    {
+        "property_name": "liabilities.student.last_payment_date",
+        "property_type": "string",
+        "property_description": "The date of the last payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-04-22"
+    },
+    {
+        "property_name": "liabilities.student.last_statement_issue_date",
+        "property_type": "string",
+        "property_description": "The date of the last statement. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-04-28"
+    },
+    {
+        "property_name": "liabilities.student.loan_name",
+        "property_type": "string",
+        "property_description": "The type of loan, e.g., \"Consolidation Loans\".",
+        "enum": [],
+        "nullable": true,
+        "example": "Consolidation"
+    },
+    {
+        "property_name": "liabilities.student.loan_status.end_date",
+        "property_type": "string",
+        "property_description": "The date until which the loan will be in its current status. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).\n",
+        "enum": [],
+        "nullable": true,
+        "example": "2032-07-28"
+    },
+    {
+        "property_name": "liabilities.student.loan_status.type",
+        "property_type": "string",
+        "property_description": "The status type of the student loan",
+        "enum": [
+            "cancelled",
+            "charged off",
+            "claim",
+            "consolidated",
+            "deferment",
+            "delinquent",
+            "discharged",
+            "extension",
+            "forbearance",
+            "in grace",
+            "in military",
+            "in school",
+            "not fully disbursed",
+            "other",
+            "paid in full",
+            "refunded",
+            "repayment",
+            "transferred"
+        ],
+        "nullable": true,
+        "example": "repayment"
+    },
+    {
+        "property_name": "liabilities.student.minimum_payment_amount",
+        "property_type": "number",
+        "property_description": "The minimum payment due for the next billing cycle. There are some exceptions:\nSome institutions require a minimum payment across all loans associated with an account number. Our API presents that same minimum payment amount on each loan. The institutions that do this are: Great Lakes ( `ins_116861`), Firstmark (`ins_116295`), Commonbond Firstmark Services (`ins_116950`), Nelnet (`ins_116528`), EdFinancial Services (`ins_116304`), Granite State (`ins_116308`), and Oklahoma Student Loan Authority (`ins_116945`).\nFirstmark (`ins_116295` ) and Navient (`ins_116248`) will display as $0 if there is an autopay program in effect.",
+        "enum": [],
+        "nullable": true,
+        "example": 25
+    },
+    {
+        "property_name": "liabilities.student.next_payment_due_date",
+        "property_type": "string",
+        "property_description": "The due date for the next payment. The due date is `null` if a payment is not expected. A payment is not expected if `loan_status.type` is `deferment`, `in_school`, `consolidated`, `paid in full`, or `transferred`. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2019-05-28"
+    },
+    {
+        "property_name": "liabilities.student.origination_date",
+        "property_type": "string",
+        "property_description": "The date on which the loan was initially lent. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).\n",
+        "enum": [],
+        "nullable": true,
+        "example": "2002-08-28"
+    },
+    {
+        "property_name": "liabilities.student.origination_principal_amount",
+        "property_type": "number",
+        "property_description": "The original principal balance of the loan.",
+        "enum": [],
+        "nullable": true,
+        "example": 25000
+    },
+    {
+        "property_name": "liabilities.student.outstanding_interest_amount",
+        "property_type": "number",
+        "property_description": "The total dollar amount of the accrued interest balance. For Sallie Mae ( `ins_116944`), this amount is included in the current balance of the loan, so this field will return as `null`.",
+        "enum": [],
+        "nullable": true,
+        "example": 6227.36
+    },
+    {
+        "property_name": "liabilities.student.payment_reference_number",
+        "property_type": "string",
+        "property_description": "The relevant account number that should be used to reference this loan for payments. In the majority of cases, `payment_reference_number` will match `account_number,` but in some institutions, such as Great Lakes (`ins_116861`), it will be different.",
+        "enum": [],
+        "nullable": true,
+        "example": "4277075694"
+    },
+    {
+        "property_name": "liabilities.student.pslf_status.estimated_eligibility_date",
+        "property_type": "string",
+        "property_description": "The estimated date borrower will have completed 120 qualifying monthly payments. Returned in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).",
+        "enum": [],
+        "nullable": true,
+        "example": "2021-01-01"
+    },
+    {
+        "property_name": "liabilities.student.pslf_status.payments_made",
+        "property_type": "integer",
+        "property_description": "The number of qualifying payments that have been made.",
+        "enum": [],
+        "nullable": true,
+        "example": 200
+    },
+    {
+        "property_name": "liabilities.student.pslf_status.payments_remaining",
+        "property_type": "integer",
+        "property_description": "The number of qualifying payments remaining.",
+        "enum": [],
+        "nullable": true,
+        "example": 160
+    },
+    {
+        "property_name": "liabilities.student.repayment_plan.description",
+        "property_type": "string",
+        "property_description": "The description of the repayment plan as provided by the servicer.",
+        "enum": [],
+        "nullable": true,
+        "example": "Standard Repayment"
+    },
+    {
+        "property_name": "liabilities.student.repayment_plan.type",
+        "property_type": "string",
+        "property_description": "The type of the repayment plan.",
+        "enum": [
+            "extended graduated",
+            "extended standard",
+            "graduated",
+            "income-contingent repayment",
+            "income-based repayment",
+            "interest-only",
+            "other",
+            "pay as you earn",
+            "revised pay as you earn",
+            "standard",
+            null
+        ],
+        "nullable": true,
+        "example": "standard"
+    },
+    {
+        "property_name": "liabilities.student.sequence_number",
+        "property_type": "string",
+        "property_description": "The sequence number of the student loan. Heartland ECSI (`ins_116948`) does not make this field available.",
+        "enum": [],
+        "nullable": true,
+        "example": "1"
+    },
+    {
+        "property_name": "liabilities.student.servicer_address.city",
+        "property_type": "string",
+        "property_description": "The full city name",
+        "enum": [],
+        "nullable": true,
+        "example": "San Matias"
+    },
+    {
+        "property_name": "liabilities.student.servicer_address.region",
+        "property_type": "string",
+        "property_description": "The region or state\nExample: `\"NC\"`",
+        "enum": [],
+        "nullable": true,
+        "example": "CA"
+    },
+    {
+        "property_name": "liabilities.student.servicer_address.street",
+        "property_type": "string",
+        "property_description": "The full street address\nExample: `\"564 Main Street, APT 15\"`",
+        "enum": [],
+        "nullable": true,
+        "example": "123 Relaxation Road"
+    },
+    {
+        "property_name": "liabilities.student.servicer_address.postal_code",
+        "property_type": "string",
+        "property_description": "The postal code",
+        "enum": [],
+        "nullable": true,
+        "example": "99415"
+    },
+    {
+        "property_name": "liabilities.student.servicer_address.country",
+        "property_type": "string",
+        "property_description": "The ISO 3166-1 alpha-2 country code",
+        "enum": [],
+        "nullable": true,
+        "example": "US"
+    },
+    {
+        "property_name": "liabilities.student.ytd_interest_paid",
+        "property_type": "number",
+        "property_description": "The year to date (YTD) interest paid. Availability for this field is limited.",
+        "enum": [],
+        "nullable": true,
+        "example": 280.55
+    },
+    {
+        "property_name": "liabilities.student.ytd_principal_paid",
+        "property_type": "number",
+        "property_description": "The year to date (YTD) principal paid. Availability for this field is limited.",
+        "enum": [],
+        "nullable": true,
+        "example": 271.65
+    },
+    {
+        "property_name": "request_id",
+        "property_type": "string",
+        "property_description": "A unique identifier for the request, which can be used for troubleshooting. This identifier, like all Plaid identifiers, is case sensitive.",
+        "enum": [],
+        "nullable": false,
+        "example": "dTnnm60WgKGLnKL"
+    }
+]
