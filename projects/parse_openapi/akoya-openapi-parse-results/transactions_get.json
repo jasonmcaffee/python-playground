@@ -1,0 +1,2000 @@
+[
+    {
+        "property_name": "links.next.href",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&limit=5&offset=5&startTime=2019-02-26T00%3A00%3A00Z"
+    },
+    {
+        "property_name": "links.prev.href",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&limit=5&offset=0&startTime=2019-02-26T00%3A00%3A00Z"
+    },
+    {
+        "property_name": "transactions.depositTransaction.accountId",
+        "property_type": "string",
+        "property_description": "Corresponds to AccountId in Account",
+        "enum": [],
+        "nullable": false,
+        "example": "g833202fb0866d0ad83472c429"
+    },
+    {
+        "property_name": "transactions.depositTransaction.amount",
+        "property_type": "number",
+        "property_description": "The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"+\" or not present\n  2. If `CREDIT`, sign is \"-\"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"-\"\n  2. If `CREDIT`, sign is \"+\" or not present",
+        "enum": [],
+        "nullable": false,
+        "example": -449.07
+    },
+    {
+        "property_name": "transactions.depositTransaction.category",
+        "property_type": "string",
+        "property_description": "Transaction category, preferably MCC or SIC.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.debitCreditMemo",
+        "property_type": "string",
+        "property_description": "Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.",
+        "enum": [
+            "DEBIT",
+            "CREDIT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.description",
+        "property_type": "string",
+        "property_description": "The description of the transaction",
+        "enum": [],
+        "nullable": false,
+        "example": "CHECK"
+    },
+    {
+        "property_name": "transactions.depositTransaction.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.foreignAmount",
+        "property_type": "number",
+        "property_description": "The amount of money in the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.foreignCurrency",
+        "property_type": "string",
+        "property_description": "The ISO 4217 code of the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.amount",
+        "property_type": "number",
+        "property_description": "The amount of money attributable to this line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.checkNumber",
+        "property_type": "number",
+        "property_description": "Check number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.description",
+        "property_type": "string",
+        "property_description": "The description of the line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.memo",
+        "property_type": "string",
+        "property_description": "Secondary item description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.lineItem.reference",
+        "property_type": "string",
+        "property_description": "A reference number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.memo",
+        "property_type": "string",
+        "property_description": "Secondary transaction description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.postedTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.",
+        "enum": [],
+        "nullable": false,
+        "example": "2019-07-08T00:00:00Z"
+    },
+    {
+        "property_name": "transactions.depositTransaction.reference",
+        "property_type": "string",
+        "property_description": "A tracking reference identifier",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.referenceTransactionId",
+        "property_type": "string",
+        "property_description": "Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.status",
+        "property_type": "string",
+        "property_description": "AUTHORIZATION, MEMO, PENDING, or POSTED",
+        "enum": [
+            "PENDING",
+            "MEMO",
+            "POSTED",
+            "AUTHORIZATION"
+        ],
+        "nullable": false,
+        "example": "POSTED"
+    },
+    {
+        "property_name": "transactions.depositTransaction.subCategory",
+        "property_type": "string",
+        "property_description": "Transaction category detail",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.transactionId",
+        "property_type": "string",
+        "property_description": "Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'",
+        "enum": [],
+        "nullable": false,
+        "example": "30191890000030"
+    },
+    {
+        "property_name": "transactions.depositTransaction.transactionTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.",
+        "enum": [],
+        "nullable": false,
+        "example": "2019-07-08T00:00:00Z"
+    },
+    {
+        "property_name": "transactions.depositTransaction.payee",
+        "property_type": "string",
+        "property_description": "Payee name",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.depositTransaction.checkNumber",
+        "property_type": "integer",
+        "property_description": "Check Number",
+        "enum": [],
+        "nullable": false,
+        "example": 31505
+    },
+    {
+        "property_name": "transactions.depositTransaction.transactionType",
+        "property_type": "string",
+        "property_description": "DepositTransaction Type",
+        "enum": [
+            "CHECK",
+            "WITHDRAWAL",
+            "TRANSFER",
+            "POSDEBIT",
+            "ATMWITHDRAWAL",
+            "BILLPAYMENT",
+            "FEE",
+            "DEPOSIT",
+            "ADJUSTMENT",
+            "INTEREST",
+            "DIVIDEND",
+            "DIRECTDEPOSIT",
+            "ATMDEPOSIT",
+            "POSCREDIT"
+        ],
+        "nullable": false,
+        "example": "CHECK"
+    },
+    {
+        "property_name": "transactions.loanTransaction.accountId",
+        "property_type": "string",
+        "property_description": "Corresponds to AccountId in Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.amount",
+        "property_type": "number",
+        "property_description": "The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"+\" or not present\n  2. If `CREDIT`, sign is \"-\"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"-\"\n  2. If `CREDIT`, sign is \"+\" or not present",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.category",
+        "property_type": "string",
+        "property_description": "Transaction category, preferably MCC or SIC.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.debitCreditMemo",
+        "property_type": "string",
+        "property_description": "Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.",
+        "enum": [
+            "DEBIT",
+            "CREDIT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.description",
+        "property_type": "string",
+        "property_description": "The description of the transaction",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.foreignAmount",
+        "property_type": "number",
+        "property_description": "The amount of money in the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.foreignCurrency",
+        "property_type": "string",
+        "property_description": "The ISO 4217 code of the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.amount",
+        "property_type": "number",
+        "property_description": "The amount of money attributable to this line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.checkNumber",
+        "property_type": "number",
+        "property_description": "Check number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.description",
+        "property_type": "string",
+        "property_description": "The description of the line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.memo",
+        "property_type": "string",
+        "property_description": "Secondary item description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.lineItem.reference",
+        "property_type": "string",
+        "property_description": "A reference number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.memo",
+        "property_type": "string",
+        "property_description": "Secondary transaction description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.postedTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.reference",
+        "property_type": "string",
+        "property_description": "A tracking reference identifier",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.referenceTransactionId",
+        "property_type": "string",
+        "property_description": "Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.status",
+        "property_type": "string",
+        "property_description": "AUTHORIZATION, MEMO, PENDING, or POSTED",
+        "enum": [
+            "PENDING",
+            "MEMO",
+            "POSTED",
+            "AUTHORIZATION"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.subCategory",
+        "property_type": "string",
+        "property_description": "Transaction category detail",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.transactionId",
+        "property_type": "string",
+        "property_description": "Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.transactionTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.paymentDetails.escrowAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to escrow",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.paymentDetails.feesAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to fees",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.paymentDetails.insuranceAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to life/health/accident insurance on the loan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.paymentDetails.interestAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to interest",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.paymentDetails.pmiAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to PMI",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.paymentDetails.principalAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to principal",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.loanTransaction.transactionType",
+        "property_type": "string",
+        "property_description": "LoanTransaction Type",
+        "enum": [
+            "ADJUSTMENT",
+            "FEE",
+            "INTEREST",
+            "PAYMENT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.accountId",
+        "property_type": "string",
+        "property_description": "Corresponds to AccountId in Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.amount",
+        "property_type": "number",
+        "property_description": "The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"+\" or not present\n  2. If `CREDIT`, sign is \"-\"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"-\"\n  2. If `CREDIT`, sign is \"+\" or not present",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.category",
+        "property_type": "string",
+        "property_description": "Transaction category, preferably MCC or SIC.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.debitCreditMemo",
+        "property_type": "string",
+        "property_description": "Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.",
+        "enum": [
+            "DEBIT",
+            "CREDIT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.description",
+        "property_type": "string",
+        "property_description": "The description of the transaction",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.foreignAmount",
+        "property_type": "number",
+        "property_description": "The amount of money in the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.foreignCurrency",
+        "property_type": "string",
+        "property_description": "The ISO 4217 code of the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.amount",
+        "property_type": "number",
+        "property_description": "The amount of money attributable to this line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.checkNumber",
+        "property_type": "number",
+        "property_description": "Check number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.description",
+        "property_type": "string",
+        "property_description": "The description of the line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.memo",
+        "property_type": "string",
+        "property_description": "Secondary item description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.lineItem.reference",
+        "property_type": "string",
+        "property_description": "A reference number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.memo",
+        "property_type": "string",
+        "property_description": "Secondary transaction description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.postedTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.reference",
+        "property_type": "string",
+        "property_description": "A tracking reference identifier",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.referenceTransactionId",
+        "property_type": "string",
+        "property_description": "Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.status",
+        "property_type": "string",
+        "property_description": "AUTHORIZATION, MEMO, PENDING, or POSTED",
+        "enum": [
+            "PENDING",
+            "MEMO",
+            "POSTED",
+            "AUTHORIZATION"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.subCategory",
+        "property_type": "string",
+        "property_description": "Transaction category detail",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.transactionId",
+        "property_type": "string",
+        "property_description": "Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.transactionTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.checkNumber",
+        "property_type": "integer",
+        "property_description": "Check number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.paymentDetails.escrowAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to escrow",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.paymentDetails.feesAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to fees",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.paymentDetails.insuranceAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to life/health/accident insurance on the loan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.paymentDetails.interestAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to interest",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.paymentDetails.pmiAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to PMI",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.paymentDetails.principalAmount",
+        "property_type": "number",
+        "property_description": "The amount of payment applied to principal",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.locTransaction.transactionType",
+        "property_type": "string",
+        "property_description": "LocTransaction Type",
+        "enum": [
+            "CHECK",
+            "WITHDRAWAL",
+            "TRANSFER",
+            "POSDEBIT",
+            "ATMWITHDRAWAL",
+            "BILLPAYMENT",
+            "FEE",
+            "DEPOSIT",
+            "ADJUSTMENT",
+            "INTEREST",
+            "DIVIDEND",
+            "DIRECTDEPOSIT",
+            "ATMDEPOSIT",
+            "POSCREDIT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.accountId",
+        "property_type": "string",
+        "property_description": "Corresponds to AccountId in Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.amount",
+        "property_type": "number",
+        "property_description": "The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"+\" or not present\n  2. If `CREDIT`, sign is \"-\"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"-\"\n  2. If `CREDIT`, sign is \"+\" or not present",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.category",
+        "property_type": "string",
+        "property_description": "Transaction category, preferably MCC or SIC.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.debitCreditMemo",
+        "property_type": "string",
+        "property_description": "Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.",
+        "enum": [
+            "DEBIT",
+            "CREDIT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.description",
+        "property_type": "string",
+        "property_description": "The description of the transaction",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.foreignAmount",
+        "property_type": "number",
+        "property_description": "The amount of money in the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.foreignCurrency",
+        "property_type": "string",
+        "property_description": "The ISO 4217 code of the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.amount",
+        "property_type": "number",
+        "property_description": "The amount of money attributable to this line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.checkNumber",
+        "property_type": "number",
+        "property_description": "Check number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.description",
+        "property_type": "string",
+        "property_description": "The description of the line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.memo",
+        "property_type": "string",
+        "property_description": "Secondary item description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.lineItem.reference",
+        "property_type": "string",
+        "property_description": "A reference number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.memo",
+        "property_type": "string",
+        "property_description": "Secondary transaction description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.postedTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.reference",
+        "property_type": "string",
+        "property_description": "A tracking reference identifier",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.referenceTransactionId",
+        "property_type": "string",
+        "property_description": "Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.status",
+        "property_type": "string",
+        "property_description": "AUTHORIZATION, MEMO, PENDING, or POSTED",
+        "enum": [
+            "PENDING",
+            "MEMO",
+            "POSTED",
+            "AUTHORIZATION"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.subCategory",
+        "property_type": "string",
+        "property_description": "Transaction category detail",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.transactionId",
+        "property_type": "string",
+        "property_description": "Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.transactionTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.accruedInterest",
+        "property_type": "number",
+        "property_description": "Accrued Interest.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.commission",
+        "property_type": "number",
+        "property_description": "Transaction commission.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.confirmationNumber",
+        "property_type": "string",
+        "property_description": "Confirmation number of the transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.faceValue",
+        "property_type": "number",
+        "property_description": "Cash value for bonds.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.fees",
+        "property_type": "number",
+        "property_description": "Fees applied to the trade.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.fractionalCash",
+        "property_type": "number",
+        "property_description": "Cash for fractional units (used for stock splits).",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.gain",
+        "property_type": "number",
+        "property_description": "For sales.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.incomeType",
+        "property_type": "string",
+        "property_description": "Type of investment income. CGLONG (capital gains-long term), CGSHORT (capital gains-short term), MISC.",
+        "enum": [
+            "CGLONG",
+            "CGSHORT",
+            "MISC"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.inv401kSource",
+        "property_type": "string",
+        "property_description": "Source of money.",
+        "enum": [
+            "PRETAX",
+            "AFTERTAX",
+            "MATCH",
+            "PROFITSHARING",
+            "ROLLOVER",
+            "OTHERVEST",
+            "OTHERNONVEST"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.load",
+        "property_type": "number",
+        "property_description": "Load on the transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.loanId",
+        "property_type": "string",
+        "property_description": "For 401k accounts only. This indicates the transaction was due to a loan or a loan repayment.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.loanInterest",
+        "property_type": "number",
+        "property_description": "How much loan pre-payment is interest.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.loanPrincipal",
+        "property_type": "number",
+        "property_description": "How much loan pre-payment is principal.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.markup",
+        "property_type": "number",
+        "property_description": "Portion of unit price that is attributed to the dealer markup.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.newUnits",
+        "property_type": "number",
+        "property_description": "Number of shares after split.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.oldUnits",
+        "property_type": "number",
+        "property_description": "Number of shares before split.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.payrollDate",
+        "property_type": "string",
+        "property_description": "The date for the 401k transaction was obtained in payroll.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.penalty",
+        "property_type": "number",
+        "property_description": "Indicates amount withheld due to a penalty.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.positionType",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "LONG",
+            "SHORT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.price",
+        "property_type": "number",
+        "property_description": "Unit purchase price.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.priorYearContrib",
+        "property_type": "boolean",
+        "property_description": "Indicates this buy was made using prior years contribution. TRUE or FALSE.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.runningBalance",
+        "property_type": "number",
+        "property_description": "Running balance of the position.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.securityId",
+        "property_type": "string",
+        "property_description": "Unique identifier of security.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.securityIdType",
+        "property_type": "string",
+        "property_description": "Security identifier type.",
+        "enum": [
+            "BUSIP",
+            "ISIN",
+            "SEDOL",
+            "SICC",
+            "VALOR",
+            "WKN"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.securityType",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "STOCK",
+            "MUTUALFUND",
+            "DEBT",
+            "OPTION",
+            "SWEEP",
+            "OTHER",
+            "BOND"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.shares",
+        "property_type": "number",
+        "property_description": "Number of shares (with decimals). Negative numbers indicate securities are being removed from the account.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.splitRatioDenominator",
+        "property_type": "number",
+        "property_description": "Split ratio denominator.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.splitRatioNumerator",
+        "property_type": "number",
+        "property_description": "Split ratio numerator.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.stateWithholding",
+        "property_type": "number",
+        "property_description": "State tax withholding.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.subAccountFund",
+        "property_type": "string",
+        "property_description": "From which account money came in.",
+        "enum": [
+            "CASH",
+            "MARGIN",
+            "SHORT",
+            "OTHERS"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.subAccountSec",
+        "property_type": "string",
+        "property_description": "Sub-account security type.",
+        "enum": [
+            "CASH",
+            "MARGIN",
+            "SHORT",
+            "OTHERS"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.symbol",
+        "property_type": "string",
+        "property_description": "Ticker symbol.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.taxes",
+        "property_type": "number",
+        "property_description": "Taxes on the trade.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.taxExempt",
+        "property_type": "boolean",
+        "property_description": "Tax-exempt transaction TRUE or FALSE.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.transactionReason",
+        "property_type": "string",
+        "property_description": "Reason for this transaction; CALL (the debt was called), SELL (the debt was sold), MATURITY (the debt reached maturity)",
+        "enum": [
+            "CALL",
+            "SELL",
+            "MATURITY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.transactionType",
+        "property_type": "string",
+        "property_description": "InvestmentTransaction Type",
+        "enum": [
+            "PURCHASED",
+            "SOLD",
+            "PURCHASEDTOCOVER",
+            "ADJUSTMENT",
+            "PURCHASETOOPEN",
+            "PURCHASETOCLOSE",
+            "SOLDTOOPEN",
+            "SOLDTOCLOSE",
+            "INTEREST",
+            "MARGININTEREST",
+            "REINVESTOFINCOME",
+            "RETURNOFCAPITAL",
+            "TRANSFER",
+            "CONTRIBUTION",
+            "FEE",
+            "OPTIONEXERCISE",
+            "OPTIONEXPIRATION",
+            "DIVIDEND",
+            "DIVIDENDREINVEST",
+            "SPLIT",
+            "CLOSURE",
+            "INCOME",
+            "EXPENSE",
+            "CLOSUREOPT",
+            "INVEXPENSE",
+            "JRNLSEC",
+            "JRNLFUND",
+            "OTHER",
+            "DIV",
+            "SRVCHG",
+            "DEP",
+            "DEPOSIT",
+            "ATM",
+            "POS",
+            "XFER",
+            "CHECK",
+            "PAYMENT",
+            "CASH",
+            "DIRECTDEP",
+            "DIRECTDEBIT",
+            "REPEATPMT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.transferAction",
+        "property_type": "string",
+        "property_description": "Transfer direction.",
+        "enum": [
+            "IN",
+            "OUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.unitPrice",
+        "property_type": "number",
+        "property_description": "Price per commonly-quoted unit. Does not include markup/markdown, unitprice. Share price for stocks, mutual funds, and others. Percentage of par for bonds. Per share (not contract) for options.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.units",
+        "property_type": "number",
+        "property_description": "For security-based actions other than stock splits, quantity. Shares for stocks, mutual funds, and others. Face value for bonds. Contracts for options.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.unitType",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "SHARES",
+            "CURRENCY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.investmentTransaction.withholding",
+        "property_type": "number",
+        "property_description": "Federal tax withholding.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.accountId",
+        "property_type": "string",
+        "property_description": "Corresponds to AccountId in Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.amount",
+        "property_type": "number",
+        "property_description": "The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"+\" or not present\n  2. If `CREDIT`, sign is \"-\"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is \"-\"\n  2. If `CREDIT`, sign is \"+\" or not present",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.category",
+        "property_type": "string",
+        "property_description": "Transaction category, preferably MCC or SIC.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.debitCreditMemo",
+        "property_type": "string",
+        "property_description": "Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.",
+        "enum": [
+            "DEBIT",
+            "CREDIT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.description",
+        "property_type": "string",
+        "property_description": "The description of the transaction",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.foreignAmount",
+        "property_type": "number",
+        "property_description": "The amount of money in the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.foreignCurrency",
+        "property_type": "string",
+        "property_description": "The ISO 4217 code of the foreign currency",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.amount",
+        "property_type": "number",
+        "property_description": "The amount of money attributable to this line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.checkNumber",
+        "property_type": "number",
+        "property_description": "Check number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.description",
+        "property_type": "string",
+        "property_description": "The description of the line item",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.imageIds",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.memo",
+        "property_type": "string",
+        "property_description": "Secondary item description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.lineItem.reference",
+        "property_type": "string",
+        "property_description": "A reference number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.links.href",
+        "property_type": "string",
+        "property_description": "URL to invoke the action on the resource",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.links.action",
+        "property_type": "string",
+        "property_description": "HTTP Method to use for the request",
+        "enum": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE",
+            "PUT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.links.types",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "application/pdf",
+            "image/gif",
+            "image/jpeg",
+            "image/tiff",
+            "image/png",
+            "application/json"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.memo",
+        "property_type": "string",
+        "property_description": "Secondary transaction description",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.postedTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.reference",
+        "property_type": "string",
+        "property_description": "A tracking reference identifier",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.referenceTransactionId",
+        "property_type": "string",
+        "property_description": "Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.status",
+        "property_type": "string",
+        "property_description": "AUTHORIZATION, MEMO, PENDING, or POSTED",
+        "enum": [
+            "PENDING",
+            "MEMO",
+            "POSTED",
+            "AUTHORIZATION"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.subCategory",
+        "property_type": "string",
+        "property_description": "Transaction category detail",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.transactionId",
+        "property_type": "string",
+        "property_description": "Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.transactionTimestamp",
+        "property_type": "string",
+        "property_description": "The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "transactions.insuranceTransaction.transactionType",
+        "property_type": "string",
+        "property_description": "InsuranceTransaction Type",
+        "enum": [
+            "PAYMENT",
+            "FEE",
+            "ADJUSTMENT",
+            "INTEREST"
+        ],
+        "nullable": false,
+        "example": null
+    }
+]

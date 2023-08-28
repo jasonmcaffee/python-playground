@@ -1,0 +1,1383 @@
+[
+    {
+        "property_name": "accounts.depositAccount.accountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.",
+        "enum": [],
+        "nullable": false,
+        "example": "g833202fb0866d0ad83472c429"
+    },
+    {
+        "property_name": "accounts.depositAccount.accountType",
+        "property_type": "string",
+        "property_description": "The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": "CHECKING"
+    },
+    {
+        "property_name": "accounts.depositAccount.accountNumberDisplay",
+        "property_type": "string",
+        "property_description": "Account display number for the end user\u2019s handle at owning institution. This is to be displayed by the Interface Provider.",
+        "enum": [],
+        "nullable": false,
+        "example": "xxxxxxxx0071"
+    },
+    {
+        "property_name": "accounts.depositAccount.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": "USD"
+    },
+    {
+        "property_name": "accounts.depositAccount.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.depositAccount.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": "USD"
+    },
+    {
+        "property_name": "accounts.depositAccount.description",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "Checking Plus"
+    },
+    {
+        "property_name": "accounts.depositAccount.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": "accountOpenedDate"
+    },
+    {
+        "property_name": "accounts.depositAccount.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": "2020-04-23"
+    },
+    {
+        "property_name": "accounts.depositAccount.nickname",
+        "property_type": "string",
+        "property_description": "Name given by the user. Used in UIs to assist in account selection",
+        "enum": [],
+        "nullable": false,
+        "example": "Nickname Checking Plus 0071"
+    },
+    {
+        "property_name": "accounts.depositAccount.productName",
+        "property_type": "string",
+        "property_description": "Marketed product name for this account.  Used in UIs to assist in account selection          ",
+        "enum": [],
+        "nullable": false,
+        "example": "Checking Plus"
+    },
+    {
+        "property_name": "accounts.depositAccount.status",
+        "property_type": "string",
+        "property_description": "The status of an account.",
+        "enum": [
+            "OPEN",
+            "CLOSED",
+            "PENDINGOPEN",
+            "PENDINGCLOSE",
+            "DELINQUENT",
+            "PAID",
+            "NEGATIVECURRENTBALANCE"
+        ],
+        "nullable": false,
+        "example": "OPEN"
+    },
+    {
+        "property_name": "accounts.depositAccount.lineOfBusiness",
+        "property_type": "string",
+        "property_description": "The line of business, such as consumer, consumer joint, small business, corporate, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": "Personal"
+    },
+    {
+        "property_name": "accounts.depositAccount.balanceType",
+        "property_type": "string",
+        "property_description": "ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)",
+        "enum": [
+            "ASSET",
+            "LIABILITY"
+        ],
+        "nullable": false,
+        "example": "ASSET"
+    },
+    {
+        "property_name": "accounts.depositAccount.interestRate",
+        "property_type": "number",
+        "property_description": "Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": 0.0125
+    },
+    {
+        "property_name": "accounts.depositAccount.interestRateType",
+        "property_type": "string",
+        "property_description": "The type of interest rate. FIXED or VARIABLE.",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": "FIXED"
+    },
+    {
+        "property_name": "accounts.depositAccount.interestRateAsOf",
+        "property_type": "string",
+        "property_description": "Date of account\u2019s interest rate",
+        "enum": [],
+        "nullable": false,
+        "example": "2022-04-24T14:15:22Z"
+    },
+    {
+        "property_name": "accounts.depositAccount.lastActivityDate",
+        "property_type": "string",
+        "property_description": "Date that last transaction occurred on account",
+        "enum": [],
+        "nullable": false,
+        "example": "2022-04-24T14:15:22Z"
+    },
+    {
+        "property_name": "accounts.depositAccount.micrNumber",
+        "property_type": "string",
+        "property_description": "MICR Number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.depositAccount.parentAccountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the parent account. This is used to group accounts.",
+        "enum": [],
+        "nullable": false,
+        "example": "11719ae5-2399-1278-e43c-43f24abb3058"
+    },
+    {
+        "property_name": "accounts.depositAccount.priorInterestRate",
+        "property_type": "number",
+        "property_description": "Previous Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.depositAccount.transferIn",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for incoming transfers",
+        "enum": [],
+        "nullable": false,
+        "example": true
+    },
+    {
+        "property_name": "accounts.depositAccount.transferOut",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for outgoing transfers",
+        "enum": [],
+        "nullable": false,
+        "example": true
+    },
+    {
+        "property_name": "accounts.depositAccount.annualPercentageYield",
+        "property_type": "number",
+        "property_description": "Annual Percentage Yield.",
+        "enum": [],
+        "nullable": false,
+        "example": 0
+    },
+    {
+        "property_name": "accounts.depositAccount.term",
+        "property_type": "integer",
+        "property_description": "Term of CD in months",
+        "enum": [],
+        "nullable": false,
+        "example": 60
+    },
+    {
+        "property_name": "accounts.depositAccount.maturityDate",
+        "property_type": "string",
+        "property_description": "Maturity date for CDs.",
+        "enum": [],
+        "nullable": false,
+        "example": "2024-03-21T00:00:00Z"
+    },
+    {
+        "property_name": "accounts.loanAccount.accountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.accountType",
+        "property_type": "string",
+        "property_description": "The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.accountNumberDisplay",
+        "property_type": "string",
+        "property_description": "Account display number for the end user\u2019s handle at owning institution. This is to be displayed by the Interface Provider.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.description",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.nickname",
+        "property_type": "string",
+        "property_description": "Name given by the user. Used in UIs to assist in account selection",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.productName",
+        "property_type": "string",
+        "property_description": "Marketed product name for this account.  Used in UIs to assist in account selection          ",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.status",
+        "property_type": "string",
+        "property_description": "The status of an account.",
+        "enum": [
+            "OPEN",
+            "CLOSED",
+            "PENDINGOPEN",
+            "PENDINGCLOSE",
+            "DELINQUENT",
+            "PAID",
+            "NEGATIVECURRENTBALANCE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.lineOfBusiness",
+        "property_type": "string",
+        "property_description": "The line of business, such as consumer, consumer joint, small business, corporate, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.balanceType",
+        "property_type": "string",
+        "property_description": "ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)",
+        "enum": [
+            "ASSET",
+            "LIABILITY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.interestRate",
+        "property_type": "number",
+        "property_description": "Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.interestRateType",
+        "property_type": "string",
+        "property_description": "The type of interest rate. FIXED or VARIABLE.",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.interestRateAsOf",
+        "property_type": "string",
+        "property_description": "Date of account\u2019s interest rate",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.lastActivityDate",
+        "property_type": "string",
+        "property_description": "Date that last transaction occurred on account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.micrNumber",
+        "property_type": "string",
+        "property_description": "MICR Number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.parentAccountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the parent account. This is used to group accounts.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.priorInterestRate",
+        "property_type": "number",
+        "property_description": "Previous Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.transferIn",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for incoming transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.transferOut",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for outgoing transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.compoundingPeriod",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "DAILY",
+            "WEEKLY",
+            "BIWEEKLY",
+            "SEMIMONTHLY",
+            "MONTHLY",
+            "SEMIANNUALLY",
+            "ANNUALLY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.loanTerm",
+        "property_type": "integer",
+        "property_description": "Term of loan in months",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.maturityDate",
+        "property_type": "string",
+        "property_description": "Maturity date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.originatingDate",
+        "property_type": "string",
+        "property_description": "Loan origination date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.paymentFrequency",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "DAILY",
+            "WEEKLY",
+            "BIWEEKLY",
+            "SEMIMONTHLY",
+            "MONTHLY",
+            "SEMIANNUALLY",
+            "ANNUALLY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.totalNumberOfPayments",
+        "property_type": "integer",
+        "property_description": "Total number of payments",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.accountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.accountType",
+        "property_type": "string",
+        "property_description": "The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.accountNumberDisplay",
+        "property_type": "string",
+        "property_description": "Account display number for the end user\u2019s handle at owning institution. This is to be displayed by the Interface Provider.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.description",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.nickname",
+        "property_type": "string",
+        "property_description": "Name given by the user. Used in UIs to assist in account selection",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.productName",
+        "property_type": "string",
+        "property_description": "Marketed product name for this account.  Used in UIs to assist in account selection          ",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.status",
+        "property_type": "string",
+        "property_description": "The status of an account.",
+        "enum": [
+            "OPEN",
+            "CLOSED",
+            "PENDINGOPEN",
+            "PENDINGCLOSE",
+            "DELINQUENT",
+            "PAID",
+            "NEGATIVECURRENTBALANCE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.lineOfBusiness",
+        "property_type": "string",
+        "property_description": "The line of business, such as consumer, consumer joint, small business, corporate, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.balanceType",
+        "property_type": "string",
+        "property_description": "ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)",
+        "enum": [
+            "ASSET",
+            "LIABILITY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.interestRate",
+        "property_type": "number",
+        "property_description": "Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.interestRateType",
+        "property_type": "string",
+        "property_description": "The type of interest rate. FIXED or VARIABLE.",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.interestRateAsOf",
+        "property_type": "string",
+        "property_description": "Date of account\u2019s interest rate",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.lastActivityDate",
+        "property_type": "string",
+        "property_description": "Date that last transaction occurred on account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.micrNumber",
+        "property_type": "string",
+        "property_description": "MICR Number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.parentAccountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the parent account. This is used to group accounts.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.priorInterestRate",
+        "property_type": "number",
+        "property_description": "Previous Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.transferIn",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for incoming transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.transferOut",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for outgoing transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.accountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.",
+        "enum": [],
+        "nullable": false,
+        "example": "839502593"
+    },
+    {
+        "property_name": "accounts.investmentAccount.accountType",
+        "property_type": "string",
+        "property_description": "The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": "College Savings"
+    },
+    {
+        "property_name": "accounts.investmentAccount.accountNumberDisplay",
+        "property_type": "string",
+        "property_description": "Account display number for the end user\u2019s handle at owning institution. This is to be displayed by the Interface Provider.",
+        "enum": [],
+        "nullable": false,
+        "example": "...7054"
+    },
+    {
+        "property_name": "accounts.investmentAccount.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": "USD"
+    },
+    {
+        "property_name": "accounts.investmentAccount.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.description",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.nickname",
+        "property_type": "string",
+        "property_description": "Name given by the user. Used in UIs to assist in account selection",
+        "enum": [],
+        "nullable": false,
+        "example": "529 for Kid"
+    },
+    {
+        "property_name": "accounts.investmentAccount.productName",
+        "property_type": "string",
+        "property_description": "Marketed product name for this account.  Used in UIs to assist in account selection          ",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.status",
+        "property_type": "string",
+        "property_description": "The status of an account.",
+        "enum": [
+            "OPEN",
+            "CLOSED",
+            "PENDINGOPEN",
+            "PENDINGCLOSE",
+            "DELINQUENT",
+            "PAID",
+            "NEGATIVECURRENTBALANCE"
+        ],
+        "nullable": false,
+        "example": "OPEN"
+    },
+    {
+        "property_name": "accounts.investmentAccount.lineOfBusiness",
+        "property_type": "string",
+        "property_description": "The line of business, such as consumer, consumer joint, small business, corporate, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceType",
+        "property_type": "string",
+        "property_description": "ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)",
+        "enum": [
+            "ASSET",
+            "LIABILITY"
+        ],
+        "nullable": false,
+        "example": "ASSET"
+    },
+    {
+        "property_name": "accounts.investmentAccount.interestRate",
+        "property_type": "number",
+        "property_description": "Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.interestRateType",
+        "property_type": "string",
+        "property_description": "The type of interest rate. FIXED or VARIABLE.",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.interestRateAsOf",
+        "property_type": "string",
+        "property_description": "Date of account\u2019s interest rate",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.lastActivityDate",
+        "property_type": "string",
+        "property_description": "Date that last transaction occurred on account",
+        "enum": [],
+        "nullable": false,
+        "example": "2021-07-06T00:00:00Z"
+    },
+    {
+        "property_name": "accounts.investmentAccount.micrNumber",
+        "property_type": "string",
+        "property_description": "MICR Number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.parentAccountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the parent account. This is used to group accounts.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.priorInterestRate",
+        "property_type": "number",
+        "property_description": "Previous Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.transferIn",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for incoming transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.transferOut",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for outgoing transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.allowedCheckWriting",
+        "property_type": "boolean",
+        "property_description": "Check writing privileges",
+        "enum": [],
+        "nullable": false,
+        "example": false
+    },
+    {
+        "property_name": "accounts.investmentAccount.allowedOptionTrade",
+        "property_type": "boolean",
+        "property_description": "Allowed to trade options",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.brokerId",
+        "property_type": "string",
+        "property_description": "Unique identifier FI",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.calendarYearFor401K",
+        "property_type": "string",
+        "property_description": "Date for this calendar year for 401K account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.employerName",
+        "property_type": "string",
+        "property_description": "Name of the employer in investment 401k Plan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.margin",
+        "property_type": "boolean",
+        "property_description": "Margin trading is allowed",
+        "enum": [],
+        "nullable": false,
+        "example": false
+    },
+    {
+        "property_name": "accounts.investmentAccount.planId",
+        "property_type": "string",
+        "property_description": "Plan number for Investment 401k plan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.accountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.accountType",
+        "property_type": "string",
+        "property_description": "The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.accountNumberDisplay",
+        "property_type": "string",
+        "property_description": "Account display number for the end user\u2019s handle at owning institution. This is to be displayed by the Interface Provider.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.description",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.nickname",
+        "property_type": "string",
+        "property_description": "Name given by the user. Used in UIs to assist in account selection",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.productName",
+        "property_type": "string",
+        "property_description": "Marketed product name for this account.  Used in UIs to assist in account selection          ",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.status",
+        "property_type": "string",
+        "property_description": "The status of an account.",
+        "enum": [
+            "OPEN",
+            "CLOSED",
+            "PENDINGOPEN",
+            "PENDINGCLOSE",
+            "DELINQUENT",
+            "PAID",
+            "NEGATIVECURRENTBALANCE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.lineOfBusiness",
+        "property_type": "string",
+        "property_description": "The line of business, such as consumer, consumer joint, small business, corporate, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.balanceType",
+        "property_type": "string",
+        "property_description": "ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)",
+        "enum": [
+            "ASSET",
+            "LIABILITY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.interestRate",
+        "property_type": "number",
+        "property_description": "Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.interestRateType",
+        "property_type": "string",
+        "property_description": "The type of interest rate. FIXED or VARIABLE.",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.interestRateAsOf",
+        "property_type": "string",
+        "property_description": "Date of account\u2019s interest rate",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.lastActivityDate",
+        "property_type": "string",
+        "property_description": "Date that last transaction occurred on account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.micrNumber",
+        "property_type": "string",
+        "property_description": "MICR Number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.parentAccountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the parent account. This is used to group accounts.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.priorInterestRate",
+        "property_type": "number",
+        "property_description": "Previous Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.transferIn",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for incoming transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.transferOut",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for outgoing transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.accountCategory",
+        "property_type": "string",
+        "property_description": "The account category of the insurance account. Possible enums: DEPOSIT_ACCOUNT, INVESTMENT_ACCOUNT, LOAN_ACCOUNT, LOC_ACCOUNT, INSURANCE_ACCOUNT",
+        "enum": [
+            "DEPOSIT_ACCOUNT",
+            "INVESTMENT_ACCOUNT",
+            "LOAN_ACCOUNT",
+            "LOC_ACCOUNT",
+            "INSURANCE_ACCOUNT"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.accountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.accountType",
+        "property_type": "string",
+        "property_description": "The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.accountNumberDisplay",
+        "property_type": "string",
+        "property_description": "Account display number for the end user\u2019s handle at owning institution. This is to be displayed by the Interface Provider.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.description",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.fiAttributes.name",
+        "property_type": "string",
+        "property_description": "Name of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.fiAttributes.value",
+        "property_type": "string",
+        "property_description": "Value of attribute",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.nickname",
+        "property_type": "string",
+        "property_description": "Name given by the user. Used in UIs to assist in account selection",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.productName",
+        "property_type": "string",
+        "property_description": "Marketed product name for this account.  Used in UIs to assist in account selection          ",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.status",
+        "property_type": "string",
+        "property_description": "The status of an account.",
+        "enum": [
+            "OPEN",
+            "CLOSED",
+            "PENDINGOPEN",
+            "PENDINGCLOSE",
+            "DELINQUENT",
+            "PAID",
+            "NEGATIVECURRENTBALANCE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.lineOfBusiness",
+        "property_type": "string",
+        "property_description": "The line of business, such as consumer, consumer joint, small business, corporate, etc.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.balanceType",
+        "property_type": "string",
+        "property_description": "ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)",
+        "enum": [
+            "ASSET",
+            "LIABILITY"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.interestRate",
+        "property_type": "number",
+        "property_description": "Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.interestRateType",
+        "property_type": "string",
+        "property_description": "The type of interest rate. FIXED or VARIABLE.",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.interestRateAsOf",
+        "property_type": "string",
+        "property_description": "Date of account\u2019s interest rate",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.lastActivityDate",
+        "property_type": "string",
+        "property_description": "Date that last transaction occurred on account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.micrNumber",
+        "property_type": "string",
+        "property_description": "MICR Number",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.parentAccountId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the parent account. This is used to group accounts.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.priorInterestRate",
+        "property_type": "number",
+        "property_description": "Previous Interest Rate of Account",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.transferIn",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for incoming transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.transferOut",
+        "property_type": "boolean",
+        "property_description": "Account is eligible for outgoing transfers",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.annuityProductType",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "CURRENCY",
+            "SHARES"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.annuityValueBasis",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "FIXED",
+            "VARIABLE"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.paymentFrequency",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "ANNUALLY",
+            "QUARTERLY",
+            "MONTHLY",
+            "WEEKLY"
+        ],
+        "nullable": false,
+        "example": null
+    }
+]

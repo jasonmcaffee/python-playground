@@ -1,0 +1,534 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_name</th>
+      <th>property_type</th>
+      <th>property_description</th>
+      <th>enum</th>
+      <th>nullable</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accounts.depositAccount.balanceAsOf</td>
+      <td>string</td>
+      <td>As-of date of balances</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2022-04-24T14:15:22Z</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.openingDayBalance</td>
+      <td>number</td>
+      <td>Day's opening fund balance</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.availableBalance</td>
+      <td>number</td>
+      <td>Balance of funds available for use</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>106717.06</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.interestYtd</td>
+      <td>number</td>
+      <td>YTD Interest</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>20.33</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.currentBalance</td>
+      <td>number</td>
+      <td>Balance of funds in account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>106717.06</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.balanceAsOf</td>
+      <td>string</td>
+      <td>As-of date of balances</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.escrowBalance</td>
+      <td>number</td>
+      <td>Escrow balance of loan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.interestPaidYearToDate</td>
+      <td>number</td>
+      <td>Interest paid year to date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.lastPaymentAmount</td>
+      <td>number</td>
+      <td>Last payment amount</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.lastPaymentDate</td>
+      <td>string</td>
+      <td>Last payment date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.nextPaymentAmount</td>
+      <td>number</td>
+      <td>Amount of next payment</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.nextPaymentDate</td>
+      <td>string</td>
+      <td>Date of next payment</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.originalPrincipal</td>
+      <td>number</td>
+      <td>Original principal of loan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.payOffAmount</td>
+      <td>number</td>
+      <td>Payoff amount</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.principalBalance</td>
+      <td>number</td>
+      <td>Principal balance of loan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.balanceAsOf</td>
+      <td>string</td>
+      <td>As-of date of balances</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.advancesApr</td>
+      <td>number</td>
+      <td>Advances APR</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.availableCash</td>
+      <td>number</td>
+      <td>Available cash</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.availableCredit</td>
+      <td>number</td>
+      <td>Available credit</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.cashAdvanceLimit</td>
+      <td>number</td>
+      <td>Cash advance limit</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.creditLine</td>
+      <td>number</td>
+      <td>Credit limit</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.currentBalance</td>
+      <td>number</td>
+      <td>Current balance LOC</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.currentRewardsBalance</td>
+      <td>number</td>
+      <td>Current rewards balance</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.financeCharges</td>
+      <td>number</td>
+      <td>Finance charges</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.lastPaymentAmount</td>
+      <td>number</td>
+      <td>Last payment amount</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.lastPaymentDate</td>
+      <td>string</td>
+      <td>Last payment date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.lastStmtBalance</td>
+      <td>number</td>
+      <td>Last Statement Balance</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.lastStmtDate</td>
+      <td>string</td>
+      <td>Last Statement Date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.minimumPaymentAmount</td>
+      <td>number</td>
+      <td>Minimum payment amount</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.nextPaymentAmount</td>
+      <td>number</td>
+      <td>Amount of next payment</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.nextPaymentDate</td>
+      <td>string</td>
+      <td>Due date of next payment</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.pastDueAmount</td>
+      <td>number</td>
+      <td>Past Due Amount</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.pointsAccrued</td>
+      <td>number</td>
+      <td>Points accrued</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.principalBalance</td>
+      <td>number</td>
+      <td>Principal balance</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.pointsRedeemed</td>
+      <td>number</td>
+      <td>Points redeemed</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.purchasesApr</td>
+      <td>number</td>
+      <td>Purchases APR</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.availableCashBalance</td>
+      <td>number</td>
+      <td>Cash balance across all sub-accounts. Should include sweep funds.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceAsOf</td>
+      <td>string</td>
+      <td>As-of date of balances</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2022-03-16T04:00:00Z</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.balanceName</td>
+      <td>string</td>
+      <td>Name of the balance.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>MARGINCALL</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.balanceDescription</td>
+      <td>string</td>
+      <td>Description of balance.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Margin Call</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.balanceType</td>
+      <td>string</td>
+      <td>The type of an investment balance. AMOUNT or PERCENTAGE.</td>
+      <td>[AMOUNT, PERCENTAGE]</td>
+      <td>False</td>
+      <td>AMOUNT</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.balanceValue</td>
+      <td>number</td>
+      <td>Value of balance name.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.balanceDate</td>
+      <td>string</td>
+      <td>Date as of this balance.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2021-07-06</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceList.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.currentValue</td>
+      <td>number</td>
+      <td>Total current value of all investments</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>52672.49</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.dailyChange</td>
+      <td>number</td>
+      <td>Daily change</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.marginBalance</td>
+      <td>number</td>
+      <td>Margin balance</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.percentageChange</td>
+      <td>number</td>
+      <td>Percentage change</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.rolloverAmount</td>
+      <td>number</td>
+      <td>Rollover amount</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.shortBalance</td>
+      <td>number</td>
+      <td>Short balance</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.policyCoverageAmount</td>
+      <td>number</td>
+      <td>Total amount of money the user is insured for.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.policyEndDate</td>
+      <td>string</td>
+      <td>The premium end date.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.policyPremium</td>
+      <td>number</td>
+      <td>The amount of the user's premium.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.policyPremiumTerm</td>
+      <td>string</td>
+      <td>he payment term for the premium. MONTHLY or ANNUAL.</td>
+      <td>[MONTHLY, ANNUAL]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.policyStartDate</td>
+      <td>string</td>
+      <td>The premium start date.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.annualIncrease</td>
+      <td>number</td>
+      <td>Percent or dollar amount of annual payment increase</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.annualIncreaseType</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[FIXED, PERCENT, DOLLAR]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.netPresentValue</td>
+      <td>number</td>
+      <td>Surrender or cash balance value</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.paymentAmount</td>
+      <td>number</td>
+      <td>Amount of the recurring payment</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.paymentEndDate</td>
+      <td>string</td>
+      <td>Date last payment will be made</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.paymentStartDate</td>
+      <td>string</td>
+      <td>Date of first payment; could be a future date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.periodCertainGuarantee</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[NO PERIOD CERTAIN, 5-YEAR, 10-YEAR, 20-YEAR, 30-YEAR]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.totalPaymentCount</td>
+      <td>number</td>
+      <td>Total number of payments that will be produced by the annuity</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>

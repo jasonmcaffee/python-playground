@@ -1,0 +1,203 @@
+[
+    {
+        "property_name": "customer.customerId",
+        "property_type": "string",
+        "property_description": "Long-term persistent identity of the end-user. This identity must be unique to the owning institution",
+        "enum": [],
+        "nullable": false,
+        "example": "1221963501"
+    },
+    {
+        "property_name": "customer.name.first",
+        "property_type": "string",
+        "property_description": "First or given name. This data element may contain first & last name if not separated.",
+        "enum": [],
+        "nullable": false,
+        "example": "Firstname"
+    },
+    {
+        "property_name": "customer.name.middle",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "P"
+    },
+    {
+        "property_name": "customer.name.last",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "Familyname"
+    },
+    {
+        "property_name": "customer.name.prefix",
+        "property_type": "string",
+        "property_description": "Name prefix, e.g. Mr.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.name.suffix",
+        "property_type": "string",
+        "property_description": "Generational or academic suffix",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.name.company",
+        "property_type": "string",
+        "property_description": "Company name",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.addresses.type",
+        "property_type": "string",
+        "property_description": "The location type of an address",
+        "enum": [
+            "BUSINESS",
+            "HOME",
+            "MAILING"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.addresses.line1",
+        "property_type": "string",
+        "property_description": "May contain full address if not separated",
+        "enum": [],
+        "nullable": false,
+        "example": "101 Address"
+    },
+    {
+        "property_name": "customer.addresses.line2",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.addresses.line3",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.addresses.city",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "City"
+    },
+    {
+        "property_name": "customer.addresses.state",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "NC"
+    },
+    {
+        "property_name": "customer.addresses.postalCode",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "27534-8861"
+    },
+    {
+        "property_name": "customer.addresses.country",
+        "property_type": "string",
+        "property_description": "ISO 3166 Country Code",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.telephones.number",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": "888-888-8888"
+    },
+    {
+        "property_name": "customer.telephones.type",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "HOME",
+            "BUSINESS",
+            "CELL",
+            "FAX"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.telephones.country",
+        "property_type": "string",
+        "property_description": "Country calling codes defined by ITU-T recommendations E.123 and E.164",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "customer.email",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [],
+        "nullable": false,
+        "example": [
+            "email@example.com",
+            "email2@example.com"
+        ]
+    },
+    {
+        "property_name": "customer.accounts.accountId",
+        "property_type": "string",
+        "property_description": "Account ID of the related account",
+        "enum": [],
+        "nullable": false,
+        "example": "1058527205"
+    },
+    {
+        "property_name": "customer.accounts.relationship",
+        "property_type": "string",
+        "property_description": "Types of relationships between accounts and holders. Suggested values",
+        "enum": [
+            "AUTHORIZED_USER",
+            "BUSINESS",
+            "FOR_BENEFIT_OF",
+            "FOR_BENEFIT_OF_PRIMARY",
+            "FOR_BENEFIT_OF_PRIMARY_JOINT_RESTRICTED",
+            "FOR_BENEFIT_OF_SECONDARY",
+            "FOR_BENEFIT_OF_SECONDARY_JOINT_RESTRICTED",
+            "FOR_BENEFIT_OF_SOLE_OWNER_RESTRICTED",
+            "POWER_OF_ATTORNEY",
+            "PRIMARY_JOINT_TENANTS",
+            "PRIMARY",
+            "PRIMARY_BORROWER",
+            "PRIMARY_JOINT",
+            "SECONDARY",
+            "SECONDARY_JOINT_TENANTS",
+            "SECONDARY_BORROWER",
+            "SECONDARY_JOINT",
+            "SOLE_OWNER",
+            "TRUSTEE",
+            "UNIFORM_TRANSFER_TO_MINOR"
+        ],
+        "nullable": false,
+        "example": "PRIMARY_JOINT"
+    }
+]

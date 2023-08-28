@@ -1,0 +1,1710 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_name</th>
+      <th>property_type</th>
+      <th>property_description</th>
+      <th>enum</th>
+      <th>nullable</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>links.next.href</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&limit=5&offset=5&startTime=2019-02-26T00%3A00%3A00Z</td>
+    </tr>
+    <tr>
+      <td>links.prev.href</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>/transactions/v2/mikomo/g833202fb0866d0ad83472c429?endTime=2021-02-26T00%3A00%3A00Z&limit=5&offset=0&startTime=2019-02-26T00%3A00%3A00Z</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.accountId</td>
+      <td>string</td>
+      <td>Corresponds to AccountId in Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>g833202fb0866d0ad83472c429</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.amount</td>
+      <td>number</td>
+      <td>The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "+" or not present\n  2. If `CREDIT`, sign is "-"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "-"\n  2. If `CREDIT`, sign is "+" or not present</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>-449.07</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.category</td>
+      <td>string</td>
+      <td>Transaction category, preferably MCC or SIC.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.debitCreditMemo</td>
+      <td>string</td>
+      <td>Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.</td>
+      <td>[DEBIT, CREDIT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.description</td>
+      <td>string</td>
+      <td>The description of the transaction</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>CHECK</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.foreignAmount</td>
+      <td>number</td>
+      <td>The amount of money in the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.foreignCurrency</td>
+      <td>string</td>
+      <td>The ISO 4217 code of the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.amount</td>
+      <td>number</td>
+      <td>The amount of money attributable to this line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.checkNumber</td>
+      <td>number</td>
+      <td>Check number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.description</td>
+      <td>string</td>
+      <td>The description of the line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.memo</td>
+      <td>string</td>
+      <td>Secondary item description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.lineItem.reference</td>
+      <td>string</td>
+      <td>A reference number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.memo</td>
+      <td>string</td>
+      <td>Secondary transaction description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.postedTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2019-07-08T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.reference</td>
+      <td>string</td>
+      <td>A tracking reference identifier</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.referenceTransactionId</td>
+      <td>string</td>
+      <td>Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.status</td>
+      <td>string</td>
+      <td>AUTHORIZATION, MEMO, PENDING, or POSTED</td>
+      <td>[PENDING, MEMO, POSTED, AUTHORIZATION]</td>
+      <td>False</td>
+      <td>POSTED</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.subCategory</td>
+      <td>string</td>
+      <td>Transaction category detail</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.transactionId</td>
+      <td>string</td>
+      <td>Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>30191890000030</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.transactionTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2019-07-08T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.payee</td>
+      <td>string</td>
+      <td>Payee name</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.checkNumber</td>
+      <td>integer</td>
+      <td>Check Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>31505</td>
+    </tr>
+    <tr>
+      <td>transactions.depositTransaction.transactionType</td>
+      <td>string</td>
+      <td>DepositTransaction Type</td>
+      <td>[CHECK, WITHDRAWAL, TRANSFER, POSDEBIT, ATMWITHDRAWAL, BILLPAYMENT, FEE, DEPOSIT, ADJUSTMENT, INTEREST, DIVIDEND, DIRECTDEPOSIT, ATMDEPOSIT, POSCREDIT]</td>
+      <td>False</td>
+      <td>CHECK</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.accountId</td>
+      <td>string</td>
+      <td>Corresponds to AccountId in Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.amount</td>
+      <td>number</td>
+      <td>The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "+" or not present\n  2. If `CREDIT`, sign is "-"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "-"\n  2. If `CREDIT`, sign is "+" or not present</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.category</td>
+      <td>string</td>
+      <td>Transaction category, preferably MCC or SIC.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.debitCreditMemo</td>
+      <td>string</td>
+      <td>Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.</td>
+      <td>[DEBIT, CREDIT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.description</td>
+      <td>string</td>
+      <td>The description of the transaction</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.foreignAmount</td>
+      <td>number</td>
+      <td>The amount of money in the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.foreignCurrency</td>
+      <td>string</td>
+      <td>The ISO 4217 code of the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.amount</td>
+      <td>number</td>
+      <td>The amount of money attributable to this line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.checkNumber</td>
+      <td>number</td>
+      <td>Check number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.description</td>
+      <td>string</td>
+      <td>The description of the line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.memo</td>
+      <td>string</td>
+      <td>Secondary item description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.lineItem.reference</td>
+      <td>string</td>
+      <td>A reference number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.memo</td>
+      <td>string</td>
+      <td>Secondary transaction description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.postedTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.reference</td>
+      <td>string</td>
+      <td>A tracking reference identifier</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.referenceTransactionId</td>
+      <td>string</td>
+      <td>Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.status</td>
+      <td>string</td>
+      <td>AUTHORIZATION, MEMO, PENDING, or POSTED</td>
+      <td>[PENDING, MEMO, POSTED, AUTHORIZATION]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.subCategory</td>
+      <td>string</td>
+      <td>Transaction category detail</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.transactionId</td>
+      <td>string</td>
+      <td>Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.transactionTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.paymentDetails.escrowAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to escrow</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.paymentDetails.feesAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to fees</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.paymentDetails.insuranceAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to life/health/accident insurance on the loan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.paymentDetails.interestAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to interest</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.paymentDetails.pmiAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to PMI</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.paymentDetails.principalAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to principal</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.loanTransaction.transactionType</td>
+      <td>string</td>
+      <td>LoanTransaction Type</td>
+      <td>[ADJUSTMENT, FEE, INTEREST, PAYMENT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.accountId</td>
+      <td>string</td>
+      <td>Corresponds to AccountId in Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.amount</td>
+      <td>number</td>
+      <td>The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "+" or not present\n  2. If `CREDIT`, sign is "-"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "-"\n  2. If `CREDIT`, sign is "+" or not present</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.category</td>
+      <td>string</td>
+      <td>Transaction category, preferably MCC or SIC.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.debitCreditMemo</td>
+      <td>string</td>
+      <td>Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.</td>
+      <td>[DEBIT, CREDIT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.description</td>
+      <td>string</td>
+      <td>The description of the transaction</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.foreignAmount</td>
+      <td>number</td>
+      <td>The amount of money in the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.foreignCurrency</td>
+      <td>string</td>
+      <td>The ISO 4217 code of the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.amount</td>
+      <td>number</td>
+      <td>The amount of money attributable to this line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.checkNumber</td>
+      <td>number</td>
+      <td>Check number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.description</td>
+      <td>string</td>
+      <td>The description of the line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.memo</td>
+      <td>string</td>
+      <td>Secondary item description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.lineItem.reference</td>
+      <td>string</td>
+      <td>A reference number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.memo</td>
+      <td>string</td>
+      <td>Secondary transaction description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.postedTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.reference</td>
+      <td>string</td>
+      <td>A tracking reference identifier</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.referenceTransactionId</td>
+      <td>string</td>
+      <td>Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.status</td>
+      <td>string</td>
+      <td>AUTHORIZATION, MEMO, PENDING, or POSTED</td>
+      <td>[PENDING, MEMO, POSTED, AUTHORIZATION]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.subCategory</td>
+      <td>string</td>
+      <td>Transaction category detail</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.transactionId</td>
+      <td>string</td>
+      <td>Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.transactionTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.checkNumber</td>
+      <td>integer</td>
+      <td>Check number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.paymentDetails.escrowAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to escrow</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.paymentDetails.feesAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to fees</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.paymentDetails.insuranceAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to life/health/accident insurance on the loan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.paymentDetails.interestAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to interest</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.paymentDetails.pmiAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to PMI</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.paymentDetails.principalAmount</td>
+      <td>number</td>
+      <td>The amount of payment applied to principal</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.locTransaction.transactionType</td>
+      <td>string</td>
+      <td>LocTransaction Type</td>
+      <td>[CHECK, WITHDRAWAL, TRANSFER, POSDEBIT, ATMWITHDRAWAL, BILLPAYMENT, FEE, DEPOSIT, ADJUSTMENT, INTEREST, DIVIDEND, DIRECTDEPOSIT, ATMDEPOSIT, POSCREDIT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.accountId</td>
+      <td>string</td>
+      <td>Corresponds to AccountId in Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.amount</td>
+      <td>number</td>
+      <td>The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "+" or not present\n  2. If `CREDIT`, sign is "-"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "-"\n  2. If `CREDIT`, sign is "+" or not present</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.category</td>
+      <td>string</td>
+      <td>Transaction category, preferably MCC or SIC.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.debitCreditMemo</td>
+      <td>string</td>
+      <td>Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.</td>
+      <td>[DEBIT, CREDIT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.description</td>
+      <td>string</td>
+      <td>The description of the transaction</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.foreignAmount</td>
+      <td>number</td>
+      <td>The amount of money in the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.foreignCurrency</td>
+      <td>string</td>
+      <td>The ISO 4217 code of the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.amount</td>
+      <td>number</td>
+      <td>The amount of money attributable to this line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.checkNumber</td>
+      <td>number</td>
+      <td>Check number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.description</td>
+      <td>string</td>
+      <td>The description of the line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.memo</td>
+      <td>string</td>
+      <td>Secondary item description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.lineItem.reference</td>
+      <td>string</td>
+      <td>A reference number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.memo</td>
+      <td>string</td>
+      <td>Secondary transaction description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.postedTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.reference</td>
+      <td>string</td>
+      <td>A tracking reference identifier</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.referenceTransactionId</td>
+      <td>string</td>
+      <td>Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.status</td>
+      <td>string</td>
+      <td>AUTHORIZATION, MEMO, PENDING, or POSTED</td>
+      <td>[PENDING, MEMO, POSTED, AUTHORIZATION]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.subCategory</td>
+      <td>string</td>
+      <td>Transaction category detail</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.transactionId</td>
+      <td>string</td>
+      <td>Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.transactionTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.accruedInterest</td>
+      <td>number</td>
+      <td>Accrued Interest.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.commission</td>
+      <td>number</td>
+      <td>Transaction commission.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.confirmationNumber</td>
+      <td>string</td>
+      <td>Confirmation number of the transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.faceValue</td>
+      <td>number</td>
+      <td>Cash value for bonds.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.fees</td>
+      <td>number</td>
+      <td>Fees applied to the trade.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.fractionalCash</td>
+      <td>number</td>
+      <td>Cash for fractional units (used for stock splits).</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.gain</td>
+      <td>number</td>
+      <td>For sales.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.incomeType</td>
+      <td>string</td>
+      <td>Type of investment income. CGLONG (capital gains-long term), CGSHORT (capital gains-short term), MISC.</td>
+      <td>[CGLONG, CGSHORT, MISC]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.inv401kSource</td>
+      <td>string</td>
+      <td>Source of money.</td>
+      <td>[PRETAX, AFTERTAX, MATCH, PROFITSHARING, ROLLOVER, OTHERVEST, OTHERNONVEST]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.load</td>
+      <td>number</td>
+      <td>Load on the transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.loanId</td>
+      <td>string</td>
+      <td>For 401k accounts only. This indicates the transaction was due to a loan or a loan repayment.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.loanInterest</td>
+      <td>number</td>
+      <td>How much loan pre-payment is interest.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.loanPrincipal</td>
+      <td>number</td>
+      <td>How much loan pre-payment is principal.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.markup</td>
+      <td>number</td>
+      <td>Portion of unit price that is attributed to the dealer markup.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.newUnits</td>
+      <td>number</td>
+      <td>Number of shares after split.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.oldUnits</td>
+      <td>number</td>
+      <td>Number of shares before split.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.payrollDate</td>
+      <td>string</td>
+      <td>The date for the 401k transaction was obtained in payroll.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.penalty</td>
+      <td>number</td>
+      <td>Indicates amount withheld due to a penalty.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.positionType</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[LONG, SHORT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.price</td>
+      <td>number</td>
+      <td>Unit purchase price.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.priorYearContrib</td>
+      <td>boolean</td>
+      <td>Indicates this buy was made using prior years contribution. TRUE or FALSE.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.runningBalance</td>
+      <td>number</td>
+      <td>Running balance of the position.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.securityId</td>
+      <td>string</td>
+      <td>Unique identifier of security.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.securityIdType</td>
+      <td>string</td>
+      <td>Security identifier type.</td>
+      <td>[BUSIP, ISIN, SEDOL, SICC, VALOR, WKN]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.securityType</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[STOCK, MUTUALFUND, DEBT, OPTION, SWEEP, OTHER, BOND]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.shares</td>
+      <td>number</td>
+      <td>Number of shares (with decimals). Negative numbers indicate securities are being removed from the account.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.splitRatioDenominator</td>
+      <td>number</td>
+      <td>Split ratio denominator.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.splitRatioNumerator</td>
+      <td>number</td>
+      <td>Split ratio numerator.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.stateWithholding</td>
+      <td>number</td>
+      <td>State tax withholding.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.subAccountFund</td>
+      <td>string</td>
+      <td>From which account money came in.</td>
+      <td>[CASH, MARGIN, SHORT, OTHERS]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.subAccountSec</td>
+      <td>string</td>
+      <td>Sub-account security type.</td>
+      <td>[CASH, MARGIN, SHORT, OTHERS]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.symbol</td>
+      <td>string</td>
+      <td>Ticker symbol.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.taxes</td>
+      <td>number</td>
+      <td>Taxes on the trade.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.taxExempt</td>
+      <td>boolean</td>
+      <td>Tax-exempt transaction TRUE or FALSE.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.transactionReason</td>
+      <td>string</td>
+      <td>Reason for this transaction; CALL (the debt was called), SELL (the debt was sold), MATURITY (the debt reached maturity)</td>
+      <td>[CALL, SELL, MATURITY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.transactionType</td>
+      <td>string</td>
+      <td>InvestmentTransaction Type</td>
+      <td>[PURCHASED, SOLD, PURCHASEDTOCOVER, ADJUSTMENT, PURCHASETOOPEN, PURCHASETOCLOSE, SOLDTOOPEN, SOLDTOCLOSE, INTEREST, MARGININTEREST, REINVESTOFINCOME, RETURNOFCAPITAL, TRANSFER, CONTRIBUTION, FEE, OPTIONEXERCISE, OPTIONEXPIRATION, DIVIDEND, DIVIDENDREINVEST, SPLIT, CLOSURE, INCOME, EXPENSE, CLOSUREOPT, INVEXPENSE, JRNLSEC, JRNLFUND, OTHER, DIV, SRVCHG, DEP, DEPOSIT, ATM, POS, XFER, CHECK, PAYMENT, CASH, DIRECTDEP, DIRECTDEBIT, REPEATPMT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.transferAction</td>
+      <td>string</td>
+      <td>Transfer direction.</td>
+      <td>[IN, OUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.unitPrice</td>
+      <td>number</td>
+      <td>Price per commonly-quoted unit. Does not include markup/markdown, unitprice. Share price for stocks, mutual funds, and others. Percentage of par for bonds. Per share (not contract) for options.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.units</td>
+      <td>number</td>
+      <td>For security-based actions other than stock splits, quantity. Shares for stocks, mutual funds, and others. Face value for bonds. Contracts for options.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.unitType</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[SHARES, CURRENCY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.investmentTransaction.withholding</td>
+      <td>number</td>
+      <td>Federal tax withholding.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.accountId</td>
+      <td>string</td>
+      <td>Corresponds to AccountId in Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.amount</td>
+      <td>number</td>
+      <td>The amount of money in the account currency.\n\nIf balanceType is `ASSET`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "+" or not present\n  2. If `CREDIT`, sign is "-"\n\nIf balanceType is `LIABILITY`:\n\n  1. If `debitCreditMemo` = `DEBIT`, sign is "-"\n  2. If `CREDIT`, sign is "+" or not present</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.category</td>
+      <td>string</td>
+      <td>Transaction category, preferably MCC or SIC.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.debitCreditMemo</td>
+      <td>string</td>
+      <td>Akoya will ensure that this is correctly populated with one of DEBIT or CREDIT and matches the sign of the status field.</td>
+      <td>[DEBIT, CREDIT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.description</td>
+      <td>string</td>
+      <td>The description of the transaction</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.foreignAmount</td>
+      <td>number</td>
+      <td>The amount of money in the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.foreignCurrency</td>
+      <td>string</td>
+      <td>The ISO 4217 code of the foreign currency</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.amount</td>
+      <td>number</td>
+      <td>The amount of money attributable to this line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.checkNumber</td>
+      <td>number</td>
+      <td>Check number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.description</td>
+      <td>string</td>
+      <td>The description of the line item</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.imageIds</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.memo</td>
+      <td>string</td>
+      <td>Secondary item description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.lineItem.reference</td>
+      <td>string</td>
+      <td>A reference number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.links.href</td>
+      <td>string</td>
+      <td>URL to invoke the action on the resource</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.links.action</td>
+      <td>string</td>
+      <td>HTTP Method to use for the request</td>
+      <td>[GET, POST, PATCH, DELETE, PUT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.links.types</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[application/pdf, image/gif, image/jpeg, image/tiff, image/png, application/json]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.memo</td>
+      <td>string</td>
+      <td>Secondary transaction description</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.postedTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was posted to the account. If not provided then TransactionTimestamp can be used as PostedTimeStamp.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.reference</td>
+      <td>string</td>
+      <td>A tracking reference identifier</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.referenceTransactionId</td>
+      <td>string</td>
+      <td>Akoya ensures that this field is populated for all transactions which are reversals, otherwise it is null. Either way it is always present.\n\nFor reverse postings, the identity of the transaction being reversed. For the correction transaction, the identity of the reversing post. For credit card posting transactions, the identity of the authorization transaction.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.status</td>
+      <td>string</td>
+      <td>AUTHORIZATION, MEMO, PENDING, or POSTED</td>
+      <td>[PENDING, MEMO, POSTED, AUTHORIZATION]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.subCategory</td>
+      <td>string</td>
+      <td>Transaction category detail</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.transactionId</td>
+      <td>string</td>
+      <td>Long term persistent identity of the transaction (unique to account). \nTransaction IDs should: \n  \n  1. be the same for pending and posted \n  2. be different for reversed transactions \n  3. `referenceTransactionId` should be present for reversed transactions'</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.transactionTimestamp</td>
+      <td>string</td>
+      <td>The date and time that the transaction was added to the server backend systems.\n\nAkoya ensures that this field is populated for all transactions to which it applies, otherwise it is null. Either way it is always present.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>transactions.insuranceTransaction.transactionType</td>
+      <td>string</td>
+      <td>InsuranceTransaction Type</td>
+      <td>[PAYMENT, FEE, ADJUSTMENT, INTEREST]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>

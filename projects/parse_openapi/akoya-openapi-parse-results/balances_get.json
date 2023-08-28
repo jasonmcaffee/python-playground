@@ -1,0 +1,538 @@
+[
+    {
+        "property_name": "accounts.depositAccount.balanceAsOf",
+        "property_type": "string",
+        "property_description": "As-of date of balances",
+        "enum": [],
+        "nullable": false,
+        "example": "2022-04-24T14:15:22Z"
+    },
+    {
+        "property_name": "accounts.depositAccount.openingDayBalance",
+        "property_type": "number",
+        "property_description": "Day's opening fund balance",
+        "enum": [],
+        "nullable": false,
+        "example": 0
+    },
+    {
+        "property_name": "accounts.depositAccount.availableBalance",
+        "property_type": "number",
+        "property_description": "Balance of funds available for use",
+        "enum": [],
+        "nullable": false,
+        "example": 106717.06
+    },
+    {
+        "property_name": "accounts.depositAccount.interestYtd",
+        "property_type": "number",
+        "property_description": "YTD Interest",
+        "enum": [],
+        "nullable": false,
+        "example": 20.33
+    },
+    {
+        "property_name": "accounts.depositAccount.currentBalance",
+        "property_type": "number",
+        "property_description": "Balance of funds in account",
+        "enum": [],
+        "nullable": false,
+        "example": 106717.06
+    },
+    {
+        "property_name": "accounts.loanAccount.balanceAsOf",
+        "property_type": "string",
+        "property_description": "As-of date of balances",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.escrowBalance",
+        "property_type": "number",
+        "property_description": "Escrow balance of loan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.interestPaidYearToDate",
+        "property_type": "number",
+        "property_description": "Interest paid year to date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.lastPaymentAmount",
+        "property_type": "number",
+        "property_description": "Last payment amount",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.lastPaymentDate",
+        "property_type": "string",
+        "property_description": "Last payment date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.nextPaymentAmount",
+        "property_type": "number",
+        "property_description": "Amount of next payment",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.nextPaymentDate",
+        "property_type": "string",
+        "property_description": "Date of next payment",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.originalPrincipal",
+        "property_type": "number",
+        "property_description": "Original principal of loan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.payOffAmount",
+        "property_type": "number",
+        "property_description": "Payoff amount",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.loanAccount.principalBalance",
+        "property_type": "number",
+        "property_description": "Principal balance of loan",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.balanceAsOf",
+        "property_type": "string",
+        "property_description": "As-of date of balances",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.advancesApr",
+        "property_type": "number",
+        "property_description": "Advances APR",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.availableCash",
+        "property_type": "number",
+        "property_description": "Available cash",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.availableCredit",
+        "property_type": "number",
+        "property_description": "Available credit",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.cashAdvanceLimit",
+        "property_type": "number",
+        "property_description": "Cash advance limit",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.creditLine",
+        "property_type": "number",
+        "property_description": "Credit limit",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.currentBalance",
+        "property_type": "number",
+        "property_description": "Current balance LOC",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.currentRewardsBalance",
+        "property_type": "number",
+        "property_description": "Current rewards balance",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.financeCharges",
+        "property_type": "number",
+        "property_description": "Finance charges",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.lastPaymentAmount",
+        "property_type": "number",
+        "property_description": "Last payment amount",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.lastPaymentDate",
+        "property_type": "string",
+        "property_description": "Last payment date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.lastStmtBalance",
+        "property_type": "number",
+        "property_description": "Last Statement Balance",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.lastStmtDate",
+        "property_type": "string",
+        "property_description": "Last Statement Date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.minimumPaymentAmount",
+        "property_type": "number",
+        "property_description": "Minimum payment amount",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.nextPaymentAmount",
+        "property_type": "number",
+        "property_description": "Amount of next payment",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.nextPaymentDate",
+        "property_type": "string",
+        "property_description": "Due date of next payment",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.pastDueAmount",
+        "property_type": "number",
+        "property_description": "Past Due Amount",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.pointsAccrued",
+        "property_type": "number",
+        "property_description": "Points accrued",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.principalBalance",
+        "property_type": "number",
+        "property_description": "Principal balance",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.pointsRedeemed",
+        "property_type": "number",
+        "property_description": "Points redeemed",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.locAccount.purchasesApr",
+        "property_type": "number",
+        "property_description": "Purchases APR",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.availableCashBalance",
+        "property_type": "number",
+        "property_description": "Cash balance across all sub-accounts. Should include sweep funds.",
+        "enum": [],
+        "nullable": false,
+        "example": 0
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceAsOf",
+        "property_type": "string",
+        "property_description": "As-of date of balances",
+        "enum": [],
+        "nullable": false,
+        "example": "2022-03-16T04:00:00Z"
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.balanceName",
+        "property_type": "string",
+        "property_description": "Name of the balance.",
+        "enum": [],
+        "nullable": false,
+        "example": "MARGINCALL"
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.balanceDescription",
+        "property_type": "string",
+        "property_description": "Description of balance.",
+        "enum": [],
+        "nullable": false,
+        "example": "Margin Call"
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.balanceType",
+        "property_type": "string",
+        "property_description": "The type of an investment balance. AMOUNT or PERCENTAGE.",
+        "enum": [
+            "AMOUNT",
+            "PERCENTAGE"
+        ],
+        "nullable": false,
+        "example": "AMOUNT"
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.balanceValue",
+        "property_type": "number",
+        "property_description": "Value of balance name.",
+        "enum": [],
+        "nullable": false,
+        "example": 0
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.balanceDate",
+        "property_type": "string",
+        "property_description": "Date as of this balance.",
+        "enum": [],
+        "nullable": false,
+        "example": "2021-07-06"
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.currency.currencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": "USD"
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.currency.currencyRate",
+        "property_type": "number",
+        "property_description": "Currency rate between original and converted currency.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.balanceList.currency.originalCurrencyCode",
+        "property_type": "string",
+        "property_description": "Iso 4217 currency code.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.currentValue",
+        "property_type": "number",
+        "property_description": "Total current value of all investments",
+        "enum": [],
+        "nullable": false,
+        "example": 52672.49
+    },
+    {
+        "property_name": "accounts.investmentAccount.dailyChange",
+        "property_type": "number",
+        "property_description": "Daily change",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.marginBalance",
+        "property_type": "number",
+        "property_description": "Margin balance",
+        "enum": [],
+        "nullable": false,
+        "example": 0
+    },
+    {
+        "property_name": "accounts.investmentAccount.percentageChange",
+        "property_type": "number",
+        "property_description": "Percentage change",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.rolloverAmount",
+        "property_type": "number",
+        "property_description": "Rollover amount",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.investmentAccount.shortBalance",
+        "property_type": "number",
+        "property_description": "Short balance",
+        "enum": [],
+        "nullable": false,
+        "example": 0
+    },
+    {
+        "property_name": "accounts.insuranceAccount.policyCoverageAmount",
+        "property_type": "number",
+        "property_description": "Total amount of money the user is insured for.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.policyEndDate",
+        "property_type": "string",
+        "property_description": "The premium end date.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.policyPremium",
+        "property_type": "number",
+        "property_description": "The amount of the user's premium.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.policyPremiumTerm",
+        "property_type": "string",
+        "property_description": "he payment term for the premium. MONTHLY or ANNUAL.",
+        "enum": [
+            "MONTHLY",
+            "ANNUAL"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.insuranceAccount.policyStartDate",
+        "property_type": "string",
+        "property_description": "The premium start date.",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.annualIncrease",
+        "property_type": "number",
+        "property_description": "Percent or dollar amount of annual payment increase",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.annualIncreaseType",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "FIXED",
+            "PERCENT",
+            "DOLLAR"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.netPresentValue",
+        "property_type": "number",
+        "property_description": "Surrender or cash balance value",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.paymentAmount",
+        "property_type": "number",
+        "property_description": "Amount of the recurring payment",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.paymentEndDate",
+        "property_type": "string",
+        "property_description": "Date last payment will be made",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.paymentStartDate",
+        "property_type": "string",
+        "property_description": "Date of first payment; could be a future date",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.periodCertainGuarantee",
+        "property_type": "string",
+        "property_description": "N/A",
+        "enum": [
+            "NO PERIOD CERTAIN",
+            "5-YEAR",
+            "10-YEAR",
+            "20-YEAR",
+            "30-YEAR"
+        ],
+        "nullable": false,
+        "example": null
+    },
+    {
+        "property_name": "accounts.annuityAccount.totalPaymentCount",
+        "property_type": "number",
+        "property_description": "Total number of payments that will be produced by the annuity",
+        "enum": [],
+        "nullable": false,
+        "example": null
+    }
+]

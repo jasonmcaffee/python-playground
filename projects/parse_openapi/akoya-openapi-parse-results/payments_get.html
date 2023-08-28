@@ -1,0 +1,62 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_name</th>
+      <th>property_type</th>
+      <th>property_description</th>
+      <th>enum</th>
+      <th>nullable</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>paymentNetworks.bankId</td>
+      <td>string</td>
+      <td>Bank identifier used by the payment network ie. Routing Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>125000024</td>
+    </tr>
+    <tr>
+      <td>paymentNetworks.identifier</td>
+      <td>string</td>
+      <td>The number used to identify the account within the payment network. If identifierType is ACCOUNT_NUMBER, this is the account number.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>454992210071</td>
+    </tr>
+    <tr>
+      <td>paymentNetworks.identifierType</td>
+      <td>string</td>
+      <td>Type of identifier</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>ACCOUNT_NUMBER</td>
+    </tr>
+    <tr>
+      <td>paymentNetworks.type</td>
+      <td>string</td>
+      <td>Type of payment network</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>US_ACH</td>
+    </tr>
+    <tr>
+      <td>paymentNetworks.transferIn</td>
+      <td>boolean</td>
+      <td>Can transfer funds to the account using this information</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>paymentNetworks.transferOut</td>
+      <td>boolean</td>
+      <td>Can transfer funds from the account using this information</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>

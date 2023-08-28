@@ -1,0 +1,182 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_name</th>
+      <th>property_type</th>
+      <th>property_description</th>
+      <th>enum</th>
+      <th>nullable</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>customer.customerId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the end-user. This identity must be unique to the owning institution</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>1221963501</td>
+    </tr>
+    <tr>
+      <td>customer.name.first</td>
+      <td>string</td>
+      <td>First or given name. This data element may contain first & last name if not separated.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Firstname</td>
+    </tr>
+    <tr>
+      <td>customer.name.middle</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <td>customer.name.last</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Familyname</td>
+    </tr>
+    <tr>
+      <td>customer.name.prefix</td>
+      <td>string</td>
+      <td>Name prefix, e.g. Mr.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.name.suffix</td>
+      <td>string</td>
+      <td>Generational or academic suffix</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.name.company</td>
+      <td>string</td>
+      <td>Company name</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.type</td>
+      <td>string</td>
+      <td>The location type of an address</td>
+      <td>[BUSINESS, HOME, MAILING]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.line1</td>
+      <td>string</td>
+      <td>May contain full address if not separated</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>101 Address</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.line2</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.line3</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.city</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>City</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.state</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>NC</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.postalCode</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>27534-8861</td>
+    </tr>
+    <tr>
+      <td>customer.addresses.country</td>
+      <td>string</td>
+      <td>ISO 3166 Country Code</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.telephones.number</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>888-888-8888</td>
+    </tr>
+    <tr>
+      <td>customer.telephones.type</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[HOME, BUSINESS, CELL, FAX]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.telephones.country</td>
+      <td>string</td>
+      <td>Country calling codes defined by ITU-T recommendations E.123 and E.164</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>customer.email</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>[email@example.com, email2@example.com]</td>
+    </tr>
+    <tr>
+      <td>customer.accounts.accountId</td>
+      <td>string</td>
+      <td>Account ID of the related account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>1058527205</td>
+    </tr>
+    <tr>
+      <td>customer.accounts.relationship</td>
+      <td>string</td>
+      <td>Types of relationships between accounts and holders. Suggested values</td>
+      <td>[AUTHORIZED_USER, BUSINESS, FOR_BENEFIT_OF, FOR_BENEFIT_OF_PRIMARY, FOR_BENEFIT_OF_PRIMARY_JOINT_RESTRICTED, FOR_BENEFIT_OF_SECONDARY, FOR_BENEFIT_OF_SECONDARY_JOINT_RESTRICTED, FOR_BENEFIT_OF_SOLE_OWNER_RESTRICTED, POWER_OF_ATTORNEY, PRIMARY_JOINT_TENANTS, PRIMARY, PRIMARY_BORROWER, PRIMARY_JOINT, SECONDARY, SECONDARY_JOINT_TENANTS, SECONDARY_BORROWER, SECONDARY_JOINT, SOLE_OWNER, TRUSTEE, UNIFORM_TRANSFER_TO_MINOR]</td>
+      <td>False</td>
+      <td>PRIMARY_JOINT</td>
+    </tr>
+  </tbody>
+</table>

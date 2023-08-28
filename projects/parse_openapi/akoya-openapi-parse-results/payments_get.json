@@ -1,0 +1,50 @@
+[
+    {
+        "property_name": "paymentNetworks.bankId",
+        "property_type": "string",
+        "property_description": "Bank identifier used by the payment network ie. Routing Number",
+        "enum": [],
+        "nullable": false,
+        "example": "125000024"
+    },
+    {
+        "property_name": "paymentNetworks.identifier",
+        "property_type": "string",
+        "property_description": "The number used to identify the account within the payment network. If identifierType is ACCOUNT_NUMBER, this is the account number.",
+        "enum": [],
+        "nullable": false,
+        "example": "454992210071"
+    },
+    {
+        "property_name": "paymentNetworks.identifierType",
+        "property_type": "string",
+        "property_description": "Type of identifier",
+        "enum": [],
+        "nullable": false,
+        "example": "ACCOUNT_NUMBER"
+    },
+    {
+        "property_name": "paymentNetworks.type",
+        "property_type": "string",
+        "property_description": "Type of payment network",
+        "enum": [],
+        "nullable": false,
+        "example": "US_ACH"
+    },
+    {
+        "property_name": "paymentNetworks.transferIn",
+        "property_type": "boolean",
+        "property_description": "Can transfer funds to the account using this information",
+        "enum": [],
+        "nullable": false,
+        "example": true
+    },
+    {
+        "property_name": "paymentNetworks.transferOut",
+        "property_type": "boolean",
+        "property_description": "Can transfer funds from the account using this information",
+        "enum": [],
+        "nullable": false,
+        "example": true
+    }
+]

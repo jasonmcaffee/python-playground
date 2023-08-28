@@ -1,0 +1,1278 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>property_name</th>
+      <th>property_type</th>
+      <th>property_description</th>
+      <th>enum</th>
+      <th>nullable</th>
+      <th>example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>accounts.depositAccount.accountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>g833202fb0866d0ad83472c429</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.accountType</td>
+      <td>string</td>
+      <td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>CHECKING</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.accountNumberDisplay</td>
+      <td>string</td>
+      <td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>xxxxxxxx0071</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.description</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Checking Plus</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>accountOpenedDate</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2020-04-23</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.nickname</td>
+      <td>string</td>
+      <td>Name given by the user. Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Nickname Checking Plus 0071</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.productName</td>
+      <td>string</td>
+      <td>Marketed product name for this account.  Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Checking Plus</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.status</td>
+      <td>string</td>
+      <td>The status of an account.</td>
+      <td>[OPEN, CLOSED, PENDINGOPEN, PENDINGCLOSE, DELINQUENT, PAID, NEGATIVECURRENTBALANCE]</td>
+      <td>False</td>
+      <td>OPEN</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.lineOfBusiness</td>
+      <td>string</td>
+      <td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>Personal</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.balanceType</td>
+      <td>string</td>
+      <td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)</td>
+      <td>[ASSET, LIABILITY]</td>
+      <td>False</td>
+      <td>ASSET</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.interestRate</td>
+      <td>number</td>
+      <td>Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0.0125</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.interestRateType</td>
+      <td>string</td>
+      <td>The type of interest rate. FIXED or VARIABLE.</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>FIXED</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.interestRateAsOf</td>
+      <td>string</td>
+      <td>Date of account’s interest rate</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2022-04-24T14:15:22Z</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.lastActivityDate</td>
+      <td>string</td>
+      <td>Date that last transaction occurred on account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2022-04-24T14:15:22Z</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.micrNumber</td>
+      <td>string</td>
+      <td>MICR Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.parentAccountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the parent account. This is used to group accounts.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>11719ae5-2399-1278-e43c-43f24abb3058</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.priorInterestRate</td>
+      <td>number</td>
+      <td>Previous Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.transferIn</td>
+      <td>boolean</td>
+      <td>Account is eligible for incoming transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.transferOut</td>
+      <td>boolean</td>
+      <td>Account is eligible for outgoing transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.annualPercentageYield</td>
+      <td>number</td>
+      <td>Annual Percentage Yield.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.term</td>
+      <td>integer</td>
+      <td>Term of CD in months</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>accounts.depositAccount.maturityDate</td>
+      <td>string</td>
+      <td>Maturity date for CDs.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2024-03-21T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.accountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.accountType</td>
+      <td>string</td>
+      <td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.accountNumberDisplay</td>
+      <td>string</td>
+      <td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.description</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.nickname</td>
+      <td>string</td>
+      <td>Name given by the user. Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.productName</td>
+      <td>string</td>
+      <td>Marketed product name for this account.  Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.status</td>
+      <td>string</td>
+      <td>The status of an account.</td>
+      <td>[OPEN, CLOSED, PENDINGOPEN, PENDINGCLOSE, DELINQUENT, PAID, NEGATIVECURRENTBALANCE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.lineOfBusiness</td>
+      <td>string</td>
+      <td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.balanceType</td>
+      <td>string</td>
+      <td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)</td>
+      <td>[ASSET, LIABILITY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.interestRate</td>
+      <td>number</td>
+      <td>Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.interestRateType</td>
+      <td>string</td>
+      <td>The type of interest rate. FIXED or VARIABLE.</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.interestRateAsOf</td>
+      <td>string</td>
+      <td>Date of account’s interest rate</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.lastActivityDate</td>
+      <td>string</td>
+      <td>Date that last transaction occurred on account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.micrNumber</td>
+      <td>string</td>
+      <td>MICR Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.parentAccountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the parent account. This is used to group accounts.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.priorInterestRate</td>
+      <td>number</td>
+      <td>Previous Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.transferIn</td>
+      <td>boolean</td>
+      <td>Account is eligible for incoming transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.transferOut</td>
+      <td>boolean</td>
+      <td>Account is eligible for outgoing transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.compoundingPeriod</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[DAILY, WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, SEMIANNUALLY, ANNUALLY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.loanTerm</td>
+      <td>integer</td>
+      <td>Term of loan in months</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.maturityDate</td>
+      <td>string</td>
+      <td>Maturity date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.originatingDate</td>
+      <td>string</td>
+      <td>Loan origination date</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.paymentFrequency</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[DAILY, WEEKLY, BIWEEKLY, SEMIMONTHLY, MONTHLY, SEMIANNUALLY, ANNUALLY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.loanAccount.totalNumberOfPayments</td>
+      <td>integer</td>
+      <td>Total number of payments</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.accountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.accountType</td>
+      <td>string</td>
+      <td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.accountNumberDisplay</td>
+      <td>string</td>
+      <td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.description</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.nickname</td>
+      <td>string</td>
+      <td>Name given by the user. Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.productName</td>
+      <td>string</td>
+      <td>Marketed product name for this account.  Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.status</td>
+      <td>string</td>
+      <td>The status of an account.</td>
+      <td>[OPEN, CLOSED, PENDINGOPEN, PENDINGCLOSE, DELINQUENT, PAID, NEGATIVECURRENTBALANCE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.lineOfBusiness</td>
+      <td>string</td>
+      <td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.balanceType</td>
+      <td>string</td>
+      <td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)</td>
+      <td>[ASSET, LIABILITY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.interestRate</td>
+      <td>number</td>
+      <td>Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.interestRateType</td>
+      <td>string</td>
+      <td>The type of interest rate. FIXED or VARIABLE.</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.interestRateAsOf</td>
+      <td>string</td>
+      <td>Date of account’s interest rate</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.lastActivityDate</td>
+      <td>string</td>
+      <td>Date that last transaction occurred on account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.micrNumber</td>
+      <td>string</td>
+      <td>MICR Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.parentAccountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the parent account. This is used to group accounts.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.priorInterestRate</td>
+      <td>number</td>
+      <td>Previous Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.transferIn</td>
+      <td>boolean</td>
+      <td>Account is eligible for incoming transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.locAccount.transferOut</td>
+      <td>boolean</td>
+      <td>Account is eligible for outgoing transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.accountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>839502593</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.accountType</td>
+      <td>string</td>
+      <td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>College Savings</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.accountNumberDisplay</td>
+      <td>string</td>
+      <td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>...7054</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.description</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.nickname</td>
+      <td>string</td>
+      <td>Name given by the user. Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>529 for Kid</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.productName</td>
+      <td>string</td>
+      <td>Marketed product name for this account.  Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.status</td>
+      <td>string</td>
+      <td>The status of an account.</td>
+      <td>[OPEN, CLOSED, PENDINGOPEN, PENDINGCLOSE, DELINQUENT, PAID, NEGATIVECURRENTBALANCE]</td>
+      <td>False</td>
+      <td>OPEN</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.lineOfBusiness</td>
+      <td>string</td>
+      <td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.balanceType</td>
+      <td>string</td>
+      <td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)</td>
+      <td>[ASSET, LIABILITY]</td>
+      <td>False</td>
+      <td>ASSET</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.interestRate</td>
+      <td>number</td>
+      <td>Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.interestRateType</td>
+      <td>string</td>
+      <td>The type of interest rate. FIXED or VARIABLE.</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.interestRateAsOf</td>
+      <td>string</td>
+      <td>Date of account’s interest rate</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.lastActivityDate</td>
+      <td>string</td>
+      <td>Date that last transaction occurred on account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>2021-07-06T00:00:00Z</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.micrNumber</td>
+      <td>string</td>
+      <td>MICR Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.parentAccountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the parent account. This is used to group accounts.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.priorInterestRate</td>
+      <td>number</td>
+      <td>Previous Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.transferIn</td>
+      <td>boolean</td>
+      <td>Account is eligible for incoming transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.transferOut</td>
+      <td>boolean</td>
+      <td>Account is eligible for outgoing transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.allowedCheckWriting</td>
+      <td>boolean</td>
+      <td>Check writing privileges</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.allowedOptionTrade</td>
+      <td>boolean</td>
+      <td>Allowed to trade options</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.brokerId</td>
+      <td>string</td>
+      <td>Unique identifier FI</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.calendarYearFor401K</td>
+      <td>string</td>
+      <td>Date for this calendar year for 401K account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.employerName</td>
+      <td>string</td>
+      <td>Name of the employer in investment 401k Plan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.margin</td>
+      <td>boolean</td>
+      <td>Margin trading is allowed</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>accounts.investmentAccount.planId</td>
+      <td>string</td>
+      <td>Plan number for Investment 401k plan</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.accountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.accountType</td>
+      <td>string</td>
+      <td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.accountNumberDisplay</td>
+      <td>string</td>
+      <td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.description</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.nickname</td>
+      <td>string</td>
+      <td>Name given by the user. Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.productName</td>
+      <td>string</td>
+      <td>Marketed product name for this account.  Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.status</td>
+      <td>string</td>
+      <td>The status of an account.</td>
+      <td>[OPEN, CLOSED, PENDINGOPEN, PENDINGCLOSE, DELINQUENT, PAID, NEGATIVECURRENTBALANCE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.lineOfBusiness</td>
+      <td>string</td>
+      <td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.balanceType</td>
+      <td>string</td>
+      <td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)</td>
+      <td>[ASSET, LIABILITY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.interestRate</td>
+      <td>number</td>
+      <td>Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.interestRateType</td>
+      <td>string</td>
+      <td>The type of interest rate. FIXED or VARIABLE.</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.interestRateAsOf</td>
+      <td>string</td>
+      <td>Date of account’s interest rate</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.lastActivityDate</td>
+      <td>string</td>
+      <td>Date that last transaction occurred on account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.micrNumber</td>
+      <td>string</td>
+      <td>MICR Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.parentAccountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the parent account. This is used to group accounts.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.priorInterestRate</td>
+      <td>number</td>
+      <td>Previous Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.transferIn</td>
+      <td>boolean</td>
+      <td>Account is eligible for incoming transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.transferOut</td>
+      <td>boolean</td>
+      <td>Account is eligible for outgoing transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.insuranceAccount.accountCategory</td>
+      <td>string</td>
+      <td>The account category of the insurance account. Possible enums: DEPOSIT_ACCOUNT, INVESTMENT_ACCOUNT, LOAN_ACCOUNT, LOC_ACCOUNT, INSURANCE_ACCOUNT</td>
+      <td>[DEPOSIT_ACCOUNT, INVESTMENT_ACCOUNT, LOAN_ACCOUNT, LOC_ACCOUNT, INSURANCE_ACCOUNT]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.accountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the account. Not an account number. This identity must be unique to the owning institution.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.accountType</td>
+      <td>string</td>
+      <td>The type of an account. For instance, CHECKING, SAVINGS, 401K, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.accountNumberDisplay</td>
+      <td>string</td>
+      <td>Account display number for the end user’s handle at owning institution. This is to be displayed by the Interface Provider.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.currency.currencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.currency.currencyRate</td>
+      <td>number</td>
+      <td>Currency rate between original and converted currency.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.currency.originalCurrencyCode</td>
+      <td>string</td>
+      <td>Iso 4217 currency code.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.description</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.fiAttributes.name</td>
+      <td>string</td>
+      <td>Name of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.fiAttributes.value</td>
+      <td>string</td>
+      <td>Value of attribute</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.nickname</td>
+      <td>string</td>
+      <td>Name given by the user. Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.productName</td>
+      <td>string</td>
+      <td>Marketed product name for this account.  Used in UIs to assist in account selection</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.status</td>
+      <td>string</td>
+      <td>The status of an account.</td>
+      <td>[OPEN, CLOSED, PENDINGOPEN, PENDINGCLOSE, DELINQUENT, PAID, NEGATIVECURRENTBALANCE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.lineOfBusiness</td>
+      <td>string</td>
+      <td>The line of business, such as consumer, consumer joint, small business, corporate, etc.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.balanceType</td>
+      <td>string</td>
+      <td>ASSET (positive transaction amount increases balance), LIABILITY (positive transaction amount decreases balance)</td>
+      <td>[ASSET, LIABILITY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.interestRate</td>
+      <td>number</td>
+      <td>Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.interestRateType</td>
+      <td>string</td>
+      <td>The type of interest rate. FIXED or VARIABLE.</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.interestRateAsOf</td>
+      <td>string</td>
+      <td>Date of account’s interest rate</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.lastActivityDate</td>
+      <td>string</td>
+      <td>Date that last transaction occurred on account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.micrNumber</td>
+      <td>string</td>
+      <td>MICR Number</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.parentAccountId</td>
+      <td>string</td>
+      <td>Long-term persistent identity of the parent account. This is used to group accounts.</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.priorInterestRate</td>
+      <td>number</td>
+      <td>Previous Interest Rate of Account</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.transferIn</td>
+      <td>boolean</td>
+      <td>Account is eligible for incoming transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.transferOut</td>
+      <td>boolean</td>
+      <td>Account is eligible for outgoing transfers</td>
+      <td>[]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.annuityProductType</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[CURRENCY, SHARES]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.annuityValueBasis</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[FIXED, VARIABLE]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>accounts.annuityAccount.paymentFrequency</td>
+      <td>string</td>
+      <td>N/A</td>
+      <td>[ANNUALLY, QUARTERLY, MONTHLY, WEEKLY]</td>
+      <td>False</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
