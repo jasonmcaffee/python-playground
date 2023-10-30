@@ -1,1 +1,3 @@
 .idea/
+/projects/slack/slack-api-token.txt
+/projects/slack/raw_data/messages/*

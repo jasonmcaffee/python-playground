@@ -2,6 +2,7 @@
 atlassian-python-api
 beautifulsoup4
 sqlalchemy
-psycopg2
 selenium
 requests
+slack_sdk
+psycopg2
