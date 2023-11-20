@@ -5,4 +5,5 @@ sqlalchemy
 selenium
 requests
 slack_sdk
-psycopg2
+chromadb
+# psycopg2
