@@ -1,3 +1,7 @@
 .idea/
 /projects/slack/slack-api-token.txt
 /projects/slack/raw_data/messages/*
+.DS_Store
+._.DS_Store
+/.DS_Store
+/._.DS_Store
