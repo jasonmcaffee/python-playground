@@ -1,5 +1,6 @@
 .idea/
 /projects/slack/slack-api-token.txt
+/projects/chatgpt/secret-key.txt
 /projects/slack/raw_data/messages/*
 .DS_Store
 ._.DS_Store
