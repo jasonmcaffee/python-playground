@@ -23,3 +23,12 @@ def get_function_calls_details_from_llm_response(response):
             }
             results.append(result)
     return results
+
+
+def get_tool_data(tool_data_dict):
+    def decorator(func):
+        # Attach the tool data to the function
+        func.tool_data = tool_data_dict
+        return func
+
+    return decorator
