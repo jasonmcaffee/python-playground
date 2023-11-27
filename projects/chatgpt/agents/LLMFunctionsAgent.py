@@ -30,6 +30,8 @@ class LLMFunctionsAgent:
 
         response = self.openai.ChatCompletion.create(
             model=model,
+
+            # todo: use conversation messages
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": question}
@@ -41,7 +43,11 @@ class LLMFunctionsAgent:
         # the results of all called functions will be stored in metadata.content
         functions_details = self.call_appropriate_function_based_on_llm_response(response)
 
-        self.add_response_to_messages(raw_chatgpt_chat_completion_response=response, functions_details=functions_details, conversation=conversation)
+        if functions_details is not None:
+            print('todo: pass function results back to chat completion')  # todo: pass function results
+
+        self.add_response_to_messages(raw_chatgpt_chat_completion_response=response,
+                                      functions_details=functions_details, conversation=conversation)
         print(f"answer received in {time.time() - start_time_seconds} seconds.")
 
     def add_question_to_messages(self, question: str, conversation: Conversation):
