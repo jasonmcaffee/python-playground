@@ -4,7 +4,7 @@ from projects.chatgpt.models.Message import Message
 
 
 class Conversation:
-    def __init__(self, conversation_id: str, messages: List[Message]):
+    def __init__(self, conversation_id: str, messages: List[Message] = []):
         self.conversation_id = conversation_id
         self.messages = messages
 
