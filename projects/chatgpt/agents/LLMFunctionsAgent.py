@@ -23,14 +23,16 @@ class LLMFunctionsAgent:
         ]
         self.openai = openai
 
-    def inference(self, question, conversation: Conversation = Conversation(conversation_id=str(uuid.uuid4()))):
+    def inference(self, question=None, conversation: Conversation = Conversation(conversation_id=str(uuid.uuid4()))):
         start_time_seconds = time.time()
 
         # add the initial system prompt as the first message.
         if len(conversation.messages) == 0:
-            conversation.add_message(Message( role="system", message_text=system_prompt))
+            conversation.add_message(Message(role="system", message_text=system_prompt))
 
-        conversation.add_message(Message(role="user", message_text=question))
+        # add a message for question, if supplied.
+        if question is not None:
+            conversation.add_message(Message(role="user", message_text=question))
 
         messages = conversation.get_messages_in_chatgpt_format()
         print(f"sending messages: {messages}")
@@ -45,11 +47,21 @@ class LLMFunctionsAgent:
         # the results of all called functions will be stored in metadata.content
         functions_details = self.call_appropriate_function_based_on_llm_response(response)
 
+        # todo: the function_details response must be added to the conversation.
+        # InvalidRequestError: Invalid parameter: messages with role 'tool' must be a response to a preceeding message with 'tool_calls'.
+
         if functions_details is not None:
             print('todo: pass function results back to chat completion')  # todo: pass function results
+            for function_details in functions_details:
+                message = function_details.to_message()
+                conversation.add_message(message)
 
-        self.add_response_to_messages(raw_chatgpt_chat_completion_response=response,
-                                      functions_details=functions_details, conversation=conversation)
+            print('recursively calling inference to pass back the results of the functions called')
+            self.inference(question=None, conversation=conversation)
+        else:
+            self.add_response_to_messages(raw_chatgpt_chat_completion_response=response,
+                                          functions_details=functions_details, conversation=conversation)
+
         print(f"answer received in {time.time() - start_time_seconds} seconds.")
 
     def add_question_to_messages(self, question: str, conversation: Conversation):
@@ -63,15 +75,26 @@ class LLMFunctionsAgent:
     def call_appropriate_function_based_on_llm_response(self, llm_response):
         functions = get_function_calls_details_from_llm_response(llm_response)
         for function_details in functions:
-            function_name = function_details.get('function_name')
-            arguments = function_details.get('arguments')
+            function_name = function_details.function_name
+            arguments = function_details.arguments
             function_to_call = self.function_map.get(function_name)
             if function_to_call is not None:
                 function_result = function_to_call(arguments)
+                function_details.function_result = function_result
                 # chat gpt will refer to the result
-                function_details['metadata']['content'] = function_result
-                print('added function metadata content')
+                # function_details['metadata']['content'] = function_result
+                # print('added function metadata content')
         return functions
+        # for function_details in functions:
+        #     function_name = function_details.get('function_name')
+        #     arguments = function_details.get('arguments')
+        #     function_to_call = self.function_map.get(function_name)
+        #     if function_to_call is not None:
+        #         function_result = function_to_call(arguments)
+        #         # chat gpt will refer to the result
+        #         function_details['metadata']['content'] = function_result
+        #         print('added function metadata content')
+        # return functions
 
     @get_tool_data({
         "type": "function",
@@ -105,4 +128,6 @@ class LLMFunctionsAgent:
             },
             "profession": "Software Engineer"
         }
-        return response
+        text_response = json.dumps(response)
+        print(f"get_user_details is returning: {text_response}")
+        return text_response

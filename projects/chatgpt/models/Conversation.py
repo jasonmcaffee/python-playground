@@ -12,6 +12,7 @@ class Conversation:
         self.messages.append(message)
 
     def get_messages_in_chatgpt_format(self):
+        # return list(map(lambda message: message.to_chatgpt_format(), self.messages))
         result = []
         for message in self.messages:
             chatgpt_message = message.to_chatgpt_format()
