@@ -26,16 +26,18 @@ class LLMFunctionsAgent:
     def inference(self, question, conversation: Conversation = Conversation(conversation_id=str(uuid.uuid4()))):
         start_time_seconds = time.time()
 
-        self.add_question_to_messages(question, conversation)
+        # add the initial system prompt as the first message.
+        if len(conversation.messages) == 0:
+            conversation.add_message(Message( role="system", message_text=system_prompt))
+
+        conversation.add_message(Message(role="user", message_text=question))
+
+        messages = conversation.get_messages_in_chatgpt_format()
+        print(f"sending messages: {messages}")
 
         response = self.openai.ChatCompletion.create(
             model=model,
-
-            # todo: use conversation messages
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": question}
-            ],
+            messages=messages,
             tools=self.tools
         )
         print(response)
@@ -51,7 +53,7 @@ class LLMFunctionsAgent:
         print(f"answer received in {time.time() - start_time_seconds} seconds.")
 
     def add_question_to_messages(self, question: str, conversation: Conversation):
-        message = Message(message_text=question)
+        message = Message(message_text=question, role="user")
         conversation.add_message(message)
 
     def add_response_to_messages(self, raw_chatgpt_chat_completion_response, functions_details, conversation):
