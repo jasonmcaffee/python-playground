@@ -1,11 +1,10 @@
-import json
 import time
 import uuid
 from typing import List, Tuple, Set, Dict
 
-from projects.chatgpt.decorators.chatgpt_tool_data import chatgpt_tool_data
 from projects.chatgpt.factories.FunctionDetailsFactory import FunctionDetailsFactory
 from projects.chatgpt.models.Conversation import Conversation
+from projects.chatgpt.services.llm_callable_functions.UserDetails import UserDetails
 
 system_prompt = "You are a helpful assistant that answers questions accurately, without making up facts."
 model = "gpt-3.5-turbo"
@@ -19,13 +18,8 @@ model = "gpt-3.5-turbo"
 class LLMFunctionsAgent:
     def __init__(self, openai):
         print('init')
-        self.function_map = {
-            "get_user_details": self.get_user_details
-        }
-        # list of function metadata sent to chatgpt so it knows which functions it can call.
-        self.tools = [
-            self.get_user_details.tool_data
-        ]
+        self.userDetailsService = UserDetails()
+        self.tools = [] + self.userDetailsService.tools
         self.openai = openai
 
     def inference(self, question=None, conversation=None, start_time_seconds=None):
@@ -61,7 +55,7 @@ class LLMFunctionsAgent:
         # return the answer as text
         return self.handle_chatgpt_completed_response(response, conversation, start_time_seconds)
 
-    # if chatgpt response with 'stop', print out the answer and return it.
+    # If chatgpt response with 'stop', print out the answer and return it.
     def handle_chatgpt_completed_response(self, response, conversation, start_time_seconds):
         if self.get_finish_reason_from_chatgpt_response(response) == 'stop':
             last_message = conversation.get_last_message()
@@ -69,7 +63,7 @@ class LLMFunctionsAgent:
             print(f"answer received in {time.time() - start_time_seconds} seconds.")
             return last_message.message_text
 
-    # help determine if chatgpt has completed "stop"
+    # Help determine if chatgpt has completed "stop"
     def get_finish_reason_from_chatgpt_response(self, response):
         choices = response['choices']
         choice = choices[0]
@@ -81,6 +75,8 @@ class LLMFunctionsAgent:
             conversation = Conversation(conversation_id=str(uuid.uuid4()), system_prompt=system_prompt)
         return conversation
 
+    # Evaluates the chatgpt response and determines if a local function should be called.
+    # If so, finds the appropriate service to call and stores the result of the function call in the function_details.
     def call_appropriate_function_based_on_llm_response(self, response):
         # determine if chatgpt is asking to call any local functions
         # functions = get_function_calls_details_from_llm_response(llm_response)
@@ -93,44 +89,9 @@ class LLMFunctionsAgent:
         for function_details in functions:
             function_name = function_details.function_name
             arguments = function_details.arguments
-            function_to_call = self.function_map.get(function_name)
-            if function_to_call is not None:
-                function_result = function_to_call(arguments)
-                function_details.function_result = function_result
-        return functions
 
-    @chatgpt_tool_data({
-        "type": "function",
-        "function": {
-            "name": "get_user_details",
-            "description": "Retrieves information for a user based on the combination of their first and last names.  It returns information about the user's age, location, and profession.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "first_name": {
-                        "type": "string",
-                        "description": "First name of the user to get details of."
-                    },
-                    "last_name": {
-                        "type": "string",
-                        "description": "Last name of the user to get details of."
-                    }
-                },
-                "required": ["first_name", "last_name"]
-            }
-        },
-    })
-    def get_user_details(self, args):
-        arguments = json.loads(args)
-        print(
-            f"get_user_details function called with arguments first_name: {arguments['first_name']}, last_name: {arguments['last_name']}")
-        response = {
-            "age": 44,
-            "location": {
-                "state": "Utah"
-            },
-            "profession": "Software Engineer"
-        }
-        text_response = json.dumps(response)
-        print(f"get_user_details is returning: {text_response}")
-        return text_response
+            if self.userDetailsService.does_function_exist(function_name):
+                function_result = self.userDetailsService.call_function(function_name=function_name, arguments=arguments)
+                function_details.function_result = function_result
+
+        return functions
