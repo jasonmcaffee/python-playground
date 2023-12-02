@@ -4,7 +4,9 @@ from projects.chatgpt.models.Message import Message
 
 
 class Conversation:
-    def __init__(self, conversation_id: str, messages: List[Message] = []):
+    def __init__(self, conversation_id: str, messages: List[Message] = None):
+        if messages is None:
+            messages: List[Message] = []
         self.conversation_id = conversation_id
         self.messages = messages
 
@@ -19,3 +21,9 @@ class Conversation:
             result.append(chatgpt_message)
 
         return result
+
+    def get_last_message(self):
+        if len(self.messages) == 0:
+            return None
+        last_message = self.messages[-1]
+        return last_message
