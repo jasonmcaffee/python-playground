@@ -1,12 +1,15 @@
 import json
 
 from projects.chatgpt.decorators.chatgpt_tool_data import chatgpt_tool_data
+from projects.chatgpt.services.llm_callable_functions.CallableFunctionServiceBase import CallableFunctionServiceBase
 
 
-class UserDetails:
+class UserDetails(CallableFunctionServiceBase):
     def __init__(self):
+        super().__init__()
         print('')
-        # so we can call the function
+        # so we can call the function by it's name later on.
+        # in python, the method retains its connection to the instance
         self.function_map = {
             "get_user_details": self.get_user_details
         }
@@ -15,6 +18,10 @@ class UserDetails:
         self.tools = [
             self.get_user_details.tool_data
         ]
+
+    # Retrieves the list of tools/functions which are sent to chatgpt to describe the functions it's allowed to call.
+    def get_tools(self):
+        return self.tools
 
     def does_function_exist(self, function_name: str):
         function_to_call = self.function_map.get(function_name)
