@@ -3,8 +3,9 @@ import time
 import uuid
 from typing import List, Tuple, Set, Dict
 
+from projects.chatgpt.decorators.chatgpt_tool_data import chatgpt_tool_data
+from projects.chatgpt.factories.FunctionDetailsFactory import FunctionDetailsFactory
 from projects.chatgpt.models.Conversation import Conversation
-from projects.chatgpt.utils.function_calling_utils import get_function_calls_details_from_llm_response, get_tool_data
 
 system_prompt = "You are a helpful assistant that answers questions accurately, without making up facts."
 model = "gpt-3.5-turbo"
@@ -80,9 +81,10 @@ class LLMFunctionsAgent:
             conversation = Conversation(conversation_id=str(uuid.uuid4()), system_prompt=system_prompt)
         return conversation
 
-    def call_appropriate_function_based_on_llm_response(self, llm_response):
+    def call_appropriate_function_based_on_llm_response(self, response):
         # determine if chatgpt is asking to call any local functions
-        functions = get_function_calls_details_from_llm_response(llm_response)
+        # functions = get_function_calls_details_from_llm_response(llm_response)
+        functions = FunctionDetailsFactory.create_function_details_from_chatgpt_response(response)
         if functions is None:
             return None
 
@@ -97,7 +99,7 @@ class LLMFunctionsAgent:
                 function_details.function_result = function_result
         return functions
 
-    @get_tool_data({
+    @chatgpt_tool_data({
         "type": "function",
         "function": {
             "name": "get_user_details",
