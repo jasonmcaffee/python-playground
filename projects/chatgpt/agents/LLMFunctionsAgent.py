@@ -3,6 +3,7 @@ import time
 import uuid
 from typing import List, Tuple, Set, Dict
 
+from projects.chatgpt.factories.MessageFactory import MessageFactory
 from projects.chatgpt.models.Conversation import Conversation
 from projects.chatgpt.models.FunctionDetails import FunctionDetails
 from projects.chatgpt.models.Message import Message
@@ -27,19 +28,16 @@ class LLMFunctionsAgent:
 
     def inference(self, question=None, conversation=None, start_time_seconds=None):
         if conversation is None:
-            conversation = Conversation(conversation_id=str(uuid.uuid4()))
+            conversation = Conversation(conversation_id=str(uuid.uuid4()), system_prompt=system_prompt)
 
         if start_time_seconds is None:
             start_time_seconds = time.time()
 
         # add the initial system prompt as the first message.
-        if len(conversation.messages) == 0:
-            conversation.add_message(Message(role="system", message_text=system_prompt))
+        # if len(conversation.messages) == 0:
+        #     conversation.add_message(Message(role="system", message_text=system_prompt))
 
-        # add a message for question, if supplied.
-        if question is not None:
-            conversation.add_message(Message(role="user", message_text=question))
-
+        conversation.add_user_question_to_messages_if_applicable(question)
         # get all messages in the conversation history to pass to chatgpt
         messages = conversation.get_messages_in_chatgpt_format()
         # print(f"sending messages: {messages}")
@@ -58,7 +56,7 @@ class LLMFunctionsAgent:
         functions_details = self.call_appropriate_function_based_on_llm_response(response)
         # add response of local functions to messages and recursively call chatgpt again so the response is passed.
         if functions_details is not None:  # todo: pass function results
-            self.add_functions_details_as_messages_in_conversation(functions_details, conversation)
+            conversation.add_functions_details_as_messages_in_conversation(functions_details)
             # print('recursively calling inference to pass back the results of the functions called')
             self.inference(question=None, conversation=conversation, start_time_seconds=start_time_seconds)
 
@@ -66,17 +64,6 @@ class LLMFunctionsAgent:
             last_message = conversation.get_last_message()
             print(f"chatgpt response: \n {last_message.message_text}")
             print(f"answer received in {time.time() - start_time_seconds} seconds.")
-
-    # add local function details (results) to the conversation as messages so that we can pass them back to chatgpt.
-    def add_functions_details_as_messages_in_conversation(self, functions_details: List[FunctionDetails], conversation: Conversation):
-        for function_details in functions_details:
-            message = function_details.to_message()
-            conversation.add_message(message)
-
-    # add the question text, passed to the inference endpoint, to our conversation
-    def add_question_to_messages(self, question: str, conversation: Conversation):
-        message = Message(message_text=question, role="user")
-        conversation.add_message(message)
 
     # help determine if chatgpt has completed "stop"
     def get_finish_reason_from_chatgpt_response(self, response):
@@ -87,23 +74,8 @@ class LLMFunctionsAgent:
 
     #
     def add_chatgpt_response_to_messages(self, raw_chatgpt_chat_completion_response, conversation):
-        message = self.create_message_from_chatgpt_response(raw_chatgpt_chat_completion_response)
+        message = MessageFactory.create_message_from_chatgpt_response(raw_chatgpt_chat_completion_response)
         conversation.add_message(message)
-
-    def create_message_from_chatgpt_response(self, response):
-        choices = response.choices
-        choice = choices[0]
-        gpt_message = choice['message']
-        role = gpt_message['role']
-        message_text = gpt_message['content']
-        tool_calls = None
-        finish_reason = None
-        if 'tool_calls' in gpt_message:
-            tool_calls = gpt_message['tool_calls']
-        if 'finish_reason' in choice:
-            finish_reason = choice['finish_reason']
-        message = Message(message_text=message_text, role=role, raw_chatgpt_chat_completion_response=response, tool_calls=tool_calls)
-        return message
 
     def call_appropriate_function_based_on_llm_response(self, llm_response):
         # determine if chatgpt is asking to call any local functions

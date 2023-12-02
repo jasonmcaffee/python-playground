@@ -1,11 +1,6 @@
 from projects.chatgpt.models.Message import Message
 
 
-class FunctionMetadata:
-    def __init__(self):
-        print('')
-
-
 class FunctionDetails:
     def __init__(self, function_name: str, arguments: str, function_result: str = None, tool_call_id: str = None):
         self.function_name = function_name
