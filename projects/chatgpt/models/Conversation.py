@@ -50,3 +50,8 @@ class Conversation:
         for function_details in functions_details:
             message = function_details.to_message()
             self.add_message(message)
+
+    # converts the raw chatgpt response to Message, and adds the message to our conversation.
+    def add_chatgpt_response_to_messages(self, raw_chatgpt_chat_completion_response):
+        message = MessageFactory.create_message_from_chatgpt_response(raw_chatgpt_chat_completion_response)
+        self.add_message(message)
