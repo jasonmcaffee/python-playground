@@ -19,7 +19,7 @@ class LLMFunctionsAgent:
     def __init__(self, openai):
         print('init')
         self.userDetailsService = UserDetails()
-        self.tools = [] + self.userDetailsService.tools
+        self.tools = [] + self.userDetailsService.get_tools()
         self.openai = openai
 
     def inference(self, question=None, conversation=None, start_time_seconds=None):

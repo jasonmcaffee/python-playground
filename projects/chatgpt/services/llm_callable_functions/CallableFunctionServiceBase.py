@@ -10,29 +10,18 @@ class CallableFunctionServiceBase(ABC):
         self.function_map = {}
         # list of all tool_data retrieved from functions decorated with @chatgpt_tool_data.
         self.tools = []
+        # iterate over every function in the child class and
+        self.initialize_function_map_and_tools()
 
-        # todo: reflection ran into issues: descriptor '__weakref__' for 'CallableFunctionServiceBase' objects doesn't apply to a 'UserDetails'
-        # self._populate_function_map()
-        # for name, method in inspect.getmembers(self, predicate=inspect.isfunction):
-        #     # Bind the method to self
-        #     bound_method = method.__get__(self, self.__class__)
-        #     if hasattr(bound_method, 'tool_data'):
-        #         self.function_map[name] = bound_method
-        #         self.tools.append(bound_method.tool_data)
-        # Populate function_map and tools with methods having the @chatgpt_tool_data decorator
-        # for name, method in inspect.getmembers(self, predicate=inspect.ismethod):
-        #     if hasattr(method, 'tool_data'):
-        #         self.function_map[name] = method
-        #         self.tools.append(method.tool_data)
-
-    # def _populate_function_map(self):
-    #     for name, method in inspect.getmembers(self, predicate=inspect.isfunction):
-    #         # Check if the method is defined in the current instance's class (or subclasses)
-    #         if method.__qualname__.startswith(self.__class__.__qualname__):
-    #             if hasattr(method, 'tool_data'):
-    #                 # Add the method as an unbound function; it will be bound automatically when called
-    #                 self.function_map[name] = method
-    #                 self.tools.append(method.tool_data)
+    # Iterates over every method in the child class and evaluates whether it uses the @chatgpt_tool_data decorator.
+    # add the tool_data to the tools list, which is referenced when Agents describe local functions to chatgpt, so
+    # that chatgpt can choose whether to indicate that a function should be called with arguments X, Y, Z
+    def initialize_function_map_and_tools(self):
+        for name, method in inspect.getmembers(self, predicate=inspect.ismethod):
+            if hasattr(method, 'tool_data'):
+                # print(f'---- found function with tool_data: {name}')
+                self.function_map[name] = method
+                self.tools.append(method.tool_data)
 
     # determines if the function exists in the service.
     @abstractmethod

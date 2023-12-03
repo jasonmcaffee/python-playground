@@ -1,23 +1,15 @@
 import json
-
+import inspect
 from projects.chatgpt.decorators.chatgpt_tool_data import chatgpt_tool_data
 from projects.chatgpt.services.llm_callable_functions.CallableFunctionServiceBase import CallableFunctionServiceBase
 
 
+# Demo service which provides ChatGPT the ability to call method get_user_details, which supplies a hard-coded result.
 class UserDetails(CallableFunctionServiceBase):
     def __init__(self):
+        self.function_map = {}  # see base class
+        self.tools = []  # see base class
         super().__init__()
-        print('')
-        # so we can call the function by it's name later on.
-        # in python, the method retains its connection to the instance
-        self.function_map = {
-            "get_user_details": self.get_user_details
-        }
-
-        # list of function metadata sent to chatgpt so it knows which functions it can call.
-        self.tools = [
-            self.get_user_details.tool_data
-        ]
 
     # Retrieves the list of tools/functions which are sent to chatgpt to describe the functions it's allowed to call.
     def get_tools(self):
