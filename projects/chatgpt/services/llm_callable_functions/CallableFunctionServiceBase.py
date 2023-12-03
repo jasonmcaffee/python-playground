@@ -19,22 +19,28 @@ class CallableFunctionServiceBase(ABC):
     def initialize_function_map_and_tools(self):
         for name, method in inspect.getmembers(self, predicate=inspect.ismethod):
             if hasattr(method, 'tool_data'):
-                # print(f'---- found function with tool_data: {name}')
+                print(f'---- found function with tool_data: {name}')
                 self.function_map[name] = method
                 self.tools.append(method.tool_data)
 
-    # determines if the function exists in the service.
-    @abstractmethod
+    # Used by the agent when handling a tools response from ChatGPT.  The agent searches through services, finding the
+    # appropriate function to call.
     def does_function_exist(self, function_name: str):
-        pass
+        function_to_call = self.function_map.get(function_name)
+        print(f'does_function exist: {function_name} is {function_to_call is not None}')
+        return function_to_call is not None
 
-    # calls the function in the service, passing the arguments string, which should be json.
-    # e.g. {param1: "1234", param2: "abc"}
-    @abstractmethod
+    # Used by the agent when handling a tools response from ChatGPT.  The agent will pass a function_name string and
+    # json arguments as a string.
     def call_function(self, function_name: str, arguments: str):
-        pass
+        function_to_call = self.function_map.get(function_name)
+        print(f'calling function {function_name}')
+        if function_to_call is not None:
+            function_result = function_to_call(arguments)
+            print(f'function result: {function_result}')
+            return function_result
 
-    # Retrieves the list of tools/functions which are sent to chatgpt to describe the functions it's allowed to call.
-    @abstractmethod
+    # returns the list of tool_data entries, which were obtained by iterating over each method with a @chatgpt_tool_data
+    # decorator.
     def get_tools(self):
-        pass
+        return self.tools
