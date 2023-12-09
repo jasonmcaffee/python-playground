@@ -69,27 +69,21 @@ class TransactionQueries(CallableFunctionServiceBase):
         # print(f"transactions_query called with args {arguments}")
         postgres_sql_query = arguments['postgres_sql_query']
         csv_results = self.query_to_csv_string(self.connection, postgres_sql_query)
-        print(f"query: {postgres_sql_query}")
-        print(f"result: {csv_results}")
+        print(f"transaction_query called with query: \n{postgres_sql_query}")
+        print(f"query result:\n {csv_results}")
         return csv_results
 
     def query_to_csv_string(self, connection, query):
         try:
-            # Cursor for database connection
             cursor = connection.cursor()
-            # Execute the query
             cursor.execute(query)
-            # Fetch the results
             results = cursor.fetchall()
             # Column names from the cursor
             col_names = [desc[0] for desc in cursor.description]
-            # Create a CSV output from the results
-            output = io.StringIO()
+            output = io.StringIO()   # Create a CSV output from the results
             csv_writer = csv.writer(output)
-            # Write the header
-            csv_writer.writerow(col_names)
-            # Write the data
-            csv_writer.writerows(results)
+            csv_writer.writerow(col_names)  # Write the header
+            csv_writer.writerows(results)  # Write the data
             # Get the CSV string
             csv_string = output.getvalue()
             output.close()
