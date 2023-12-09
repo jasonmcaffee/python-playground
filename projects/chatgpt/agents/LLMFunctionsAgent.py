@@ -4,6 +4,7 @@ from typing import List, Tuple, Set, Dict
 
 from projects.chatgpt.factories.FunctionDetailsFactory import FunctionDetailsFactory
 from projects.chatgpt.models.Conversation import Conversation
+from projects.chatgpt.services.llm_callable_functions.TransactionQueries import TransactionQueries
 from projects.chatgpt.services.llm_callable_functions.UserDetails import UserDetails
 
 system_prompt = "You are a helpful assistant that answers questions accurately, without making up facts."
@@ -18,8 +19,8 @@ model = "gpt-3.5-turbo"
 class LLMFunctionsAgent:
     def __init__(self, openai):
         print('init')
-        self.userDetailsService = UserDetails()
-        self.tools = [] + self.userDetailsService.get_tools()
+        self.callableFunctionService = TransactionQueries()  # UserDetails()
+        self.tools = [] + self.callableFunctionService.get_tools()
         self.openai = openai
 
     def inference(self, question=None, conversation=None, start_time_seconds=None):
@@ -91,9 +92,9 @@ class LLMFunctionsAgent:
             function_name = function_details.function_name
             arguments = function_details.arguments
 
-            if self.userDetailsService.does_function_exist(function_name):
+            if self.callableFunctionService.does_function_exist(function_name):
                 print(f'calling function: {function_name}')
-                function_result = self.userDetailsService.call_function(function_name=function_name, arguments=arguments)
+                function_result = self.callableFunctionService.call_function(function_name=function_name, arguments=arguments)
                 function_details.function_result = function_result
 
         return functions
