@@ -6,6 +6,6 @@ selenium
 requests
 slack_sdk
 chromadb
-# psycopg2
+psycopg2
 llama-cpp-python
 openai
