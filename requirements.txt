@@ -8,4 +8,4 @@ slack_sdk
 chromadb
 # psycopg2
 llama-cpp-python
-openai
+openai==0.27.10
