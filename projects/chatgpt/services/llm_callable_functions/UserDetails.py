@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 from projects.chatgpt.decorators.chatgpt_tool_data import chatgpt_tool_data
-from projects.chatgpt.models.Transaction import Transaction
+from projects.chatgpt.domain.models.Transaction import Transaction
 from projects.chatgpt.services.llm_callable_functions.CallableFunctionServiceBase import CallableFunctionServiceBase
 
 
@@ -39,9 +39,9 @@ class UserDetails(CallableFunctionServiceBase):
     def find_financial_transactions(self, args: str):
         arguments = json.loads(args)
         print(f"get_transactions_for_date_range function called with arguments {arguments}")
-        transaction1 = Transaction(amount=123.05, description='', category='Groceries', date='2023-03-15T10:12:45.12', merchant_name='Walmart')
-        transaction2 = Transaction(amount=53.12, description='', category='Gas', date='2023-03-14T11:34:33.16', merchant_name='Chevron')
-        transaction3 = Transaction(amount=433.00, description='', category='Shopping', date='2023-03-13T11:22:45.07', merchant_name='Amazon')
+        transaction1 = Transaction(id="1", amount=123.05, description='', category='Groceries', date='2023-03-15T10:12:45.12', merchant_name='Walmart')
+        transaction2 = Transaction(id="2", amount=53.12, description='', category='Gas', date='2023-03-14T11:34:33.16', merchant_name='Chevron')
+        transaction3 = Transaction(id="3", amount=433.00, description='', category='Shopping', date='2023-03-13T11:22:45.07', merchant_name='Amazon')
         response = [
             transaction1.to_dict(),
             transaction2.to_dict(),

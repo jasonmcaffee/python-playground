@@ -4,6 +4,7 @@ from typing import List, Tuple, Set, Dict
 
 from projects.chatgpt.factories.FunctionDetailsFactory import FunctionDetailsFactory
 from projects.chatgpt.models.Conversation import Conversation
+from projects.chatgpt.services.llm_callable_functions.TransactionQueries import TransactionQueries
 from projects.chatgpt.services.llm_callable_functions.UserDetails import UserDetails
 
 system_prompt = "You are a helpful assistant that answers questions accurately, without making up facts."
@@ -18,12 +19,12 @@ model = "gpt-3.5-turbo"
 class LLMFunctionsAgent:
     def __init__(self, openai):
         print('init')
-        self.userDetailsService = UserDetails()
-        self.tools = [] + self.userDetailsService.get_tools()
+        self.callableFunctionService = TransactionQueries()  # UserDetails()
+        self.tools = [] + self.callableFunctionService.get_tools()
         self.openai = openai
 
     def inference(self, question=None, conversation=None, start_time_seconds=None):
-        print('------- inference ------------')
+        # print('------- inference ------------')
         # start a new conversation if needed, which tracks all messages to and from chatgpt
         conversation = self.ensure_conversation_exists(conversation)
 
@@ -35,7 +36,7 @@ class LLMFunctionsAgent:
 
         # get all messages in the conversation history to pass to chatgpt
         messages = conversation.get_messages_in_chatgpt_format()
-        print(f"sending messages: {messages}")
+        # print(f"sending messages: {messages}")
 
         # call chatgpt
         response = self.openai.ChatCompletion.create(model=model, messages=messages, tools=self.tools)
@@ -60,8 +61,8 @@ class LLMFunctionsAgent:
     def handle_chatgpt_completed_response(self, response, conversation, start_time_seconds):
         if self.get_finish_reason_from_chatgpt_response(response) == 'stop':
             last_message = conversation.get_last_message()
-            print(f"chatgpt response: \n {last_message.message_text}")
-            print(f"answer received in {time.time() - start_time_seconds} seconds.")
+            # print(f"chatgpt response: \n {last_message.message_text}")
+            # print(f"answer received in {time.time() - start_time_seconds} seconds.")
             return last_message.message_text
 
     # Help determine if chatgpt has completed "stop"
@@ -91,9 +92,9 @@ class LLMFunctionsAgent:
             function_name = function_details.function_name
             arguments = function_details.arguments
 
-            if self.userDetailsService.does_function_exist(function_name):
-                print(f'calling function: {function_name}')
-                function_result = self.userDetailsService.call_function(function_name=function_name, arguments=arguments)
+            if self.callableFunctionService.does_function_exist(function_name):
+                # print(f'calling function: {function_name}')
+                function_result = self.callableFunctionService.call_function(function_name=function_name, arguments=arguments)
                 function_details.function_result = function_result
 
         return functions
