@@ -14,13 +14,24 @@ cd /usr/local/Caskroom/chromedriver/116.0.5845.96/chromedriver-mac-x64/
 xattr -d com.apple.quarantine chromedriver
 ```
 
-### pip install
+### pipenv install
 Install dependencies defined in requirements.txt
 ```shell
-pip install -r requirements.txt
+pipenv install
 ```
 
 ### Environment Variables
+create an .env file inside of /src/data_downloaders/confluence and add the following env vars.
+
+e.g.
+```shell
+DB_CONNECTION=postgresql://postgres:postgrespw@localhost:50000/sofi_docs?options=--search_path%3Dconfluence
+CONFLUENCE_BASE_URL=https://sofiinc.atlassian.net
+CONFLUENCE_USERNAME=jmcaffee@sofi.org
+CONFLUENCE_API_TOKEN=asdfasdf
+```
+
+
 #### DB_CONNECTION
 connection string to your db 
 

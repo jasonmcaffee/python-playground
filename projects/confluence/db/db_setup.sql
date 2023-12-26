@@ -8,5 +8,6 @@ create table confluence_page (
     title varchar(255),
     web_url varchar(600),
     updated_date timestamp,
-    parent_page_id varchar (255)
+    parent_page_id varchar (255),
+    space varchar(255)
 );
