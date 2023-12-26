@@ -63,7 +63,7 @@ class AIBot:
                 last_update_length = len(cumulative_text)
 
                 def handle_text_received(text, is_response_completed):
-                    print(f'text from llm received: "{text}" is_response_completed: {is_response_completed}')
+                    # print(f'text from llm received: "{text}" is_response_completed: {is_response_completed}')
                     nonlocal cumulative_text, last_update_length
 
                     if text is not None:
