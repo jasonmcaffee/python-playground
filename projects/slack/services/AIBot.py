@@ -9,12 +9,9 @@ from bs4 import BeautifulSoup
 
 load_dotenv()
 slack_token = os.getenv('SLACK_API_TOKEN')
-
 # Initialize the RTMClient
 rtm = RTMClient(token=slack_token)
 
-
-# rtm.start()
 
 class AIBot:
 
