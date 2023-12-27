@@ -1,6 +1,4 @@
 .idea/
-/projects/slack/slack-api-token.txt
-/projects/slack/openai-secret-key.txt
 /projects/chatgpt/secret-key.txt
 /projects/chatgpt/domain/db/data/*
 /projects/slack/raw_data/messages/*
@@ -9,3 +7,4 @@
 /.DS_Store
 /._.DS_Store
 /projects/confluence/.env
+/projects/slack/.env

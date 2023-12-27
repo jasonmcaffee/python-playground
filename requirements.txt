@@ -9,3 +9,4 @@ chromadb
 psycopg2
 llama-cpp-python
 openai==0.27.10
+python-dotenv
