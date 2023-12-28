@@ -1,46 +1,45 @@
 import threading
 
 from slack_sdk.rtm_v2 import RTMClient
+from slack_sdk.web import SlackResponse
 
 from projects.slack.config.Config import config
-from projects.slack.models.SimpleStreamInferenceCallable import SimpleStreamInferenceCallable
+from projects.slack.models.SimpleStreamInferenceCallable import SimpleStreamInferenceCallable, \
+    LLMResponseCompletedCallable, LLMTextReceivedCallable
 from projects.slack.utils.ai_bot_utils import sanitize_outgoing_slack_message, is_message_addressed_to_ai_bot, \
-    parse_summarize_url_command, modify_prompt_for_summarize_url, parse_docs_command, modify_prompt_for_docs_command
+    parse_summarize_url_command, handle_summarize_url_command, parse_docs_command, handle_docs_command
 
 
 class AIBot:
+    """
+    AIBot is responsible for listening to slack messages, via RTM, and responding to them using constant message updates
+    to emulate streaming responses seen in most chatbot UIs.
+    AIBot handles orchestrating calls to the LLM, via the simple_stream_inference function.
+    AIBot is called on by main, and expects to be ran in some type of continuous loop.
+    e.g. asyncio.ensure_future(ai_bot.start_listening_to_slack_events())
+    """
 
-    def __init__(self, simple_stream_inference_callable: SimpleStreamInferenceCallable,
-                 ai_bot_user: str = "<@U06ANF43Q57>"):
-        self.simple_stream_inference_callable = simple_stream_inference_callable
-        self.ai_bot_user = ai_bot_user
+    def __init__(self, simple_stream_inference: SimpleStreamInferenceCallable):
+        self.simple_stream_inference = simple_stream_inference
+        self.ai_bot_user = config.get_ai_bot_user_slack_handle()
         slack_token = config.get_slack_api_token()
-        # Initialize the RTMClient
         self.rtm = RTMClient(token=slack_token)
 
         @self.rtm.on("message")
         def handle(client: RTMClient, event: dict):
             self.handle(client, event)
 
-    def stop_listening_to_slack_events(self):
-        """
-        Main function should call this to have AI bot stop listening to slack events.
-        :return:
-        """
-        self.rtm.close()
-
     def start_listening_to_slack_events(self):
-        """
-        Main function should call this to have AI bot start listening to slack events.
-        :return:
-        """
         self.rtm.start()
 
-    # Define the event handler
+    def stop_listening_to_slack_events(self):
+        self.rtm.close()
+
     def handle(self, client: RTMClient, event: dict):
         """
         Slack RTM event handler which receives all events for channels, groups, private conversations, etc that AI bot is
-        a part of.
+        a part of.  If the message is intended for AI bot, then a new thread is spun up, and the message is forwarded to
+        handle_ai_bot_message for processing.
         :param client: slack client
         :param event: slack event
         :return:
@@ -51,7 +50,6 @@ class AIBot:
             # start a new thread to handle the message
             thread = threading.Thread(target=self.handle_ai_bot_message, args=(client, event))
             thread.start()
-            # handle_ai_bot_message(client, event)
 
     def handle_ai_bot_message(self, client: RTMClient, event: dict):
         """
@@ -60,6 +58,8 @@ class AIBot:
         It then sends the message to an LLM, and streams the response by continuously editing the message as chunks of
         text are streamed back from the LLM.
         This function is expected to run in a thread.
+        This function sets up default behaviors for interfacing with a simple streaming LLM, and then forwards those on
+        to handle_prompt, which allows for custom behaviors based on the /command used.
         :param client: slack client
         :param event: slack event, including time, message, who sent the message, etc.
         :return:
@@ -75,17 +75,6 @@ class AIBot:
 
         # Initial message sent to the channel
         initial_response = client.web_client.chat_postMessage(channel=channel_id, text="...", thread_ts=thread_ts)
-        # Retrieve timestamp of the initial response, which is how we uniquely identify the message, so
-        initial_response_ts = initial_response['ts']
-
-        # check to see if there are any commands in the message, and modify the prompt.  e.g. summarize-url will fetch
-        # the url then send it to the LLM
-        try:
-            prompt = self.modify_prompt_based_on_command(prompt)
-        except Exception as e:
-            message = f"There was an issue with your request: {e}"
-            client.web_client.chat_update(channel=channel_id, ts=initial_response_ts, text=message, thread_ts=thread_ts)
-            return
 
         # we will get a stream of text chunks from the LLM, which we will append to cumulative text.
         # we will edit the slack message
@@ -93,12 +82,15 @@ class AIBot:
         last_update_length = len(cumulative_text)  # how long cumulative was the last time we performed an update.
         edit_slack_message_after_n_chars_received_from_llm = 20
 
+        # setup default behaviors for how a LLM response is to be handled.
         def handle_response_completed():
             """
             When the LLM has completed its response, we send any remaining cumulative text as the last update.
             :return:
             """
-            nonlocal cumulative_text, last_update_length
+            nonlocal cumulative_text, last_update_length, initial_response
+            # Retrieve timestamp of the initial response, which is how we uniquely identify the message, so
+            initial_response_ts = initial_response['ts']
             sanitized_cumulative_text = sanitize_outgoing_slack_message(cumulative_text)
             client.web_client.chat_update(channel=channel_id, ts=initial_response_ts, text=sanitized_cumulative_text,
                                           thread_ts=thread_ts)
@@ -112,7 +104,9 @@ class AIBot:
             :return:
             """
             # print(f'text from llm received: "{text}" is_response_completed: {is_response_completed}')
-            nonlocal cumulative_text, last_update_length
+            nonlocal cumulative_text, last_update_length, initial_response
+            # Retrieve timestamp of the initial response, which is how we uniquely identify the message, so
+            initial_response_ts = initial_response['ts']
 
             if text is not None:
                 cumulative_text += text
@@ -128,22 +122,34 @@ class AIBot:
                                               text=sanitized_cumulative_text, thread_ts=thread_ts)
                 last_update_length = len(cumulative_text)
 
-        self.simple_stream_inference_callable(prompt, handle_text_received, handle_response_completed)
+        self.handle_prompt(client, event, prompt, handle_text_received, handle_response_completed, initial_response)
 
-    def modify_prompt_based_on_command(self, prompt):
+    def handle_prompt(self, client: RTMClient, event: dict, prompt: str,
+                      default_handle_text_received: LLMTextReceivedCallable,
+                      default_handle_response_completed: LLMResponseCompletedCallable, initial_response: SlackResponse):
         """
-        First attempt at allowing for commands. e.g. @AI /summarize-url https://google.com
-        I think this needs to be refactored, as some custom functions might
-        want to control sending the message to slack themselves...
-        :param prompt: str, the prompt to be sent to the llm
+
+        :param initial_response: initial response sent to the slack thread, which we update with LLM responses
+        :param client: slack client
+        :param event: slack event
+        :param prompt: message sent to AI bot, minus the @AI at the beginning
+        :param default_handle_text_received: default function to be used for streaming LLM responses back to slack
+        :param default_handle_response_completed: default function to be used to complete the LLM response back to slack
         :return:
         """
+        # parse out potential commands
         potential_summarize_url_command = parse_summarize_url_command(prompt)
-        if potential_summarize_url_command is not None:
-            prompt = modify_prompt_for_summarize_url(potential_summarize_url_command)
-
         potential_docs_command = parse_docs_command(prompt)
-        if potential_docs_command is not None:
-            prompt = modify_prompt_for_docs_command(potential_docs_command)
 
-        return prompt
+        # check if the command was issued, and forward it on to command handlers, which can customize how the llm is
+        # called, prepend & append to the prompt, append to the response message (e.g. with source links), etc.
+        if potential_summarize_url_command is not None:
+            handle_summarize_url_command(
+                potential_summarize_url_command, default_handle_text_received, default_handle_response_completed,
+                self.simple_stream_inference)
+        elif potential_docs_command is not None:
+            handle_docs_command(potential_docs_command, default_handle_text_received,
+                                default_handle_response_completed, self.simple_stream_inference)
+        else:
+            self.simple_stream_inference(prompt, default_handle_text_received,
+                                         default_handle_response_completed)

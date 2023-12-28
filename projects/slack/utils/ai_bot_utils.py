@@ -1,7 +1,11 @@
 import re
+import textwrap
 
 import requests
 from bs4 import BeautifulSoup
+
+from projects.slack.models.SimpleStreamInferenceCallable import LLMResponseCompletedCallable, LLMTextReceivedCallable, \
+    SimpleStreamInferenceCallable
 
 
 def escape_slack_user_mentions(text: str):
@@ -48,22 +52,34 @@ def parse_docs_command(message: str):
     if match:
         print(f'docs match: {match}')
         slash_command, new_message_with_command_stripped = match.groups()
-        return new_message_with_command_stripped, slash_command
+        return new_message_with_command_stripped.lstrip(), slash_command
     else:
         raise ValueError(f"Invalid message format: {message}")
 
 
-def modify_prompt_for_docs_command(potential_command: object):
+def handle_docs_command(potential_command: object, default_handle_text_received: LLMTextReceivedCallable,
+                        default_handle_response_completed: LLMResponseCompletedCallable,
+                        simple_stream_inference: SimpleStreamInferenceCallable):
     new_message_with_command_stripped, slash_command = potential_command
-    new_prompt = f"""Please respond with the exact text, without answering any further questions:
-    The /docs command is currently not supported, but if it were, the response would look like: \n
-    {new_message_with_command_stripped}
-    An orca, also known as a killer whale, is a large marine mammal that belongs to the dolphin family. They are known for their distinctive black and white coloration, as well as their intelligence and complex social structure. Orcas are found in oceans all over the world and are apex predators, feeding primarily on fish, seals, and even other marine mammals. They are highly skilled hunters and rely on teamwork and communication to catch their prey.
-    
-    Sources:
-    <https://orcas.com>
-    """
-    return new_prompt
+    custom_message = textwrap.dedent(f"""
+The /docs command is currently not supported, but if it were, the response would look like:
+{sanitize_outgoing_slack_message(new_message_with_command_stripped)}
+The answer to your question is: blah blah
+In order to answer your question, I analyzed the following sources
+    """)
+    # still send something to the LLM to ensure things are wired up appropriately.
+    new_prompt = "Repeat this exact phrase without any additional text: '\n'"
+
+    def handle_text_received(text: str):
+        default_handle_text_received(text)
+
+    def handle_response_completed():
+        sources = """\nSources: \n<https://orcas.com>\n<https://whales.com>"""
+        default_handle_text_received(sources)
+        default_handle_response_completed()
+
+    default_handle_text_received(custom_message)
+    simple_stream_inference(new_prompt, handle_text_received, handle_response_completed)
 
 
 def parse_summarize_url_command(message: str):
@@ -88,7 +104,9 @@ def parse_summarize_url_command(message: str):
         raise ValueError(f"Invalid message format or URL: {message}")
 
 
-def modify_prompt_for_summarize_url(potential_command: object):
+def handle_summarize_url_command(potential_command: object, default_handle_text_received: LLMTextReceivedCallable,
+                                 default_handle_response_completed: LLMResponseCompletedCallable,
+                                 simple_stream_inference: SimpleStreamInferenceCallable):
     new_message_with_command_stripped, slash_command, url = potential_command
     html_content = get_html_content(url)
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -107,7 +125,7 @@ def modify_prompt_for_summarize_url(potential_command: object):
     partial_website_as_text = website_as_text[0:2000]  # avoid going over our token limit.
 
     new_prompt = f"This text is from a website where the html was parsed using BeautifulSoup. Please summarize this text into 300 words or less: \n {partial_website_as_text}"
-    return new_prompt
+    simple_stream_inference(new_prompt, default_handle_text_received, default_handle_response_completed)
 
 
 def get_html_content(url: str):

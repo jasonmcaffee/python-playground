@@ -19,6 +19,9 @@ class Config:
     def get_slack_api_token(self):
         return os.getenv('SLACK_API_TOKEN')
 
+    def get_ai_bot_user_slack_handle(self):
+        return '<@U06ANF43Q57>'
+
 
 # Singleton implementation
 config = Config()
