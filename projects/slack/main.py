@@ -16,7 +16,7 @@ def main():
 
     loop = asyncio.get_event_loop()
     try:
-        asyncio.ensure_future(ai_bot.start())
+        asyncio.ensure_future(ai_bot.start_listening_to_slack_events())
         loop.run_forever()
     except KeyboardInterrupt:
         # Handle the interrupt gracefully
@@ -26,7 +26,7 @@ def main():
     finally:
         # Perform any cleanup here if necessary
         loop.stop()
-        ai_bot.kill()
+        ai_bot.stop_listening_to_slack_events()
 
     print('main done')
 

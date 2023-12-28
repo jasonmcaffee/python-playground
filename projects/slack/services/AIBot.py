@@ -23,14 +23,14 @@ class AIBot:
         def handle(client: RTMClient, event: dict):
             self.handle(client, event)
 
-    def kill(self):
+    def stop_listening_to_slack_events(self):
         """
         Main function should call this to have AI bot stop listening to slack events.
         :return:
         """
         self.rtm.close()
 
-    def start(self):
+    def start_listening_to_slack_events(self):
         """
         Main function should call this to have AI bot start listening to slack events.
         :return:
@@ -42,8 +42,8 @@ class AIBot:
         """
         Slack RTM event handler which receives all events for channels, groups, private conversations, etc that AI bot is
         a part of.
-        :param client:
-        :param event:
+        :param client: slack client
+        :param event: slack event
         :return:
         """
         message_received = event.get('text', '')
@@ -95,13 +95,23 @@ class AIBot:
         edit_slack_message_after_n_chars_received_from_llm = 20
 
         def handle_response_completed():
+            """
+            When the LLM has completed its response, we send any remaining cumulative text as the last update.
+            :return:
+            """
             nonlocal cumulative_text, last_update_length
-            sanitized_cumulative_text = self.sanitize_output(cumulative_text)
+            sanitized_cumulative_text = self.sanitize_outgoing_slack_message(cumulative_text)
             client.web_client.chat_update(channel=channel_id, ts=initial_response_ts, text=sanitized_cumulative_text,
                                           thread_ts=thread_ts)
             last_update_length = len(cumulative_text)
 
         def handle_text_received(text):
+            """
+            This function is called every time the LLM emits a chunk of text.
+            We update the slack response message in batches of 20 chars
+            :param text: words or part of a word that has been emitted from the LLM response stream.
+            :return:
+            """
             # print(f'text from llm received: "{text}" is_response_completed: {is_response_completed}')
             nonlocal cumulative_text, last_update_length
 
@@ -114,7 +124,7 @@ class AIBot:
             # update the original slack message, if appropriate
             # if is_response_completed or has_received_enough_text_from_llm:
             if has_received_enough_text_from_llm:
-                sanitized_cumulative_text = self.sanitize_output(cumulative_text)
+                sanitized_cumulative_text = self.sanitize_outgoing_slack_message(cumulative_text)
                 client.web_client.chat_update(channel=channel_id, ts=initial_response_ts,
                                               text=sanitized_cumulative_text, thread_ts=thread_ts)
                 last_update_length = len(cumulative_text)
@@ -127,16 +137,26 @@ class AIBot:
         # self.llm.stream_inference(prompt, handle_text_received, handle_response_complete)
 
     def is_message_addressed_to_ai_bot(self, message):
+        """
+        determines whether the slack message pertains to AI bot
+        :param message: message text from the slack event
+        :return:
+        """
         return message.startswith(self.ai_bot_user)
 
-    def sanitize_output(self, text):
+    def sanitize_outgoing_slack_message(self, text):
+        """
+        Prevent our bot from performing slack related operations, such as mentioning other users.
+        todo: also prevent all slack operations, like slash commands, etc.
+        :param text: str,  message to sanitize
+        :return: str, sanitized message
+        """
         text_without_user_mentions = self.escape_slack_user_mentions(text)
         return text_without_user_mentions
 
     def escape_slack_user_mentions(self, text):
         """
         Escape mentions of users in a Slack message so they do not trigger user mentions.
-
         :param text: str, the original Slack message
         :return: str, the escaped message
         """
@@ -146,8 +166,10 @@ class AIBot:
 
     def modify_prompt_based_on_command(self, prompt):
         """
-        certain prompt contains commands
-        :param prompt:
+        First attempt at allowing for commands. e.g. @AI /summarize-url https://google.com
+        I think this needs to be refactored, as some custom functions might
+        want to control sending the message to slack themselves...
+        :param prompt: str, the prompt to be sent to the llm
         :return:
         """
 
