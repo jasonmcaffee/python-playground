@@ -7,7 +7,8 @@ from projects.slack.config.Config import config
 from projects.slack.models.SimpleStreamInferenceCallable import SimpleStreamInferenceCallable, \
     LLMResponseCompletedCallable, LLMTextReceivedCallable
 from projects.slack.utils.ai_bot_utils import sanitize_outgoing_slack_message, is_message_addressed_to_ai_bot, \
-    parse_summarize_url_command, handle_summarize_url_command, parse_docs_command, handle_docs_command
+    parse_summarize_url_command, handle_summarize_url_command, parse_docs_command, handle_docs_command, \
+    parse_unknown_command
 
 
 class AIBot:
@@ -80,7 +81,7 @@ class AIBot:
         # we will edit the slack message
         cumulative_text = ""
         last_update_length = len(cumulative_text)  # how long cumulative was the last time we performed an update.
-        edit_slack_message_after_n_chars_received_from_llm = 20
+        edit_slack_message_after_n_chars_received_from_llm = config.get_edit_slack_message_after_n_chars_received_from_llm()
 
         # setup default behaviors for how a LLM response is to be handled.
         def handle_response_completed():
@@ -140,6 +141,7 @@ class AIBot:
         # parse out potential commands
         potential_summarize_url_command = parse_summarize_url_command(prompt)
         potential_docs_command = parse_docs_command(prompt)
+        potential_unknown_command = parse_unknown_command(prompt)
 
         # check if the command was issued, and forward it on to command handlers, which can customize how the llm is
         # called, prepend & append to the prompt, append to the response message (e.g. with source links), etc.
@@ -150,6 +152,10 @@ class AIBot:
         elif potential_docs_command is not None:
             handle_docs_command(potential_docs_command, default_handle_text_received,
                                 default_handle_response_completed, self.simple_stream_inference)
+        elif potential_unknown_command is not None:
+            sanitized = sanitize_outgoing_slack_message(potential_unknown_command)
+            default_handle_text_received(f"That command is not known: {sanitized}")
+            default_handle_response_completed()
         else:
             self.simple_stream_inference(prompt, default_handle_text_received,
                                          default_handle_response_completed)

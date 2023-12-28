@@ -22,6 +22,9 @@ class Config:
     def get_ai_bot_user_slack_handle(self):
         return '<@U06ANF43Q57>'
 
+    def get_edit_slack_message_after_n_chars_received_from_llm(self):
+        return 20
+
 
 # Singleton implementation
 config = Config()

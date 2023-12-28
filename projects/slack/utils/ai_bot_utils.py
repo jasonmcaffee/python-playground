@@ -41,20 +41,25 @@ def is_message_addressed_to_ai_bot(message: str, ai_bot_user: str):
 
 
 def parse_docs_command(message: str):
-    if not message.startswith('/docs'):
+    if not message.startswith('/docs '):
         return
 
         # Regular expression to match the command pattern with a more inclusive URL pattern
-    pattern = r'^(\/docs)(.*)$'
+    pattern = r'^(\/docs)\s+(.*)$'
     match = re.match(pattern, message)
 
-    print()
     if match:
         print(f'docs match: {match}')
         slash_command, new_message_with_command_stripped = match.groups()
-        return new_message_with_command_stripped.lstrip(), slash_command
+        return new_message_with_command_stripped, slash_command
     else:
         raise ValueError(f"Invalid message format: {message}")
+
+
+def parse_unknown_command(message: str):
+    if not message.startswith('/'):
+        return
+    return message
 
 
 def handle_docs_command(potential_command: object, default_handle_text_received: LLMTextReceivedCallable,
@@ -62,10 +67,10 @@ def handle_docs_command(potential_command: object, default_handle_text_received:
                         simple_stream_inference: SimpleStreamInferenceCallable):
     new_message_with_command_stripped, slash_command = potential_command
     custom_message = textwrap.dedent(f"""
-The /docs command is currently not supported, but if it were, the response would look like:
-{sanitize_outgoing_slack_message(new_message_with_command_stripped)}
-The answer to your question is: blah blah
-In order to answer your question, I analyzed the following sources
+        The /docs command is currently not supported, but if it were, the response would look like:
+        {sanitize_outgoing_slack_message(new_message_with_command_stripped)}
+        The answer to your question is: blah blah
+        In order to answer your question, I analyzed the following sources
     """)
     # still send something to the LLM to ensure things are wired up appropriately.
     new_prompt = "Repeat this exact phrase without any additional text: '\n'"
@@ -90,7 +95,7 @@ def parse_summarize_url_command(message: str):
     :return: tuple, (new_message_with_command_stripped, slash_command, url)
     :raises ValueError: if the URL is invalid
     """
-    if not message.startswith('/summarize-url'):
+    if not message.startswith('/summarize-url '):
         return
 
         # Regular expression to match the command pattern with a more inclusive URL pattern
