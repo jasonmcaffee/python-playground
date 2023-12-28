@@ -1,25 +1,25 @@
-import threading
-import os
 import re
-import requests
-from dotenv import load_dotenv
-from slack_sdk.rtm_v2 import RTMClient
-from projects.slack.services.SimpleChatGPT import SimpleChatGPT
-from bs4 import BeautifulSoup
+import threading
 
-load_dotenv()
-slack_token = os.getenv('SLACK_API_TOKEN')
-# Initialize the RTMClient
-rtm = RTMClient(token=slack_token)
+import requests
+from bs4 import BeautifulSoup
+from slack_sdk.rtm_v2 import RTMClient
+
+from projects.slack.config.Config import config
+from projects.slack.models.SimpleStreamInferenceCallable import SimpleStreamInferenceCallable
 
 
 class AIBot:
 
-    def __init__(self):
-        self.ai_bot_user = "<@U06ANF43Q57>"
-        self.llm = SimpleChatGPT()
+    def __init__(self, simple_stream_inference_callable: SimpleStreamInferenceCallable,
+                 ai_bot_user: str = "<@U06ANF43Q57>"):
+        self.simple_stream_inference_callable = simple_stream_inference_callable
+        self.ai_bot_user = ai_bot_user
+        slack_token = config.get_slack_api_token()
+        # Initialize the RTMClient
+        self.rtm = RTMClient(token=slack_token)
 
-        @rtm.on("message")
+        @self.rtm.on("message")
         def handle(client: RTMClient, event: dict):
             self.handle(client, event)
 
@@ -28,14 +28,14 @@ class AIBot:
         Main function should call this to have AI bot stop listening to slack events.
         :return:
         """
-        rtm.close()
+        self.rtm.close()
 
     def start(self):
         """
         Main function should call this to have AI bot start listening to slack events.
         :return:
         """
-        rtm.start()
+        self.rtm.start()
 
     # Define the event handler
     def handle(self, client: RTMClient, event: dict):
@@ -122,8 +122,9 @@ class AIBot:
         self.llm_prompt(prompt, handle_text_received, handle_response_completed)
 
     def llm_prompt(self, prompt, handle_text_received, handle_response_complete):
+        self.simple_stream_inference_callable(prompt, handle_text_received, handle_response_complete)
         # handle_text_received(f'hello', is_response_completed=True)
-        self.llm.stream_prompt(prompt, handle_text_received, handle_response_complete)
+        # self.llm.stream_inference(prompt, handle_text_received, handle_response_complete)
 
     def is_message_addressed_to_ai_bot(self, message):
         return message.startswith(self.ai_bot_user)
