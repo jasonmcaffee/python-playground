@@ -21,8 +21,8 @@ def main():
     except KeyboardInterrupt:
         # Handle the interrupt gracefully
         print("Interrupted by user, shutting down.")
-    except Exception:
-        print("Exception: ")
+    except Exception as e:
+        print(f"Exception: {e}")
     finally:
         # Perform any cleanup here if necessary
         loop.stop()
