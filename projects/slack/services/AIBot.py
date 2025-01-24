@@ -93,8 +93,11 @@ class AIBot:
             # Retrieve timestamp of the initial response, which is how we uniquely identify the message, so
             initial_response_ts = initial_response['ts']
             sanitized_cumulative_text = sanitize_outgoing_slack_message(cumulative_text)
-            client.web_client.chat_update(channel=channel_id, ts=initial_response_ts, text=sanitized_cumulative_text,
+            try:
+                client.web_client.chat_update(channel=channel_id, ts=initial_response_ts, text=sanitized_cumulative_text,
                                           thread_ts=thread_ts)
+            except Exception as e:
+                print(f'an error has occurred: {e}')
             last_update_length = len(cumulative_text)
 
         def handle_text_received(text):
@@ -118,10 +121,13 @@ class AIBot:
             # update the original slack message, if appropriate
             # if is_response_completed or has_received_enough_text_from_llm:
             if has_received_enough_text_from_llm:
-                sanitized_cumulative_text = sanitize_outgoing_slack_message(cumulative_text)
-                client.web_client.chat_update(channel=channel_id, ts=initial_response_ts,
-                                              text=sanitized_cumulative_text, thread_ts=thread_ts)
-                last_update_length = len(cumulative_text)
+                try:
+                    sanitized_cumulative_text = sanitize_outgoing_slack_message(cumulative_text)
+                    client.web_client.chat_update(channel=channel_id, ts=initial_response_ts,
+                                                  text=sanitized_cumulative_text, thread_ts=thread_ts)
+                    last_update_length = len(cumulative_text)
+                except Exception as e:
+                    print(f'an error occurred', e)
 
         self.handle_prompt(client, event, prompt, handle_text_received, handle_response_completed, initial_response)
 
