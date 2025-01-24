@@ -7,7 +7,6 @@ from projects.slack.services.SimpleLLM import SimpleLLM
 
 nest_asyncio.apply()
 
-
 def main():
     print('main')
     simple_llm = SimpleLLM()

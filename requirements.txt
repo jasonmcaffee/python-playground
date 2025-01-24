@@ -14,3 +14,4 @@ python-dotenv
 plaid-python
 asyncio
 nest-asyncio
+godaddypy
