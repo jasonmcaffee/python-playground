@@ -148,3 +148,47 @@ def get_html_content(url: str):
         return response.text
     else:
         raise Exception(f"Failed to retrieve URL. Status code: {response.status_code}")
+
+
+def convert_text_to_slack_blocks(text: str):
+    """
+    We must use rich_text as our reply type.  mrkdown sections get collapsed with "show more" for each one.
+    Rich text allows us to send up to 13k characters.  "mrkdown" only allows for 3k
+    The downside is that rich text doesn't display markdown :/
+
+    Converts a long text into a list of Slack message blocks, each containing up to 3000 characters of the text.
+
+    :param text: The text to be converted into Slack blocks.
+    :return: A list of Slack blocks, each containing a chunk of the text.
+    """
+    # Calculate the number of chunks needed for the given text
+    chunk_size = 13000
+    chunks = [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
+
+    # Create a block for each chunk
+    blocks = []
+    for text_chunk in chunks:
+        # block = {
+        #     "type": "section",
+        #     "text": {
+        #         "type": "mrkdwn",
+        #         "text": text_chunk  # Each chunk must be less than 3001 chars
+        #     }
+        # }
+        block = {
+            "type": "rich_text",
+            "elements": [
+                {
+                    "type": "rich_text_section",
+                    "elements": [
+                        {
+                            "type": "text",
+                            "text": text_chunk
+                        },
+                    ]
+                }
+            ]
+        }
+        blocks.append(block)
+
+    return blocks

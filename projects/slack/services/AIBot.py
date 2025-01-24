@@ -8,7 +8,7 @@ from projects.slack.models.SimpleStreamInferenceCallable import SimpleStreamInfe
     LLMResponseCompletedCallable, LLMTextReceivedCallable
 from projects.slack.utils.ai_bot_utils import sanitize_outgoing_slack_message, is_message_addressed_to_ai_bot, \
     parse_summarize_url_command, handle_summarize_url_command, parse_docs_command, handle_docs_command, \
-    parse_unknown_command
+    parse_unknown_command, convert_text_to_slack_blocks
 
 
 class AIBot:
@@ -94,8 +94,10 @@ class AIBot:
             initial_response_ts = initial_response['ts']
             sanitized_cumulative_text = sanitize_outgoing_slack_message(cumulative_text)
             try:
-                client.web_client.chat_update(channel=channel_id, ts=initial_response_ts, text=sanitized_cumulative_text,
-                                          thread_ts=thread_ts)
+                text_as_blocks = convert_text_to_slack_blocks(sanitized_cumulative_text)
+                self.slack_chat_update_message(client=client, channel_id=channel_id,
+                                               initial_response_ts=initial_response_ts, blocks=text_as_blocks,
+                                               thread_ts=thread_ts)
             except Exception as e:
                 print(f'an error has occurred: {e}')
             last_update_length = len(cumulative_text)
@@ -123,8 +125,10 @@ class AIBot:
             if has_received_enough_text_from_llm:
                 try:
                     sanitized_cumulative_text = sanitize_outgoing_slack_message(cumulative_text)
-                    client.web_client.chat_update(channel=channel_id, ts=initial_response_ts,
-                                                  text=sanitized_cumulative_text, thread_ts=thread_ts)
+                    text_as_blocks = convert_text_to_slack_blocks(sanitized_cumulative_text)
+                    self.slack_chat_update_message(client=client, channel_id=channel_id,
+                                                   initial_response_ts=initial_response_ts, blocks=text_as_blocks,
+                                                   thread_ts=thread_ts)
                     last_update_length = len(cumulative_text)
                 except Exception as e:
                     print(f'an error occurred', e)
@@ -165,3 +169,21 @@ class AIBot:
         else:
             self.simple_stream_inference(prompt, default_handle_text_received,
                                          default_handle_response_completed)
+
+
+    def slack_chat_update_message(self, client: RTMClient, channel_id: str, blocks, thread_ts: str,
+                                  initial_response_ts: str):
+        """
+        Slack can intermittently fail, or enforce rate limiting, so we want to retry our interactions.
+        :param client:
+        :param channel_id:
+        :param blocks:
+        :param thread_ts:
+        :param initial_response_ts:
+        :return:
+        """
+        return client.web_client.chat_update(channel=channel_id,
+                                             text='',  # get rid of warning
+                                             ts=initial_response_ts,
+                                             blocks=blocks,
+                                             thread_ts=thread_ts)
